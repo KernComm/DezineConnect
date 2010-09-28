@@ -1,2 +1,0 @@
-
-page.insert_html :bottom, :searchresults, :partial => @searchresults

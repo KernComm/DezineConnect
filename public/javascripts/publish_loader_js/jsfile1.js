@@ -1,1 +1,0 @@
-﻿setTimeout("myBar.loaded('jsfile1.js')", 500);
