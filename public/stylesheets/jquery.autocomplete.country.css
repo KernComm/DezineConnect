@@ -1,0 +1,10 @@
+#ac_country {
+	background: 10px 8px no-repeat;
+        margin: 0 0 0 27px;
+	
+}
+#ac_country_hidden {
+    visibility: hidden;
+    display:  none;
+}
+span input{ padding: 0 20px}

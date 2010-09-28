@@ -1,0 +1,154 @@
+body{ background: url('../images/background_0_.png')  #dedede; }
+
+#main {
+    background: none;
+    width: 965px;
+    margin: 0px 0px 10px 0px;
+    padding: 0px;
+}
+#search_box {
+    background: url('../images/portfolio_search_bg.png') no-repeat;
+    width: 405px;
+    height: 35px;
+    margin: 0px 0px 0px 8px;
+}
+#search_textfield {
+    font-family: Century Gothic, Lucida Grande,Lucida Sans Unicode,helvetica, sans-serif;
+    font-size: 13px;
+    margin: 5px 0px 0px 40px;
+    padding: 2px 0px 0px 0px;
+    border: 0px;
+    border-color: #fff;
+    height: 20px;
+    background: transparent;
+    width: 350px;
+    outline-style:  none;
+}
+#search_textfield:hover {
+    border-color: #fff;
+}
+#portfolio_search_button {
+    background: url('../images/magnifyingglass.png') no-repeat;
+     width: 60px;
+    height: 45px;
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    width: 20px;
+    height: 20px;
+}
+
+#more_button {
+    height: 31px;
+    width: 100%;
+    background: url('../images/more.png') no-repeat top center;
+    margin: 25px 0px 15px 0px;
+}
+#more_button:hover {
+    background: url('../images/more_hover.png') no-repeat top center;
+    cursor: pointer;
+}
+
+.design_directories_free_div {
+    background:#fff;
+    border-bottom: 1px solid #dcdcdc;
+    border-right: 1px solid #dcdcdc;
+    float: left;
+    height: 80px;
+    margin: 4px;
+    width: 308px;
+    vertical-align: middle;
+    position: relative;
+    overflow: hidden;
+    
+}
+.design_directories_free_div img {
+    border: 0px;
+    /*height: 70px;
+    width: 120px;*/
+    float: left;
+    margin: 5px;
+}
+.design_directories_free_div span {
+    width: 178px;
+    height: 70px;
+    position: absolute;
+    right: 0px;
+    
+    display: block;
+    margin: 0px 0px 5px 5px;
+    font-family: Century Gothic, Lucida Grande,Lucida Sans Unicode,helvetica, sans-serif;
+    vertical-align: middle;
+}
+.design_directories_free_div span h6{
+  color:black;
+  font-size: 14px;
+  font-weight: normal;
+  /*margin: 3px 3px 0px 5px;*/
+  margin: 5px 5px 0px 0px;
+  padding: 0px;
+  text-transform: capitalize;
+}
+.design_directories_free_div span h5{
+  float: left;
+  font-weight: normal;
+  color: gray;
+  font-size: 11px;
+  /*margin: 0px 3px 0px 5px;*/
+  margin: 0px 5px 0px 0px;
+  padding: 0px;
+  display: block;
+  text-transform: capitalize;
+}
+
+
+#design_directories_free_btn{
+    height: 31px;
+    width: 151px;
+    background: url('../images/create_free_listing.png') no-repeat;
+    position: absolute;
+    right: 15px;
+    top: 0px;
+}
+#design_directories_free_btn:hover {
+    height: 31px;
+    width: 151px;
+    background: url('../images/create_free_listing_hover.png') no-repeat;
+    cursor: pointer;
+}
+#searchfield_n_createportfolio {
+    position: relative;
+    margin:5px 0px 0px 0px;
+}
+#search_create_portfolio_btn{
+    height: 31px;
+    width: 151px;
+    background: url('../images/create_portfolio1.png') no-repeat;
+    position: absolute;
+    right: 5px;
+    top: 0px;
+}
+#search_create_portfolio_btn:hover {
+    height: 31px;
+    width: 151px;
+    background: url('../images/create_portfolios_hover1.png') no-repeat;
+    cursor: pointer;
+}
+#portrolio a {
+    color: orange;
+}
+#design_directories a .design_directories_free_div span h4 {
+  color: #5d5c5c;
+  font-size: 13px;
+  font-weight: normal;
+  margin: 2px 0px 2px 0px;
+}
+#design_directories a .design_directories_free_div h6 {
+    margin-bottom: 0px;
+}
+#portrolio a {
+    color: #cccccc;
+}
+#directories_head_link {
+    color: orange;
+}

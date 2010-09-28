@@ -1,0 +1,108 @@
+<%= stylesheet_link_tag 'jobposting_login' %>
+<%= javascript_include_tag 'show_password'  %>
+
+
+<script type="text/javascript">
+function validate()
+{
+    if((document.getElementById('email').value=="")||(echeck(document.getElementById('email').value)==false)) {
+
+      if((echeck(document.getElementById('email').value)==false)||(document.getElementById('email').value=="")){
+           document.getElementById('email').style.border="1px red solid";
+           document.getElementById('email').style.background="#ffefef";
+           document.getElementById('error_email').style.display="block";
+
+          }
+      if(document.getElementById('email').value=="") {
+           document.getElementById('email').style.border="1px red solid";
+           document.getElementById('email').style.background="#ffefef";
+           document.getElementById('error_email').style.display="block";
+          }
+       return false;
+    }
+    else {
+         return true;
+    }
+}
+
+function validation(ctl,ct2) {
+    if((document.getElementById(ctl).value=="")) {
+       document.getElementById(ctl).style.border="1px red solid";
+       document.getElementById(ctl).style.background="#ffefef";
+       document.getElementById(ct2).style.display="block";
+       return false;
+       }
+    else {
+       document.getElementById(ctl).style.border="1px #ccc solid";
+       document.getElementById(ctl).style.background="#fff";
+       document.getElementById(ct2).style.display="none";
+       return true;
+       }
+}
+
+function echeck(str) {
+		var at="@"
+		var dot="."
+		var lat=str.indexOf(at)
+		var lstr=str.length
+		var ldot=str.indexOf(dot)
+		if (str.indexOf(at)==-1){
+		   //alert("Invalid E-mail ID")
+		   return false
+		}
+		if (str.indexOf(at)==-1 || str.indexOf(at)==0 || str.indexOf(at)==lstr){
+		   //alert("Invalid E-mail ID")
+		   return false
+		}
+		if (str.indexOf(dot)==-1 || str.indexOf(dot)==0 || str.indexOf(dot)==lstr){
+		    //alert("Invalid E-mail ID")
+		    return false
+		}
+		 if (str.indexOf(at,(lat+1))!=-1){
+		   // alert("Invalid E-mail ID")
+		    return false
+		 }
+		 if (str.substring(lat-1,lat)==dot || str.substring(lat+1,lat+2)==dot){
+		   // alert("Invalid E-mail ID")
+		    return false
+		 }
+		 if (str.indexOf(dot,(lat+2))==-1){
+		   // alert("Invalid E-mail ID")
+		    return false
+		 }
+		 if (str.indexOf(" ")!=-1){
+		    //alert("Invalid E-mail ID")
+		    return false
+		 }
+ 		 return true
+	}
+</script>
+
+<div id="wrap"><!-- 960 px wrapper -->
+  <div id="main"> <!-- main start -->
+    <div id="main_inner"> <!-- main inner start -->
+      <!--page title-->
+      <h1>forgot password?</h1>
+      <% if flash[:notice12] then %>
+        <div class="error_msg" style="display: block;">
+          <%= flash[:notice12] %>
+        </div>
+      <% end %>
+      <form method="post" action="/users/forgot" onsubmit="javascript:return validate();" enctype="multipart/form-data">
+        <fieldset>
+          <label for="EmailId">enter your e-mail address</label>
+          <input type="text" name="login" size="40"  maxlength="45" id="email" onblur="validation('email','error_email')"/>
+          <div id="error_email" class="error_msg">
+            please provide your email
+          </div>
+          
+          <label >
+          <button type="submit" id="portfolio_submit_btn"></button>
+          </label>
+
+        </fieldset>
+      </form>
+
+    </div> <!-- main inner ends -->
+  </div> <!-- main ends -->
+</div><!-- 960 px wrapper ends -->

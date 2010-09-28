@@ -1,0 +1,11 @@
+
+<p>
+  <%= image_tag @image.image.url(:large) %>
+</p>
+
+<p>
+  <%= image_tag @image.image.url(:thumb) %>
+</p>
+
+<%= link_to 'Edit', edit_image_path(@image) %> |
+<%= link_to 'Back', images_path %>

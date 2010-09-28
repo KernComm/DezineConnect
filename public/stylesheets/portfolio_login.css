@@ -1,0 +1,124 @@
+#wrap {
+   margin-top: 10px;
+}
+#main {
+    overflow: visible;
+    background: none;
+}
+#portrolio {
+    color: orange;
+}
+h1 {
+    margin-top: 0px;
+}
+/*page main heading*/
+#main_inner label {
+    font-size: 13px;
+    float: left;
+    width: 19em;
+    clear: left;
+    margin: 6px 0px 5px 0px;
+    color: #666666;
+    position: relative;
+}
+#main_inner label a{
+    color: orange;
+    position: absolute;
+    right: -202px;
+    text-align: right;
+
+    }
+#main_inner fieldset {
+    border: 0px;
+    margin: 10px 0px;
+    padding: 0px;
+}
+#chk1 {
+    margin: 10px 0px 0px 0px;
+    padding: 0px;
+    vertical-align: middle;
+    height: 18px;
+}
+
+#chk1 input {
+    border: 0px;
+    height: 18px;
+}
+#main_inner label div input {
+    height: 12px;
+    width: 12px;
+    margin: 0px;
+    padding: 0px;
+}
+#main_inner .register_post_btn {
+    margin: 15px 0px 0px 0px;
+}
+#main_inner .register_post_btn a{
+    color: #000;
+    margin: 5px 0px 0px 0px;
+    background: url('../images/register&post.png') no-repeat 0px 0px;
+    height: 30px;
+    width: 150px;
+    float: left;
+}
+#register_post_btn {
+    margin: 15px 0px 0px 0px;
+}
+#login_post_btn button{
+    color: #000;
+    margin: 5px 0px 0px 0px;
+    background: url('../images/login&post.png') no-repeat 0px 0px;
+    height: 30px;
+    width: 150px;
+    float: left;
+}
+#login_post_btn button:hover{
+    color: #000;
+    margin: 5px 0px 0px 0px;
+    background: url('../images/login&post_hover.png') no-repeat 0px 0px;
+    height: 30px;
+    width: 150px;
+    float: left;
+    cursor: pointer;
+}
+
+.link a {
+    color: orange;
+    font-family: Century Gothic, Lucida Grande,Lucida Sans Unicode,helvetica, sans-serif;
+    font-size: 13px;
+}
+
+#portfolio_login_forgot_link {
+    position: relative;
+    font-family: Century Gothic, Lucida Grande,Lucida Sans Unicode,helvetica, sans-serif;
+    font-size: 13px;
+    color: #666666;
+    display: block;
+    width: 261px;
+}
+
+#portfolio_login_forgot_link a {
+    position: absolute;
+    left: 0;
+    font-family: Century Gothic, Lucida Grande,Lucida Sans Unicode,helvetica, sans-serif;
+    font-size: 13px;
+    margin: 0px;
+    padding: 0px;
+    width: 260px;
+    text-align: right;
+}
+/*portfolio login button*/
+#portfolio_login_btn button{
+    background: url(../images/login.png) no-repeat;
+    width: 151px;
+    height: 31px;
+}
+#portfolio_login_btn button:hover {
+    background: url(../images/login_hover.png) no-repeat;
+    cursor: pointer;
+}
+
+.flash_error_message {
+    color: red;
+    margin: 0px 0px 10px 0px;
+}

@@ -1,0 +1,16 @@
+#main {
+    background: none;
+}
+#main_inner h1 {
+  margin: 0px;
+}
+#portfolio_delete_account_btn {
+  background: url('../../images/save.png') no-repeat;
+  height: 31px;
+  width: 151px;
+  margin:  15px 0px;
+}
+#portfolio_delete_account_btn:hover {
+  background: url('../../images/save_hover.png') no-repeat;
+  cursor:pointer;
+ }

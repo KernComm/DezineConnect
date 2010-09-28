@@ -1,0 +1,18 @@
+<h1>Editing image</h1>
+
+<% form_for @image, :html => {:multipart => true} do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= image_tag @image.image.url %>
+  </p>
+	<p>
+    <%= f.label :image %><br />
+    <%= f.file_field :image %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @image %> |
+<%= link_to 'Back', images_path %>

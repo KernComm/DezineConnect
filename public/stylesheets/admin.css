@@ -1,0 +1,104 @@
+  #login{
+    display: none;
+  }
+
+  #admin_panel_table {
+    margin: 0px auto;
+  }
+  #admin_panel_main {
+    width: 960px;
+    margin:0px auto;
+  }
+  .not_empty_record {
+    background: #6ABD78;
+    border-bottom: 1px solid #787878;
+  }
+  .admin_panel_col {
+    border-bottom: 1px solid #787878;
+  }
+  .admin_panel_thead {
+    border-bottom: 1px solid #787878;
+    border-top: 1px solid #787878;
+  }
+  #admin_panel_table {
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+  }
+  .admin_panel_row:hover {
+    background: #ccc;
+    border-bottom: 1px solid red;
+  }
+  .flash_success_msg {
+    width: 960px;
+  }
+  h1 {
+   position : relative;
+  }
+  h2 {
+      border: none;
+}
+
+
+  /*portfolio_edit_top_buttons*/
+#portfolio_edit_top {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#portfolio_edit_top #account_settings_btn a{
+    background: url('../images/admin_portfolios_tab_button_1.png') no-repeat;
+    width: 151px;
+    height: 31px;
+    position: absolute;
+}
+#portfolio_edit_top #account_settings_btn a:hover{
+    background: url('../images/admin_portfolios_tab_button_2.png') no-repeat;
+}
+#portfolio_edit_top #account_settings_btn{
+    background: url('../images/admin_portfolios_tab_button_3.png') no-repeat;
+    width: 151px;
+    height: 31px;
+    position: absolute;
+    right: 312px;
+    top: 10px;
+}
+
+
+#portfolio_edit_top  #portfolio_btn a {
+    background: url('../images/admin_design_directories_tab_button_1.png') no-repeat;
+    width: 151px;
+    height: 31px;
+    position: absolute;
+}
+#portfolio_edit_top  #portfolio_btn a:hover {
+    background: url('../images/admin_design_directories_tab_button_2.png') no-repeat;
+}
+#portfolio_edit_top  #portfolio_btn {
+    background: url('../images/admin_design_directories_tab_button_3.png') no-repeat;
+    width: 151px;
+    height: 31px;
+    position: absolute;
+    right: 0px;
+    top: 10px;
+}
+
+#portfolio_edit_top  #profile_information_btn {
+    background: url('../images/admin_users_tab_button_3.png') no-repeat;
+    width: 151px;
+    height: 31px;
+    position: absolute;
+    right: 156px;
+    top: 10px;
+}
+
+#portfolio_edit_top  #profile_information_btn a{
+    background: url('../images/admin_users_tab_button_1.png') no-repeat;
+    width: 151px;
+    height: 31px;
+    position: absolute;
+}
+#portfolio_edit_top  #profile_information_btn a:hover {
+    background: url('../images/admin_users_tab_button_2.png') no-repeat;
+}

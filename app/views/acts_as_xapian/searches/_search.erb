@@ -1,0 +1,27 @@
+
+
+
+<%
+if search.matches_estimated == 0 then
+  @search_result_spell_correction_array = Array.new
+  @searchresults = ActsAsXapian::Search.new([Portfolio], search.spelling_correction, :limit => 100, :sort_by_prefix => "created_at")  unless search.spelling_correction.nil?
+  logger.info "@posts after spelling correction : #{@searchresults.inspect}"
+  @posts = @searchresults.results.collect {|p| p[:model]}
+  @searchresults.results.each do | search_value |
+    @search_result_spell_correction_array << search_value[:model][:id]
+  end
+  session[:search_result_spell_correction_array] = @search_result_spell_correction_array
+  logger.info "@search_result_array : #{@search_result_spell_correction_array.inspect}"
+%>
+
+  <%= render :partial => "xap_search_results"  %>
+<%
+else
+%>
+
+
+  <% @posts = search.results.collect {|p| p[:model]} %>
+  <%  logger.info "@posts with out spelling correction" %>
+  <%= render :partial => "xap_search_results"  %>
+
+<% end %>

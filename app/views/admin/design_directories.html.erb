@@ -1,0 +1,117 @@
+<%= stylesheet_link_tag 'admin.css'  %>
+<div id="admin_panel_main">
+  <h1>Design Directories
+    <div id="portfolio_edit_top">
+      <div id="account_settings_btn"><a href="/admin/portfolios"></a></div>
+      <%#*<div id="profile_information_btn"><a href="/admin/panel"></a></div>%>
+      <div id="portfolio_btn"></div>
+    </div>
+  </h1>
+  <h2> <%=  @user_active %> Published Companies, <%=  @user_inactive %> Unpublished Companies </h2>
+  <% if  flash[:notice] then %>
+    <div class="flash_success_msg">
+      <%=flash[:notice]%>
+    </div>
+  <%end%>
+  <table id="admin_panel_table" cellpadding="3" cellspacing="0" align="center">
+    <tbody>
+    <thead>
+    <th class="admin_panel_thead" width="40px">ID</th>
+    <th class="admin_panel_thead">act</th>
+    <th class="admin_panel_thead">name</th>
+    <th class="admin_panel_thead">email</th>
+    <th class="admin_panel_thead">logo</th>
+    <th class="admin_panel_thead">cit</th>
+    <th class="admin_panel_thead">con</th>
+    <th class="admin_panel_thead">#images</th>
+    <th class="admin_panel_thead">time</th>
+    <th class="admin_panel_thead">delete<br/>account</th>
+    <th class="admin_panel_thead">activate<br/>account</th>
+    <th class="admin_panel_thead">deactivate<br/>account</th>
+    </thead>
+    </tbody>
+    <% unless @design_directories.nil? then %>
+      <% @design_directories.each do | design_directory | %>
+        <tr class="admin_panel_row">
+          <td class="admin_panel_col">
+            <% unless design_directory.id.nil? or design_directory.id.blank? then %>
+              <a target="_blank" href="/design_directories/show/<%= design_directory.id %>"><%= design_directory.id %></a>
+            <%else%>
+              <%= design_directory.id %>
+            <%end%>
+          </td>
+         
+            <% unless design_directory.user.nil? or design_directory.user.blank? then %>
+              <% unless design_directory.user.activate.nil? or design_directory.user.activate.blank? then %>
+                <td class="not_empty_record"></td>
+              <%else%>
+                <td class="admin_panel_col">-</td>
+              <% end %>
+            <% end %>
+         
+          <td class="admin_panel_col"><%= design_directory.company_name %></td>
+          <% unless design_directory.user.nil? or design_directory.user.blank? then %>
+            <td class="admin_panel_col"><a href="mailto:<%= design_directory.user.email %>"><%= design_directory.user.email %></a></td>
+          <%else%>
+            <td class="admin_panel_col">-</td>
+          <% end %>
+            
+          <% unless design_directory.logo.nil? or design_directory.logo.blank? then %>
+            <td class="not_empty_record"></td>
+          <%else%>
+            <td class="admin_panel_col">-</td>
+          <%end%>
+          <% unless design_directory.city.nil? or design_directory.city.blank? then %>
+            <td class="not_empty_record"></td>
+          <%else%>
+            <td class="admin_panel_col">-</td>
+          <%end%>
+          <% unless design_directory.country.nil? or design_directory.country.blank? then %>
+            <td class="not_empty_record"></td>
+          <%else%>
+            <td class="admin_panel_col">-</td>
+          <%end%>
+          <% unless design_directory.images.count.nil? or design_directory.images.count.blank? then %>
+            <td class="admin_panel_col">
+              <a href="/admin/design_directory_images/<%= design_directory.id %>"><%= design_directory.images.count %></a>
+            </td>
+          <%else%>
+            <td class="admin_panel_col">-</td>
+          <%end%>
+          <td class="admin_panel_col">
+            <% unless design_directory.updated_at.nil? or design_directory.updated_at.blank? then %>
+              <%= design_directory.updated_at.strftime("%d %b %m, %I:%M %p")%>
+            <% end %>
+          </td>
+          <td class="admin_panel_col">
+              <% unless design_directory.user.id.nil? or design_directory.user.id.blank? then %>
+                <%=  link_to("Delete", {    :action => "directory_destroy", :id => design_directory.id  },
+                                                    :confirm => "Are you sure you want to delete this Company?",
+                                                    :method => :delete)
+                %>
+              <% end %>
+            </td>
+       
+          <td class="admin_panel_col">
+            <% unless design_directory.user.nil? or design_directory.user.blank? then %>
+              <a href="/admin/directory_user_activate/<%= design_directory.user.id %>">activate</a>
+            <%end%>
+
+          </td>
+          <td class="admin_panel_col">
+            <% unless design_directory.user.nil? or design_directory.user.blank? then %>
+              <a href="/admin/directory_user_deactivate/<%= design_directory.user.id %>">deactivate</a>
+            <%end%>
+
+          </td>
+
+          <td class="admin_panel_col">
+
+          </td>
+
+        </tr>
+
+      <% end %>
+    <%  end %>
+  </table>
+</div>

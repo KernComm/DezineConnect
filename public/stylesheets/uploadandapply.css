@@ -1,0 +1,217 @@
+.jobposting_err_msg {
+    background:#ffefef;
+    border:1px red solid;
+    display:block;
+}
+.error_msg {
+    width: 280px;
+    color: red;
+    margin: 5px 0;
+    display:none;
+    margin-left: 130px;
+}
+#upload_apply_fieldset2 .error_msg {
+    margin-left: 10px;
+}
+#main_inner label {
+    /*display: block; */
+    float: left;
+    width: 10em;
+    clear: left;
+    margin: 6px 0px 11px 10px;
+    color: #666666;
+	}
+#main_inner fieldset {
+    border-bottom-style: dotted;
+    border-bottom-width: 1px;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    margin: 0;
+    padding: 5px 0 5px 0;
+}
+#main_inner input {
+    border:1px solid #bbbbbb;
+    padding:5px 3px;
+    float: left;
+}
+#upload_apply_fieldset1, #upload_apply_fieldset2, #upload_apply_fieldset3, #upload_apply_fieldset4 {
+    border-bottom: gray 1px dotted;
+    padding: 0 0 5px 0;
+    position: relative;
+}
+#upload_apply_fieldset2  textarea {
+    border:1px solid #bbbbbb;
+    margin: 10px 0 5px 10px;
+    width: 600px;
+}
+#upload_apply_fieldset2 label {
+   margin: 10px 0;
+   float: left;
+   width: 600px;
+   margin: 0 0 0 10px;
+   display: inline;
+}
+#upload_apply_fieldset2 span {
+    font-family: Lucida Grande,Lucida Sans Unicode,helvetica, sans-serif;
+    font-size: 12px;
+    color: gray;
+    float: right;
+    text-align: right;
+    width: 110px;
+}
+#upload_apply_fieldset2 span hd {
+    font-family: Georgia, Times New Roman, Serif;
+    font-size: 18px;
+    font-weight: bold;
+    }
+/*for pop box2
+.upload_apply_popup_in {
+    background-color:#333;
+    -moz-border-radius-topleft:5px;
+    -moz-border-radius-topright:5px;
+    -moz-border-radius-bottomleft:5px;
+    -moz-border-radius-bottomright:5px;
+    -webkit-border-top-left-radius:5px;
+    -webkit-border-bottom-left-radius:5px;
+    -webkit-border-bottom-right-radius:5px;
+    color:#fff;
+    font-size:11px;
+    margin: 0 0 0 -5px;
+}
+.upload_apply_popup2,.upload_apply_popup3, .upload_apply_popup4 {
+    display:none;
+    background: url(../images/tipsy-west.gif) no-repeat;
+    background-position:left center;
+    position:absolute;
+    z-index:100;
+    border:1px transparent;
+    text-align:left;
+    padding:10px 10px 0 15px;
+  
+    width: 300px;
+    top: 55px;
+    right: 0px;
+}
+/*.upload_apply_popup2 {
+    
+    margin: 335px 285px 0 5px;
+ }
+.upload_apply_popup_padding {
+    margin: 5px;
+    padding: 5px;
+ }
+ .upload_apply_popup_padding {
+    margin: 5px;
+    padding: 5px;
+ }
+ .upload_apply_popup_padding li {
+     list-style-type: inherit;
+     margin: 0 0 0 30px;
+     line-height: 20px;
+}
+.upload_apply_popup_padding hd {
+    line-height: 20px;
+    font-weight: bold;
+    font-size: 15px;
+    border-bottom: #fff 1px dotted;
+    display:block;
+}*/
+#upload_apply_fieldset3 label, #upload_apply_fieldset4 label {
+    /*display: block; */
+    float: left;
+    width: 600px;
+    margin: 6px 0px 11px 10px;
+    clear: left;
+    color: #666666;
+}
+#upload_apply_fieldset3 input, #upload_apply_fieldset4 input {
+        border:1px solid #bbbbbb;
+	padding:5px 3px;
+        margin: 0 0 0 10px;
+	float: left;
+}
+#upload_apply_fieldset3 span, #upload_apply_fieldset4 span{
+    float: left;
+    color: gray;
+    margin: 0 0 0 10px;
+    font-size: 12px;
+    font-family: Lucida Grande,Lucida Sans Unicode,helvetica, sans-serif;
+}
+#upload_apply_fieldset5 {
+    margin: 0px 0 0 0;
+}
+#upload_apply_fieldset5 button {
+    color: #000;
+    margin: 20px 0 10px 0;
+    background: url('../images/apply_hover.png') no-repeat 0px 0px;
+    height: 30px;
+    width: 210px;
+    float: left;
+}
+#upload_apply_fieldset5 button:hover{
+    color: #000;
+    background: url('../images/apply.png') no-repeat 0px 0px;
+    cursor: pointer;
+}
+#upload_apply_fieldset5 p {
+    margin: 10px 0 0 0;
+    width: 600px;
+    float: left;
+    clear: both;
+    color: gray;
+}
+/*.jobposting_set1 {
+    border: 10px solid #000;
+}
+.jobposting_set1_on {
+    background: #eee;
+}
+ .upload_apply_popup2 {
+  
+    margin: 135px 145px 0 5px;
+ }
+.upload_apply_popup3
+{
+    margin: 585px 145px 0 5px;
+   margin: 38% 16% 0 5%;
+}
+.upload_apply_popup4
+{
+    margin: 450px  145px 0 5px;
+  
+}*/
+.job_application_popup_msg_style{
+    display: none;
+    position: absolute;
+    top:0;
+    right:-300px;
+    background-color:#333;
+    -moz-border-radius-topleft:5px;
+    -moz-border-radius-topright:5px;
+    -moz-border-radius-bottomleft:5px;
+    -moz-border-radius-bottomright:5px;
+    -webkit-border-top-left-radius:5px;
+    -webkit-border-bottom-left-radius:5px;
+    -webkit-border-bottom-right-radius:5px;
+    color:#fff;
+    font-size:11px;
+    width: 300px;
+}
+.job_applicaton_popup_msg_in {
+    background: url(../images/tipsy-west.gif) no-repeat;
+    background-position:left top;
+    margin: 15px 0 0 -11px;
+    padding: 5px 20px;
+}
+.job_applicaton_popup_msg_in h3 {
+    color: #fff;
+    margin: 0;
+    text-decoration: underline;
+    margin: -10px 0 10px 0px;
+}
+.job_applicaton_popup_msg_in li {
+    list-style-type: disc;
+    display: block;
+    margin: 10px 0;
+}

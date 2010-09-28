@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>DezineConnect: Connecting Desingers</title>
+</head>
+<body style="font-family: Century Gothic, Lucida Grande, Lucida Sans Unicode,helvetica, sans-serif; font-size: 12px; margin: 0px 0px 20px 0px; padding: 0;">
+
+    <div style="margin: 0 auto; border: 10px #787878 solid; padding: 0 10px 10px 10px; background: #ffffff; width: 95%; position: relative;">
+      <table width="100%" style="background: #ffffff;">
+        <tr>
+          <td align="left" valign="top">
+            <h3 style="font-family: Century Gothic, Lucida Grande, Lucida Sans Unicode,helvetica, sans-serif; font-size: 16px; color: #000; font-weight: 100;">Hello <%= @user.firstname.capitalize %>,</h3>
+          </td>
+          <td align="right" valign="top">
+          <div id="mail_logo"><img alt="DezineConnect" src="http://www.dezineconnect.com/images/logo.png"/></div>
+          </td>
+        </tr>
+      </table>
+
+       <p style="line-height: 150%; margin: 7px 0px 0px 0px; color: black; background: #ffffff;">
+         Thank you for being a part of DezineConnect
+       </p>
+       <p style="line-height: 150%; margin: 7px 0px 0px 0px; color: black; background: #ffffff;">
+         You are one step away to publish your design directory. Click on the link below:<br/>
+         <a href="http://192.168.1.18:3000/users/activate/<%= @user.activation_key %>" style="color: orange; text-decoration: none;">http://www.dezineconnect.com/users/activate/<%= @user.activation_key %></a></p>
+
+        <p style="line-height: 150%; margin: 7px 0px 0px 0px; color: black; background: #ffffff;" >
+        Thanks again!<br/>
+        DezineConnect Team
+        </p>
+      <br/>
+        <p style="line-height: 150%; margin: 7px 0px 0px 0px; color: black; background: #ffffff;">Follow us on</p>
+        <p style="line-height: 150%; margin: 7px 0px 0px 0px; color: black; background: #ffffff;">
+          <a href="http://www.facebook.com/dezineconnect" target="">
+            <img style="border: 0;" alt="facebook" src="http://www.dezineconnect.com/images/facebook_forfooter_active.gif"/></a>
+         <a href="http://www.linkedin.com/groups?gid=2937305&trk=anetsrch_name&goback=.gdr_1271074305272_1">
+           <img style="border: 0;"alt="linkedin" src="http://www.dezineconnect.com/images/linkedin_forfooter_active.gif"/></a>
+         <a href="http://twitter.com/dezineconnect">
+           <img style="border: 0;" alt="twitter" src="http://www.dezineconnect.com/images/twitter_forfooter_active.gif"/></a>
+
+        </p>
+    </div>
+</body>
+</html>

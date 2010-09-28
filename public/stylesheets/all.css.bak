@@ -1,0 +1,404 @@
+/* layout */
+body {
+    /*background: url('../images/background.jpg') repeat-x;*/
+    background: url('../images/background_0_.png') #dedede;
+    font-family: Century Gothic, Lucida Grande, Lucida Sans Unicode, helvetica, sans-serif;
+    font-size: 12px;
+    margin: 0px 0px 20px 0px;
+    padding: 0;
+}
+#wrap {
+    height:auto;
+    margin:0 auto 0 auto;
+    margin-top: 10px;
+    overflow:hidden;
+    width: 960px;
+    /*background: red;*/
+    padding:0;
+    overflow:hidden;
+}
+#main {
+    left: 0px;
+    top: 0px;
+    width: 650px;
+    background: none;
+    float: left;
+    overflow: hidden;
+}
+/* main inner for content align*/
+#main_inner {
+    overflow: hidden;
+    width: 630px;
+    font-family: Century Gothic, Lucida Grande, Lucida Sans Unicode, helvetica, sans-serif;
+    font-size: 13px;
+}
+/* Text Elements */
+H1 {
+    font-family: georgia, times new roman, serif;
+    font-size: 30px;
+    font-weight: 100;
+    color: #000;
+    border-bottom-style: dotted;
+    border-bottom-width: 1px;
+    border-bottom-color: grey;
+    /*margin:0 0 10px 0;
+    padding:0 0 10px 0;*/
+}
+H2 {
+    font-family: Century Gothic, Lucida Grande,Lucida Sans Unicode,helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 100;
+    color: #000;
+    border-bottom-style: dotted;
+    border-bottom-width: 1px;
+    border-bottom-color: #cccccc;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+H3 {
+    font-family: Century Gothic, Lucida Grande,Lucida Sans Unicode,helvetica, sans-serif;
+    font-size: 16px;
+    color: #000;
+    font-weight: 100;
+}
+H4 {
+    font-family: Century Gothic, Lucida Grande,Lucida Sans Unicode,helvetica, sans-serif;
+    font-size: 13px;
+    color: #000;
+    font-weight: bold;
+}
+p {
+    line-height: 150%;
+    margin: 7px 0px 0px 0px;
+}
+ol {
+    color: #666666;
+    margin: 0px 0px 20px 0px;
+}
+ol li {
+    line-height: 150%;
+    margin: 0px 0px 0px -20px;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+#main_inner input {
+    font-family: Century Gothic, Lucida Grande, Lucida Sans Unicode, helvetica, sans-serif;
+    border:1px solid #bbbbbb;
+    float: left;
+    font-size: 13px;
+    margin: 0 0 10px 0;
+    /*width: 260px;*/
+    clear: left;
+}
+/* form elements */
+input {
+    /*border:1px solid #bbbbbb;*/
+    border-style: solid;
+    border-width: 1px;
+    padding:5px 3px;
+}
+#main_inner select{
+    font-family: Century Gothic, Lucida Grande,Lucida Sans Unicode,helvetica, sans-serif;
+}
+button {
+    /*background: orange;*/
+    border: 0px;
+    /*border-radius: 6px;
+    border-style: solid;
+    color: white;
+    font-size: 13px;
+    -moz-boarder-radius: 6px;
+    text-decoration: none;
+    text-transform: Capitalize;*/
+}
+/*for left and right title pages*/
+#left_title h1, #right_title h1 {
+    border: 0;
+}
+#left_title, #right_title {
+    overflow: hidden;
+    width: 500px;
+    font-size: 24px;
+    color: #000;
+    border-bottom:#000 1px dotted;
+    /*padding: 0 0 10px 0;*/
+    height: 70px;
+}
+#left_title {
+    float: left;
+}
+#right_title {
+    float: right;
+    width: 130px;
+    text-align: right;
+}
+.clear {
+    clear: both;
+    margin : 10px 0;
+}
+/*page title*/
+#title {
+    position: relative;
+}
+#title hd_left_text{
+    float: left;
+}
+#title .hd_right_text {
+    position: absolute;
+    right: 0;
+    top:0;
+    text-align: right;
+    border: 0;
+}
+/* 3 different types of buttons with background image*/
+.btn_bg_01{
+    background: url('/images/btn_bg_01.png') no-repeat 0px 0px;
+    font-family: Century Gothic, Lucida Grande,Lucida Sans Unicode,helvetica, sans-serif;
+    font-size: 13px;
+    width: 105px;
+    height: 30px;
+    text-align: center;
+    text-transform: capitalize;
+    vertical-align: middle;
+    font-weight: bold;
+    color: #754e23;
+}
+.btn_bg_01:hover {
+    background: url('/images/btn_bg_01_hover.png') no-repeat 0px 0px;
+    cursor: pointer;
+}
+/*common for portfolio*/
+.error_msg {
+    color: red;
+    margin: 5px 0;
+    display:none;
+    margin-left: 10px;
+    float: left;
+}
+/* line 25, ../../../app/stylesheets/nifty.sass */
+#flash_notice, #flash_error {
+    padding: 5px 8px;
+    margin: 10px 0;
+}
+/* line 29, ../../../app/stylesheets/nifty.sass */
+#flash_notice {
+    background-color: #ccffcc;
+    border: solid 1px #66cc66;
+}
+/* line 33, ../../../app/stylesheets/nifty.sass */
+#flash_error {
+    background-color: #ffcccc;
+    border: solid 1px #cc6666;
+}
+/*portfolio_edit_top_buttons*/
+#portfolio_edit_top {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+#portfolio_edit_top #account_settings_btn a{
+    background: url('../images/accountsettings.png') no-repeat;
+    width: 151px;
+    height: 31px;
+    position: absolute;
+}
+#portfolio_edit_top #account_settings_btn a:hover{
+    background: url('../images/accountsettings_hover.png') no-repeat;
+}
+#portfolio_edit_top #account_settings_btn{
+    background: url('../images/accountsettings_click.png') no-repeat;
+    width: 151px;
+    height: 31px;
+    position: absolute;
+    right: 312px;
+    top: 10px;
+}
+#portfolio_edit_top #portfolio_btn a {
+    background: url('../images/portfolio.png') no-repeat;
+    width: 151px;
+    height: 31px;
+    position: absolute;
+}
+#portfolio_edit_top #portfolio_btn a:hover {
+    background: url('../images/portfolio_hover.png') no-repeat;
+}
+#portfolio_edit_top #portfolio_btn {
+    background: url('../images/portfolio_click.png') no-repeat;
+    width: 151px;
+    height: 31px;
+    position: absolute;
+    right: 0px;
+    top: 10px;
+}
+#portfolio_edit_top #profile_information_btn {
+    background: url('../images/profile_information_click.png') no-repeat;
+    width: 151px;
+    height: 31px;
+    position: absolute;
+    right: 156px;
+    top: 10px;
+}
+#portfolio_edit_top #profile_information_btn a{
+    background: url('../images/profile_information.png') no-repeat;
+    width: 151px;
+    height: 31px;
+    position: absolute;
+}
+#portfolio_edit_top #profile_information_btn a:hover {
+    background: url('../images/profile_information_hover.png') no-repeat;
+}
+/*portfolio_edit_top_buttons*/
+#portfolio_edit_top #your_work_btn {
+    background: url('../images/1your_work_click.png') no-repeat;
+    width: 151px;
+    height: 31px;
+    position: absolute;
+    right: 0px;
+    top: 10px;
+}
+#portfolio_edit_top #your_work_btn a{
+    background: url('../images/1your_work.png') no-repeat;
+    width: 151px;
+    height: 31px;
+    position: absolute;
+}
+#portfolio_edit_top #your_work_btn a:hover {
+    background: url('../images/1your_work_hover.png') no-repeat;
+}
+/*portfolio_edit_top_buttons*/
+/*flash sucess msg*/
+.flash_success_msg {
+    background: #fbfaed;
+    color: green;
+    text-align: center;
+}
+.notice {
+    position: relative;
+    /*background: #FFBFBD;
+    border: #eee 1px solid;
+    padding: 3px;
+    font-size: 11px;
+    margin: -10px 0px 0px 0px;*/
+    width: 630px;
+    color: red;
+}
+.notice span {
+    position: absolute;
+    right: 0;
+}
+/*seggest text boxes style*/
+.suggest_textfield_highlight {
+    color:black;
+    font-style:normal;
+}
+.suggest_textfield_normal {
+    color:black;
+    font-style:normal;
+}
+.suggest_textfield_default {
+    color:gray;
+    font-style:italic;
+}
+.suggest_textfield_default_normal {
+    color:gray;
+    font-style:italic;
+}
+/*need to change global class name*/
+.portfolio_mandatory_fields {
+    color: red;
+}
+.ex_message {
+    font-family: Century Gothic, Lucida Grande,Lucida Sans Unicode,helvetica, sans-serif;
+    font-style: italic;
+    color: gray;
+    font-size: 12px;
+}
+/**/
+#next_button{
+    background: url('../images/next.png') no-repeat;
+    width: 151px;
+    height: 31px;
+    margin: 10px 0px;
+}
+#next_button:hover {
+    background: url('../images/next_hover.png') no-repeat;
+    cursor: pointer;
+}
+#save_continue_button{
+    background: url('../images/save_continue.png') no-repeat;
+    width: 151px;
+    height: 31px;
+    margin: 10px 0px;
+}
+#save_continue_button:hover{
+    background: url('../images/save_continue_hover.png') no-repeat;
+    cursor: pointer;
+}
+#save_btn button{
+    background: url('../images/save.png') no-repeat;
+    width: 151px;
+    height: 31px;
+}
+#save_btn button:hover{
+    background: url('../images/save_hover.png') no-repeat;
+    cursor: pointer;
+}
+#signup_button{
+    background: url('../images/signup_01.png') no-repeat;
+    width: 98px;
+    height: 31px;
+    margin: 10px 0px;
+}
+#signup_button:hover {
+    background: url('../images/signup_02.png') no-repeat;
+    cursor: pointer;
+}
+
+#search_box {
+    background: url('../images/search_background.gif') no-repeat;
+    background-position: center;
+    height: 78px;
+    width: 630px;
+    position: relative;
+    }
+#search_form {
+    width: 591px;
+    height: 46px;
+    background: url('../images/search_field.png') no-repeat;
+    border: none;
+    position: absolute;
+    font-size: 18px;
+    color: #999999;
+    outline-style: none;
+    padding:2px 10px 10px 15px;
+    top: 15px;
+    left: 20px;
+    display: block;
+    }
+#search_form input {
+    height: 28px;
+    border: 0;
+    margin:  5px 0 0 0;
+    font-size: 20px;
+    color:  gray;
+    }
+#search_button {
+    background: url('../images/search_icon.gif') no-repeat 18px 9px;
+    width: 60px;
+    height: 45px;
+    position: absolute;
+    top: 0px;
+    right: 25px;
+    cursor: pointer;
+    }
+	#more_button {
+    height: 31px;
+    background: url('../images/more.png') no-repeat top center;
+    margin: 25px 0px 15px 0px;
+}
+#more_button:hover {
+    background: url('../images/more_hover.png') no-repeat top center;
+    cursor: pointer;
+}

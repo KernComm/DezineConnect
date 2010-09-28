@@ -1,0 +1,22 @@
+<h1>Listing favourites</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Job posting</th>
+  </tr>
+
+<% for favourite in @favourites %>
+  <tr>
+    <td><%=h favourite.user_id %></td>
+    <td><%=h favourite.job_posting_id %></td>
+    <td><%= link_to 'Show', favourite %></td>
+    <td><%= link_to 'Edit', edit_favourite_path(favourite) %></td>
+    <td><%= link_to 'Destroy', favourite, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New favourite', new_favourite_path %>

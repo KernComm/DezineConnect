@@ -1,0 +1,167 @@
+<%= stylesheet_link_tag 'admin.css'  %>
+<div id="admin_panel_main">
+  <h1>Users
+    <div id="portfolio_edit_top">
+      <div id="account_settings_btn"></div>
+<%#*<div id="profile_information_btn"><a href="/admin/panel"></a></div>%>
+      <div id="portfolio_btn"><a href="/admin/design_directories"></a></div>
+    </div>
+  </h1>
+  <h2> <%=  @user_active %> Published Portfolios, <%=  @user_inactive %> Unpublished Portfolios </h2>
+  <% if  flash[:notice] then %>
+    <div class="flash_success_msg">
+      <%=flash[:notice]%>
+    </div>
+  <%end%>
+  <table id="admin_panel_table" cellpadding="3" cellspacing="0" align="center">
+    <tbody>
+    <thead>
+    <th class="admin_panel_thead" width="40px">ID</th>
+    <th class="admin_panel_thead">act</th>
+    <th class="admin_panel_thead">name</th>
+    <th class="admin_panel_thead">email</th>
+    <th class="admin_panel_thead">spe</th>
+    <th class="admin_panel_thead">add</th>
+    <th class="admin_panel_thead">cit</th>
+    <th class="admin_panel_thead">con</th>
+    <th class="admin_panel_thead">pp</th>
+    <th class="admin_panel_thead">#images</th>
+    <th class="admin_panel_thead">time</th>
+    <th class="admin_panel_thead">delete<br/>account</th>
+    <th class="admin_panel_thead">activate<br/>account</th>
+    <th class="admin_panel_thead">deactivate<br/>account</th>
+    </thead>
+    </tbody>
+    <% unless @portfolios.nil? or @portfolios.blank? then %>
+      <% @portfolios.each do | portfolio_obj | %>
+        <% unless portfolio_obj.user.nil? or portfolio_obj.user.blank? then %>
+
+          <tr class="admin_panel_row">
+
+            <td class="admin_panel_col">
+              <% unless portfolio_obj.id.nil? or portfolio_obj.id.blank? then %>
+                <a target="_blank" href="/portfolios/show/<%= portfolio_obj.id %>"><%= portfolio_obj.id  %></a>
+              <% end %>
+            </td>
+
+            <% unless portfolio_obj.user.activate.nil? or portfolio_obj.user.activate.blank? then %>
+              <td class="not_empty_record"></td>
+            <%else%>
+              <td class="admin_panel_col">-</td>
+            <% end %>
+
+            <td class="admin_panel_col">
+              <% unless portfolio_obj.user.firstname.nil? and portfolio_obj.user.firstname.blank? then %>
+                <% if portfolio_obj.user.firstname.length+portfolio_obj.user.firstname.length > 20 then%>
+                  <%=h portfolio_obj.user.firstname[0,18] %>&hellip;
+                <% else %>
+                  <%=h portfolio_obj.user.firstname %> <%=h portfolio_obj.user.lastname %>
+                <% end %>
+              <% end %>
+            </td>
+
+            <td class="admin_panel_col">
+              <% unless portfolio_obj.user.email.nil? or portfolio_obj.user.email.blank? then %>
+                <a href="mailto:<%= portfolio_obj.user.email  %>"><%= portfolio_obj.user.email  %></a>
+              <% end %>
+            </td>
+
+            <% unless portfolio_obj.nil? or portfolio_obj.blank? then %>
+              <% unless portfolio_obj.specialization.nil? or portfolio_obj.specialization.blank? then %>
+                <td class="not_empty_record"></td>
+              <% else %>
+                <td class="admin_panel_col">-</td>
+              <% end %>
+            <% else %>
+              <td class="admin_panel_col">-</td>
+            <% end %>
+
+
+            <% unless portfolio_obj.nil? or portfolio_obj.blank? then %>
+              <% unless portfolio_obj.address.nil? or portfolio_obj.address.blank? then %>
+                <td class="not_empty_record"></td>
+          <%#= user_obj.portfolio.address %>
+              <%else%>
+                <td class="admin_panel_col">-</td>
+              <% end %>
+            <% else %>
+              <td class="admin_panel_col">-</td>
+            <% end %>
+
+
+            <% unless portfolio_obj.nil? or portfolio_obj.blank? then %>
+              <% unless portfolio_obj.city.nil? or portfolio_obj.city.blank? then %>
+                <td class="not_empty_record"></td>
+          <%#= user_obj.portfolio.city %>
+              <%else%>
+                <td class="admin_panel_col">-</td>
+              <% end %>
+
+            <% else %>
+              <td class="admin_panel_col">-</td>
+            <% end %>
+
+            <% unless portfolio_obj.nil? or portfolio_obj.blank? then %>
+              <% unless portfolio_obj.country.nil? or portfolio_obj.country.blank? then %>
+                <td class="not_empty_record"></td>
+          <%#= user_obj.portfolio.country %>
+              <%else%>
+                <td class="admin_panel_col">-</td>
+              <% end %>
+            <% else %>
+              <td class="admin_panel_col">-</td>
+            <% end %>
+
+            <% unless portfolio_obj.nil? or portfolio_obj.blank? then %>
+              <% unless portfolio_obj.profile_photo_file_name.nil? or portfolio_obj.profile_photo_file_name.blank? then %>
+                <td class="not_empty_record"></td>
+          <%#= user_obj.portfolio.profile_photo_file_name %>
+              <%else%>
+                <td class="admin_panel_col">-</td>
+              <% end %>
+            <% else %>
+              <td class="admin_panel_col">-</td>
+            <% end %>
+
+            <% unless portfolio_obj.nil? or portfolio_obj.blank? then %>
+              <td class="admin_panel_col" align="center">
+                <% unless portfolio_obj.images.nil? or portfolio_obj.images.blank? then %>
+                  <a href="/admin/portfolio_images/<%= portfolio_obj.id %>"><%= portfolio_obj.images.count %></a>
+                <% end %>
+              </td>
+            <% else %>
+              <td class="admin_panel_col">-</td>
+            <% end %>
+
+            <td class="admin_panel_col">
+              <% unless portfolio_obj.user.updated_at.nil? or portfolio_obj.user.updated_at.blank? then %>
+                <%= portfolio_obj.user.updated_at.strftime("%d %b %m, %I:%M %p")%>
+              <% end %>
+            </td>
+
+            <td class="admin_panel_col">
+              <% unless portfolio_obj.user.id.nil? or portfolio_obj.user.id.blank? then %>
+                <%=  link_to("Delete", {    :action => "distroy_portfolio", :id => portfolio_obj.id  },
+                                                    :confirm => "Are you sure you want to delete this Portfolio?",
+                                                    :method => :delete)
+                %>
+              <% end %>
+            </td>
+
+            <td class="admin_panel_col">
+              <% unless portfolio_obj.user.id.nil? or portfolio_obj.user.id.blank? then %>
+                <a href="/admin/portfolio_user_activate/<% unless portfolio_obj.user.id.nil? or portfolio_obj.user.id.blank? then%><%= portfolio_obj.user.id  %><% end %>">activate</a>
+              <% end %>
+            </td>
+
+            <td class="admin_panel_col">
+              <% unless portfolio_obj.user.id.nil? or portfolio_obj.user.id.blank? then %>
+                <a href="/admin/portfolio_user_deactivate/<% unless portfolio_obj.user.id.nil? or portfolio_obj.user.id.blank? then%><%= portfolio_obj.user.id  %><% end %>">deactivate</a>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    <% end %>
+  </table>
+</div>

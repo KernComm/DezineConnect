@@ -1,0 +1,84 @@
+.sliderwrapper {
+    position: relative; /*leave as is*/
+    overflow: hidden; /*leave as is*/
+    border: 1px solid #ccc;
+    background: #fff;
+    width: 635px; /*width of featured content slider*/
+    height: 435px;
+	text-align: center;
+}
+
+.sliderwrapper .contentdiv {
+    visibility: hidden; /*leave as is*/
+    position: absolute; /*leave as is*/
+    left: 0px;  /*leave as is*/
+    top: 0px;  /*leave as is*/
+    background: white;
+    width: 635px; /*width of content DIVs within slider. Total width should equal slider's inner width (390+5+5=400) */
+    height: 100%;
+    filter:progid:DXImageTransform.Microsoft.alpha(opacity=100);
+    -moz-opacity: 1;
+    opacity: 1;
+}
+
+.pagination {
+    width: 400px; /*Width of pagination DIV. Total width should equal slider's outer width (400+10+10=420)*/
+    text-align: right;
+    background-color: navy;
+}
+
+.pagination a {
+    text-decoration: none;
+    color: #00007D;
+    background: white;
+}
+
+.pagination a:hover, .pagination a.selected {
+    color: #000;
+    background-color: #FEE496;
+}
+/*image slider css*/
+
+#slider4 {
+    height: 435px;
+}
+
+#paginate-slider4 {
+    width: 635px;
+}
+#paginate-slider4 a {
+    float: left;
+    border: 0px;
+    margin: 0px;
+}
+#paginate-slider4 a:active {
+    outline: none;
+    -moz-outline-style: none;
+}
+#paginate-slider4 a:focus {
+    -moz-outline-style: none;
+    outline: none;
+}
+
+#paginate-slider4 .slider_corner_img img {
+    margin: 9px 0px 0px 0px;
+    padding: 0px;
+    display: block;
+}
+#paginate-slider4 a img {
+    width: 150px;
+    height: 150px;
+    display: block;
+    border: 1px solid #ccc;
+    margin: 9px 9px 0px 0px;
+}
+a:active {
+    outline: none;
+}
+
+a:focus {
+    -moz-outline-style: none;
+}
+#paginate-slider4 a img:hover, #paginate-slider4 a.selected img {
+    border: 1px solid orange;
+}
