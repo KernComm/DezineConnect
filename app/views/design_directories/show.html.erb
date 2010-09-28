@@ -1,0 +1,161 @@
+<!--css-->
+<%= stylesheet_link_tag 'portfolio_image_slider' %>
+<%= stylesheet_link_tag "directories_show"  %>
+<!--js script-->
+<%= javascript_include_tag 'contentslider' %>
+<% unless session[:loggedin_user].nil? then
+  @current_user = User.find_by_id(session[:loggedin_user])
+  if @current_user.design_directory.id == @design_directory.id then %>
+    <style type="text/css">
+      #header { display: block; height:40px;}
+      #logo, #header_mid { display: block; }
+    </style>
+  <%end end %>
+<!-- 960 px wrapper -->
+<div id="wrap">
+  <!-- portfolio top bar -->
+  <div id="portfolio_top_bar">
+    <% unless session[:user_activated_to_show_page].nil? && session[:loggedin_user].nil? && session[:user_activated_to_show_page].blank? && session[:loggedin_user].blank? then %>
+      <!--portfolio top bar user view-->
+      <% unless session[:search_string].blank? then %>
+
+        <%  search_result_array = Array.new
+        logger.info  "session[:search_string] : #{session[:search_string]}"
+        @xapian_search_results = ActsAsXapian::Search.new([DesignDirectory], session[:search_string], :limit => 10000, :joins => :user, :conditions => {:users => {:activate => 1}}, :sort_by_prefix => "updated_at")
+        @xapian_search_results.results.each do | search_value |
+          search_result_array << search_value[:model][:id]
+        end
+        if search_result_array.empty? then
+          search_result_array = session[:search_result_spell_correction_array] unless session[:search_result_spell_correction_array].nil?
+        end
+
+        logger.info  "search_result_array : #{search_result_array.inspect}"
+        index_value = search_result_array.index(@design_directory.id)
+        logger.info  "search_result_array : #{index_value}" %>
+
+        <% if index_value.nil? then %>
+          <div id="portfolio_top_bar_search"><a href="/directory">Back to HomePage</a></div>
+        <% else %>
+          <div id="portfolio_top_bar_search"><a href="/directory">HomePage</a> |
+            <a href="/design_directories/search?search_textfield=<%= session[:search_string] %>">Back to Search Results</a></div>
+        <% end %>
+
+        <% unless index_value.nil? then %>
+          <% unless search_result_array[index_value - 1].blank? then %>
+            <div id="portfolio_top_bar_previous"><a href="/design_directories/show/<%= search_result_array[index_value - 1] %>">Previous Company</a></div>
+          <% end %>
+        <% end %>
+        <% unless index_value.nil? then %>
+          <% unless search_result_array[index_value + 1].blank? then %>
+            <div id="portfolio_top_bar_next"><a href="/design_directories/show/<%= search_result_array[index_value + 1] %>">Next Company</a></div>
+          <% else %>
+            <div id="portfolio_top_bar_next"><a href="/design_directories/show/<%= search_result_array[0] %>">Next Company</a></div>
+          <% end %>
+        <% end %>
+
+        <% session[:search_string] == "" %>
+      <% else %>
+        <div id="portfolio_top_bar_search"><a href="/directory">Back to HomePage</a></div>
+        <%  search_result_array = Array.new
+        @xapian_search_results = DesignDirectory.find(:all,:joins => :user, :conditions => {:users => {:activate => 1}}, :order => 'updated_at DESC')
+        @xapian_search_results.each do | search_value |
+          search_result_array << search_value[:id]
+        end
+
+        logger.info  "search_result_array : #{search_result_array.inspect}"
+        index_value = search_result_array.index(@design_directory.id)
+        logger.info  "search_result_array : #{index_value}"
+      %>
+
+        <% unless search_result_array[index_value - 1].blank? then %>
+          <div id="portfolio_top_bar_previous"><a href="/design_directories/show/<%= search_result_array[index_value - 1] %>">Previous Company</a></div>
+        <% end %>
+
+        <% unless search_result_array[index_value + 1].blank? then %>
+          <div id="portfolio_top_bar_next"><a href="/design_directories/show/<%= search_result_array[index_value + 1] %>">Next Company</a></div>
+        <% else %>
+          <div id="portfolio_top_bar_next"><a href="/design_directories/show/<%= search_result_array[0] %>">Next Company</a></div>
+        <% end %>
+      <% end %>
+
+
+    <% else %>
+      <% unless session[:search_string].blank? then %>
+
+        <%
+        search_result_array = Array.new
+        logger.info  "session[:search_string] : #{session[:search_string]}"
+        @xapian_search_results = ActsAsXapian::Search.new([DesignDirectory], session[:search_string], :limit => 10000,:joins => :user, :conditions => {:users => {:activate => 1}}, :sort_by_prefix => "updated_at")
+        @xapian_search_results.results.each do | search_value |
+          search_result_array << search_value[:model][:id]
+        end
+        if search_result_array.empty? then
+          search_result_array = session[:search_result_spell_correction_array] unless session[:search_result_spell_correction_array].nil?
+        end
+
+        logger.info  "search_result_array : #{search_result_array.inspect}"
+        index_value = search_result_array.index(@design_directory.id)
+        logger.info  "search_result_array : #{index_value}"
+      %>
+
+        <% if index_value.nil? then %>
+          <div id="portfolio_top_bar_search">
+            <a href="/directory">Back to HomePage</a>
+          </div>
+        <% else %>
+          <div id="portfolio_top_bar_search"><a href="/directory">HomePage</a> |
+            <a href="/design_directories/search?search_textfield=<%= session[:search_string] %>">Back to Search Results</a></div>
+        <% end %>
+
+        <% unless index_value.nil? then %>
+          <% unless search_result_array[index_value - 1].blank? then %>
+            <div id="portfolio_top_bar_previous"><a href="/design_directories/show/<%= search_result_array[index_value - 1] %>">Previous Company</a></div>
+          <% end %>
+        <% end %>
+        <% unless index_value.nil? then %>
+          <% unless search_result_array[index_value + 1].blank? then %>
+            <div id="portfolio_top_bar_next"><a href="/design_directories/show/<%= search_result_array[index_value + 1] %>">Next Company</a></div>
+          <% else %>
+            <div id="portfolio_top_bar_next"><a href="/design_directories/show/<%= search_result_array[0] %>">Next Company</a></div>
+          <% end %>
+        <% end %>
+
+        <% session[:search_string] == "" %>
+      <% else %>
+        <div id="portfolio_top_bar_search"><a href="/directory">Back to HomePage</a></div>
+        <%  search_result_array = Array.new
+        @xapian_search_results = DesignDirectory.find(:all,:joins => :user, :conditions => {:users => {:activate => 1}},:order => 'updated_at DESC')
+        @xapian_search_results.each do | search_value |
+          search_result_array << search_value[:id]
+        end
+
+        logger.info  "search_result_array : #{search_result_array.inspect}"
+        index_value = search_result_array.index(@design_directory.id)
+        logger.info  "search_result_array : #{index_value}"
+      %>
+
+        <% unless search_result_array[index_value - 1].nil? or search_result_array[index_value - 1].blank? then %>
+          <div id="portfolio_top_bar_previous"><a href="/design_directories/show/<%= search_result_array[index_value - 1] %>">Previous Company</a></div>
+        <% end %>
+
+        <% unless search_result_array[index_value + 1].nil? or search_result_array[index_value + 1].blank? then %>
+          <div id="portfolio_top_bar_next"><a href="/design_directories/show/<%= search_result_array[index_value + 1] %>">Next Company</a></div>
+        <% else %>
+          <div id="portfolio_top_bar_next"><a href="/design_directories/show/<%= search_result_array[0] %>">Next Company</a></div>
+        <% end %>
+      <% end %>
+
+    <% end %>
+
+
+  </div>
+  <!-- portfolio top end -->
+
+  <%= render :partial => 'show_design_directory' %>
+
+</div><!-- 960 px wrapper -->
+<div id="portfolio_show_footer"><!-- portfolio show footer /master footer hide in this page/ -->
+  <a href="http://www.dezineconnect.com">
+    <img src="/images/dezineconnect_logo_bottom.png" />
+  </a>
+</div><!-- portfolio show footer-->

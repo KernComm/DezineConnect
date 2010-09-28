@@ -1,0 +1,37 @@
+<%= stylesheet_link_tag 'portfolio_search' %>
+
+<%= javascript_include_tag 'endless_portfolio_search_results' %>
+<%= javascript_include_tag 'favourites' %>
+<%= javascript_include_tag 'prototype' %>
+
+<div id="wrap"><!-- 960 px wrapper -->
+
+  <div id="searchfield_n_createportfolio">
+    <!--search for your next design job begins...-->
+    <div id="search_box">
+      <form method="post" action="/portfolios/search">
+        <input id="search_textfield" name="search_textfield"  type="text" size="45" maxlength="75" value="<%= @search_string %>"></input>
+        <button id="portfolio_search_button"></button>
+      </form>
+    </div>
+    <% if session[:loggedin_user].nil? or session[:loggedin_user].blank? then %>
+      <form method="post" action="/users/new">
+        <button id="search_create_portfolio_btn"></button>
+      </form>
+    <% end %>
+  </div><!-- search "ends" here -->
+  
+  <div id="main"><!--main div-->
+    <div id="portfolios">
+      <%= render :partial => @searchresults %>
+      <% logger.info  "@search_result_ids : #{@search_result_ids.inspect}" %>
+    </div>
+    <div class="clear"></div>
+    <!-- Changed More button code -->
+    <% if Portfolio.count >= 19 then %>
+      <div id="more_button" align="right" onclick="moreResults()"></div>
+    <% end %>   
+  </div><!--main div-->
+
+</div><!-- 960 px wrapper ends -->
+

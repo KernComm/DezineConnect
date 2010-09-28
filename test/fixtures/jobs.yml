@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  company_name: 
+  job_title: 
+  location: MyString
+
+two:
+  company_name: 
+  job_title: 
+  location: MyString

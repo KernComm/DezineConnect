@@ -1,0 +1,118 @@
+.button_bg {
+    background: url('../images/btn_bg_01.png') no-repeat;
+    height: 30px ;
+    width: 150px ;
+}
+#container {
+    position: relative;
+}
+#mp3info {
+    position: relative;
+}
+#mp3info p{
+    border: #ddd 1px solid;
+    background: #eee;
+    position: relative;
+    height: 160px;
+    clear: left;
+}
+#mp3info p img {
+    border: #ddd 1px solid;
+    position: absolute;
+    left: 5px;
+    top:5px;
+    height: 150px;
+    width: 150px;
+}
+#mp3info p textarea {
+    position: absolute;
+    left: 165px;
+    top:25px;
+    width: 413px;
+}
+#mp3info p label {
+    position: absolute;
+    left: 165px;
+    top:0;
+}
+#mp3info p a {
+    right: 8px;
+    position: absolute;
+    text-decoration: underline;
+    top:85px;
+}
+#mp3info p a:hover {
+    text-decoration: none;
+}
+#divFileProgressContainer {
+    margin-top:20px;
+    margin-bottom: 15px;
+    height: 40px;
+}
+/*progress bar background*/
+/*#divFileProgressContainer #divFileProgress .progressContainer {
+    background: #f7f7f7;
+}*/
+#main_inner #swfupload_container {
+   clear: left;
+}
+#swfupload_container object {
+    margin-top: 4px;
+}
+/**/
+#main_inner #portfolio_imageupload_extext {
+    /*background: #F0F5DD;*/
+    /*border: solid 1px #e8e8e8;
+    background: #f7f7f7;*/
+    clear: right;
+    font-size: 12px;
+    position: absolute;
+    left: 171px;
+    /*top: 3px;
+   padding: 3px;*/
+    top: 0px;
+     width: 360px;
+    color: gray;
+    font-style: italic;
+}
+#main_inner #portfolio_imageupload_extext_01 {
+    padding: 3px;
+    font-size: 12px;
+    width: 360px;
+    position: absolute;
+    right: 10px;
+    top: 40px;
+    background: #F5F2F7;
+    color: gray;
+    font-style: italic;
+}
+#portfolio_rounded_shading_in {
+    padding: 5px;
+}
+
+/**/
+#main_inner .portfolio_rounded_shading {
+    position: relative;
+}
+#divFileProgress .progressContainer{
+    margin: 0px;
+    padding: 3px;
+}
+#divFileProgress .progressContainer .progressCancel {
+    display: none;
+}
+#main_inner .portfolio_rounded_shading label {
+    width: 180px;
+}
+/*progress bar messages*/
+#divFileProgressContainer #divFileProgress .progressContainer .progressName {
+    font-size: 12px;
+    font-family: Century Gothic, Lucida Grande, Lucida Sans Unicode, helvetica, sans-serif;
+    margin-bottom: 5px;
+    overflow: visible;
+}
+#divFileProgressContainer #divFileProgress .progressContainer .progressBarStatus {
+    font-size: 12px;
+    font-family: Century Gothic, Lucida Grande, Lucida Sans Unicode, helvetica, sans-serif;
+    overflow: visible;
+}

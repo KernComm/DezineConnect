@@ -1,0 +1,43 @@
+#header {height:5px;}
+#logo, #header_mid {display: none;}
+
+
+#jobs_top_bar {
+    text-transform: uppercase;
+    color:#aaa;
+    font-size: 10px;
+    position:relative;
+    margin: 0px 10px 0px 10px ;
+}
+
+#jobs_top_bar_search{
+   position: absolute;
+}
+
+#jobs_top_bar_search a:hover{
+    color:#5D5C5C;
+}
+
+a {
+    color:inherit;
+    text-decoration:none;
+}
+
+#jobs_top_bar_previous {
+    position:absolute;
+    right: 310px;
+    
+}
+#jobs_top_bar_previous:hover {
+    color: #5d5c5c;
+}
+#jobs_top_bar_next {
+    position:absolute;
+    right: 230px;
+    
+}
+
+#jobs_top_bar_next:hover {
+    color: #5d5c5c;
+    cursor: pointer;
+}

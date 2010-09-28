@@ -1,0 +1,110 @@
+/* the thumbnails */
+/*- - - - - triggers overwrite id - - - - - - - - -*/
+#triggers {
+    text-align:center;
+    width: 500px;
+}
+
+#triggers img {
+    background-color:#fff;
+    padding:2px;
+    border:1px solid #ccc;
+    margin:15px 2px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+}
+
+/* the active thumbnail */
+#triggers a.active img {
+    outline:1px solid #000;
+    /* show on top of the expose mask */
+    z-index:9999;
+    position:relative;
+    }
+
+.infiniteCarousel {
+    width: 395px;
+    position: relative;
+}
+
+.infiniteCarousel .wrapper {
+    width: 500px; /* .infiniteCarousel width - (.wrapper margin-left + .wrapper margin-right) */
+    overflow: auto;
+    min-height: 10em;
+    margin: 0px 25px ;
+    position: absolute;
+    left: 25px;
+    top: 0;
+}
+
+.infiniteCarousel ul a img {
+    border: 5px solid #000;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.infiniteCarousel .wrapper ul {
+    width: 9999px;
+    list-style-image:none;
+    list-style-position:outside;
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    position: absolute;
+    top: 0;
+}
+
+.infiniteCarousel ul li {
+    display:block;
+    float:left;
+    padding: 0 10px;
+    height: 100px;
+    width: 150px;
+    /*width: 120px;*/ /*changed*/
+}
+
+.infiniteCarousel ul li a img {
+    display:block;
+    height: 100px;
+    width: 145px;
+}
+
+.infiniteCarousel .arrow {
+    display: block;
+    height: 36px;
+    width: 37px;
+    background: url(../images/arrow.png) no-repeat 0 0;
+    text-indent: -999px;
+    position: absolute;
+    top: 37px;
+    cursor: pointer;
+}
+
+.infiniteCarousel .forward {
+    background-position: 0 0;
+    right: 13px;
+    top: 50px;
+}
+
+.infiniteCarousel .back {
+    background-position: 0 -72px;
+    left: 13px;
+    top: 50px;
+}
+
+.infiniteCarousel .forward:hover {
+    background-position: 0 -36px;
+}
+
+.infiniteCarousel .back:hover {
+    background-position: 0 -108px;
+}
+
+#scroll_bg {
+   background: url(../images/Slider_background.png) no-repeat;   
+   height: 141px;
+   width: 610px;
+}
+
+
+

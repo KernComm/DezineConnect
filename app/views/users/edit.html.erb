@@ -1,0 +1,103 @@
+<%= stylesheet_link_tag 'portfolio_register' %>
+<%= javascript_include_tag 'show_password'  %>
+
+<script type="text/javascript">
+  function validation(ctl,ct2) {
+    if((document.getElementById(ctl).value=="")) {
+      document.getElementById(ctl).style.border="1px red solid";
+      document.getElementById(ctl).style.background="#ffefef";
+      document.getElementById(ct2).style.display="block";
+      return false;
+    }
+    else {
+      document.getElementById(ctl).style.border="1px #ccc solid";
+      document.getElementById(ctl).style.background="#fff";
+      document.getElementById(ct2).style.display="none";
+      return true;
+    }
+  }
+</script>
+
+<div id="wrap"><!--warp start-->
+  <div id="main"><!--main start-->
+    <div id="main_inner"><!--main inner start-->
+      <!--portfolio-->
+
+      <h1>edit
+        <div id="portfolio_edit_top">
+          <div id="account_settings_btn"></div>
+         <% unless @user.design_directory.nil? or @user.design_directory.blank? then %>
+            <div id="profile_information_btn"><a href="/design_directories/edit/<%= @user.design_directory.id %>"></a></div>
+            <div id="your_work_btn"><a href="/design_directories/edit_specifications/<%= @user.design_directory.id %>"></a></div>
+         <% else %>
+            <div id="profile_information_btn"><a href="/portfolios/edit/<%= @user.portfolio.id %>"></a></div>
+            <div id="portfolio_btn"><a href="/portfolios/edit/<%= @user.portfolio.id %>"></a></div>
+         <% end %>
+
+        </div>
+      </h1>
+      <% if flash[:notice5] then %>
+        <div class="flash_error_msg">
+          <%= flash[:notice5] %>
+        </div>
+      <% end %>
+      <fieldset>
+        <form action="/users/<%= @user.id %>" class="edit_user" id="edit_user_<%= @user.id %>" method="post" onsubmit="javascript:return validate();" enctype="multipart/form-data">
+          <div><input name="_method" type="hidden" value="put" /></div>
+          <div id="registr_form">
+            <input name="authenticity_token" type="hidden" value="73001f8e8e62be38ac7fd4a9efb899d8282acccb" />
+          </div>
+          <label for="FirstName">first name</label>
+          <input type="text" name="user[firstname]" value="<%= @user.firstname %>" size="40"  maxlength="45" id="first_name" onblur="validation('first_name','error_first_name')"/>
+          <div id="error_first_name" class="error_msg" >
+            please enter first name
+          </div>
+          <label for="LastName">last name</label>
+          <input type="text" name="user[lastname]" value="<%= @user.lastname %>" size="40"  maxlength="45" id="last_name"/>
+
+          <label for="EmailId">email (this will also be your user id)</label>
+          <label id="portfolio_users_edit_emailid"><%= @user.email %></label>
+          <input id="portfolio_users_edit_emailid_input" type="text" name="user[email]" value="<%= @user.email %>" size="40"  maxlength="45" id="email" disabled="true" />
+          <div id="error_email" class="error_msg">
+            please provide your email
+          </div>
+          <div class="clear"></div>
+          <h4>Change password</h4>
+          <% if flash[:notice1] %>
+            <div class="notice"><%= flash[:notice1] %><span>x</span></div>
+          <% end %>
+          <% if flash[:notice2] %>
+            <div class="notice"><%= flash[:notice2] %><span>x</span></div>
+          <% end %>
+          <% if flash[:notice3] %>
+            <div class="notice"><%= flash[:notice3] %><span>x</span></div>
+          <% end %>
+          <% if flash[:notice4] %>
+            <div class="flash_success_msg"><%= flash[:notice4] %><span>x</span></div>
+          <% end %>
+          <label for="Password">current password</label>
+          <input type="password" name="user[password]" id="current_password" size="40"  maxlength="45" onblur="CheckFormValues('current_password','error_current_password')"/>
+
+          <label for="Password">new password</label>
+          <input type="password" name="new_password" id="password" size="40"  maxlength="45" onblur="CheckFormValues('password','error_password')"/>
+          <div class="clear"></div>
+          <div id="register_bottom_text">
+            <label  id="save_btn">
+              <button type="submit"></button>
+            </label>
+          </div>
+        </form>
+      </fieldset>
+
+
+      <a href="/portfolios/delete_account/<%= @user.id %>" id="portfolio_delete_account">delete account</a>
+
+    </div><!--main inner end-->
+  </div><!--main end-->
+  <div id="sidebar"><!--sider-->
+    <div id="portfolio_sider">
+      <h4>delete account</h4>
+
+    </div>
+  </div><!--sider end-->
+</div><!--warp end-->

@@ -1,0 +1,95 @@
+<html>
+  <head>
+    <title>DezineConnect: Connecting Designers</title>
+    <style type="text/css">
+      pal
+      { color:#000;
+        line-height: 150%;
+      }
+    </style>
+  </head>
+  <body style="font-family: Century Gothic, Lucida Grande, Lucida Sans Unicode,helvetica, sans-serif; font-size: 12px; margin: 0px 0px 20px 0px; padding: 0;">
+    <div style="margin: 0 auto; border: 10px #787878 solid; padding: 0 10px 10px 10px; background: #ffffff; width: 95%; position: relative;">
+      <table width="100%" style="background: #ffffff;">
+
+        <tr>
+         
+          <td align="right" valign="top">
+            <div id="mail_logo"><img alt="DezineConnect" src="http://www.dezineconnect.com/images/logo.png"/></div>
+          </td>
+        </tr>
+
+      </table>
+      <div id="pal" style=" margin: 7px 0px 0px 0px;">
+        <font size=3>Dear <%= @job_application.job.Name %>, </font></div>
+	<div id="pal"style="margin: 20px 0px 0px 0px;">
+        <%= @job_application.Name %> has responded to your job posting! He has sent you a message along with his resume and portfolio. </div>
+
+      <div id="pal"style="margin: 20px 0px 0px 0px;">
+        Job Title: <%= @job_application.job.job_title %></div>
+
+      <div id="pal" style="margin: 10px 0px 0px 0px;">
+        Company: <%= @job_application.job.company_name %><br/></div>
+      <div id="pal" style="margin: 40px 0px 0px 0px;">
+        Name: <%= @job_application.Name %><br/></div>
+      <div id="pal" style="margin: 10px 0px 0px 0px;">
+        Email: <%= @job_application.email %><br/></div>
+
+      <div id="pal" style="margin: 10px 0px 0px 0px;">
+        Specialization: <%= @job_application.specialization %><br/></div>
+      <% unless @job_application.cover_letter.nil? or @job_application.cover_letter.blank? then %>
+        <div id="pal" style="margin: 30px 0px 0px 0px;">
+          <%= @job_application.cover_letter %>
+          <br/>
+        </div>
+      <% end %>
+      <% unless @job_application.resume_file_name.nil? or @job_application.resume_file_name.blank? then %>
+        <div id="pal" style="margin: 35px 0px 0px 0px;">
+
+          Resume: (<%=  @job_application.resume_file_name %>) attached herewith<br/></div>
+      <% end %>
+
+      <% unless @job_application.resume_link.nil? or @job_application.resume_link.blank? then %>
+        <div id="pal" style="margin: 35px 0px 0px 0px;">
+          Resume: <%=  @job_application.resume_link %><br/></div>
+      <% end %>
+
+      <% unless @job_application.portfolio_file_name.nil? or @job_application.portfolio_file_name.blank? then %>
+        <div id="pal" style="margin: 15px 0px 0px 0px;">
+          Portfolio: (<%=  @job_application.portfolio_file_name %>) attached herewith<br/></div>
+
+      <% end %>
+
+      <% unless @job_application.portfolio_link.nil? or @job_application.portfolio_link.blank? then %>
+        <div id="pal" style="margin: 15px 0px 0px 0px;">
+          Portfolio: <%=  @job_application.portfolio_link %> <br/></div>
+      <% end %>
+      <div id="pal" style="margin: 15px 0px 0px 0px;">
+        Hope <%= @job_application.Name %>'s profile suits your requirement! Your job posting will continue to appear on dezineconnect for the next 20 days.
+      <div id="pal" style="margin: 0px 0px 0px 0px;">
+	 You will continue to receive job applications during this period you have closed the position,<br/></div>
+
+	<div id="pal" style="margin: 0px 0px 0px 0px;">
+	you can take off the posting any time by sending us a mail at listirt@dezineconnect.com<br/></div>
+      <div id="pal" style="margin: 30px 0px 0px 0px;">
+        Thanks,<br/></div>
+      <div id="pal" style="margin: 0px 0px 0px 0px;">
+        dezineconnect team<br/></div>
+      <div id="pal" style="margin: 15px 0px 0px 0px;">
+
+        Get your company featured on dezineconnect at <a href="http://www.dezineconnect.com/directory"> http://www.dezineconnect.com/directory </a></div><br/>
+      <div id="pal" style="margin: 0px 0px 0px 0px;">Follow us on</div>
+      <div id="pal" style="margin: 0px 0px 0px 0px;">
+        <a href="http://www.facebook.com/dezineconnect" target="">
+          <img style="border: 0;" alt="facebook" src="http://www.dezineconnect.com/images/facebook_forfooter_active.gif"/></a>
+        <a href="http://twitter.com/dezineconnect">
+          <img style="border: 0;" alt="twitter" src="http://www.dezineconnect.com/images/twitter_forfooter_active.gif"/></a>
+
+        <a href="http://www.linkedin.com/groups?gid=2937305&trk=anetsrch_name&goback=.gdr_1271074305272_1">
+          <img style="border: 0;"alt="linkedin" src="http://www.dezineconnect.com/images/linkedin_forfooter_active.gif"/></a>
+        <a href="http://feeds.feedburner.com/Dezineconnect">
+          <img style="border: 0;"alt="rss" src="http://www.dezineconnect.com/images/rss_forfooter_active.gif"/></a>
+      </div>
+    </div>
+  </body>
+</html>

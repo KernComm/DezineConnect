@@ -1,0 +1,635 @@
+<%= stylesheet_link_tag 'portfolio_account_settings' %>
+<%= javascript_include_tag 'countries2' %>
+
+<script type="text/javascript">
+  //Trim function
+  if(typeof String.prototype.trim !== 'function') {
+    String.prototype.trim = function() {
+      return this.replace(/^\s+|\s+$/g, '');
+    }
+  }
+  
+function start() {
+  document.getElementById('portfolio_education_02').value="";
+  document.getElementById('portfolio_education_03').value="";
+  document.getElementById('portfolio_awards_won_2').value="";
+  document.getElementById('portfolio_awards_won_3').value="";
+  document.getElementById('portfolio_awards_won_4').value="";
+  document.getElementById('portfolio_awards_won_5').value="";
+if(document.getElementById('specialization').value=="Other") {
+  document.getElementById('secondary_specilizations_text').style.display="block";
+  }
+}
+
+function validate(){
+
+  var secondary_specilizations=document.getElementById('secondary_specilizations_text');
+  var error_secondary_specilizations=document.getElementById('error_secondary_specilizations_text');
+  var specialization=document.getElementById('specialization');
+  var error_specialization=document.getElementById('error_specialization');
+  var city=document.getElementById('city');
+  var error_city=document.getElementById('error_city');
+  var country=document.getElementById('country');
+  var error_country=document.getElementById('error_country');
+  
+  if((secondary_specilizations.style.display=='block')&&(secondary_specilizations.value.trim()=="")){
+      secondary_specilizations.setAttribute('style', 'border:1px red solid; background:#ffefef;');
+      error_secondary_specilizations.setAttribute('style','display:block;');
+  return false;
+    }
+    if((specialization.value=="")||(city.value=="")||(country.value=="")){
+      if(city.value.trim()==''){
+         city.setAttribute('style', 'border:1px red solid; background:#ffefef;');
+         error_city.setAttribute('style', 'display:block;');
+         }
+         if(country.value.trim()==""){
+         country.setAttribute('style', 'border:1px red solid; background:#ffefef;');
+         error_country.setAttribute('style', 'display:block;');
+         }
+         if(specialization.value.trim()==""){
+         specialization.setAttribute('style', 'border:1px red solid; background:#ffefef;');
+         error_specialization.setAttribute('style', 'display:block;');
+         return false;
+         }
+       return false;
+    }
+    else {
+         return true;
+    }
+}
+
+function validation(ctl,ct2) {
+  var ctl_element=document.getElementById(ctl);
+  var ct2_element=document.getElementById(ct2);
+    if((ctl_element.value.trim()=="")||(ct2_element.value=="0")) {
+      ctl_element.setAttribute('style', 'border:1px red solid; background:#ffefef;');
+      ct2_element.setAttribute('style', 'display:block;');
+      return false;
+       }
+    else {
+      ctl_element.setAttribute('style', 'border:1px #ccc solid; background:#fff;');
+      ct2_element.setAttribute('style', 'display:none;');
+       return true;
+      }
+}
+
+   function AddEducationTextfield() {
+    var ct2=document.getElementById('portfolio_education_02');
+    var ct3=document.getElementById('portfolio_education_03');
+
+      if((ct2.style.display=="none")&&(ct3.style.display=="none")){
+        ct2.style.display="block";
+      }
+      else {
+        ct3.style.display="block";
+        document.getElementById('portfolio_education_div_active').style.display="none";
+        document.getElementById('portfolio_education_div_inactive').style.display="block";
+      }
+  }
+     
+     function AddAwardsWonTextfield()
+      {
+        var ct2=document.getElementById('portfolio_awards_won_2');
+        var ct3=document.getElementById('portfolio_awards_won_3');
+        var ct4=document.getElementById('portfolio_awards_won_4');
+        var ct5=document.getElementById('portfolio_awards_won_5');
+
+        if((ct2.style.display=="none")&& (ct3.style.display=="none")&& (ct4.style.display=="none")&&(ct5.style.display=="none")){
+            ct2.style.display="block";
+            ct2.value="";
+            return false
+          }
+           if((ct2.style.display=="block")&&(ct3.style.display=="none")&&(ct4.style.display=="none")&&(ct5.style.display=="none")){
+           ct3.style.display="block";
+           ct3.value="";
+           return false
+          }
+          if((ct2.style.display=="block")&&(ct3.style.display=="block")&&(ct4.style.display=="none")&&(ct5.style.display=="none")){
+            ct4.style.display="block";
+            ct4.value="";
+            return false
+          }
+          if((ct2.style.display=="block")&&(ct3.style.display=="block")&&(ct4.style.display=="block")&&(ct5.style.display=="none")){
+            ct5.style.display="block";
+            ct5.value="";
+          document.getElementById('portfolio_awards_won_active').style.display="none";
+          document.getElementById('portfolio_awards_won_inactive').style.display="block";
+            return false
+          }
+
+        else {
+          ct2.style.display="none";
+          ct3.style.display="none";
+          ct4.style.display="none";
+          ct5.style.display="none";
+        }
+      }
+        
+</script>
+<script type="text/javascript">
+//specilization select box in other option
+function OnChange() {
+     if(document.getElementById('specialization').value=="Other"){
+      document.getElementById('secondary_specilizations_text').style.display="block";
+    }
+    else {
+      document.getElementById('secondary_specilizations_text').style.display="none";
+      document.getElementById('error_secondary_specilizations_text').style.display="none";
+    }
+}
+</script>
+<div id="wrap"><!-- 960 px wrapper -->
+  <div id="main"><!-- main div -->
+    <div id="main_inner"><!-- main div-->
+          <h1>profile information</h1>
+      <fieldset>
+        <form action="/portfolios/create" class="new_portfolio" id="new_portfolio" method="post" onsubmit="javascript:return validate();" enctype="multipart/form-data">
+        <div id="registr_form">
+            <input name="authenticity_token" type="hidden" value="73001f8e8e62be38ac7fd4a9efb899d8282acccb"/>
+        </div>
+          <label for="FirstName">specialization<span class="portfolio_mandatory_fields">*</span></label>
+
+          <br/>
+          <select name="portfolio[specialization]" onblur="validation('specialization','error_specialization')" id="specialization" onchange="OnChange();">
+          <option selected="" value="">Select</option>
+            <script type="text/javascript">
+              var b=new Array("|Industrial Design","Product Designer", "Furniture Designer","Automobile Designer","Automobile Stylist","Ceramic Designer","Model Maker","Toy / Game Designer","|Fashion & Lifestyle","Apparel Designer","Fashion Designer","Fashion Photographer","Textile Designer","Hairstylist","Make-up Artist","Crafts Designer","Accessory Designer","Fashion Model","|Visual Communication","Graphic Designer","Animation Designer","Typography Designer","Photographer","Film Designer","Film Publicity Designer","Advertising","Sound Designer","Theater Artist","Illustrator","Brand Designer","Cartoonist","|Space Design","Interior Designer","Architect","Landscape Designer","Set Designer","Draftsman","Lighting Designer","Retail Designer","|Digital Media","Web Designer","User Interface Designer","Usability Expert","Information Architect","Interaction Designer","Game Designer","Motion Graphics Expert","|Visual Merchandising","Packaging Designer","Exhibition Designer","Retail Merchandising Designer","|Education & Research","Design Educator","Design Researcher");
+              var d=0;
+              for(i=0;i<=b.length;i=i+1){
+                if(b[i][0]!="|"){
+                  document.write("<option value='"+d+"_"+b[i]+"'>"+b[i]+"</option>");
+                }else{
+                  var d=b[i].replace('|','');
+                  document.write("<optgroup label='"+d+"'></optgroup>");
+                }
+              }
+            </script>
+          </select>
+          <div id="error_specialization" class="error_msg" >
+            please select a specialization
+          </div>
+          <input type="text"  size="40"  maxlength="45" id="secondary_specilizations_text" name="secondary_specilizations_text" onblur="validation('secondary_specilizations_text','error_secondary_specilizations_text')"/>
+          <div id="error_secondary_specilizations_text" class="error_msg" >
+            please specify 'other' specialization
+          </div>
+          <label for="LastName" id="secondaty_specializations_lable">secondary specializations<span class="portfolio_ex_message">(product designer, fashion designer, illustrator)</span></label>
+          <input type="text"  name="portfolio[secondary_specializations_1]" size="80"  maxlength="85" id="secondaty_specializations_textfield"/>
+          <label>experience</label><br/>
+          <div id="portfolio_years">years</div>
+          <div id="portfolio_months">months</div>
+          <select id="portfolio_experience_years" name="portfolio[experience_years]">
+            <script type="text/javascript">
+            for (i=0;i<=24;i++){
+              document.write("<option value="+i+">"+i+"</option>");
+              document.write("<br />");
+              }
+            </script>
+            <option value="25+">25+</option>
+          </select>
+          <div id="portfolio_months_selectbox">
+          <select id="portfolio_experience_months" name="portfolio[experience_months]">
+            <script type="text/javascript">
+            for (i=0;i<=11;i++){
+              document.write("<option value="+i+">"+i+"</option>");
+              document.write("<br />");
+              }
+            </script>
+          </select>
+          </div>
+          <label for="Password">education</label>
+          <input type="education" id="portfolio_education_01" name="portfolio[education]" size="40"  maxlength="45"/>
+           <div id="portfolio_education_div_active">
+            <span>
+              <a href="#" onclick="AddEducationTextfield();">
+              <img src="../images/add_icon.png"/>
+              <dl>(add upto 3)</dl>
+              </a>
+            </span>
+          </div>
+          <div id="portfolio_education_div_inactive">
+            <span>
+              <img src="../images/add_icon.png"/>
+              <dl>(add upto 3)</dl>
+            </span>
+          </div>
+          <input type="education" id="portfolio_education_02" name="portfolio[education_1]" size="40"  maxlength="45" style="display: none;"/>
+          <input type="education" id="portfolio_education_03" name="portfolio[education_2]" size="40"  maxlength="45" style="display: none;"/>
+
+          <label for="Password">awards won</label>
+          <div class="clear"></div>
+          <input type="education" id="portfolio_awards_won_1" name="portfolio[awards_won_1]" size="40"  maxlength="45"/>
+          <div id="portfolio_awards_won_active">
+            <span>
+              <a href="#" onclick="AddAwardsWonTextfield();">
+              <img src="../images/add_icon.png"/>
+              <dl>(add upto 5 awards)</dl>
+              </a>
+            </span>
+          </div>
+          <div id="portfolio_awards_won_inactive">
+            <span>
+              <img src="../images/add_icon.png"/>
+              <dl>(add upto 5 awards)</dl>
+            </span>
+          </div>
+          <input type="education" id="portfolio_awards_won_2" name="portfolio[awards_won_2]" size="40"  maxlength="45" style="display: none;"/>
+          <input type="education" id="portfolio_awards_won_3" name="portfolio[awards_won_3]" size="40"  maxlength="45" style="display: none;"/>
+          <input type="education" id="portfolio_awards_won_4" name="portfolio[awards_won_4]" size="40"  maxlength="45" style="display: none;"/>
+          <input type="education" id="portfolio_awards_won_5" name="portfolio[awards_won_5]" size="40"  maxlength="45" style="display: none;"/>
+
+          <div class="clear"></div>
+          <label>looking for</label>
+          <br/>
+
+            <div id="accountsetting_checkboxs">
+              <div>
+                <input type="checkbox" id="portfolio_availability_1" name="portfolio[availability_1]" value="Permanent"/>
+                <span>permanent employment</span>
+              </div>
+              <div id="lookingfor_parttime_employment">
+                <input type="checkbox" id="portfolio_availability_2" name="portfolio[availability_2]" value="Part time"/>
+                <span>part time employment</span>
+              </div>
+              <div id="lookingfor_freelance">
+                  <input type="checkbox" id="portfolio_availability_3" name="portfolio[availability_3]" value="Freelance"/>
+                  <span>freelance</span>
+              </div>
+              <br/>
+             
+              <div>
+                <div>
+                  <input type="checkbox" id="portfolio_availability_4" name="portfolio[availability_4]" value="Diploma project"/>
+                  <span>diploma project</span>
+                </div>
+                <div id="lookingfor_Internship">
+                  <input type="checkbox" id="portfolio_availability_5" name="portfolio[availability_5]" value="Internship"/>
+                  <span>internship</span>
+                </div>
+              </div>
+            </div>
+
+          <br/>
+         <div class="break_border"></div>
+
+         <div id="accountsetting_contactinfo">
+            <h4>contact information</h4>
+            <label for="FirstName" >address</label>
+            <div id="acsetting_contactinfo_textarea" >
+            <textarea cols="20" rows="4" id="address" name="portfolio[address]"></textarea>
+            <div id="error_address" class="error_msg" >
+            please provide your address
+            </div>
+            </div>
+            
+            <br/>
+            <label for="FirstName">city<span class="portfolio_mandatory_fields">*</span></label>
+            <input type="text" id="city" name="portfolio[city]" size="40"  maxlength="45" onblur="validation('city','error_city')"/>
+            <div id="error_city" class="error_msg">
+            please provide your city
+            </div>
+            <!--country and state dropdown-->
+            <!--contry & state list-->
+            <br/>
+            <label for="FirstName">country<span class="portfolio_mandatory_fields">*</span></label>
+            <br/>
+            <select id="country" name="portfolio[country]" onblur="validation('country','error_country')" style="width: 265px;">
+                  <option value="India" selected="India">India</option>
+                  <option value="United States">United States</option>
+                  <option value="United Kingdom">United Kingdom</option>
+                  <option value="Afghanistan">Afghanistan</option>
+                  <option value="Albania">Albania</option>
+                  <option value="Algeria">Algeria</option>
+                  <option value="American Samoa">American Samoa</option>
+                  <option value="Andorra">Andorra</option>
+                  <option value="Angola">Angola</option>
+                  <option value="Anguilla">Anguilla</option>
+                  <option value="Antarctica">Antarctica</option>
+                  <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                  <option value="Argentina">Argentina</option>
+                  <option value="Armenia">Armenia</option>
+                  <option value="Aruba">Aruba</option>
+                  <option value="Australia">Australia</option>
+                  <option value="Austria">Austria</option>
+                  <option value="Azerbaijan">Azerbaijan</option>
+                  <option value="Bahamas">Bahamas</option>
+                  <option value="Bahrain">Bahrain</option>
+                  <option value="Bangladesh">Bangladesh</option>
+                  <option value="Barbados">Barbados</option>
+                  <option value="Belarus">Belarus</option>
+                  <option value="Belgium">Belgium</option>
+                  <option value="Belize">Belize</option>
+                  <option value="Benin">Benin</option>
+                  <option value="Bermuda">Bermuda</option>
+                  <option value="Bhutan">Bhutan</option>
+                  <option value="Bolivia">Bolivia</option>
+                  <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                  <option value="Botswana">Botswana</option>
+                  <option value="Bouvet Island">Bouvet Island</option>
+                  <option value="Brazil">Brazil</option>
+                  <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                  <option value="Brunei Darussalam">Brunei Darussalam</option>
+                  <option value="Bulgaria">Bulgaria</option>
+                  <option value="Burkina Faso">Burkina Faso</option>
+                  <option value="Burundi">Burundi</option>
+                  <option value="Cambodia">Cambodia</option>
+                  <option value="Cameroon">Cameroon</option>
+                  <option value="Canada">Canada</option>
+                  <option value="Cape Verde">Cape Verde</option>
+                  <option value="Cayman Islands">Cayman Islands</option>
+                  <option value="Central African Republic">Central African Republic</option>
+                  <option value="Chad">Chad</option>
+                  <option value="Chile">Chile</option>
+                  <option value="China">China</option>
+                  <option value="Christmas Island">Christmas Island</option>
+                  <option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option>
+                  <option value="Colombia">Colombia</option>
+                  <option value="Comoros">Comoros</option>
+                  <option value="Congo">Congo</option>
+                  <option value="Cook Islands">Cook Islands</option>
+                  <option value="Costa Rica">Costa Rica</option>
+                  <option value="Cote D'ivoire">Cote D'ivoire</option>
+                  <option value="Croatia">Croatia</option>
+                  <option value="Cuba">Cuba</option>
+                  <option value="Cyprus">Cyprus</option>
+                  <option value="Czech Republic">Czech Republic</option>
+                  <option value="Denmark">Denmark</option>
+                  <option value="Djibouti">Djibouti</option>
+                  <option value="Dominica">Dominica</option>
+                  <option value="Dominican Republic">Dominican Republic</option>
+                  <option value="Ecuador">Ecuador</option>
+                  <option value="Egypt">Egypt</option>
+                  <option value="El Salvador">El Salvador</option>
+                  <option value="Equatorial Guinea">Equatorial Guinea</option>
+                  <option value="Eritrea">Eritrea</option>
+                  <option value="Estonia">Estonia</option>
+                  <option value="Ethiopia">Ethiopia</option>
+                  <option value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)</option>
+                  <option value="Faroe Islands">Faroe Islands</option>
+                  <option value="Fiji">Fiji</option>
+                  <option value="Finland">Finland</option>
+                  <option value="France">France</option>
+                  <option value="French Guiana">French Guiana</option>
+                  <option value="French Polynesia">French Polynesia</option>
+                  <option value="French Southern Territories">French Southern Territories</option>
+                  <option value="Gabon">Gabon</option>
+                  <option value="Gambia">Gambia</option>
+                  <option value="Georgia">Georgia</option>
+                  <option value="Germany">Germany</option>
+                  <option value="Ghana">Ghana</option>
+                  <option value="Gibraltar">Gibraltar</option>
+                  <option value="Greece">Greece</option>
+                  <option value="Greenland">Greenland</option>
+                  <option value="Grenada">Grenada</option>
+                  <option value="Guadeloupe">Guadeloupe</option>
+                  <option value="Guam">Guam</option>
+                  <option value="Guatemala">Guatemala</option>
+                  <option value="Guinea">Guinea</option>
+                  <option value="Guinea-bissau">Guinea-bissau</option>
+                  <option value="Guyana">Guyana</option>
+                  <option value="Haiti">Haiti</option>
+                  <option value="Heard Island and Mcdonald Islands">Heard Island and Mcdonald Islands</option>
+                  <option value="Holy See (Vatican City State)">Holy See (Vatican City State)</option>
+                  <option value="Honduras">Honduras</option>
+                  <option value="Hong Kong">Hong Kong</option>
+                  <option value="Hungary">Hungary</option>
+                  <option value="Iceland">Iceland</option>
+                  <option value="India">India</option>
+                  <option value="Indonesia">Indonesia</option>
+                  <option value="Iran, Islamic Republic of">Iran, Islamic Republic of</option>
+                  <option value="Iraq">Iraq</option>
+                  <option value="Ireland">Ireland</option>
+                  <option value="Israel">Israel</option>
+                  <option value="Italy">Italy</option>
+                  <option value="Jamaica">Jamaica</option>
+                  <option value="Japan">Japan</option>
+                  <option value="Jordan">Jordan</option>
+                  <option value="Kazakhstan">Kazakhstan</option>
+                  <option value="Kenya">Kenya</option>
+                  <option value="Kiribati">Kiribati</option>
+                  <option value="Korea, Democratic People's Republic of">Korea, Democratic People's Republic of</option>
+                  <option value="Korea, Republic of">Korea, Republic of</option>
+                  <option value="Kuwait">Kuwait</option>
+                  <option value="Kyrgyzstan">Kyrgyzstan</option>
+                  <option value="Lao People's Democratic Republic">Lao People's Democratic Republic</option>
+                  <option value="Latvia">Latvia</option>
+                  <option value="Lebanon">Lebanon</option>
+                  <option value="Lesotho">Lesotho</option>
+                  <option value="Liberia">Liberia</option>
+                  <option value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option>
+                  <option value="Liechtenstein">Liechtenstein</option>
+                  <option value="Lithuania">Lithuania</option>
+                  <option value="Luxembourg">Luxembourg</option>
+                  <option value="Macao">Macao</option>
+                  <option value="Madagascar">Madagascar</option>
+                  <option value="Malawi">Malawi</option>
+                  <option value="Malaysia">Malaysia</option>
+                  <option value="Maldives">Maldives</option>
+                  <option value="Mali">Mali</option>
+                  <option value="Malta">Malta</option>
+                  <option value="Marshall Islands">Marshall Islands</option>
+                  <option value="Martinique">Martinique</option>
+                  <option value="Mauritania">Mauritania</option>
+                  <option value="Mauritius">Mauritius</option>
+                  <option value="Mayotte">Mayotte</option>
+                  <option value="Mexico">Mexico</option>
+                  <option value="Micronesia, Federated States of">Micronesia, Federated States of</option>
+                  <option value="Moldova, Republic of">Moldova, Republic of</option>
+                  <option value="Monaco">Monaco</option>
+                  <option value="Mongolia">Mongolia</option>
+                  <option value="Montserrat">Montserrat</option>
+                  <option value="Morocco">Morocco</option>
+                  <option value="Mozambique">Mozambique</option>
+                  <option value="Myanmar">Myanmar</option>
+                  <option value="Namibia">Namibia</option>
+                  <option value="Nauru">Nauru</option>
+                  <option value="Nepal">Nepal</option>
+                  <option value="Netherlands">Netherlands</option>
+                  <option value="Netherlands Antilles">Netherlands Antilles</option>
+                  <option value="New Caledonia">New Caledonia</option>
+                  <option value="New Zealand">New Zealand</option>
+                  <option value="Nicaragua">Nicaragua</option>
+                  <option value="Niger">Niger</option>
+                  <option value="Nigeria">Nigeria</option>
+                  <option value="Niue">Niue</option>
+                  <option value="Norfolk Island">Norfolk Island</option>
+                  <option value="Northern Mariana Islands">Northern Mariana Islands</option>
+                  <option value="Norway">Norway</option>
+                  <option value="Oman">Oman</option>
+                  <option value="Pakistan">Pakistan</option>
+                  <option value="Palau">Palau</option>
+                  <option value="Palestinian Territory, Occupied">Palestinian Territory, Occupied</option>
+                  <option value="Panama">Panama</option>
+                  <option value="Papua New Guinea">Papua New Guinea</option>
+                  <option value="Paraguay">Paraguay</option>
+                  <option value="Peru">Peru</option>
+                  <option value="Philippines">Philippines</option>
+                  <option value="Pitcairn">Pitcairn</option>
+                  <option value="Poland">Poland</option>
+                  <option value="Portugal">Portugal</option>
+                  <option value="Puerto Rico">Puerto Rico</option>
+                  <option value="Qatar">Qatar</option>
+                  <option value="Reunion">Reunion</option>
+                  <option value="Romania">Romania</option>
+                  <option value="Russian Federation">Russian Federation</option>
+                  <option value="Rwanda">Rwanda</option>
+                  <option value="Saint Helena">Saint Helena</option>
+                  <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                  <option value="Saint Lucia">Saint Lucia</option>
+                  <option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
+                  <option value="Samoa">Samoa</option>
+                  <option value="San Marino">San Marino</option>
+                  <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+                  <option value="Saudi Arabia">Saudi Arabia</option>
+                  <option value="Senegal">Senegal</option>
+                  <option value="Serbia and Montenegro">Serbia and Montenegro</option>
+                  <option value="Seychelles">Seychelles</option>
+                  <option value="Sierra Leone">Sierra Leone</option>
+                  <option value="Singapore">Singapore</option>
+                  <option value="Slovakia">Slovakia</option>
+                  <option value="Slovenia">Slovenia</option>
+                  <option value="Solomon Islands">Solomon Islands</option>
+                  <option value="Somalia">Somalia</option>
+                  <option value="South Africa">South Africa</option>
+                  <option value="Spain">Spain</option>
+                  <option value="Sri Lanka">Sri Lanka</option>
+                  <option value="Sudan">Sudan</option>
+                  <option value="Suriname">Suriname</option>
+                  <option value="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option>
+                  <option value="Swaziland">Swaziland</option>
+                  <option value="Sweden">Sweden</option>
+                  <option value="Switzerland">Switzerland</option>
+                  <option value="Syrian Arab Republic">Syrian Arab Republic</option>
+                  <option value="Taiwan, Province of China">Taiwan, Province of China</option>
+                  <option value="Tajikistan">Tajikistan</option>
+                  <option value="Tanzania, United Republic of">Tanzania, United Republic of</option>
+                  <option value="Thailand">Thailand</option>
+                  <option value="Timor-leste">Timor-leste</option>
+                  <option value="Togo">Togo</option>
+                  <option value="Tokelau">Tokelau</option>
+                  <option value="Tonga">Tonga</option>
+                  <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                  <option value="Tunisia">Tunisia</option>
+                  <option value="Turkey">Turkey</option>
+                  <option value="Turkmenistan">Turkmenistan</option>
+                  <option value="Turks and Caicos Islands">Turks and Caicos Islands</option>
+                  <option value="Tuvalu">Tuvalu</option>
+                  <option value="Uganda">Uganda</option>
+                  <option value="Ukraine">Ukraine</option>
+                  <option value="United Arab Emirates">United Arab Emirates</option>
+                  <option value="United Kingdom">United Kingdom</option>
+                  <option value="United States">United States</option>
+                  <option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
+                  <option value="Uruguay">Uruguay</option>
+                  <option value="Uzbekistan">Uzbekistan</option>
+                  <option value="Vanuatu">Vanuatu</option>
+                  <option value="Venezuela">Venezuela</option>
+                  <option value="Viet Nam">Viet Nam</option>
+                  <option value="Virgin Islands, British">Virgin Islands, British</option>
+                  <option value="Virgin Islands, U.S.">Virgin Islands, U.S.</option>
+                  <option value="Wallis and Futuna">Wallis and Futuna</option>
+                  <option value="Western Sahara">Western Sahara</option>
+                  <option value="Yemen">Yemen</option>
+                  <option value="Zambia">Zambia</option>
+                  <option value="Zimbabwe">Zimbabwe</option>
+                  </select>
+            <div id="error_country" class="error_msg" >
+            please provide your country
+            </div>
+            <!--contry & state list end-->
+         </div>
+       
+          
+         <div id="accountsetting_socialinfo">
+            <h4>social information</h4>
+            
+            <label for="FirstName">website <span>(www.yoursite.com)</span></label>
+              <input type="text" id="portfolio_website" name="portfolio[website]" size="34"  maxlength="45"/><br/>
+
+              <label for="FirstName">linkedin <span>(www.linkedin.com/username)</span></label>
+              <input type="text" id="portfolio_linkedin" name="portfolio[linkedin]" size="34"  maxlength="45"/><br/>
+              
+              <label for="FirstName">facebook <span>(www.facebook.com/username)</span></label>
+              <input type="text" id="portfolio_facebook" name="portfolio[facebook]" size="34"  maxlength="45"/><br/>
+
+              <label for="FirstName">twitter <span>(www.twitter.com/username)</span></label>
+              <input type="text" id="portfolio_twitter" name="portfolio[twitter]" size="34"  maxlength="45"/><br/>
+            
+          </div>
+         <!--<div class="break_border"></div>-->
+
+         <div id="portfolio_paid_features"><!--portfolio_paid_features start-->
+
+          <div id="portfolio_uniqueurl">
+          <h4>custom URL for your portfolio</h4>
+          <div>http://www.dezineconnect.com/</div>
+          <input type="text" id="portfolio_custom_url" name="portfolio[custom_url]" size="34"  maxlength="45"/>
+          </div>
+
+          <div class="break_border"></div>
+
+          <div id="accontsetting_radiobtns">
+            <h4>privacy settings</h4>
+            <div>
+              <input type="radio" id="portfolio_privacy_settings" name="portfolio[privacy_settings]" checked value="1"/>
+              make my portfolio publicly accessible
+            </div>
+            <div>
+              <input type="radio" id="portfolio_privacy_settings" name="portfolio[privacy_settings]" checked value="2"/>
+              keep my portfolio accessible only via my personal URL
+            </div>
+            <div>
+              <input type="radio" id="portfolio_privacy_settings" name="portfolio[privacy_settings]" checked value="1"/>
+              hide my portfolio from everyone but me
+            </div>
+          </div>
+        <div class="break_border"></div>
+          <div id="account_settings_theme">
+            <h4>themes</h4>
+            <div id="account_settings_theme1">
+              <input type="radio" id="portfolio_themes" name="portfolio[themes]" checked value="theams1"/>
+            </div>
+
+            <div id="account_settings_theme2">
+              <input type="radio" id="portfolio_themes" name="portfolio[themes]" value="theams2"/>
+            </div>
+
+            <div id="account_settings_theme3">
+              <input type="radio" id="portfolio_themes" name="portfolio[themes]" value="theams3"/>
+            </div>
+          </div>
+
+         </div><!--portfolio_paid_features end-->
+
+          <div id="register_bottom_text">
+            <label id="portfolio_next_btn">
+              <button type="submit"></button>
+            </label>
+          </div>
+
+        </form>
+      </fieldset>
+
+    </div><!-- main inner ends -->
+  </div> <!-- main ends -->
+
+ <div id="sidebar"><!-- portfolio sider start -->
+ <div id="portfolio_sider">
+  <div class="portfolio_regsteps_selected_after">
+    <div class="portfolio_reg_steps_in">
+      step 1: register
+    </div>
+  </div>
+  <div class="portfolio_reg_steps_select">
+    <div class="portfolio_reg_steps_in_select">
+      step 2: profile information
+    </div>
+  </div>
+  <div class="portfolio_reg_steps">
+    <div class="portfolio_reg_steps_in">
+      step 3: portfolio
+    </div>
+  </div>
+  </div>
+</div><!-- portfolio sider end -->
+
+</div><!-- 960 px wrapper ends -->

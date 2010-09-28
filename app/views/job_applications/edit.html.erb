@@ -1,0 +1,36 @@
+<h1>Editing job_application</h1>
+
+<% form_for(@job_application) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :Name %><br />
+    <%= f.text_area :Name %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_area :email %>
+  </p>
+  <p>
+    <%= f.label :specialization %><br />
+    <%= f.text_area :specialization %>
+  </p>
+  <p>
+    <%= f.label :cover_letter %><br />
+    <%= f.text_area :cover_letter %>
+  </p>
+  <p>
+    <%= f.label :resume_link %><br />
+    <%= f.text_area :resume_link %>
+  </p>
+  <p>
+    <%= f.label :portfolio_link %><br />
+    <%= f.text_area :portfolio_link %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @job_application %> |
+<%= link_to 'Back', job_applications_path %>

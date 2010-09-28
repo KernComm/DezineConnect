@@ -1,0 +1,176 @@
+ <%= stylesheet_link_tag "dlog" %>
+ <%= javascript_include_tag "jquery" %>
+ <%= javascript_include_tag "dlog" %>
+<%= stylesheet_link_tag "dlog_home"  %>
+
+<div id="wrap"><!--wrap start-->
+  <div id="main"><!--main start-->
+    <div id="main_inner"><!--main_inner start-->
+
+      <h1>d'log</h1>
+
+      <div id="dlog_interviews_home"><!--dlog interviews home div start-->
+
+        <%   arr_blogs = Array.new
+        arr_blogs << @blogs
+        # initial count set to 0
+        count = 0
+        count_initial = 0
+        count_final = 0
+
+        # Calculate Blog Count
+        blogs_count = ( @blogs.length - 1 ) / 9
+        logger.info "blogs_rem : #{blogs_count}"
+
+        big_layout_blogs = Blog.find(:all, :limit => blogs_count, :order => 'page_views DESC')
+
+        logger.info "big_layout_blogs : #{big_layout_blogs.inspect}"
+        for i in arr_blogs do
+          if count == 0 then
+          %>
+            <% logger.info "arr_blogs[count] : #{arr_blogs[count].inspect}" %>
+            <% for blog in arr_blogs[count]  do
+                if count_initial == 0 || big_layout_blogs.include?(blog) then
+                %>
+
+              <% if blog.name == 'Suresh Eriyat' then %>
+                <a class="bloghyperlink" href="/dlog/suresh_eriyat">
+              <% end %>
+              <% if blog.name == 'Satya Rajpurohit' then %>
+                <a class="bloghyperlink" href="/dlog/satya_rajpurohit">
+              <% end %>
+              <% if blog.name == 'Rajesh Dahiya' then %>
+                <a class="bloghyperlink" href="/dlog/rajesh_dahiya">
+              <% end %>
+              <% if blog.name == 'Satyajeet Kumar' then %>
+                <a class="bloghyperlink" href="/dlog/satyajeet_kumar">
+              <% end %>
+              <% if blog.name == 'Sandip Paul' then %>
+                <a class="bloghyperlink" href="/dlog/Sandip_Paul">
+              <% end %>
+              <% if blog.name == 'Rahul Mishra' then %>
+                <a class="bloghyperlink" href="/dlog/rahul_mishra">
+              <% end %>
+              <% if blog.name == 'Neha Ramaiya' then %>
+                <a class="bloghyperlink" href="/dlog/neha_ramaiya">
+              <% end %>
+              <% if blog.name == 'Neil Dantas' then %>
+                <a class="bloghyperlink" href="/dlog/neil_dantas">
+              <% end %>
+              <% if blog.name == 'designdaku' then %>
+                <a class="bloghyperlink" href="/dlog/designdaku">
+              <% end %>
+	       <% if blog.name == 'anusha_yadav' then %>
+                <a class="bloghyperlink" href="/dlog/anusha_yadav">
+              <% end %>
+                  
+                    <div class="boxgrid_big caption_big">
+                      <%= image_tag  blog.author_photo.url(:large) %>
+                      <div class="cover_big boxcaption_big">
+                        <div class="captionLeftSection"><%= blog.name %></div>
+                        <div class="captionRightSection"></div>
+                      </div>
+                    </div>
+                  </a>
+              
+
+                <% else %>
+                  <% logger.info "blogs_rem : #{blogs_count}"%>
+
+              <% if blog.name == 'Suresh Eriyat' then %>
+                <a class="bloghyperlink" href="/dlog/suresh_eriyat">
+              <% end %>
+              <% if blog.name == 'Satya Rajpurohit' then %>
+                <a class="bloghyperlink" href="/dlog/satya_rajpurohit">
+              <% end %>
+              <% if blog.name == 'Rajesh Dahiya' then %>
+                <a class="bloghyperlink" href="/dlog/rajesh_dahiya">
+              <% end %>
+              <% if blog.name == 'Satyajeet Kumar' then %>
+                <a class="bloghyperlink" href="/dlog/satyajeet_kumar">
+              <% end %>
+              <% if blog.name == 'Sandip Paul' then %>
+                <a class="bloghyperlink" href="/dlog/Sandip_Paul">
+              <% end %>
+              <% if blog.name == 'Rahul Mishra' then %>
+                <a class="bloghyperlink" href="/dlog/rahul_mishra">
+              <% end %>
+              <% if blog.name == 'Neha Ramaiya' then %>
+                <a class="bloghyperlink" href="/dlog/neha_ramaiya">
+              <% end %>
+              <% if blog.name == 'Neil Dantas' then %>
+                <a class="bloghyperlink" href="/dlog/neil_dantas">
+              <% end %>
+              <% if blog.name == 'designdaku' then %>
+              <a class="bloghyperlink" href="/dlog/designdaku">
+              <%end%>
+                  
+                    <div class="boxgrid caption">
+                      <%= image_tag  blog.author_photo.url(:small) %>
+                      <div class="cover boxcaption">
+                        <div class="captionLeftSection"><%= blog.name %></div>
+                        <div class="captionRightSection"></div>
+                      </div>
+                    </div>
+                  </a>
+
+                <% end %>
+              <% count_initial = count_initial+1 %>
+              <% end %>
+              <%  %>
+            <%
+            end
+            count = count+1
+          end
+        %>
+        </div><!--dlog interviews home div start-->
+      </div><!--main_inner end-->
+    </div><!--main end-->
+
+  <!-- sidebar starts-->
+  <div id="sidebar">
+    <div class="sidebar_chunk">
+        <style>
+
+    #create_portfolio_btn{
+      height: 31px;
+      width: 151px;
+      background: url('../images/create_portfolio1.png') no-repeat;
+      position: relative;
+      top: 15px;
+      right: -40px;
+
+
+  }
+  #create_portfolio_btn:hover {
+      height: 31px;
+      width: 151px;
+      background: url('../images/create_portfolios_hover1.png') no-repeat;
+      cursor: pointer;
+  }
+        </style>
+        <h3>get your own portfolio</h3>
+        <div>
+          DezineConnect now offers FREE online portfolios to designer
+          <br/>
+          <form method="post" action="/users/new">
+            <button id="create_portfolio_btn" align="center"></button>
+          </form>
+        </div>
+      </div><br/><br/>
+   <div class="sidebar_chunk">
+          <h3>suggest a designer</h3>
+          <div>
+          Do you know a designer who deserves to be featured on DezineConnect?
+          </div>
+         <div id="letus_know_btn">
+           <a href="mailto:feedback@dezineconnect.com?subject=suggest a designer"></a>
+          </div>
+   </div><!-- sidebar chunk ends -->
+   <div class="sidebar_chunk">
+    <%= render :partial => "facebook_fans" %>
+     </div>
+  </div><!-- sidebar ends -->
+
+  </div><!--wrap end-->
+

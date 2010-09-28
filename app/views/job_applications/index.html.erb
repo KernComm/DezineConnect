@@ -1,0 +1,30 @@
+<h1>Listing job_applications</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Specialization</th>
+    <th>Cover letter</th>
+    <th>Resume link</th>
+    <th>Portfolio link</th>
+  </tr>
+
+<% for job_application in @job_applications %>
+  <tr>
+    <td><%=h job_application.Name %></td>
+    <td><%=h job_application.email %></td>
+    <td><%=h job_application.specialization %></td>
+    <td><%=h job_application.cover_letter %></td>
+    <td><%=h job_application.resume_link %></td>
+    <td><%=h job_application.portfolio_link %></td>
+    <td><%= link_to 'Show', job_application %></td>
+    <td><%= link_to 'Edit', edit_job_application_path(job_application) %></td>
+    <td><%= link_to 'Destroy', job_application, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New job_application', new_job_application_path %>

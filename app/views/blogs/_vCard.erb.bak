@@ -1,0 +1,205 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+<%= stylesheet_link_tag "vCard" %>
+   <!-- sidebar chunk -->
+
+  <% if @blog.name == "Neil Dantas" then %>
+  
+    <div id="dlog_vcard">
+       <h3>Contact Neil Dantas</h3>
+ 
+       <div id="dlog_vcard_contact">
+
+           <div class="dlog_vcard_contact_box">
+             <%#*<img src="/images/for_vCard/1270646199_email.png"/>%>
+             <img src="/images/for_vCard/email.png"/>
+
+             <span>mail</span>
+             <a href="mailto:neildantas@gmail.com" target="_blank">neildantas@gmail.com</a>
+           </div>
+
+           <div class="dlog_vcard_contact_box">
+             <img src="/images/for_vCard/Phone.png"/>
+             <span>phone</span>
+             <p>+91 9833426888</p>
+           </div>
+
+           <div class="dlog_vcard_contact_box">
+             <img src="/images/for_vCard/website.png"/>
+             <span>website</span>
+             <a href="http://www.neildantas.com" target="_blank">www.neildantas.com</a>
+           </div>
+
+           <div class="dlog_vcard_contact_box">
+             <img src="/images/for_vCard/facebook_32.png"/>
+             <span>facebook</span>
+             <a href="http://www.facebook.com/neildantas" target="_blank">facebook.com/neildantas</a>
+           </div>
+         
+       </div>
+
+   </div>
+  <!-- sidebar chunk ends -->
+  <% elsif @blog.name == "Anusha Yadav" then %>
+  
+<div id="dlog_vcard">
+       <h3>Contact Anusha Yadav</h3>
+    <div id="dlog_vcard_contact">
+      <div class="dlog_vcard_contact_box" style="width: 300px; margin-left: -5px;">
+        <img src="/images/for_vCard/email.png"/>
+        <span>mail</span>
+        <a href="mailto:anusha.yadav@gmail.com" target="_blank">anusha.yadav@gmail.com</a>
+      </div>
+
+      <div class="dlog_vcard_contact_box" style="width: 300px; margin-left: -5px;">
+        <img src="/images/for_vCard/website.png"/>
+        <span>website</span>
+        <a href="http://www.neildantas.com" target="_blank">www.anushayadav.com</a><br/>
+        <a  href="http://www.indianmemoryproject.wordpress.com" target="_blank" style="margin: 0px;">www.indianmemoryproject.wordpress.com</a>
+      </div>
+    </div>
+</div>
+  <% elsif @blog.name == "Neha Ramaiya" then %>
+
+  <!-- neha Vcard -->
+  <div id="dlog_vcard">
+
+     <h3>contact Neha Ramaiya</h3>
+     <div id="dlog_vcard_contact">
+
+       <div class="dlog_vcard_contact_box">
+          <img src="/images/for_vCard/email.png"/>
+         <span>mail</span>
+         <a href="mailto:neha.ramaiya@gmail.com" target="_blank">neha.ramaiya@gmail.com</a>
+       </div>
+
+       <div class="dlog_vcard_contact_box">
+         <img src="/images/for_vCard/Phone.png"/>
+         <span>phone</span>
+         <p>+91 9833104000</p>
+       </div>
+
+       <div class="dlog_vcard_contact_box">
+         <img src="/images/for_vCard/website.png"/>
+         <span>website</span>
+         <a href="http://www.yellowspiders.in" target="_blank">www.yellowspiders.in</a>
+       </div>
+
+       <div class="dlog_vcard_contact_box">
+         <img src="/images/for_vCard/facebook_32.png"/>
+         <span>facebook</span>
+         <a href="http://www.facebook.com/yellowspiders.in?ref=ts" target="_blank">facebook.com/yellowspiders</a>
+       </div>
+
+     </div>
+
+  </div>
+
+  <% else %>
+
+  <div id="dlog_vcard">
+
+     <h3>contact <%= @blog.name %></h3>
+     <div id="dlog_vcard_contact">
+
+         <% unless @blog.vcard_mail.empty? then %>
+           <div class="dlog_vcard_contact_box">
+             <img src="/images/for_vCard/email.png"/>
+             <span>mail</span>
+             <a href="mailto:<%= @blog.vcard_mail %>" target="_blank"><%= @blog.vcard_mail %></a>
+           </div>
+         <% end %>
+         <% unless @blog.vcard_phone.empty? then %>
+           <div class="dlog_vcard_contact_box">
+             <img src="/images/for_vCard/Phone.png"/>
+             <span>phone</span>
+             <p><%= @blog.vcard_phone %></p>
+           </div>
+        <%  end %>
+        <% unless @blog.vcard_website.empty? then %>
+           <div class="dlog_vcard_contact_box">
+             <img src="/images/for_vCard/website.png"/>
+             <span>website</span>
+              <% if @blog.name== "Sandip Paul" then %>
+             <a href="<%= @blog.vcard_website %>" target="_blank"> www.differentialdesign.blogs</a>
+             <%elsif @blog.name=="Suresh Eriyat" then%>
+             <a href="http://<%= @blog.vcard_website %>" target="_blank">www.studioeeksaurus.com</a>
+             <%else%>
+             <a href="<%= @blog.vcard_website %>" target="_blank"><%= @blog.vcard_website %></a>
+             <%end%>
+           </div>
+         <%  end %>
+         <% unless @blog.vcard_facebook.empty? then %>
+           <div class="dlog_vcard_contact_box">
+             <img src="/images/for_vCard/facebook_32.png"/>
+             <span>facebook</span>
+
+             <% if @blog.name== "Sandip Paul" then %>
+             <a href="http://www.facebook.com/<%= @blog.vcard_facebook %>" target="_blank">facebook.com/paul-sadip</a>
+             <%  elsif @blog.name=="designdaku" then %>
+             <a href="http://www.facebook.com/pages/designdaku/116908578327447" target="_blank">designdaku...</a>
+             <%  else %>
+             <a href="http://www.facebook.com/<%= @blog.vcard_facebook %>" target="_blank">facebook.com/<%= @blog.vcard_facebook %></a>
+             <%  end %>
+
+           </div>
+         <%  end %>
+       <% unless @blog.vcard_flickr.empty? then %>
+           <div class="dlog_vcard_contact_box">
+             <img src="/images/for_vCard/flickr_32.png"/>
+             <span>flickr</span>
+             <a href="http://www.flickr.com/<%= @blog.vcard_flickr %>" target="_blank">flickr.com/<%= @blog.vcard_flickr %></a>
+           </div>
+         <%  end %>
+       <% unless @blog.vcard_linkedin.empty? then %>
+           <div class="dlog_vcard_contact_box">
+             <img src="/images/for_vCard/linkedin.png"/>
+             <span>linkedin</span>
+             <% if @blog.name== "Rajesh Dahiya" then %>
+             <a href="http://www.linkedin.com/<%= @blog.vcard_linkedin %>" target="_blank">linkedin.com</a>
+             <%elsif @blog.name== "Satyajeet Kumar" then %>
+             <a href="http://in.linkedin.com/pub/satyajeet-kumar/a/266/984" target="_blank">linkedin.com</a>
+             <%elsif @blog.name=="designdaku" then%>
+             <a href="http://www.linkedin.com/companies/228357" target="_blank">linkedin.com</a>
+             <%else%>
+             <a href="http://www.linkedin.com/<%= @blog.vcard_linkedin %>" target="_blank">linkedin.com/<%= @blog.vcard_linkedin %></a>
+             <%end%>
+             
+           </div>
+         <%  end %>
+       <% unless @blog.vcard_twitter.empty? then %>
+           <div class="dlog_vcard_contact_box">
+             <img src="/images/for_vCard/twitter_32.png"/>
+             <span>twitter</span>
+             <a href="http://www.twitter.com/<%= @blog.vcard_twitter %>" target="_blank">twitter.com/<%= @blog.vcard_twitter %></a>
+           </div>
+         <%  end %>
+       <% unless @blog.vcard_youtube.empty? then %>
+           <div class="dlog_vcard_contact_box">
+             <img src="/images/for_vCard/youtube_32.png"/>
+             <span>youtube</span>
+             <a href="http://www.youtube.com/<%= @blog.vcard_youtube %>" target="_blank">youtube.com<%#= @blog.vcard_youtube %></a>
+           </div>
+         <%  end %>
+       <% unless @blog.vcard_skype.empty? then %>
+           <div class="dlog_vcard_contact_box">
+             <img src="/images/for_vCard/skype_32.png"/>
+             <span>skype</span>
+             <p><%= @blog.vcard_skype %></p>
+           </div>
+         <%  end %>
+       <% unless @blog.vcard_vimeo.empty? then %>
+           <div class="dlog_vcard_contact_box">
+             <img src="/images/for_vCard/vimeo_32.png"/>
+             <span>vimeo</span>
+             <a href="http://www.vimeo.com/<%= @blog.vcard_skype %>" target="_blank">vimeo.com/<%= @blog.vcard_vimeo %></a>
+           </div>
+         <%  end %>
+
+     </div>
+
+  </div> 
+
+   <% end %>

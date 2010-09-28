@@ -1,0 +1,85 @@
+﻿html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em,
+font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
+ tfoot, thead, tr, th, td {
+border:0pt none;
+font-family:inherit;
+font-size:100%;
+font-style:inherit;
+font-weight:inherit;
+margin:0pt;
+padding:0pt;
+vertical-align:baseline;
+}
+body{
+background:#fff none repeat scroll 0%;
+font-size: 12px;
+font-family:tahoma,arial,sans-serif;
+margin:0pt;
+height:100%;
+}
+table {
+border-collapse:separate;
+border-spacing:0pt;
+}
+caption, th, td {
+font-weight:normal;
+text-align:left;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+content:"";
+}
+blockquote, q {
+quotes:"" "";
+}
+a{
+cursor: pointer;
+text-decoration:none;
+}
+.clear{
+clear:both;
+}
+#button{
+text-align:center;
+margin:50px 50px 150px 50px;
+}
+#restart{
+display:none;
+text-align:center;
+}
+#loadingZone{
+margin:0 auto;
+width:410px;
+text-align:center;
+}
+#loadingBar{
+border:1px solid #c2c2c2;
+height:2px;
+text-align:left;
+line-height:0;
+margin:0;
+padding:0;
+overflow:hidden; /*fix for IE 6*/
+}
+#progressBar{
+height:2px;
+line-height:0;
+margin:0;
+padding:0;
+background:#b3f83d;
+width:0%;
+}
+#loadingSms{
+color:#6ea1fa;
+float:left;
+padding:10px 2px;
+}
+#infoProgress{
+color:#6ea1fa;
+float:right;
+padding:10px 2px;
+}
+#infoLoading{
+padding:10px;
+color:#b9b9b9;
+font-size:10px;
+}

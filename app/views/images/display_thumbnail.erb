@@ -1,0 +1,34 @@
+<script type="text/javascript">
+  //var upload_images_count=<#%= @button_display %>;
+  var imagec=<%= @image_count %>;
+  <%unless @design_directory.nil? or @design_directory.blank? then%>
+    var ImageForDynamicCount=1-<%= @image_count %>;
+  <%else%>
+    var ImageForDynamicCount=8-<%= @image_count %>;
+  <%end%>
+  var upload_images_count=1;
+  //
+  document.getElementById('ValidationUploadImage').value=ImageForDynamicCount;
+  document.getElementById('validation_upload_image').style.color="#666";
+  document.getElementById('portfolio_imageupload_error_msg').style.display="none";
+  document.getElementById('portfolio_imageupload_8count_error_msg').style.display="none";
+</script>
+<%= javascript_include_tag 'PortfolioImageUploadCount' %>
+
+<% render :layout => false %>
+  <%unless @design_directory.nil? or @design_directory.blank? then%>
+    <p id="img_original" style="background:url('<%= @image.image.url(:original) %>') no-repeat center; width: 605px; height: 415px; margin-top:0px; display:block;"></p>
+    <style type="text/css">
+      #swfupload_container, #portfolio_imageupload_extext {
+        display: none;
+}
+#container #divFileProgressContainer {
+  margin-top: 0px;
+}
+      </style>
+  <%else%>
+    <%= image_tag @image.image.url(:thumb) %>
+  <%end%>
+
+<label>description</label>
+<textarea  cols="4" rows="2" name="description_<%= @image.id %>" maxlength="100" onkeyup="return ismaxlength(this)"></textarea>

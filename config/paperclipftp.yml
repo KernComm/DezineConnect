@@ -1,0 +1,19 @@
+#development:
+#      host: kern-comm.com
+#      username: testimages@kern-comm.com
+#      password: testimages123456
+#
+#production:
+#      host: kern-comm.com
+#      username: testimages@kern-comm.com
+#      password: testimages123456
+
+development:
+      host: images.dezineconnect.com
+      username: ftp@help.kern-comm.com
+      password: teamdezineconnect
+
+production:
+      host: images.dezineconnect.com
+      username: ftp@help.kern-comm.com
+      password: teamdezineconnect

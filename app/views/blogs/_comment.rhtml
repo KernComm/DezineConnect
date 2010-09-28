@@ -1,0 +1,7 @@
+<div>
+  <%=h comment.created_at %><br/><i><%=h comment.name %> says:</i><br />
+  <%= simple_format h(comment.body) %>
+  <%= link_to 'Destroy Comment', comment,
+    :confirm => 'Are you sure?',
+    :method => :delete %>
+</div>

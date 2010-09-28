@@ -1,0 +1,29 @@
+<%= stylesheet_link_tag 'admin.css'  %>
+<div id="admin_panel_main">
+  <h1>Design Directories Images
+  <div id="portfolio_edit_top">
+    <div id="account_settings_btn"><a href="/admin/portfolios"></a></div>
+    <div id="profile_information_btn"><a href="/admin/panel"></a></div>
+    <div id="portfolio_btn"><a href="/admin/design_directories"></a></div>
+  </div>
+  </h1>
+  
+<% unless @images.nil? then %>
+
+  <% @images.each do | image | %>
+  <table style="background: #fff; border: solid gray 1px; margin:0px 3px 3px 0px; float: left; " >
+  <tr style="background: #fff;">
+    <td rowspan="4" valign="middle">
+    <a target="_blank" href="<%= image.image.url(:original)%>">
+      <img src="<%=image.image.url(:thumb)%>" height="50px" width="50px" border="0px"/>
+    </a>
+  </td>
+  </tr>
+  <tr><td width="150px"><%= image.id %></td></tr>
+  <tr><td width="150px"><%= image.description %></td></tr>
+  <tr><td width="150px" align="right"><a href="/admin/design_directories_image_remove/<%= image.id %>">delete</a></td></tr>
+  </table>  
+  <% end %> 
+
+<% end %>
+  </div>

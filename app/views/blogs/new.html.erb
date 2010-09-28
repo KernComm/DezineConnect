@@ -1,0 +1,125 @@
+  <div id="wrap">
+  <div id="main">
+
+    <% form_for(@blog, :html => { :multipart => true }) do |f| %>
+      <%= f.error_messages %>
+
+      <p>
+        <%= f.label :name %><br />
+        <%= f.text_field :name, :size => 45 %>
+      </p>
+      <p>
+        <%= f.label :blog_statement %><br />
+        <%= f.text_field :blog_statement, :size => 69 %>
+      </p>
+      <p>
+        <%= f.select("tag", %w[Interview Announcement], {}) %>
+      </p>
+      <p>
+        <%= f.label :content_for_home_page %><br />
+        <%= f.text_area :content_for_home_page, :size => "60x10" %>
+      </p><br/>
+      
+      <p>
+        <%= f.label :profile_picture %><br />
+        <%= f.file_field :author_photo %><br />
+      </p><br/>
+      
+      <p>
+        <%= f.label :content_above_slider %><br />
+        <%= f.text_area :blog_content, :size => "60x20" %>
+      </p>
+        
+      <p>
+        <%= f.label :content_below_slider %><br />
+        <%= f.text_area :extended_content, :size => "60x20" %>
+      </p>
+   <p>
+        <%= f.label :below_slider_content_1 %><br />
+        <%= f.text_area :below_slider_content_1, :size => "60x20" %>
+      </p>
+      <p>
+        <%= f.label :below_slider_content_2 %><br />
+        <%= f.text_area :below_slider_content_2, :size => "60x20" %>
+      </p>
+      <p>
+        <%= f.label :below_slider_content_3 %><br />
+        <%= f.text_area :below_slider_content_3, :size => "60x20" %>
+      </p>
+      <p>
+        <%= f.label :below_slider_content_4 %><br />
+        <%= f.text_area :below_slider_content_4, :size => "60x20" %>
+      </p>
+
+       <p>
+        <%= f.label :vcard_mail %><br />
+        <%= f.text_field :vcard_mail, :size => 45 %>
+      </p>
+
+       <p>
+        <%= f.label :vcard_phone %><br />
+        <%= f.text_field :vcard_phone, :size => 45 %>
+      </p>
+
+       <p>
+        <%= f.label :vcard_skype %><br />
+        <%= f.text_field :vcard_skype, :size => 45 %>
+      </p>
+
+      <p>
+        <%= f.label :vcard_website %><br />
+        <%= f.text_field :vcard_website, :size => 45 %>
+      </p>
+      
+      <p>
+        <%= f.label :vcard_twitter %><br />
+        <%= f.text_field :vcard_twitter, :size => 45 %>
+      </p>
+
+      <p>
+        <%= f.label :vcard_facebook %><br />
+        <%= f.text_field :vcard_facebook, :size => 45 %>
+      </p>
+
+       <p>
+        <%= f.label :vcard_flickr %><br />
+        <%= f.text_field :vcard_flickr, :size => 45 %>
+      </p>
+
+       <p>
+        <%= f.label :vcard_linkedin %><br />
+        <%= f.text_field :vcard_linkedin, :size => 45 %>
+      </p>
+       <p>
+        <%= f.label :vcard_youtube %><br />
+        <%= f.text_field :vcard_youtube, :size => 45 %>
+      </p>
+       <p>
+        <%= f.label :vcard_vimeo %><br />
+        <%= f.text_field :vcard_vimeo, :size => 45 %>
+      </p>
+       <p>
+        <%= f.label :vcard_delicious %><br />
+        <%= f.text_field :vcard_delicious, :size => 45 %>
+      </p>
+   
+      <p>Portfolio Images : (Max of <%= Blog::Max_Attachments %> each under <%= Blog::Max_Attachment_Size/1.megabyte%>MB)
+        <% if @blog.assets.count >= Blog::Max_Attachments %>
+          <input id="newfile_data" type="file" disabled />
+        <% else %>
+          <input id="newfile_data" type="file" />
+        <% end %>
+        <div id="attachment_list"><ul id="pending_files"></ul></div>
+        <script type="text/javascript">
+            var multi_selector = new MultiSelector($('pending_files'), <%= Blog::Max_Attachments %>);
+            multi_selector.addElement($('newfile_data'));
+        </script>
+      </p>
+
+      <p>
+        <%= f.submit "Create" %>
+      </p>
+    <% end %>
+
+  </div>
+</div>

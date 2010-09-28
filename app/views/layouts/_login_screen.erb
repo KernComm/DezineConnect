@@ -1,0 +1,27 @@
+ <%= javascript_include_tag 'jquery' %>
+ <%= javascript_include_tag 'login_script' %>
+ <%= stylesheet_link_tag 'front' %>
+<div id="login" ><a href="../../login" class="signin"><span>login</span></a></div>
+<fieldset id="signin_menu">
+  <form method="post" id="signin" action="/sessions/new">
+      <label for="username">email</label>
+      <input id="username" name="username"  title="username" tabindex="4" type="text"/>
+
+       <p>
+          <label for="password">password</label>
+          <label style="float: right; margin: 0; padding: 0;"><a href="#">forgot password</a></label>
+          <input id="password" name="password" value="" title="password" tabindex="5" type="password"/>
+       </p>
+
+       <p class="remember">
+          <input id="signin_submit" value="Sign in" tabindex="6" type="submit"/>
+          <input id="remember" name="remember_me" value="1" tabindex="7" type="checkbox"/>
+          <label for="remember">show password</label>
+       </p>
+
+       <p class="remember1">
+          <input id="remember" name="remember_me" value="1" tabindex="7" type="checkbox"/>
+          <label for="remember">remember me</label>
+       </p>
+   </form>
+</fieldset>

@@ -1,0 +1,131 @@
+<%= stylesheet_link_tag 'create_portfolio' %>
+<!--include for word count--->
+<%= javascript_include_tag 'jquery' %>
+<%= javascript_include_tag 'word_count' %>
+<!--include for word count end-->
+<script type="text/javascript">
+function limitLength(obj, length) {
+    var desc = obj.value;
+    obj.value = substr(obj.value,length);
+}
+function substr(str,length){
+    var l=0,i=0;
+    while(l <length && i<str.length){
+        l+=1;
+        if(str.substring(i,i+1).match(/[\u4e00-\u9fa5]/))l+=2;// A Chinese is the equivalent of three English
+        i+=1;
+    }
+    return str.substring(0,i);
+}
+
+/*Textarea Maxlength script*/
+function ismaxlength(obj){
+var mlength=obj.getAttribute? parseInt(obj.getAttribute("maxlength")) : ""
+if (obj.getAttribute && obj.value.length>mlength)
+obj.value=obj.value.substring(0,mlength)
+}
+
+var upload_images_count=0;
+function validate()
+{
+  //alert('hi');
+    if(upload_images_count=='0') {
+      document.getElementById('validation_upload_image').style.color="red";
+      document.getElementById('portfolio_imageupload_error_msg').style.display="block";
+      document.getElementById('portfolio_imageupload_8count_error_msg').style.display="none";
+      return false
+      }
+    else if(upload_images_count=='1') {
+      document.super_form.submit();
+      return true;
+    }
+    else{
+      return false;
+    }
+}
+
+function validation(ctl,ct2) {
+    if((document.getElementById(ctl).value=="")) {
+       document.getElementById(ctl).style.border="1px red solid";
+       document.getElementById(ctl).style.background="#ffefef";
+       document.getElementById(ct2).style.display="block";
+       return false;
+       }
+    else {
+       document.getElementById(ctl).style.border="1px #ccc solid";
+       document.getElementById(ctl).style.background="#fff";
+       document.getElementById(ct2).style.display="none";
+       return true;
+       }
+}
+//body on load function//
+function start(){
+  document.getElementById('ValidationUploadImage').value=8;
+  }
+</script>
+
+<!-- 960 px wrapper -->
+<div id="wrap">
+  <div id="main"> <!-- main start -->
+    <div id="main_inner"> <!-- main inner start -->
+    <h1>portfolio</h1>
+    <div class="clear"></div>
+    <form name="super_form" id="super_form" action="/portfolios/update_portfolio_specifications/<%= @portfolio.id %>" method="post" onsubmit="javascript:return validate();" enctype="multipart/form-data">
+      <label>upload a picture of your self</label>
+        <input type="file" id="portfolio_profile_photo" name="portfolio[profile_photo]" size="40"  maxlength="45"/>
+        <div class="portfolio_msg_text">
+          ideal size of the image should be 150px x 150px
+        </div>
+        <br/>
+        <label>bio / objective</label>
+        <textarea cols="7" rows="7" name="portfolio[bio]" maxlength="1000" onkeyup="return ismaxlength(this)"></textarea>
+        <div class="portfolio_msg_text" >
+          ideal length of bio should be 100 words
+        </div>
+        <br/>
+        <label>portfolio</label>
+        <div class="portfolio_rounded_shading">
+          <div id="portfolio_rounded_shading_in">
+          <label>name of the set</label>
+          <input type="text" name="set_name" maxlength="45" size="40" id="set_name" value="My Portfolio" class="suggest_textfield_default_normal" onfocus="textOnFocus(this);" onblur="textOnBlur(this)"/>
+          <br/>
+            <div id="mp3info" style="clear: left;"></div>
+            <div id="container">
+            <label id="validation_upload_image">upload up to <base><input value="8" type="text" size="3" id="ValidationUploadImage" maxlength="3"/></base> images</label>
+            <br/>
+            <%= render :file => "/images/new" %>
+            </div>
+          </div>
+        </div>
+        <div id="upload_portfolio_bottom">
+          <button type="submit"  id="portfolio_publish_btn" onclick="validate()"></button>
+          <span>
+            by clicking "publish" I agree to the <a href="/legal">terms and conditions</a>
+        </span>
+        </div>
+        
+      </form>
+    </div> <!-- main inner ends -->
+  </div> <!-- main ends -->
+
+  <div id="sidebar"><!-- sidebar starts -->
+    <div id="portfolio_sider">
+      <div class="portfolio_regsteps_selected_after">
+        <div class="portfolio_reg_steps_in">
+          step 1: register
+        </div>
+      </div>
+      <div class="portfolio_regsteps_selected_after">
+        <div class="portfolio_reg_steps_in">
+          step 2: profile information
+        </div>
+      </div>
+      <div class="portfolio_reg_steps_select">
+        <div class="portfolio_reg_steps_in_select">
+          step 3: portfolio
+        </div>
+      </div>
+    </div>
+  </div><!-- main ends -->
+
+</div><!-- 960 px wrapper ends -->

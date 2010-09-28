@@ -1,0 +1,43 @@
+<%= stylesheet_link_tag "interview" %>
+<!-- sidebar chunk -->
+        <div class="sidebar_chunk">
+            <h3>announcements</h3>
+            <div class="sidebar_inner">
+
+              <div id="fetured_sidebar">
+
+                <%
+                   blog = Blog.find(:all,:conditions => "tag = 'Announcement'", :order => "id desc", :limit => 2)
+                   unless blog[0].nil?  then
+                %>
+                      <div id="interview_sidebar">
+                        <h10><%= blog[0].blog_statement %></h10><br>
+
+                            <p1>Interview with <%= blog[0].name %></p1>
+                        <div id="interview_sidebar_bottom">
+                            <div class="dt"><%=h blog[0].created_at.strftime("%b %d") %></div>
+                            <div class="more"><a href="/blogs/<%= blog[0].id %>">read more...</a></div>
+                        </div>
+                      </div>
+                      <div class="line_gap"></div>
+                  <% end %>
+                  <% unless blog[1].nil? then %>
+                      <div id="interview_sidebar">
+                        <h10><%= blog[1].blog_statement %></h10><br>
+
+                            <p1>Interview with <%= blog[1].name %></p1>
+                        <div id="interview_sidebar_bottom">
+                            <div class="dt"><%=h blog[1].created_at.strftime("%b %d") %></div>
+                            <div class="more"><a href="/blogs/<%= blog[1].id %>">read more...</a></div>
+                        </div>
+                      </div>
+                  <% end %>
+
+
+               </div>
+            </div>
+
+
+        </div>
+
+        <!-- sidebar chunk ends -->
