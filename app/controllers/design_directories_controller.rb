@@ -12,7 +12,7 @@ class DesignDirectoriesController < ApplicationController
     end
   end
 
-  
+  end
 
   # GET /design_directories/1
   # GET /design_directories/1.xml

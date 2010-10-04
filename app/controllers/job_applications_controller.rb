@@ -42,13 +42,13 @@ class JobApplicationsController < ApplicationController
   # POST /job_applications
   # POST /job_applications.xml
   def create
+    logger.info"in create of job_contr #{params.inspect}"
     @job_application = JobApplication.new(params[:job_application])
     @job_application.activation_key = SecureRandom.hex(4)
-  
     respond_to do |format|
       if @job_application.save
         JobApplicationMailer.deliver_job_application_confirmation(@job_application)
-        flash[:notice] = 'You have successfully applied for teh job.'
+        flash[:notice] = 'You have successfully applied for the job.'
         format.html { render :action => "job_application_success" }
         format.xml  { render :xml => @job_application, :status => :created, :location => @job_application }
       else

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100917111800) do
+ActiveRecord::Schema.define(:version => 20100906121510) do
 
   create_table "acts_as_xapian_jobs", :force => true do |t|
     t.string  "model",    :null => false
@@ -115,7 +115,6 @@ ActiveRecord::Schema.define(:version => 20100917111800) do
     t.boolean  "activate",               :default => false
     t.text     "activation_key"
     t.integer  "job_id"
-    t.integer  "user_id"
   end
 
   create_table "jobs", :force => true do |t|
@@ -129,7 +128,6 @@ ActiveRecord::Schema.define(:version => 20100917111800) do
     t.boolean  "activate",           :default => false
     t.text     "activation_key"
     t.text     "email"
-    t.integer  "user_id"
   end
 
   create_table "payments", :force => true do |t|

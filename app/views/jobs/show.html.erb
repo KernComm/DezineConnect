@@ -5,7 +5,7 @@
 <style type="text/css">
   body{
     font-family: Century Gothic, Lucida Grande, Lucida Sans Unicode, helvetica, sans-serif;
-    
+
   }
   #main label{
     font-size: 12px;
@@ -14,10 +14,11 @@
   }
   #main {
     position: relative;
-    margin:20px 0px 0px 0px;
+    margin-top: 20px;
+
   }
   #main h1, #main h2, #main h3, #main_inner h4 {
-    margin: 0px;
+    margin: 0px 0px 0px 0px;
     border:none;
   }
   #main h1 {
@@ -172,7 +173,7 @@
   .wordCount strong
   {
     margin-right: 3px;
-}
+  }
 
   #Qjob-side-member label{
     margin: 3px 0px  ;
@@ -382,13 +383,17 @@
   }
   
 </script>
+
 <div id="wrap"><!-- wrap -->
   <div id="jobs_top_bar">
-    <!-- Search navigation links -->
-     <% unless session[:search_string].blank? then %>
+
+
+    <% unless session[:user_activated_to_show_page].nil? && session[:loggedin_user].nil? && session[:user_activated_to_show_page].blank? && session[:loggedin_user].blank? then %>
+      <!--portfolio top bar user view-->
+      <% unless session[:search_string].blank? then %>
         <%  search_result_array = Array.new
         logger.info  "session[:search_string] : #{session[:search_string]}"
-        @xapian_search_results = ActsAsXapian::Search.new([Job], session[:search_string], :limit => 10000, :joins => :user, :conditions => {:users => {:activate => 1}}, :sort_by_prefix => "updated_at")
+        @xapian_search_results = ActsAsXapian::Search.new([Job], session[:search_string], :limit => 10000, :conditions => {:activate => 1}, :sort_by_prefix => "updated_at")
         @xapian_search_results.results.each do | search_value |
           search_result_array << search_value[:model][:id]
         end
@@ -396,54 +401,146 @@
           search_result_array = session[:search_result_spell_correction_array] unless session[:search_result_spell_correction_array].nil?
         end
         logger.info  "search_result_array : #{search_result_array.inspect}"
-        index_value = search_result_array.index(@portfolio.id)
+        index_value = search_result_array.index(@job.id)
         logger.info  "search_result_array : #{index_value}" %>
         <% if index_value.nil? then %>
-          <div id="portfolio_top_bar_search">
-            <a href="/portfolios">Back to HomePage</a>
-          </div>
+          <div id="jobs_top_bar_search"> <a href="/jobs">back to homepage</a> </div>
         <% else %>
-          <div id="portfolio_top_bar_search">
-            <a href="/portfolios">HomePage</a> |
-            <a href="/portfolios/search?search_textfield=<%= session[:search_string] %>">Back to Search Results</a>
+          <div id="jobs_top_bar_search">
+            <a href="/jobs">HomePage</a> |
+            <a href="/jobs/search?search_textfield=<%= session[:search_string] %>">Back to Search Results</a>
           </div>
         <% end %>
         <% unless index_value.nil? then %>
           <% unless search_result_array[index_value - 1].blank? then %>
-            <div id="portfolio_top_bar_previous">
-              <a href="/portfolios/show/<%= search_result_array[index_value - 1] %>">Previous Portfolio</a>
+            <div id="jobs_top_bar_previous"><a href="/jobs/show/<%= search_result_array[index_value - 1] %>">Previous job</a></div>
+          <% end %>
+        <% end %>
+        <% unless index_value.nil? then %>
+          <% unless search_result_array[index_value + 1].blank? then %>
+            <div id="jobs_top_bar_next"><a href="/jobs/show/<%= search_result_array[index_value + 1] %>">next job</a></div>
+          <% else %>
+            <div id="jobs_top_bar_next"><a href="/jobs/show/<%= search_result_array[0] %>">next job</a></div>
+
+          <% end %>
+        <% end %>
+        <% session[:search_string] == "" %>
+      <% else %>
+
+        <div id="jobs_top_bar_search">
+          <a href="/jobs">Back to HomePage</a>
+        </div>
+        <%  search_result_array = Array.new
+        @xapian_search_results = Job.find(:all, :conditions => {:activate => 1}, :order => 'updated_at DESC')
+        @xapian_search_results.each do | search_value |
+          search_result_array << search_value[:id]
+        end
+        logger.info  "search_result_array : #{search_result_array.inspect}"
+        index_value = search_result_array.index(@job.id)
+        logger.info  "search_result_array : #{index_value}"
+      %>
+        <% unless search_result_array[index_value - 1].blank? then %>
+          <div id="jobs_top_bar_previous">
+            <a href="/jobs/show/<%= search_result_array[index_value - 1] %>">Previous job</a>
+          </div>
+        <% end %>
+        <% unless search_result_array[index_value + 1].blank? then %>
+          <div id="jobs_top_bar_next">
+            <a href="/jobs/show/<%= search_result_array[index_value + 1] %>">Next job</a>
+          </div>
+        <% else %>
+          <div id="jobs_top_bar_next">
+            <a href="/jobs/show/<%= search_result_array[0] %>">Next job</a>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <% unless session[:search_string].blank? then %>
+        <%  search_result_array = Array.new
+        logger.info  "session[:search_string] : #{session[:search_string]}"
+        @xapian_search_results = ActsAsXapian::Search.new([Job], session[:search_string], :limit => 10000,:joins => :user, :conditions => {:activate => 1}, :sort_by_prefix => "updated_at")
+        @xapian_search_results.results.each do | search_value |
+          search_result_array << search_value[:model][:id]
+        end
+        if search_result_array.empty? then
+          search_result_array = session[:search_result_spell_correction_array] unless session[:search_result_spell_correction_array].nil?
+        end
+        logger.info  "search_result_array : #{search_result_array.inspect}"
+        index_value = search_result_array.index(@job.id)
+        logger.info  "search_result_array : #{index_value}"%>
+
+
+        <% if index_value.nil? then %>
+          <div id="jobs_top_bar_search">
+            <a href="/jobs">Back to HomePage</a>
+          </div>
+        <% else %>
+          <div id="jobs_top_bar_search">
+            <a href="/jobs">HomePage</a> |
+            <a href="/jobs/search?search_textfield=<%= session[:search_string] %>">Back to Search Results</a>
+          </div>
+        <% end %>
+        <% unless index_value.nil? then %>
+          <% unless search_result_array[index_value - 1].blank? then %>
+            <div id="jobs_top_bar_previous">
+              <a href="/jobs/show/<%= search_result_array[index_value - 1] %>">Previous job</a>
             </div>
           <% end %>
         <% end %>
         <% unless index_value.nil? then %>
           <% unless search_result_array[index_value + 1].blank? then %>
-            <div id="portfolio_top_bar_next">
-              <a href="/portfolios/show/<%= search_result_array[index_value + 1] %>">Next Portfolio</a>
+            <div id="jobs_top_bar_next">
+              <a href="/jobs/show/<%= search_result_array[index_value + 1] %>">Next job</a>
             </div>
           <% else %>
-            <div id="portfolio_top_bar_next">
-              <a href="/portfolios/show/<%= search_result_array[0] %>">Next Portfolio</a>
+            <div id="jobs_top_bar_next">
+              <a href="/jobs/show/<%= search_result_array[0] %>">Next job</a>
             </div>
           <% end %>
-        <% end %>
+        <% end %> 
         <% session[:search_string] == "" %>
       <% else %>
-        hello not this stuff
+
+        <div id="jobs_top_bar_search">
+          <a href="/jobs">Back to HomePage</a>
+        </div>
+        <%  search_result_array = Array.new
+        @xapian_search_results = Job.find(:all, :conditions => {:activate => 1},:order => 'updated_at DESC')
+        @xapian_search_results.each do | search_value |
+          search_result_array << search_value[:id]
+        end
+        logger.info  "search_result_array : #{search_result_array.inspect}"
+        index_value = search_result_array.index(@job.id)
+        logger.info  "search_result_array : #{index_value}"
+      %>
+        <% unless search_result_array[index_value - 1].blank? then %>
+          <div id="jobs_top_bar_previous">
+            <a href="/jobs/show/<%= search_result_array[index_value - 1] %>">Previous job</a>
+          </div>
+        <% end %>
+        <% unless search_result_array[index_value + 1].blank? then %>
+          <div id="jobs_top_bar_next">
+            <a href="/jobs/show/<%= search_result_array[index_value + 1] %>">Next job</a>
+          </div>
+        <% else %>
+          <div id="jobs_top_bar_next">
+            <a href="/jobs/show/<%= search_result_array[0] %>">Next job</a>
+          </div>
+        <% end %>
       <% end %>
-
-
-
-    <div id="jobs_top_bar_search"><a href="/jobs">HOMEPAGE</a> | <a href="/jobs">BACK TO SEARCH RESULTS</a> </div>
-      <div id="jobs_top_bar_previous"><a href="">PREVIOUS JOB</a></div>
-        <div id="jobs_top_bar_next"><a href="">NEXT JOB</a></div>
+    <% end %>
   </div>
-   <div id="main"><!-- main -->
+
+
+
+
+  <div id="main"><!-- main -->
     <h1><%=@job.job_title%></h1>
     <h2><%=@job.company_name%></h2>
     <h3><%=@job.location%></h3>
-      <div id="description">
-        <%=  RedCloth.new(@job.job_description).to_html %>
-      </div>
+    <div id="description">
+      <%=  RedCloth.new(@job.job_description).to_html %>
+    </div>
     <div id="main_inner"><!-- main inner -->
 
 
@@ -464,11 +561,12 @@
               <div id="QJob-email">
                 <label>Email<span style="color:red;">*</span></label>
                 <input type="text" size="40" id="email_apply" name="job_application[email]" onblur="validation('email_apply','error_email');"/>
+
               </div>
-              
               <div id="QJob-specialization">
                 <label>Specialization<span style="color:red;">*</span></label>
                 <input type="text" size="35" id="specialization_apply" name="job_application[specialization]" onblur="validation('specialization_apply','error_specialization');"/>
+
               </div>
               <label>Cover Letter</label>
               <textarea id="cover_letter" cols="20" rows="20" style="width:590px;" class="count[200]" onblur="count_words('cover_letter')" name="job_application[cover_letter]"></textarea>
@@ -478,13 +576,13 @@
               <div>
                 <p>Resume & Portfolio</p>
                 <span>
-                  <label>Upload your Resume</label>
+                  <label>Upload your Resume <rs> (max.500kb)</rs></label>
                   <input id="upload_resume_input" size="38" type="file" name="job_application[resume]"/>
                   <div id="error_upload_resume_input" class="error_msg">
                     please provide resume
                   </div>
                 </span>
-                or
+                <span><r> or </r></span>
                 <span>
                   <label>Link to your Resume</label>
                   <input id="link_input" type="text" value="http://" name="job_application[resume_link]"/>
@@ -496,10 +594,10 @@
 
               <div>
                 <span>
-                  <label>Upload your Portfolio</label>
+                  <label>Upload your Portfolio <pr>(max.1MB)</pr> </label>
                   <input type="file" size="38" name="job_application[portfolio]"/>
                 </span>
-                or
+                <span><r> or</r></span>
                 <span>
                   <label>Link to your Portfolio</label>
                   <input id="link_input" type="text" value="http://" name="job_application[portfolio_link]"/>
