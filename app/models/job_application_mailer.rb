@@ -19,7 +19,7 @@ class JobApplicationMailer < ActionMailer::Base
 
     part :content_type => "text/html",
         :body => render_message("application_sent_to_company", :job_application => job_application)
-  
+
     unless job_application.resume.path.nil?
       attachment :content_type => job_application.resume_content_type,
                  :filename => 'Resume_'+job_application.Name+'_'+job_application.created_at.strftime("%b %d")+'.'+job_application.resume_file_name.split(".")[1],

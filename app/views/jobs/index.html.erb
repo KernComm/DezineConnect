@@ -52,8 +52,6 @@ var display_records=5; //set the valu for show record at one time
     width: 20px;
     height: 20px;
   }
-
-
   #new_job
   {
     margin-bottom: 20px;
@@ -170,20 +168,15 @@ var display_records=5; //set the valu for show record at one time
     border: #bbbbbb 1px  solid;
     margin-bottom: 5px;
   }
-  #sidebar #job_title,#how_to_apply_email,#ex_email,#ex_password
+  #sidebar #job_title,#how_to_apply_email,#ex_email,#ex_password,#company_name,#location,#job_description
   {
     width: 260px;
-  }
-  #sidebar #company_name,#location
-  {
-    width: 200px;
   }
   #sidebar textarea{
     padding: 3px;
     height: 180px;
     cursor: pointer;
   }
-
   #sidebar span{
     font-size: 10px;
     font-style: italic;
@@ -299,8 +292,8 @@ var ex_password=document.getElementById('ex_password');
 
 //Qjobs.elements["itemtype"][0].checked = true;
 //type of member div hide and show
-function toggleSet(rad){
-
+function toggleSet(rad)
+{
   var type = rad.value;
   var type_id= document.getElementById(type);
   var QJob_Member= document.getElementById('QJob-Member');
@@ -370,6 +363,12 @@ function display_question(){
     number1.innerHTML = num1;
     number2.innerHTML = num2;
     operator_display.innerHTML = operator;
+    result.setAttribute('style', 'display:block;');
+    captcha.setAttribute('style', 'display:block;');
+  } else {
+    number1.innerHTML = num1;
+    number2.innerHTML = num2;
+    operator_display.innerHTML = 'plus';
     result.setAttribute('style', 'display:block;');
     captcha.setAttribute('style', 'display:block;');
   }
@@ -741,22 +740,22 @@ function word_count(text, doc)
       <form action="/jobs/create" class="new_job" id="new_job" method="post" name="Qjobs" onsubmit="javascript:return validate('new_job_if');">
         <h2>Post a Quick Job</h2>
         <label>Job Title<span class="required_field">*</span></label>
-        <input type="text" name="job[job_title]" id="job_title"  onblur="validation('job_title','error_job_title')"/>
+        <input type="text" name="job[job_title]" id="job_title"  maxlength="35" onblur="validation('job_title','error_job_title')"/>
         <div id="error_job_title" class="error_msg" >
           please provide job title
         </div>
         <label>Company Name<span class="required_field">*</span></label>
-        <input type="text" name="job[company_name]" id="company_name"  onblur="validation('company_name','error_company_name')"/>
+        <input type="text" name="job[company_name]" id="company_name" maxlength="35" onblur="validation('company_name','error_company_name')"/>
         <div id="error_company_name" class="error_msg" >
           please provide company name
         </div>
         <label>Location<span class="required_field">*</span></label>
-        <input type="text" name="job[location]" id="location" onblur="validation('location','error_location')"/>
+        <input type="text" name="job[location]" id="location" maxlength="35" onblur="validation('location','error_location')"/>
         <div id="error_location" class="error_msg" >
           please provide location
         </div>
         <label id="job_description_label" style="width:265px;">Job Description<span style="float:right;color: black;background-color: transparent;font-size: 11px;"><input type="text" id="text" name="text" value="200" style="border:none;font-size: 12px; background-color:transparent; color: black;width: 25px; height: 10px;text-align: left;padding-top: 7px;"disabled/>words</span></label>
-        <textarea id="job_description" onkeyup="word_count(this.value, text)" name="job[job_description]" rows="50" cols="35"></textarea>
+        <textarea id="job_description" onkeyup="word_count(this.value, text)" name="job[job_description]"></textarea>
         <div id="error_job_description" class="error_msg">
           please limit the Job description to 200 words
         </div>
@@ -828,17 +827,17 @@ function word_count(text, doc)
       <form action="/jobs/create_after_login" class="new_job" id="new_job" method="post" name="Qjobs" onsubmit="javascript:return validate('new_job_else');">
         <h2>Post a Quick Job</h2>
         <label>Job Title<span class="required_field">*</span></label>
-        <input type="text" name="job[job_title]" id="job_title" size="40" onblur="validation('job_title','error_job_title')"/>
+        <input type="text" name="job[job_title]" id="job_title" maxlength="35"  onblur="validation('job_title','error_job_title')"/>
         <div id="error_job_title" class="error_msg" >
           please provide job title
         </div>
         <label>Company Name<span class="required_field">*</span></label>
-        <input type="text" name="job[company_name]" id="company_name" size="30" onblur="validation('company_name','error_company_name')"/>
+        <input type="text" name="job[company_name]" id="company_name"  maxlength="35" onblur="validation('company_name','error_company_name')"/>
         <div id="error_company_name" class="error_msg" >
           please provide company name
         </div>
         <label>Location<span class="required_field">*</span></label>
-        <input type="text" name="job[location]" id="location" onblur="validation('location','error_location')"/>
+        <input type="text" name="job[location]" id="location" maxlength="35" onblur="validation('location','error_location')"/>
         <div id="error_location" class="error_msg" >
           please provide location
         </div>

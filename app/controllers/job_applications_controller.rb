@@ -85,6 +85,7 @@ class JobApplicationsController < ApplicationController
       format.html { redirect_to(job_applications_url) }
       format.xml  { head :ok }
     end
+    
   end
 
   def activate

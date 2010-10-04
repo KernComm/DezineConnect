@@ -88,13 +88,29 @@
 <% for job in @posts do %>
     <% if  job.activate == true then %>
       <div class="job-listing-div">
-        <a href="/jobs/show/<%= job.id %>">
-          <h3><%= job.job_title %></h3>
-          <h4><%= job.company_name %></h4>
-          <span><%= job.job_applications.count %></span>
-          <h5><%= job.location %></h5>
-          <h6><%=h job.created_at.strftime("%b %d") %></h6>
-        </a>
+         <a href="/jobs/show/<%= job.id %>">
+        <% if job.job_title.length > 25 then%>
+          <h3><%=h job.job_title[0,25] %>&hellip;</h3>
+        <% else %>
+          <h3><%=h job.job_title %></h3>
+        <% end %>
+
+        <% if job.company_name.length > 12 then%>
+          <h4><%=h job.company_name[0,12] %>&hellip;</h4>
+        <% else %>
+          <h4><%=h job.company_name %></h4>
+        <% end %>
+
+        <span><%= job.job_applications.count %></span>
+
+        <% if job.location.length > 12 then%>
+          <h5><%=h job.location[0,12] %>&hellip;</h5>
+        <% else %>
+          <h5><%=h job.location %></h5>
+        <% end %>
+
+        <h6><%=h job.created_at.strftime("%b %d") %></h6>
+      </a>
       </div>
     <% end %>
   <% end %>

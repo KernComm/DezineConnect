@@ -1,3 +1,241 @@
+ body{
+    font-family: Century Gothic, Lucida Grande, Lucida Sans Unicode, helvetica, sans-serif;
+
+  }
+  #main label{
+    font-size: 12px;
+    clear:left;
+    float:left;
+  }
+  #main {
+    position: relative;
+    margin-top: 20px;
+
+  }
+  #main h1, #main h2, #main h3, #main_inner h4 {
+    margin: 0px 0px 0px 0px;
+    border:none;
+  }
+  #main h1 {
+    font-size: 30px;
+    color: #5d5c5c;
+    float:left;
+    margin-right: 10px;
+  }
+  #main h2{
+    font-size: 12px;
+    margin: 15px 0px 0px 0px;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted gray;
+  }
+  #main h3{
+    font-size: 12px;
+    position:absolute;
+    right: 0px;
+    top: 16px;
+  }
+  #main #description p{
+    margin-bottom: 20px;
+    margin-left: 0px;
+  }
+  #main_inner{
+    /*margin: 15px 15px 15px 15px;*/
+    width: 650px;
+    font-size: 11px;
+  }
+  #main_inner h4{
+    margin: 10px 0px 5px 0px;
+    font-size: 18px;
+  }
+  #main_inner #QJob-Apply {
+    height: 280px;
+  }
+  #main_inner #QJob-Apply #QJob-name div{
+    float: left;
+  }
+  #main_inner #QJob-Apply #QJob-name
+  {
+    float: left;
+  }
+  #main_inner #QJob-Apply #QJob-email{
+    float: left;
+    margin-left: 10px;
+  }
+  #main_inner #QJob-specialization{
+    width: 196px;
+  }
+  #main_inner #QJob-Apply-Upload{
+      position: relative;
+  }
+  #main_inner #QJob-Apply-Upload div{
+    /*float: left;*/
+    width: 590px;
+    padding: 3px 0px 3px 0px;
+    font-size: 12px;
+    color: #333333;
+    /*border-bottom: 1px dotted #787878;*/
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    font-family: Century Gothic;
+  }
+  #main_inner #QJob-Apply-Upload div span{
+    display: block;
+    height: 30px;
+    position: relative;
+    font-size: 12px;
+    color: #333333;
+    font-family: Century Gothic;
+  }
+
+  #main_inner #QJob-Apply-Upload div span label {
+    float: left;
+    width: 150px;
+    display: block;
+  }
+  #main_inner #QJob-Apply-Upload div span input {
+    position: absolute;
+    top: 0px;
+    left: 150px;
+    margin: 0px;
+    width: 395px;
+  }
+  #main_inner #QJob-Apply-Upload div span #link_input
+  {
+    font-size: 12px;
+    padding: 4px 4px 5px 4px;
+
+  }
+  #main_inner #QJob-Apply-Upload div p
+  {
+    margin-bottom: 10px;
+    color:#666666;
+  }
+  #description .caps
+  {
+    color: #333333;
+  }
+  #main_inner #QJob-Apply-RoundedShade {
+    background: #fff;
+    -moz-border-radius-topleft:10px;
+    -moz-border-radius-topright:10px;
+    -moz-border-radius-bottomleft:10px;
+    -moz-border-radius-bottomright:10px;
+
+    -webkit-border-top-left-radius:10px;
+    -webkit-border-top-right-radius:10px;
+    -webkit-border-bottom-left-radius:10px;
+    -webkit-border-bottom-right-radius:10px;
+    width: 635px;
+    /*width: 590px;*/
+    margin: 0px 0px 20px 0px;
+    padding: 5px 5px 5px 10px;
+    color: #333333;
+    float: left;
+    height: 600px;
+    position: relative;
+  }
+  #QJob-Apply label{
+    width: auto;
+    /*background-color: red;*/
+    float: left;
+  }
+  #QJob-Apply label span{
+    font-size: 10px;
+    font-style: italic;
+    color:#333333;
+
+  }
+  #QJob-Apply input
+  {
+
+  }
+  #Qjob-side-member{
+    border-bottom: #ccc 1px  dotted;
+    margin: 0px 0px 5px 0px ;
+    padding: 5px 0px;
+    height: 70px;
+    width: 585px;
+  }
+  .wordCount
+  {
+    color: #666666;
+    position: absolute;
+    top: 185px;
+    right: 40px;
+    width:60px;
+  }
+  .wordCount strong
+  {
+    margin-right: 3px;
+  }
+
+  #Qjob-side-member label{
+    margin: 3px 0px  ;
+  }
+  #Qjob-side-member input {
+    border: none;
+  }
+  #Qjob-side-bottom{
+    border: none;
+    width: 585px;
+    height: 240px;
+  }
+  #main_inner div input
+  {
+
+  }
+  .error_msg {
+    color: red;
+    margin: 30px 0px 0px -205px;
+
+
+  }
+  #Qjob-side-bottom #QJob-DontReg span img{
+    margin: 5px 2px;
+    float: left;
+  }
+  #QJob-DontReg {
+    text-align:  left;
+    height:100px;
+  }
+  #QJob-DontReg label {
+    float: left;
+    clear: both;
+    margin: 3px 0px;
+  }
+  #QJob-DontReg span {
+    clear: both;
+    display: block;
+    font-size:10px;
+    color:#333333;
+    font-style: italic;
+  }
+  #Qjob-side-bottom #QJob-Member{
+    position: relative;
+    display: block;
+    height: 130px;
+  }
+  #Qjob-side-bottom #QJob-Member h5{
+    margin: 0px;
+    font-weight: normal;
+    font-size: 12px;
+    color: orange;
+    position: absolute;
+    left: 113px;
+    top: 75px;
+  }
+ #QJob-Apply-RoundedShade #job_apply_btn
+ {
+   background: url('/images/btn_upload_apply.png') no-repeat;
+   width: 150px;
+   height: 34px;
+   position: absolute;
+   bottom: 10px;
+   left: 10px;
+   cursor: pointer;
+   border: none;
+}
+/* by rajesh from here */
 
 #header {height:5px;}
 #logo, #header_mid {display: none;}
@@ -31,25 +269,21 @@
     color: #5d5c5c;
     cursor: pointer;
 }
-#QJob-Apply-Upload pr {
-    color:666666;
-    position:relative;
-    font-size: 8.5px;
-    text-decoration: none;
-    left: 85px;
-}
-#QJob-Apply-Upload rs {
-    color:666666;
-    position:relative;
-    font-size: 8.5px;
-    text-decoration: none;
-    left: 75px;
-}
-#QJob-Apply-Upload r {
+#QJob-Apply-Upload span label s {
     color:#5d5c5c;
-    margin: 0px 0px 0px -150px;
     font-weight: 200;
+    font-size: 10px;
+    text-decoration: none;
+    margin: 0px 0px 0px 50px;
+    text-align: right;
 }
-
-
+#QJob-Apply-Upload span label #max_1_mb
+{
+    margin: 0px 0px 0px 57px;
+}
+#QJob-Apply-Upload div #or_label
+{
+   float: none;
+   margin-left: -150px;
+}
 

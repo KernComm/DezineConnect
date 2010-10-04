@@ -3,243 +3,7 @@
 <%= javascript_include_tag 'jquery-1.3.2.min' %>
 <%= javascript_include_tag 'word_count' %>
 <style type="text/css">
-  body{
-    font-family: Century Gothic, Lucida Grande, Lucida Sans Unicode, helvetica, sans-serif;
-
-  }
-  #main label{
-    font-size: 12px;
-    clear:left;
-    float:left;
-  }
-  #main {
-    position: relative;
-    margin-top: 20px;
-
-  }
-  #main h1, #main h2, #main h3, #main_inner h4 {
-    margin: 0px 0px 0px 0px;
-    border:none;
-  }
-  #main h1 {
-    font-size: 30px;
-    color: #5d5c5c;
-    float:left;
-    margin-right: 10px;
-  }
-  #main h2{
-    font-size: 12px;
-    margin: 15px 0px 0px 0px;
-    padding-bottom: 5px;
-    border-bottom: 1px dotted gray;
-  }
-  #main h3{
-    font-size: 12px;
-    position:absolute;
-    right: 0px;
-    top: 16px;
-  }
-  #main #description p{ 
-    margin-bottom: 20px;
-    margin-left: 0px;
-  }
-  #main_inner{
-    /*margin: 15px 15px 15px 15px;*/
-    width: 650px;
-    font-size: 11px;
-  }
-  #main_inner h4{
-    margin: 10px 0px 5px 0px;
-    font-size: 18px;
-  }
-  #main_inner #QJob-Apply {
-    height: 210px;
-  }
-  #main_inner #QJob-Apply #QJob-name div{
-    float: left;
-  }
-  #main_inner #QJob-Apply #QJob-name
-  {
-    float: left;
-  }
-  #main_inner #QJob-Apply #QJob-email{
-    float: left;
-    margin-left: 10px;
-  }
-  #main_inner #QJob-specialization{
-    width: 196px;
-  }
-  #main_inner #QJob-Apply-Upload{
-    height: 170px;
-    margin-bottom: 50px;
-  }
-  #main_inner #QJob-Apply-Upload div{
-    /*float: left;*/
-    width: 590px;
-    padding: 3px 0px 3px 0px;
-    font-size: 12px;
-    color: #333333;
-    /*border-bottom: 1px dotted #787878;*/
-    padding-bottom: 5px;
-    margin-bottom: 20px;
-    font-family: Century Gothic;
-  }
-  #main_inner #QJob-Apply-Upload div span{
-    display: block;
-    height: 30px;
-    position: relative;
-    font-size: 12px;
-    color: #333333;
-    font-family: Century Gothic;
-  }
-
-  #main_inner #QJob-Apply-Upload div span label {
-    float: left;
-    width: 150px;
-    display: block;
-  }
-  #main_inner #QJob-Apply-Upload div span input {
-    position: absolute;
-    top: 0px;
-    left: 150px;
-    margin: 0px;
-    width: 395px;
-  }
-  #main_inner #QJob-Apply-Upload div span #link_input
-  {
-    font-size: 12px;
-    padding: 4px 4px 5px 4px;
-
-  }
-  #main_inner #QJob-Apply-Upload div p
-  {
-    margin-bottom: 10px;
-    color:#666666;
-  }
-  #description .caps
-  {
-    color: #333333;
-  }
-  #main_inner #QJob-Apply-RoundedShade {
-    background: #fff;
-    -moz-border-radius-topleft:10px;
-    -moz-border-radius-topright:10px;
-    -moz-border-radius-bottomleft:10px;
-    -moz-border-radius-bottomright:10px;
-
-    -webkit-border-top-left-radius:10px;
-    -webkit-border-top-right-radius:10px;
-    -webkit-border-bottom-left-radius:10px;
-    -webkit-border-bottom-right-radius:10px;
-    width: 635px;
-    /*width: 590px;*/
-    margin: 0px 0px 20px 0px;
-    padding: 5px 5px 5px 10px;
-    color: #333333;
-    float: left;
-    position: relative;
-
-  }
-  #QJob-Apply label{
-    width: auto;
-    /*background-color: red;*/
-    float: left;
-  }
-  #QJob-Apply label span{
-    font-size: 10px;
-    font-style: italic;
-    color:#333333;
-
-  }
-  #QJob-Apply input
-  {
-
-  }
-  #Qjob-side-member{
-    border-bottom: #ccc 1px  dotted;
-    margin: 0px 0px 5px 0px ;
-    padding: 5px 0px;
-    height: 70px;
-    width: 585px;
-  }
-  .wordCount
-  {
-    color: #666666;
-    position: absolute;
-    top: 185px;
-    right: 40px;
-    width:60px;
-  }
-  .wordCount strong
-  {
-    margin-right: 3px;
-  }
-
-  #Qjob-side-member label{
-    margin: 3px 0px  ;
-  }
-  #Qjob-side-member input {
-    border: none;
-  }
-  #Qjob-side-bottom{
-    border: none;
-    width: 585px;
-    height: 240px;
-  }
-  #main_inner div input
-  {
-
-  }
-  .error_msg {
-    color: red;
-    margin: 30px 0px 0px -205px;
-
-
-  }
-  #Qjob-side-bottom #QJob-DontReg span img{
-    margin: 5px 2px;
-    float: left;
-  }
-  #QJob-DontReg {
-    text-align:  left;
-    height:100px;
-  }
-  #QJob-DontReg label {
-    float: left;
-    clear: both;
-    margin: 3px 0px;
-  }
-  #QJob-DontReg span {
-    clear: both;
-    display: block;
-    font-size:10px;
-    color:#333333;
-    font-style: italic;
-  }
-  #Qjob-side-bottom #QJob-Member{
-    position: relative;
-    display: block;
-    height: 130px;
-  }
-  #Qjob-side-bottom #QJob-Member h5{
-    margin: 0px;
-    font-weight: normal;
-    font-size: 12px;
-    color: orange;
-    position: absolute;
-    left: 113px;
-    top: 75px;
-  }
-
-  #QJob-Apply-RoundedShade #job_apply_btn
-  {
-    background: url('/images/btn_upload_apply.png') no-repeat;
-    width: 150px;
-    height: 34px;
-    border: none;
-    cursor: pointer;
-    margin:  20px 0px 20px 0px;
-  }
+ 
 </style>
 <script type="text/javascript">
   function echeck(str) {
@@ -535,9 +299,26 @@
 
 
   <div id="main"><!-- main -->
-    <h1><%=@job.job_title%></h1>
-    <h2><%=@job.company_name%></h2>
-    <h3><%=@job.location%></h3>
+
+     <% if @job.job_title.length > 25 then%>
+       <h1><%=h @job.job_title[0,25] %>&hellip;</h1>
+     <% else %>
+       <h1><%=h @job.job_title %></h1>
+     <% end %>
+
+     <% if @job.company_name.length > 15 then%>
+       <h2><%=h @job.company_name[0,15] %>&hellip;</h2>
+     <% else %>
+       <h2><%=h @job.company_name %></h2>
+     <% end %>
+
+
+     <% if @job.location.length > 15 then%>
+       <h3><%=h @job.location[0,15] %>&hellip;</h3>
+     <% else %>
+       <h3><%=h @job.location %></h3>
+     <% end %>
+    
     <div id="description">
       <%=  RedCloth.new(@job.job_description).to_html %>
     </div>
@@ -576,13 +357,13 @@
               <div>
                 <p>Resume & Portfolio</p>
                 <span>
-                  <label>Upload your Resume <rs> (max.500kb)</rs></label>
+                  <label>Upload your Resume <s>(max.500kb)</s></label>
                   <input id="upload_resume_input" size="38" type="file" name="job_application[resume]"/>
                   <div id="error_upload_resume_input" class="error_msg">
                     please provide resume
                   </div>
                 </span>
-                <span><r> or </r></span>
+                <label id="or_label">or</label>
                 <span>
                   <label>Link to your Resume</label>
                   <input id="link_input" type="text" value="http://" name="job_application[resume_link]"/>
@@ -594,10 +375,10 @@
 
               <div>
                 <span>
-                  <label>Upload your Portfolio <pr>(max.1MB)</pr> </label>
+                  <label>Upload your Portfolio <s id="max_1_mb">(max.1MB)</s></label>
                   <input type="file" size="38" name="job_application[portfolio]"/>
                 </span>
-                <span><r> or</r></span>
+                 <label id="or_label">or</label>
                 <span>
                   <label>Link to your Portfolio</label>
                   <input id="link_input" type="text" value="http://" name="job_application[portfolio_link]"/>
@@ -651,7 +432,7 @@
                     please provide resume
                   </div>
                 </span>
-                or
+                <label id="or_label">or</label>
                 <span>
                   <label>Link to your Resume</label>
                   <input id="link_input" type="text" value="http://" name="job_application[resume_link]"/>
@@ -666,7 +447,7 @@
                   <label>Upload your Portfolio</label>
                   <input type="file" size="38" name="job_application[portfolio]"/>
                 </span>
-                or
+              <label id="or_label">or</label>
                 <span>
                   <label>Link to your Portfolio</label>
                   <input id="link_input" type="text" value="http://" name="job_application[portfolio_link]"/>
