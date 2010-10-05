@@ -109,8 +109,8 @@ var display_records=5; //set the valu for show record at one time
     display:block;
   }
   #main_inner .job-listing-div h3{
-    font-family: times;
-    font-weight: bold;
+    font-family: Century Gothic, Lucida Grande,Lucida Sans Unicode,helvetica, sans-serif;
+    font-weight: normal;
     font-size: 15px;
     color: orange;
     position: absolute;
@@ -120,6 +120,7 @@ var display_records=5; //set the valu for show record at one time
   }
   #main_inner .job-listing-div h4{
     color: gray;
+    font-family: Century Gothic, Lucida Grande,Lucida Sans Unicode,helvetica, sans-serif;
     font-weight: normal;
     position: absolute;
     left: 10px;
@@ -142,7 +143,7 @@ var display_records=5; //set the valu for show record at one time
     width: 60px;
     color: black;
     font-size: 13px;
-    background: url('..i/images/register_accept_page.png') no-repeat;
+    background: url('../images/register_accept_page.png') no-repeat;
     padding-left:15px;
     height: 32px;
     vertical-align: bottom;
@@ -740,17 +741,17 @@ function word_count(text, doc)
       <form action="/jobs/create" class="new_job" id="new_job" method="post" name="Qjobs" onsubmit="javascript:return validate('new_job_if');">
         <h2>Post a Quick Job</h2>
         <label>Job Title<span class="required_field">*</span></label>
-        <input type="text" name="job[job_title]" id="job_title"  maxlength="35" onblur="validation('job_title','error_job_title')"/>
+        <input type="text" name="job[job_title]" id="job_title"  maxlength="29" onblur="validation('job_title','error_job_title')"/>
         <div id="error_job_title" class="error_msg" >
           please provide job title
         </div>
         <label>Company Name<span class="required_field">*</span></label>
-        <input type="text" name="job[company_name]" id="company_name" maxlength="35" onblur="validation('company_name','error_company_name')"/>
+        <input type="text" name="job[company_name]" id="company_name" maxlength="28" onblur="validation('company_name','error_company_name')"/>
         <div id="error_company_name" class="error_msg" >
           please provide company name
         </div>
         <label>Location<span class="required_field">*</span></label>
-        <input type="text" name="job[location]" id="location" maxlength="35" onblur="validation('location','error_location')"/>
+        <input type="text" name="job[location]" id="location" maxlength="20" onblur="validation('location','error_location')"/>
         <div id="error_location" class="error_msg" >
           please provide location
         </div>
@@ -760,7 +761,7 @@ function word_count(text, doc)
           please limit the Job description to 200 words
         </div>
         <label id="apply_via_email">Enter email to recieve job applications<span class="required_field">*</span></label>
-        <input type="text"  name="job[how_to_apply_email]" id="how_to_apply_email" onblur="validation('how_to_apply_email','error_how_to_apply_email')"/>
+        <input type="text"  name="job[how_to_apply_email]" id="how_to_apply_email" maxlength="50" onblur="validation('how_to_apply_email','error_how_to_apply_email')"/>
         <div id="error_how_to_apply_email" class="error_msg">
           please provide email to apply
         </div>
@@ -773,7 +774,7 @@ function word_count(text, doc)
           </label>
           <label>
             <input type="radio" id="dont_want_register" name="itemtype" value="QJob-DontReg" onclick="toggleSet(this)" />
-            I don't want to Register
+            I don't want to register
           </label>
         </div>
         <div id="Qjob-side-bottom">
@@ -802,7 +803,7 @@ function word_count(text, doc)
             <div id="error_email" class="error_msg" >
               please provide email
             </div>
-            <label id="captcha" style="display:none;">Provide your answer in the input field</label>
+            <label id="captcha" style="display:none;">A quick math question</label>
             <span>
               <label  id="num1" style="width:10px; float: left;"></label>
               <label id="operator" style="width:35px; text-align: center;float: left;"></label>
@@ -827,17 +828,17 @@ function word_count(text, doc)
       <form action="/jobs/create_after_login" class="new_job" id="new_job" method="post" name="Qjobs" onsubmit="javascript:return validate('new_job_else');">
         <h2>Post a Quick Job</h2>
         <label>Job Title<span class="required_field">*</span></label>
-        <input type="text" name="job[job_title]" id="job_title" maxlength="35"  onblur="validation('job_title','error_job_title')"/>
+        <input type="text" name="job[job_title]" id="job_title" maxlength="29"  onblur="validation('job_title','error_job_title')"/>
         <div id="error_job_title" class="error_msg" >
           please provide job title
         </div>
         <label>Company Name<span class="required_field">*</span></label>
-        <input type="text" name="job[company_name]" id="company_name"  maxlength="35" onblur="validation('company_name','error_company_name')"/>
+        <input type="text" name="job[company_name]" id="company_name"  maxlength="28" onblur="validation('company_name','error_company_name')"/>
         <div id="error_company_name" class="error_msg" >
           please provide company name
         </div>
         <label>Location<span class="required_field">*</span></label>
-        <input type="text" name="job[location]" id="location" maxlength="35" onblur="validation('location','error_location')"/>
+        <input type="text" name="job[location]" id="location" maxlength="20" onblur="validation('location','error_location')"/>
         <div id="error_location" class="error_msg" >
           please provide location
         </div>
@@ -847,7 +848,7 @@ function word_count(text, doc)
           please limt the Job description to 200 words
         </div>
         <label id="apply_via_email">Enter email to recieve job applications<span class="required_field">*</span></label>
-        <input type="text" size="30" name="job[how_to_apply_email]" id="how_to_apply_email" onblur="validation('how_to_apply_email','error_how_to_apply_email')"/>
+        <input type="text" size="30" name="job[how_to_apply_email]" id="how_to_apply_email" maxlength="50" onblur="validation('how_to_apply_email','error_how_to_apply_email')"/>
         <div id="error_how_to_apply_email" class="error_msg">
           please provide email to apply
         </div>

@@ -300,24 +300,13 @@
 
   <div id="main"><!-- main -->
 
-     <% if @job.job_title.length > 25 then%>
-       <h1><%=h @job.job_title[0,25] %>&hellip;</h1>
-     <% else %>
-       <h1><%=h @job.job_title %></h1>
-     <% end %>
-
-     <% if @job.company_name.length > 15 then%>
-       <h2><%=h @job.company_name[0,15] %>&hellip;</h2>
-     <% else %>
-       <h2><%=h @job.company_name %></h2>
-     <% end %>
-
-
-     <% if @job.location.length > 15 then%>
-       <h3><%=h @job.location[0,15] %>&hellip;</h3>
-     <% else %>
+    <div id="job_company">
+        <h1><%=h @job.job_title %></h1>
+        <h2><%=h @job.company_name %></h2>
+    </div>
+    
        <h3><%=h @job.location %></h3>
-     <% end %>
+     
     
     <div id="description">
       <%=  RedCloth.new(@job.job_description).to_html %>

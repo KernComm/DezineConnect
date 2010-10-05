@@ -43,17 +43,53 @@ class JobApplicationsController < ApplicationController
   # POST /job_applications.xml
   def create
     logger.info"in create of job_contr #{params.inspect}"
-    @job_application = JobApplication.new(params[:job_application])
-    @job_application.activation_key = SecureRandom.hex(4)
-    respond_to do |format|
-      if @job_application.save
-        JobApplicationMailer.deliver_job_application_confirmation(@job_application)
-        flash[:notice] = 'You have successfully applied for the job.'
-        format.html { render :action => "job_application_success" }
-        format.xml  { render :xml => @job_application, :status => :created, :location => @job_application }
-      else
-        format.html { render :action => "error" }
-        format.xml  { render :xml => @job_application.errors, :status => :unprocessable_entity }
+    # If Both Portfolio and resume are nil?
+    if false then
+
+    # If Portfolio is nil?
+    elsif params[:job_application][:portfolio].nil? or params[:job_application][:portfolio].blank? then
+      @job_application = JobApplication.new(params[:job_application])
+      @job_application.activation_key = SecureRandom.hex(4)
+      respond_to do |format|
+        if @job_application.save
+          JobApplicationMailer.deliver_job_application_confirmation(@job_application)
+          flash[:notice] = 'You have successfully applied for the job.'
+          format.html { render :action => "job_application_success" }
+          format.xml  { render :xml => @job_application, :status => :created, :location => @job_application }
+        else
+          format.html { render :action => "error_page_for_limit_exceeds_for_resume" }
+          format.xml  { render :xml => @job_application.errors, :status => :unprocessable_entity }
+        end
+      end
+     # If resume is nil?
+    elsif params[:job_application][:resume].nil? or params[:job_application][:resume].blank? then
+      @job_application = JobApplication.new(params[:job_application])
+      @job_application.activation_key = SecureRandom.hex(4)
+      respond_to do |format|
+        if @job_application.save
+          JobApplicationMailer.deliver_job_application_confirmation(@job_application)
+          flash[:notice] = 'You have successfully applied for the job.'
+          format.html { render :action => "job_application_success" }
+          format.xml  { render :xml => @job_application, :status => :created, :location => @job_application }
+        else
+          format.html { render :action => "resume_not" }
+          format.xml  { render :xml => @job_application.errors, :status => :unprocessable_entity }
+        end
+      end
+    # If everything present is nil?
+    else
+      @job_application = JobApplication.new(params[:job_application])
+      @job_application.activation_key = SecureRandom.hex(4)
+      respond_to do |format|
+        if @job_application.save
+          JobApplicationMailer.deliver_job_application_confirmation(@job_application)
+          flash[:notice] = 'You have successfully applied for the job.'
+          format.html { render :action => "job_application_success" }
+          format.xml  { render :xml => @job_application, :status => :created, :location => @job_application }
+        else
+          format.html { render :action => "error_page_for_limit_exceeds_for_both_resume_portfolio", :location => @job_application }
+          format.xml  { render :xml => @job_application.errors, :status => :unprocessable_entity }
+        end
       end
     end
   end

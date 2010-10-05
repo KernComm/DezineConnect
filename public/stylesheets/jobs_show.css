@@ -20,22 +20,36 @@
     font-size: 30px;
     color: #5d5c5c;
     float:left;
+    /*background-color: yellow;*/
+    /*border-bottom: 1px dotted gray;*/
     margin-right: 10px;
+    
   }
   #main h2{
     font-size: 12px;
     margin: 15px 0px 0px 0px;
     padding-bottom: 5px;
-    border-bottom: 1px dotted gray;
+    /*background-color: blue;*/
+    float:right;
+    /*border-bottom: 1px dotted gray;*/
   }
   #main h3{
     font-size: 12px;
     position:absolute;
-    right: 0px;
-    top: 16px;
+    /*background-color: red;*/
+    margin-top: 5px;
+  }
+   #main #job_company {
+   /*background-color: red;*/
+   height: 35px;
+   border-bottom: 1px dotted gray;
+}
+#main #description {
+    margin-top: 40px;
+    margin-left: 0px;
   }
   #main #description p{
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     margin-left: 0px;
   }
   #main_inner{
