@@ -89,22 +89,22 @@
     <% if  job.activate == true then %>
       <div class="job-listing-div">
          <a href="/jobs/show/<%= job.id %>">
-        <% if job.job_title.length > 25 then%>
-          <h3><%=h job.job_title[0,25] %>&hellip;</h3>
+        <% if job.job_title.length > 29 then%>
+          <h3><%=h job.job_title[0,29] %>&hellip;</h3>
         <% else %>
           <h3><%=h job.job_title %></h3>
         <% end %>
 
-        <% if job.company_name.length > 12 then%>
-          <h4><%=h job.company_name[0,12] %>&hellip;</h4>
+        <% if job.company_name.length > 28 then%>
+          <h4><%=h job.company_name[0,28] %>&hellip;</h4>
         <% else %>
           <h4><%=h job.company_name %></h4>
         <% end %>
 
         <span><%= job.job_applications.count %></span>
 
-        <% if job.location.length > 12 then%>
-          <h5><%=h job.location[0,12] %>&hellip;</h5>
+        <% if job.location.length > 20 then%>
+          <h5><%=h job.location[0,20] %>&hellip;</h5>
         <% else %>
           <h5><%=h job.location %></h5>
         <% end %>
