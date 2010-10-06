@@ -1,0 +1,108 @@
+<%= stylesheet_link_tag 'admin.css'  %>
+<div id="admin_panel_main">
+  <h1>Jobs
+    <div id="portfolio_edit_top">
+      <div id="account_settings_btn"><a href="/admin/portfolios"></a></div>
+<%#*<div id="profile_information_btn"><a href="/admin/panel"></a></div>%>
+      <div id="jsob_btn"></div>
+      <div id="portfolio_btn"><a href="/admin/design_directories"></a></div>
+    </div>
+  </h1>
+  <h2> <%=  @jobs_active %> Published Jobs, <%=  @jobs_inactive %> Unpublished Jobs </h2>
+
+  <% if  flash[:notice] then %>
+    <div class="flash_success_msg">
+      <%=flash[:notice]%>
+    </div>
+  <%end%>
+
+  <table id="admin_panel_table" cellpadding="3" cellspacing="0" align="center">
+    <tbody>
+    <thead>
+    <th class="admin_panel_thead" width="40px">ID</th>
+    <th class="admin_panel_thead">Job Title</th>
+    <th class="admin_panel_thead">Company Name</th>
+    <th class="admin_panel_thead">Location</th>
+    <th class="admin_panel_thead">email</th>
+    <th class="admin_panel_thead">created at</th>
+    <th class="admin_panel_thead">jobs applied</th>
+    <th class="admin_panel_thead">delete<br/>account</th>
+    <th class="admin_panel_thead">activate<br/>account</th>
+    <th class="admin_panel_thead">deactivate<br/>account</th>
+
+    </thead>
+    </tbody>
+    <% unless @jobs.nil? or @jobs.blank? then %>
+      <% @jobs.each do | jobs_obj | %>
+
+           <tr class="job_title_row">
+
+            <td class="admin_panel_col">
+              <% unless jobs_obj.id.nil? or jobs_obj.id.blank? then %>
+                <a target="_blank" href="/jobs/show/<%= jobs_obj.id %>"><%= jobs_obj.id  %></a>
+              <% end %>
+            </td>
+
+            <td class="admin_panel_col">
+              <% unless jobs_obj.job_title.nil? or jobs_obj.job_title.blank? then %>
+                <a target="_blank" href="/jobs/show/<%= jobs_obj.job_title %>"><%= jobs_obj.job_title  %></a>
+              <% end %>
+            </td>
+            
+            <td class="admin_panel_col">
+              <% unless jobs_obj.company_name.nil? or jobs_obj.company_name.blank? then %>
+                <a target="_blank" href="/jobs/show/<%= jobs_obj.company_name %>"><%= jobs_obj.company_name  %></a>
+              <% end %>
+            </td>
+
+            <td class="admin_panel_col">
+              <% unless jobs_obj.location.nil? or jobs_obj.location.blank? then %>
+                <a target="_blank" href="/jobs/show/<%= jobs_obj.location %>"><%= jobs_obj.location  %></a>
+              <% end %>
+            </td>
+
+             <td class="admin_panel_col">
+              <% unless jobs_obj.email.nil? or jobs_obj.email.blank? then %>
+                <a target="_blank" href="/jobs/show/<%= jobs_obj.email %>"><%= jobs_obj.email  %></a>
+              <% end %>
+            </td>
+
+             <td class="admin_panel_col">
+              <% unless jobs_obj.created_at.nil? or jobs_obj.created_at.blank? then %>
+                <a target="_blank" href="/jobs/show/<%= jobs_obj.created_at %>"><%= jobs_obj.created_at  %></a>
+              <% end %>
+            </td>
+
+            <td class="admin_panel_col">
+               <%= jobs_obj.job_applications.length %>
+            </td>
+
+             <td class="admin_panel_col">
+              <% unless jobs_obj.id.nil? or jobs_obj.id.blank? then %>
+                <%=  link_to("Delete", {    :action => "distroy_job", :id => jobs_obj.id  },
+                                                    :confirm => "Are you sure you want to delete this Job?",
+                                                    :method => :delete)
+                %>
+              <% end %>
+            </td>
+
+            <td class="admin_panel_col">
+              <% unless jobs_obj.id.nil? or jobs_obj.id.blank? then %>
+                <a href="/admin/jobs_activate/<% unless jobs_obj.id.nil? or jobs_obj.id.blank? then%><%= jobs_obj.id  %><% end %>">activate</a>
+              <% end %>
+            </td>
+
+            <td class="admin_panel_col">
+              <% unless jobs_obj.id.nil? or jobs_obj.id.blank? then %>
+                <a href="/admin/jobs_deactivate/<% unless jobs_obj.id.nil? or jobs_obj.id.blank? then%><%= jobs_obj.id  %><% end %>">deactivate</a>
+              <% end %>
+            </td>
+
+          </tr>
+
+
+        <% end %>
+      <% end %>
+    
+    </table>
+  </div>

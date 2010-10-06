@@ -2,9 +2,10 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.xml
   def index
+    @title = "Design Jobs In India"
     @jobs = Job.paginate(:page => params[:page], :per_page =>11, :conditions => {:activate => 1}, :order => 'updated_at DESC')
     @records_for_more_button = Job.find(:all, :conditions => {:activate => 1})
-
+   
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @jobs }
@@ -16,6 +17,8 @@ class JobsController < ApplicationController
   # GET /jobs/1.xml
   def show
     @job = Job.find(params[:id])
+    @title = "#{@job.job_title.capitalize}, #{@job.company_name.capitalize}, #{@job.location.capitalize}"
+  
 
     respond_to do |format|
       format.html # show.html.erb

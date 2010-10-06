@@ -61,7 +61,7 @@
     width: 151px;
     height: 31px;
     position: absolute;
-    right: 312px;
+    right: 320px;
     top: 10px;
 }
 
@@ -101,4 +101,24 @@
 }
 #portfolio_edit_top  #profile_information_btn a:hover {
     background: url('../images/admin_users_tab_button_2.png') no-repeat;
+}
+
+/*------jobs button starts  here ---------*/
+
+#portfolio_edit_top  #jsob_btn a {
+    background: url('../images/jobs1.png') no-repeat;
+    width: 151px;
+    height: 31px;
+    position: absolute;
+}
+#portfolio_edit_top  #jsob_btn a:hover {
+    background: url('../images/jobs2.png') no-repeat;
+}
+#portfolio_edit_top  #jsob_btn {
+    background: url('../images/jobs3.png') no-repeat;
+    width: 151px;
+    height: 31px;
+    position: absolute;
+    right: 160px;
+    top: 10px;
 }

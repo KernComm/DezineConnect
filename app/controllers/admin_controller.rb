@@ -28,6 +28,14 @@ class AdminController < ApplicationController
     @design_directories = DesignDirectory.find(:all, :order => 'created_at DESC')
   end
 
+ def jobs
+  @jobs_active =  Job.find(:all, :conditions => {:activate => 1},:order => 'created_at DESC').count
+  @jobs_inactive = Job.find(:all, :conditions => {:activate => 0},:order => 'created_at DESC').count
+  @jobs = Job.find(:all, :order => 'created_at DESC')
+  
+ end
+  
+
   def destroy
     @user = User.find(params[:id])
     flash[:notice] = "User #{@user.firstname} has been deleted successfully."
@@ -132,6 +140,20 @@ class AdminController < ApplicationController
     end
   end
 
+  def distroy_job
+    @jobs = Job.find(params[:id])
+    unless @jobs.nil? or @jobs.blank? then
+      @jobs.destroy
+    end
+    respond_to do |format|
+      format.html { redirect_to('/admin/jobs') }
+      format.xml  { head :ok }
+    end
+  end
+  
+
+   
+
   def portfolio_user_activate
     @user = User.find(params[:id])
     flash[:notice] = "User #{@user.firstname} has been activated successfully."
@@ -148,6 +170,26 @@ class AdminController < ApplicationController
     @user.update_attribute(:activate, 0)
     respond_to do |format|
       format.html { redirect_to('/admin/portfolios') }
+      format.xml  { head :ok }
+    end
+  end
+
+   def jobs_activate
+    @jobs = Job.find(params[:id])
+    flash[:notice] = "Job #{@jobs.id} has been activated successfully."
+    @jobs.update_attribute(:activate, 1)
+    respond_to do |format|
+      format.html { redirect_to('/admin/jobs') }
+      format.xml  { head :ok }
+    end
+  end
+
+   def jobs_deactivate
+    @jobs = Job.find(params[:id])
+    flash[:notice] = "Job #{@jobs.id} has been deactivated successfully."
+    @jobs.update_attribute(:activate, 0)
+    respond_to do |format|
+      format.html { redirect_to('/admin/jobs') }
       format.xml  { head :ok }
     end
   end
