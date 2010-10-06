@@ -1,4 +1,5 @@
- body{
+
+body{
     font-family: Century Gothic, Lucida Grande, Lucida Sans Unicode, helvetica, sans-serif;
 
   }
@@ -127,6 +128,7 @@
   #description .caps
   {
     color: #333333;
+    font-size: 10px;
   }
   #main_inner #QJob-Apply-RoundedShade {
     background: #fff;

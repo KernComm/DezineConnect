@@ -9,12 +9,7 @@
     width: 960px;
     position: relative;
 }
-#jobs
-{
-    width:160px;
-    right: 16px;
-    background-color: red;
-}
+
 #number_of_jobs, #number_of_fav, #number_applied, #diplay_name_on_header {
     font-family: Georgia, Times New Roman, Serif;
     font-size: 18px;
@@ -35,6 +30,12 @@
     color: orange;
 }
 
+#jobs{
+    width:500px;
+   right: 20px;
+   
+}
+
 #number_of_fav {
     width: 130px;
     right: 400px;
@@ -52,8 +53,8 @@
     color: orange;
 }
 
-#dlog, #login, #portrolio, #logout,#header_link_separator, #directories_head_link,
-#header_link_separator1,#header_link_separator2
+#dlog, #login, #portrolio, #josb, #logout ,#header_link_separator, #directories_head_link,
+#header_link_separator1,#header_link_separator2 
 {
     font-family:Century Gothic, Lucida Grande, Lucida Sans Unicode, helvetica, sans-serif;
     font-size: 10px;
@@ -66,7 +67,7 @@
     text-transform: uppercase;
 }
 #header_link_separator {
-    right: 372px;
+    right: 371px;
     width:5px;
     text-align: center;
 }
@@ -77,23 +78,39 @@
 }
 #header_link_separator2
 {
-    right: 373px;
-    width:50px;
+    right: 409px;
+    width:5px;
     text-align: center;
 }
 #header_link_separator2 a:hover
 {
     color: orange;
 }
+#header_link_separator2 a
+{
+    color: orange;
+}
+#header_link_separator2 s
+{
+    text-decoration: none;
+}
 #dlog {
     /* width: 40px;*/
-    right: 310px;
+    right: 309px;
 }
 #portrolio {
     width:160px;
     right: 373px;
-
 }
+
+#josb
+{
+    width:155px;
+    right: 249px;
+}
+
+
+
 #directories_head_link{
     position: absolute;
     right:550px;
@@ -104,7 +121,7 @@
     color: orange;
 }
 
-#dlog a:hover, #portrolio a:hover{
+#dlog a:hover, #portrolio a:hover, #josb a:hover {
     color: orange;
 }
 

@@ -15,6 +15,9 @@ var display_records=5; //set the valu for show record at one time
   label {
     font-size: 12px;
   }
+  #josb{
+    color: orange;
+}
   #search_box {
     background: url('../images/portfolio_search_bg.png') no-repeat;
     width: 405px;
@@ -722,7 +725,7 @@ function word_count(text, doc)
       <!--Job Listing view box-->
       <!--Quick Job Result-->
       <!--Home Job view box-->
-      <div id="jobs" style="background-color: red;">
+      <div id="jobs">
         <%= render :partial => @jobs %>
       </div>
       <!--Home Job view box end-->
