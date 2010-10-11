@@ -45,31 +45,31 @@
 
             <td class="admin_panel_col">
               <% unless jobs_obj.job_title.nil? or jobs_obj.job_title.blank? then %>
-                <a target="_blank" href="/jobs/show/<%= jobs_obj.job_title %>"><%= jobs_obj.job_title  %></a>
+                <%= jobs_obj.job_title  %>
               <% end %>
             </td>
             
             <td class="admin_panel_col">
               <% unless jobs_obj.company_name.nil? or jobs_obj.company_name.blank? then %>
-                <a target="_blank" href="/jobs/show/<%= jobs_obj.company_name %>"><%= jobs_obj.company_name  %></a>
+                <%= jobs_obj.company_name  %>
               <% end %>
             </td>
 
             <td class="admin_panel_col">
               <% unless jobs_obj.location.nil? or jobs_obj.location.blank? then %>
-                <a target="_blank" href="/jobs/show/<%= jobs_obj.location %>"><%= jobs_obj.location  %></a>
+                <%= jobs_obj.location  %>
               <% end %>
             </td>
 
              <td class="admin_panel_col">
               <% unless jobs_obj.email.nil? or jobs_obj.email.blank? then %>
-                <a target="_blank" href="/jobs/show/<%= jobs_obj.email %>"><%= jobs_obj.email  %></a>
+                <a href="mailto:<%= jobs_obj.email %>"><%= jobs_obj.email  %></a>
               <% end %>
             </td>
 
              <td class="admin_panel_col">
               <% unless jobs_obj.created_at.nil? or jobs_obj.created_at.blank? then %>
-                <a target="_blank" href="/jobs/show/<%= jobs_obj.created_at %>"><%= jobs_obj.created_at  %></a>
+               <%= jobs_obj.created_at  %>
               <% end %>
             </td>
 

@@ -26,6 +26,16 @@ class JobsController < ApplicationController
     end
   end
 
+
+  def preview
+    @job = Job.find(params[:id])
+    @title = "#{@job.job_title.capitalize}, #{@job.company_name.capitalize}, #{@job.location.capitalize}"
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @job }
+    end
+  end
+
   # GET /jobs/new
   # GET /jobs/new.xml
   def new
@@ -39,21 +49,31 @@ class JobsController < ApplicationController
 
   # GET /jobs/1/edit
   def edit
+    @title = "Design Jobs In India"
     @job = Job.find(params[:id])
+    @jobs = Job.paginate(:page => params[:page], :per_page =>11, :conditions => {:activate => 1}, :order => 'updated_at DESC')
+    @records_for_more_button = Job.find(:all, :conditions => {:activate => 1})
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @jobs }
+      format.js
+    end
   end
 
 
   def create_after_login
     @job = Job.new(params[:job])
     @job[:activate] = 1
-    unless session[:registered_user_id].nil? then
+    
+    unless session[:registered_user_id].nil? or session[:registered_user_id].blank? then
       @user = User.find_by_id(session[:registered_user_id])
       @job.user_id = @user.id
     end
     respond_to do |format|
       if @job.save
         flash[:notice] = 'Job was successfully created.'
-        format.html { redirect_to "/jobs" }
+        format.html { redirect_to "/jobs/preview/#{@job.id}" }
         #JobMailer.deliver_job_posting_confirmation(@job)
         format.xml  { render :xml => @job, :status => :created, :location => @job }
       else
@@ -82,7 +102,7 @@ class JobsController < ApplicationController
           respond_to do |format|
             if @job.save
               flash[:notice] = 'Job was successfully created.'
-              format.html { redirect_to "/jobs" }
+              format.html { redirect_to "/jobs/preview/#{@job.id}" }
               #JobMailer.deliver_job_posting_confirmation(@job)
               format.xml  { render :xml => @job, :status => :created, :location => @job }
             else
@@ -109,8 +129,9 @@ class JobsController < ApplicationController
       respond_to do |format|
         if @job.save
           flash[:notice] = 'Job was successfully created.'
-          format.html { render :action => "thanks_for_posting_job" }
-          JobMailer.deliver_job_posting_confirmation(@job)
+          format.html { redirect_to "/jobs/preview/#{@job.id}"}
+          #          format.html { render :action => "thanks_for_posting_job" }
+          #          JobMailer.deliver_job_posting_confirmation(@job)
           format.xml  { render :xml => @job, :status => :created, :location => @job }
         else
           format.html { render :action => "index" }
@@ -120,6 +141,24 @@ class JobsController < ApplicationController
     end    
   end
 
+
+  def post_after_preview
+    @job = Job.find(params[:id])
+    respond_to do |format|
+      format.html { render :action => "thanks_for_posting_job" }
+      JobMailer.deliver_job_posting_confirmation(@job)
+    end
+  end
+
+
+  def post_after_preview_after_login
+    @job = Job.find(params[:id])
+    respond_to do |format|
+      
+      flash[:notice] = 'Job was successfully created.'
+      format.html { redirect_to "/jobs" }
+    end
+  end
   # PUT /jobs/1
   # PUT /jobs/1.xml
   def update

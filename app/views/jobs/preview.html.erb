@@ -1,0 +1,51 @@
+<%= stylesheet_link_tag 'design_directories_information'  %>
+<%= stylesheet_link_tag 'jobs_preview' %>
+<%= javascript_include_tag 'jquery-1.3.2.min' %>
+<%= javascript_include_tag 'word_count' %>
+
+<style type="text/css">
+  #submit_btn a {
+    color: #616D7E;
+    margin-left: 20px;
+
+  }
+  #submit_btn spam {
+    margin-left: 20px;
+  }
+  #submit_btn a:hover{
+    color: #25383C;
+    margin-left: 20px;
+
+  }
+  #submit_btn s {
+    margin-left: 20px;
+    text-decoration: none;
+  }
+
+</style>
+<div id="wrap">
+  <div id="main">
+    <div id="job_company">
+      <h1><%=h @job.job_title %></h1>
+      <h2><%=h @job.company_name %></h2>
+    </div>
+    <h3><%=h @job.location %></h3>
+    <div id="description">
+      <%=  RedCloth.new(@job.job_description).to_html %>
+    </div>
+    <div id="submit_btn">
+      <% if session[:loggedin_user].nil? then %>
+        <form method="post" action="/jobs/post_after_preview/<%= @job.id %>" >
+          <input type="submit" value="" id="QJobpreview_btn"/>
+
+        </form>
+     <% else %>
+       <form method="post" action="/jobs/post_after_preview_after_login/<%= @job.id %>" >
+          <input type="submit" value="" id="QJobpreview_btn"/>
+
+        </form>
+     <% end %>
+    </div>
+
+  </div>
+</div>

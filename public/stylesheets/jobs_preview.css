@@ -1,0 +1,51 @@
+#main {
+    position: relative;
+    margin-top: 20px;
+}
+#main #job_company {
+    /*background-color: red;*/
+    height: 35px;
+    border-bottom: 1px dotted gray;
+}
+#main h1, #main h2, #main h3 {
+    margin: 0px 0px 0px 0px;
+    border:none;
+}
+#main h1 {
+    font-size: 30px;
+    color: #5d5c5c;
+    float:left;
+    margin-right: 10px;
+   
+}
+#main h2{
+    font-size: 12px;
+    margin: 15px 0px 0px 0px;
+    padding-bottom: 5px;
+    /*background-color: blue;*/
+    float:right;
+    /*border-bottom: 1px dotted gray;*/
+}
+#main h3{
+    font-size: 12px;
+    position:absolute;
+    /*background-color: red;*/
+    margin-top: 5px;
+}
+#main #description {
+    margin-top: 40px;
+    margin-left: 0px;
+}
+#main #description p{
+    margin-bottom: 15px;
+    margin-left: 0px;
+}
+
+#QJobpreview_btn{
+    background: url('/images/btn_post_this_job.png') no-repeat;
+    width: 115px;
+    height: 31px;
+    border: none;
+    cursor: pointer;
+    margin: 20px 0px 20px 0px;
+  }
