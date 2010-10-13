@@ -772,7 +772,7 @@
   <!-- sider -->
   <div id="sidebar">
     <% if session[:loggedin_user].nil? or session[:loggedin_user].blank? then %>
-      <form action="/jobs/create" class="new_job" id="new_job" method="post" name="Qjobs" onsubmit="javascript:return validate('new_job_if');">
+      <form action="/jobs/update/<%= @job.id %>" class="new_job" id="new_job" method="post" name="Qjobs" onsubmit="javascript:return validate('new_job_if');">
         <h2>Edit your Job</h2>
         <label>Job Title<span class="required_field">*</span></label>
         <input type="text" name="job[job_title]" value="<%= @job.job_title %>" id="job_title"  maxlength="29" onblur="validation('job_title','error_job_title')"/>
@@ -790,7 +790,7 @@
           please provide location
         </div>
         <label id="job_description_label" style="width:265px;">Job Description<span style="float:right;color: black;background-color: transparent;font-size: 11px;"><input type="text" id="text" name="text" value="200" style="border:none;font-size: 12px; background-color:transparent; color: black;width: 25px; height: 10px;text-align: left;padding-top: 7px;"disabled/>words</span></label>
-        <textarea value="<%= @job.job_description %>"id="job_description" name="job[job_description]"></textarea>
+        <textarea id="job_description" onkeyup="word_count(this.value, text)" name="job[job_description]"> <%= @job.job_description %> </textarea>
         <div id="error_job_description" class="error_msg">
           please limit the Job description to 200 words
         </div>
@@ -869,8 +869,8 @@
        </form>
 
     <% else %>
-      <form action="/jobs/create_after_login" class="new_job" id="new_job" method="post" name="Qjobs" onsubmit="javascript:return validate('new_job_else');">
-        <h2>Post a Quick Job</h2>
+      <form action="/jobs/update_after_login/<%= @job.id %>" class="new_job" id="new_job" method="post" name="Qjobs" onsubmit="javascript:return validate('new_job_else');">
+        <h2>Edit your Job</h2>
         <label>Job Title<span class="required_field">*</span></label>
         <input type="text" name="job[job_title]" id="job_title" maxlength="29" value="<%= @job.job_title %>" onblur="validation('job_title','error_job_title')"/>
         <div id="error_job_title" class="error_msg" >
@@ -887,7 +887,7 @@
           please provide location
         </div>
         <label id="job_description_label" style="width:265px;">Job Description<span style="float:right;color: black;background-color: transparent;font-size: 11px;"><input type="text" id="text" name="text" value="200" style="border:none;font-size: 12px; background-color:transparent; color: black;width: 25px; height: 10px;text-align: left;padding-top: 7px;"disabled/>words</span></label>
-        <textarea id="job_description"  onkeyup="word_count(this.value, text)" name="job[job_description]" rows="50" cols="35"></textarea>
+        <textarea id="job_description"  onkeyup="word_count(this.value, text)" name="job[job_description]" rows="50" cols="35">  <%= @job.job_description %></textarea>
         <div id="error_job_description" class="error_msg">
           please limt the Job description to 200 words
         </div>

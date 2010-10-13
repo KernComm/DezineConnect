@@ -16,7 +16,7 @@
     color: #5d5c5c;
     float:left;
     margin-right: 10px;
-   
+
 }
 #main h2{
     font-size: 12px;
@@ -41,6 +41,11 @@
     margin-left: 0px;
 }
 
+#main #description span{
+    text-transform: lowercase;
+    color:#444444;
+}
+
 #QJobpreview_btn{
     background: url('/images/btn_post_this_job.png') no-repeat;
     width: 115px;
@@ -48,4 +53,26 @@
     border: none;
     cursor: pointer;
     margin: 20px 0px 20px 0px;
-  }
+}
+#submit_btn a {
+    color: #616D7E;
+    margin-left: 20px;
+
+}
+#submit_btn spam {
+    margin-left: 20px;
+}
+#submit_btn a:hover{
+    color: #25383C;
+    margin-left: 20px;
+
+}
+#submit_btn s {
+    margin-left: 20px;
+    text-decoration: none;
+}
+#description ol {
+
+    color: black;
+    margin-left: 25px;
+}

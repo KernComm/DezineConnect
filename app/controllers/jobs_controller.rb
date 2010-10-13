@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+ 
   # GET /jobs
   # GET /jobs.xml
   def index
@@ -64,7 +65,7 @@ class JobsController < ApplicationController
 
   def create_after_login
     @job = Job.new(params[:job])
-    @job[:activate] = 1
+    @job[:activate] = 0
     
     unless session[:registered_user_id].nil? or session[:registered_user_id].blank? then
       @user = User.find_by_id(session[:registered_user_id])
@@ -98,7 +99,7 @@ class JobsController < ApplicationController
         logger.info "@user.password : #{@user.password}}"
         if @user.password == params[:ex_password] then
           session[:loggedin_user] = @user.id
-          @job.update_attribute(:activate, 1)
+          @job.update_attribute(:activate, 0)
           respond_to do |format|
             if @job.save
               flash[:notice] = 'Job was successfully created.'
@@ -154,7 +155,9 @@ class JobsController < ApplicationController
   def post_after_preview_after_login
     @job = Job.find(params[:id])
     respond_to do |format|
-      
+       @job.update_attribute(:activate, 1)
+       send_tweet(@job.job_title+" required at "+@job.company_name+" in #"+@job.location+" http://www.dezineconnect.com/jobs/show/#{@job.id} #designjobs")
+
       flash[:notice] = 'Job was successfully created.'
       format.html { redirect_to "/jobs" }
     end
@@ -192,7 +195,9 @@ class JobsController < ApplicationController
   def activate
     @job = Job.find_by_activation_key(params[:id])
     @job.update_attribute(:activate, 1)
-    #    session[:user_activated_to_show_page] = true
+    send_tweet(@job.job_title+" required at "+@job.company_name+" in #"+@job.location+" http://www.dezineconnect.com/jobs/show/#{@job.id} #designjobs")
+
+     #    session[:user_activated_to_show_page] = true
     #    session[:loggedin_user] = @user.id
     unless @job.nil? or @job.blank? then
       redirect_to "/jobs"
@@ -228,6 +233,84 @@ class JobsController < ApplicationController
       redirect_to :action => "index"
     end
   end
+
+
+
+
+    # POST /jobs
+  # POST /jobs.xml
+  def update
+    unless params[:ex_email].blank? or params[:ex_email].nil? or params[:ex_password].blank? or params[:ex_password].blank? or params[:ex_password].nil? then
+
+      @job = Job.find(params[:id])
+     
+#      @user_name = params[:ex_email]
+#      @password = params[:ex_password]
+
+      @user = User.find_by_email(@job.user.email)
+      unless @user.nil? then
+        logger.info "@user.password : #{@job.user.password}}"
+        if @user.password == params[:ex_password] then
+          session[:loggedin_user] = @user.id
+          #TODO : Need to update activate after preview
+          @job.update_attribute(:activate, 1)
+          respond_to do |format|
+            if @job.update_attributes(params[:job]) then
+              flash[:notice] = 'Job was successfully created.'
+              format.html { redirect_to "/jobs/preview/#{@job.id}" }
+              #JobMailer.deliver_job_posting_confirmation(@job)
+              format.xml  { render :xml => @job, :status => :created, :location => @job }
+            else
+              format.html { render :action => "index" }
+              format.xml  { render :xml => @job.errors, :status => :unprocessable_entity }
+            end
+          end
+
+
+        else
+          flash[:flash19] = "the username or password you entered is incorrect."
+          redirect_to "/jobs"
+        end
+      else
+        flash[:flash20] = "the username or password you entered is incorrect."
+        redirect_to "/jobs"
+      end
+
+
+    else
+      @job = Job.find(params[:id])
+
+      respond_to do |format|
+        if @job.update_attributes(params[:job]) then
+          flash[:notice] = 'Job was successfully created.'
+          format.html { redirect_to "/jobs/preview/#{@job.id}"}
+          #          format.html { render :action => "thanks_for_posting_job" }
+          #          JobMailer.deliver_job_posting_confirmation(@job)
+          format.xml  { render :xml => @job, :status => :created, :location => @job }
+        else
+          format.html { render :action => "index" }
+          format.xml  { render :xml => @job.errors, :status => :unprocessable_entity }
+        end
+      end
+    end
+  end
+
+  def update_after_login
+    @job = Job.find(params[:id])
+    @job.update_attribute(:activate, 0)
+    respond_to do |format|
+      if @job.update_attributes(params[:job]) then
+        flash[:notice] = 'Job was successfully created.'
+        
+        format.html { redirect_to "/jobs/preview/#{@job.id}" }
+        format.xml  { render :xml => @job, :status => :created, :location => @job }
+      else
+        format.html { render :action => "index" }
+        format.xml  { render :xml => @job.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
 
   
 end
