@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :job_posting_details
+
   map.resources :job_applications
   
   map.resources :payments
@@ -55,6 +57,9 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action.:format'
   map.connect ':controller/:action/:id.:format'
+  
+
+
 
 
 end

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100906121510) do
+ActiveRecord::Schema.define(:version => 20101020102909) do
 
   create_table "acts_as_xapian_jobs", :force => true do |t|
     t.string  "model",    :null => false
@@ -48,6 +48,23 @@ ActiveRecord::Schema.define(:version => 20100906121510) do
     t.datetime "author_photo_small_updated_at"
     t.text     "page_views"
     t.text     "extended_content"
+    t.text     "tag"
+    t.text     "vcard_mail"
+    t.text     "vcard_phone"
+    t.text     "vcard_skype"
+    t.text     "vcard_website"
+    t.text     "vcard_blog"
+    t.text     "vcard_facebook"
+    t.text     "vcard_twitter"
+    t.text     "vcard_flickr"
+    t.text     "vcard_linkedin"
+    t.text     "vcard_youtube"
+    t.text     "vcard_vimeo"
+    t.text     "vcard_delicious"
+    t.text     "below_slider_content_1"
+    t.text     "below_slider_content_2"
+    t.text     "below_slider_content_3"
+    t.text     "below_slider_content_4"
   end
 
   create_table "design_directories", :force => true do |t|
@@ -115,6 +132,16 @@ ActiveRecord::Schema.define(:version => 20100906121510) do
     t.boolean  "activate",               :default => false
     t.text     "activation_key"
     t.integer  "job_id"
+    t.integer  "user_id"
+  end
+
+  create_table "job_posting_details", :force => true do |t|
+    t.text     "job_poster"
+    t.text     "job_source"
+    t.text     "job_source_text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "job_id"
   end
 
   create_table "jobs", :force => true do |t|
@@ -128,6 +155,7 @@ ActiveRecord::Schema.define(:version => 20100906121510) do
     t.boolean  "activate",           :default => false
     t.text     "activation_key"
     t.text     "email"
+    t.integer  "user_id"
   end
 
   create_table "payments", :force => true do |t|

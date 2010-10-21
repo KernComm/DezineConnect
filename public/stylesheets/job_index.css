@@ -1,0 +1,322 @@
+body{color: #333333;}
+label {
+    font-size: 12px;
+}
+#josb{
+    color: orange;
+}
+
+.clear {
+    clear: both;
+    height: 0;
+    overflow: hidden;
+}
+#serchandactivated{
+    width:620px;
+    /*background-color: aqua*/;
+}
+#search_box {
+    background: url('/../images/portfolio_search_bg.png') no-repeat;
+    width: 405px;
+    height: 35px;
+    margin: 0px 0px 0px 0px;
+
+}
+
+#job_activated {
+    width: auto;
+    height: 35px;
+    float: right;
+    text-align: right;
+    font-size: 16px;
+    font-weight: 300;
+    margin: 0px 0px 0px 0px;
+   /*  background-color: yellow;*/
+
+}
+#job_activated .actnum {
+    font-size: 20px;
+    color: #999999;
+
+}
+#job_description_label{
+    width: 50px;
+    float: left;
+    height: 15px;
+}
+#search_textfield {
+    font-family: Century Gothic, Lucida Grande,Lucida Sans Unicode,helvetica, sans-serif;
+    font-size: 13px;
+    margin: 5px 0px 0px 40px;
+    padding: 2px 0px 0px 0px;
+    border: 0px;
+    border-color: #fff;
+    height: 20px;
+    background: transparent;
+    width: 350px;
+    outline-style:  none;
+}
+#search_textfield:hover {
+    border-color: #fff;
+}
+#portfolio_search_button {
+    background: url('../images/magnifyingglass.png') no-repeat;
+    width: 60px;
+    height: 45px;
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    width: 20px;
+    height: 20px;
+}
+#new_job
+{
+    margin-bottom: 20px;
+    position: relative;
+
+}
+#word_count
+{
+    font-weight: normal;
+    margin-right: 5px;
+    width: 50px;
+    height: 20px;
+    position: absolute;
+    top: 190px;
+    right: 50px;
+    font-size: 10px;
+}
+#word_count #text
+{
+    background-color: red;
+}
+#main_inner {
+    margin-top: 10px;
+}
+
+#main_inner .job-listing-div{
+    background: #fff;
+    -moz-border-radius-topleft:5px;
+    -moz-border-radius-topright:5px;
+    -moz-border-radius-bottomleft:5px;
+    -moz-border-radius-bottomright:5px;
+
+    -webkit-border-top-left-radius:5px;
+    -webkit-border-top-right-radius:5px;
+    -webkit-border-bottom-left-radius:5px;
+    -webkit-border-bottom-right-radius:5px;
+    width: 620px;
+    margin: 0px 0px 8px 0px;
+    padding: 3px;
+
+    float: left;
+    position: relative;
+    height: 40px;
+
+}
+.captcha_class
+{
+    background-color: red;
+    width:20px;
+    float: left;
+}
+#main_inner .job-listing-div a{
+    height: 40px;
+    width: 620px;
+    display:block;
+}
+#main_inner .job-listing-div h3{
+    font-family: Century Gothic, Lucida Grande,Lucida Sans Unicode,helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 15px;
+    color: orange;
+    position: absolute;
+    left: 10px;
+    top: 4px;
+    margin: 0px;
+}
+#main_inner .job-listing-div-email h3{
+    color: #6A0000;
+}
+
+#main_inner .job-listing-div h4{
+    color: gray;
+    font-family: Century Gothic, Lucida Grande,Lucida Sans Unicode,helvetica, sans-serif;
+    font-weight: normal;
+    position: absolute;
+    left: 10px;
+    top: 24px;
+    margin: 0px;
+    color: #333333;
+}
+#main_inner .job-listing-div h5{
+    position: absolute;
+    top: 24px;
+    left: 250px;
+    font-weight: normal;
+    margin: 0px;
+}
+#main_inner .job-listing-div span{
+    position: absolute;
+    top: 9px;
+    left: 250px;
+    display: block;
+    width: 60px;
+    color: black;
+    font-size: 13px;
+    background: url('../images/register_accept_page.png') no-repeat;
+    padding-left:15px;
+    height: 32px;
+    vertical-align: bottom;
+    color: #333333;
+}
+#main_inner .job-listing-div h6{
+    position: absolute;
+    top:25px;
+    right:9px;
+    margin: 0px;
+    font-size: 11px;
+    font-weight: normal;
+}
+#sidebar label{
+    width: 250px; display: block;
+    margin-bottom: 3px;
+}
+#apply_via_email
+{
+    margin-top: 5px;
+}
+#sidebar input, #sidebar textarea{
+    border: #bbbbbb 1px  solid;
+    margin-bottom: 5px;
+}
+#sidebar #job_title,#how_to_apply_email,#ex_email,#ex_password,#company_name,#location,#job_description,#job_poster
+{
+    width: 260px;
+}
+#sidebar #job_source_select{
+    width: 260px;
+
+}
+
+#sidebar #job_source_select, #job_taken{
+    width: 260px;
+    margin-bottom: 5px;
+}
+#sidebar #job_source_select, #job_taken_text{
+    width: 260px;
+
+}
+
+#sidebar textarea{
+    padding: 3px;
+    height: 180px;
+    cursor: pointer;
+}
+#sidebar span{
+    font-size: 10px;
+    font-style: italic;
+    color: #666666;
+    margin: -2px 0px 5px 0px ;
+    display: block;
+}
+#sidebar h2{
+    border: none;
+    margin: 0px 0px 10px 0px;
+    font-size: 20px;
+}
+#sidebar a {
+    display: block;
+    margin-bottom:10px;
+}
+#sidebar a img{ border: none;}
+
+#Qjob-side-member label{
+    margin: 3px 0px;
+}
+#Qjob-side-member input {
+    border: none;
+}
+#Qjob-side-member{
+    border-bottom: #ccc 1px  dotted;
+    border-top: #ccc 1px  dotted;
+    margin: 5px 0px;
+    padding: 5px 0px;
+}
+#Qjob-side-bottom{
+    border: none;
+}
+#Qjob-side-bottom a{
+    height:31px;
+    width:115px;
+}
+#Qjob-side-bottom #QJob-DontReg
+{
+    display:none;
+}
+#Qjob-side-bottom #QJob-DontReg label {
+    font-size: 12px;
+    margin: 3px 0px;
+}
+#Qjob-side-bottom #QJob-DontReg span img{
+    margin: 2px 2px 0px 0px;
+}
+#Qjob-side-bottom #QJob-Member{
+    position: relative;
+    display: block;
+    margin: 0px 0px 20px 0px;
+}
+/*#Qjob-side-bottom #QJob-Member h5{
+  margin: 0px;
+  font-weight: normal;
+  font-size: 12px;
+  color: orange;
+  display: inline;
+}*/
+#Qjob-side-bottom #forgot_password{
+    font-weight: normal;
+    font-style: normal;
+    font-size: 12px;
+    color: orange;
+    display: inline;
+    float: right;
+    margin-right: -20px;
+    margin-bottom: 0px;
+    height: 20px;
+    text-align: right;
+}
+#Qjob-side-bottom #QJobSecurityError,#Qjob-side-bottom #QJobPost_btn{
+    display: block;
+}
+.flash_success_msg
+{
+    text-align: center;
+    width: 620px;
+    margin-top: 8px;
+    background-color: transparent;
+}
+#sidebar .error_msg {
+    color: red;
+    margin: -3px 0px 5px 0px;
+    clear: right;
+    width: 300px;
+}
+#sidebar .required_field{
+    width: 5px;
+    display: inline;
+    color: red;
+}
+#sidebar #QJobPost_btn{
+    background: url('/images/preview_job_post.png') no-repeat;
+    width: 147px;
+    height: 31px;
+    border: none;
+    cursor: pointer;
+}
+#hoverover{
+    font-size: 10px;
+}
+#hoverpopup{
+    font-size: 12px;
+    font-family:Century Gothic,Lucida Grande,Lucida Sans Unicode,helvetica,sans-serif;
+}

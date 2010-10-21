@@ -1,46 +1,52 @@
-  #login{
+#login{
     display: none;
-  }
+}
 
-  #admin_panel_table {
+#admin_panel_table {
     margin: 0px auto;
-  }
-  #admin_panel_main {
+}
+#admin_panel_main {
     width: 960px;
     margin:0px auto;
-  }
-  .not_empty_record {
+}
+.not_empty_record {
     background: #6ABD78;
     border-bottom: 1px solid #787878;
-  }
-  .admin_panel_col {
+}
+.admin_panel_col {
     border-bottom: 1px solid #787878;
-  }
-  .admin_panel_thead {
+}
+.admin_panel_thead {
     border-bottom: 1px solid #787878;
     border-top: 1px solid #787878;
-  }
-  #admin_panel_table {
+}
+.deactivate_record{
+    color: gray;
+}
+.activate_record{
+    color: black;
+}
+#admin_panel_table {
     padding: 0px;
     margin: 0px;
     border: 0px;
-  }
-  .admin_panel_row:hover {
+}
+.admin_panel_row:hover {
     background: #ccc;
     border-bottom: 1px solid red;
-  }
-  .flash_success_msg {
+}
+.flash_success_msg {
     width: 960px;
-  }
-  h1 {
-   position : relative;
-  }
-  h2 {
-      border: none;
+}
+h1 {
+    position : relative;
+}
+h2 {
+    border: none;
 }
 
 
-  /*portfolio_edit_top_buttons*/
+/*portfolio_edit_top_buttons*/
 #portfolio_edit_top {
     position: absolute;
     top: 0;

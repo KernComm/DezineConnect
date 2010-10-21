@@ -1,0 +1,12 @@
+<h1>Editing job_posting_detail</h1>
+
+<% form_for(@job_posting_detail) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @job_posting_detail %> |
+<%= link_to 'Back', job_posting_details_path %>

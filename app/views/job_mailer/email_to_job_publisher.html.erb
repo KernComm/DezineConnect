@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>DezineConnect: Connecting Designers</title>
+  </head>
+  <body style="font-family: Century Gothic, Lucida Grande, Lucida Sans Unicode,helvetica, sans-serif; font-size: 12px; margin: 0px 0px 20px 0px; padding: 0;">
+
+    <div style="margin: 0 auto; border: 10px #787878 solid; padding: 0 10px 10px 10px; background: #ffffff; width: 95%; position: relative;">
+      <table width="100%" style="background: #ffffff;">
+        <tr>
+          <td align="left" valign="top">
+            <h3 style="font-family: Century Gothic, Lucida Grande, Lucida Sans Unicode,helvetica, sans-serif; font-size: 16px; color: #000; font-weight: 100;">Dear <%=h @job.job_posting_detail.job_poster %>,</h3>
+          </td>
+          <td align="right" valign="top">
+            <div id="mail_logo"><img alt="DezineConnect" src="http://www.dezineconnect.com/images/logo.png"/></div>
+          </td>
+        </tr>
+      </table>
+
+      <p style="line-height: 150%; margin: 7px 0px 0px 0px; color: black; background: #ffffff;">
+        DezineConnect is fast emerging as a great platform for companies in India to find the best design-related talent for their organizations.
+      </p>
+      <p style="line-height: 150%; margin: 7px 0px 0px 0px; color: black; background: #ffffff;">
+        We saw on <%=h  @job.job_posting_detail.job_source %> your requirement for <%=h @job.job_title %> in <%=h @job.company_name %> at <%=h @job.location %>.<br/>
+      Posting this job on DezineConnect:</p>
+      <ui>
+        <li>takes less than a minute</li>
+        <li>is absolutely FREE!</li>
+        <li>ensures that only the right people apply for your job</li>
+      </ui>
+      <p style="line-height: 150%; margin: 7px 0px 0px 0px; color: black; background: #ffffff;">
+	For your ease, we have composed your job at DezineConnect. <br/>We need your approval before we publish it. You are free to make changes or choose not to publish it.
+      </p>
+      <a href="http://www.dezineconnect.com/jobs/previewjob/<%= @job.activation_key %>" style="color: orange; text-decoration: none;">http://www.dezineconnect.com/jobs/previewjob/<%= @job.activation_key %></a>
+
+    <p style="line-height: 150%; margin: 7px 0px 0px 0px; color: black; background: #ffffff;" >
+      Warm Regards,<br/>
+      DezineConnect Team<br/>
+    </p>
+  </div>
+</body>
+</html>

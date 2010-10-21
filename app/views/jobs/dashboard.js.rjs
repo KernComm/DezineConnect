@@ -1,0 +1,2 @@
+# TODO Operate on the page object
+page.insert_html :bottom, :job_dashboard, :partial => @job_dashboards

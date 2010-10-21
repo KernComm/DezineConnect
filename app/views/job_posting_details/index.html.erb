@@ -1,0 +1,18 @@
+<h1>Listing job_posting_details</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% for job_posting_detail in @job_posting_details %>
+  <tr>
+    <td><%= link_to 'Show', job_posting_detail %></td>
+    <td><%= link_to 'Edit', edit_job_posting_detail_path(job_posting_detail) %></td>
+    <td><%= link_to 'Destroy', job_posting_detail, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New job_posting_detail', new_job_posting_detail_path %>

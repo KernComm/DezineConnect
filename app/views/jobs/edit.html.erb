@@ -722,7 +722,7 @@
     hp = document.getElementById("hoverpopup");
     hp.style.visibility = "Hidden";
   }
-  <%#*<pop up on hover text script ends here >%>
+
 </script>
 
 
@@ -795,8 +795,6 @@
           please limit the Job description to 200 words
         </div>
 
-        <%#*<hover text table strats here >%>
-
          <a id="hoverover" style="cursor:default;" onMouseOver="ShowPopup(this);" onMouseOut="HidePopup();">Use the <font color="orange">formatting guide</font> to italicize & make bulleted lists</a>
          <div id="hoverpopup" style="visibility:hidden; position:absolute; top:90; left:0;">
             <table bgcolor="#999999">
@@ -833,7 +831,6 @@
             </div>
             <label>password<span class="required_field">*</span>
               <a id="forgot_password" href="/forgot">forgot password</a></label>
-  <%#*<span id="forgot_password"><a id="forgot_password" href="/forgot">forgot_password</a></span> </label>%>
             <input type="password"  name="ex_password" id="ex_password" onblur="validation('ex_password','error_ex_password')"/>
             <div id="error_ex_password" class="error_msg" >
               please provide password
@@ -898,8 +895,6 @@
         </div>
 
         <div class="clear"></div>
-
-
 
         <!-- Form Submit button -->
         <input type="submit" value="" id="QJobPost_btn"/>

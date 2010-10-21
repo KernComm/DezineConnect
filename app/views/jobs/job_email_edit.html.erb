@@ -1,17 +1,293 @@
 
-<script type="text/javascript">
-  var db_count=<%=  @records_for_more_button.length %>;
-  var display_records=5; //set the valu for show record at one time
-</script>
-
-<%= stylesheet_link_tag 'job_index' %>
 <%= javascript_include_tag 'endless_jobs_page' %>
 <%= javascript_include_tag 'favourites' %>
 <%= javascript_include_tag 'prototype' %>
 <%#= javascript_include_tag 'jquery-1.3.2.min' %>
 <%#= javascript_include_tag 'word_count' %>
 
+<style type="text/css">
+  body{color: #333333;}
+  label {
+    font-size: 12px;
+  }
+  #josb{
+    color: orange;
+  }
+  #search_box {
+    background: url('/../images/portfolio_search_bg.png') no-repeat;
+    width: 405px;
+    height: 35px;
+    margin: 0px 0px 0px 0px;
 
+  }
+  #job_description_label{
+    width: 50px;
+    float: left;
+    height: 15px;
+  }
+  #search_textfield {
+    font-family: Century Gothic, Lucida Grande,Lucida Sans Unicode,helvetica, sans-serif;
+    font-size: 13px;
+    margin: 5px 0px 0px 40px;
+    padding: 2px 0px 0px 0px;
+    border: 0px;
+    border-color: #fff;
+    height: 20px;
+    background: transparent;
+    width: 350px;
+    outline-style:  none;
+  }
+  #search_textfield:hover {
+    border-color: #fff;
+  }
+  #portfolio_search_button {
+    background: url('/../images/magnifyingglass.png') no-repeat;
+    width: 60px;
+    height: 45px;
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    width: 20px;
+    height: 20px;
+  }
+  #new_job
+  {
+    margin-bottom: 20px;
+    position: relative;
+
+  }
+  #word_count
+  {
+    font-weight: normal;
+    margin-right: 5px;
+    width: 50px;
+    height: 20px;
+    position: absolute;
+    top: 190px;
+    right: 50px;
+    font-size: 10px;
+  }
+  #word_count #text
+  {
+    background-color: red;
+  }
+  #main_inner {
+    margin-top: 10px;
+  }
+
+  #main_inner .job-listing-div{
+    background: #fff;
+    -moz-border-radius-topleft:5px;
+    -moz-border-radius-topright:5px;
+    -moz-border-radius-bottomleft:5px;
+    -moz-border-radius-bottomright:5px;
+
+    -webkit-border-top-left-radius:5px;
+    -webkit-border-top-right-radius:5px;
+    -webkit-border-bottom-left-radius:5px;
+    -webkit-border-bottom-right-radius:5px;
+    width: 620px;
+    margin: 0px 0px 8px 0px;
+    padding: 3px;
+
+    float: left;
+    position: relative;
+    height: 40px;
+
+  }
+  .captcha_class
+  {
+    background-color: red;
+    width:20px;
+    float: left;
+  }
+  #main_inner .job-listing-div a{
+    height: 40px;
+    width: 620px;
+    display:block;
+  }
+  #main_inner .job-listing-div h3{
+    font-family: Century Gothic, Lucida Grande,Lucida Sans Unicode,helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 15px;
+    color: orange;
+    position: absolute;
+    left: 10px;
+    top: 4px;
+    margin: 0px;
+  }
+  #main_inner .job-listing-div h4{
+    color: gray;
+    font-family: Century Gothic, Lucida Grande,Lucida Sans Unicode,helvetica, sans-serif;
+    font-weight: normal;
+    position: absolute;
+    left: 10px;
+    top: 24px;
+    margin: 0px;
+    color: #333333;
+  }
+  #main_inner .job-listing-div h5{
+    position: absolute;
+    top: 24px;
+    left: 250px;
+    font-weight: normal;
+    margin: 0px;
+  }
+  #main_inner .job-listing-div span{
+    position: absolute;
+    top: 9px;
+    left: 250px;
+    display: block;
+    width: 60px;
+    color: black;
+    font-size: 13px;
+    background: url('/../images/register_accept_page.png') no-repeat;
+    padding-left:15px;
+    height: 32px;
+    vertical-align: bottom;
+    color: #333333;
+  }
+  #main_inner .job-listing-div h6{
+    position: absolute;
+    top:25px;
+    right:9px;
+    margin: 0px;
+    font-size: 11px;
+    font-weight: normal;
+  }
+  #sidebar label{
+    width: 250px; display: block;
+    margin-bottom: 3px;
+  }
+  #apply_via_email
+  {
+    margin-top: 5px;
+  }
+  #sidebar input, #sidebar textarea{
+    border: #bbbbbb 1px  solid;
+    margin-bottom: 5px;
+  }
+  #sidebar #job_title,#how_to_apply_email,#ex_email,#ex_password,#company_name,#location,#job_description
+  {
+    width: 260px;
+  }
+  #sidebar textarea{
+    padding: 3px;
+    height: 180px;
+    cursor: pointer;
+  }
+  #sidebar span{
+    font-size: 10px;
+    font-style: italic;
+    color: #666666;
+    margin: -2px 0px 5px 0px ;
+    display: block;
+  }
+  #sidebar h2{
+    border: none;
+    margin: 0px 0px 10px 0px;
+    font-size: 20px;
+  }
+  #sidebar a {
+    display: block;
+    margin-bottom:10px;
+  }
+  #sidebar a img{ border: none;}
+
+  #Qjob-side-member label{
+    margin: 3px 0px;
+  }
+  #Qjob-side-member input {
+    border: none;
+  }
+  #Qjob-side-member{
+    border-bottom: #ccc 1px  dotted;
+    border-top: #ccc 1px  dotted;
+    margin: 5px 0px;
+    padding: 5px 0px;
+  }
+  #Qjob-side-bottom{
+    border: none;
+  }
+  #Qjob-side-bottom a{
+    height:31px;
+    width:115px;
+  }
+  #Qjob-side-bottom #QJob-DontReg
+  {
+    display:none;
+  }
+  #Qjob-side-bottom #QJob-DontReg label {
+    font-size: 12px;
+    margin: 3px 0px;
+  }
+  #Qjob-side-bottom #QJob-DontReg span img{
+    margin: 2px 2px 0px 0px;
+  }
+  #Qjob-side-bottom #QJob-Member{
+    position: relative;
+    display: block;
+    margin: 0px 0px 20px 0px;
+  }
+  /*#Qjob-side-bottom #QJob-Member h5{
+    margin: 0px;
+    font-weight: normal;
+    font-size: 12px;
+    color: orange;
+    display: inline;
+  }*/
+  #Qjob-side-bottom #forgot_password{
+    font-weight: normal;
+    font-style: normal;
+    font-size: 12px;
+    color: orange;
+    display: inline;
+    float: right;
+    margin-right: -20px;
+    margin-bottom: 0px;
+    height: 20px;
+    text-align: right;
+  }
+  #Qjob-side-bottom #QJobSecurityError,#Qjob-side-bottom #QJobPost_btn{
+    display: block;
+  }
+  .flash_success_msg
+  {
+    text-align: center;
+    width: 620px;
+    margin-top: 8px;
+    background-color: transparent;
+  }
+  #sidebar .error_msg {
+    color: red;
+    margin: -3px 0px 5px 0px;
+    clear: right;
+    width: 300px;
+  }
+  #sidebar .required_field{
+    width: 5px;
+    display: inline;
+    color: red;
+  }
+
+
+
+  #sidebar #QJobPost_btn{
+    background: url('/../images/preview_job_post.png') no-repeat;
+    width: 147px;
+    height: 31px;
+    border: none;
+    cursor: pointer;
+  }
+  #hoverover{
+    font-size: 10px;
+  }
+  #hoverpopup{
+    font-size: 12px;
+    font-family:Century Gothic,Lucida Grande,Lucida Sans Unicode,helvetica,sans-serif;
+  }
+
+</style>
 <script type="text/javascript">
   //Trim function
   if(typeof String.prototype.trim !== 'function') {
@@ -126,11 +402,11 @@
       //alert("result" +result);
       error_message.setAttribute('style', 'display:none;');
       inputbox.setAttribute('style', 'border:1px solid #bbbbbb;');
-      
+
       return true;
     }else{
       // alert("secrurity else");
-      
+
       inputbox.setAttribute('style', 'border:1px red solid; background:#ffefef;');
       error_message.setAttribute('style', 'display:block; color:red;');
 
@@ -140,9 +416,6 @@
   //On Submit Qjob form validation
   function validate(form_id){
     //alert(form_id);
-
-    var job_poster=document.getElementById('job_poster');
-    var error_job_poster=document.getElementById('error_job_poster');
 
     var job_title=document.getElementById('job_title');
     var error_job_title=document.getElementById('error_job_title');
@@ -175,7 +448,7 @@
     }
 
     function chkuser(){
-      
+
       ///validation for existing user
       if(QJob_DontReg.style.display=="none"){
         if((ex_email.value.trim()=="")||(echeck(ex_email.value)==false)||(ex_password.value.trim()=="")){
@@ -256,9 +529,9 @@
           (location.value.trim()=="")||(how_to_apply_email.value.trim()=="")||(ex_email.value.trim()=="")||(echeck(ex_email.value)==false)||
           (ex_password.value.trim()=="")||(echeck(how_to_apply_email.value)==false)){
           //alert("inside if if");
-       
+
           if(job_title.value.trim()==''){
-        
+
             // alert("in title");
             job_title.setAttribute('style', 'border:1px red solid; background:#ffefef;');
             error_job_title.setAttribute('style', 'display:block;');
@@ -338,7 +611,7 @@
             how_to_apply_email.setAttribute('style', 'border:1px red solid; background:#ffefef;');
             error_how_to_apply_email.setAttribute('style', 'display:block; clear:both;');
           }
-        
+
           //alert(captcha_result);
 
           return false;
@@ -348,20 +621,14 @@
           //document.Qjobs.submit();
         }
       }
-  
+
     }
-    
+
     else if(form_id=="new_job_else")
     {
-      if((job_poster.value.trim()=="")||(job_title.value.trim()=="")||(company_name.value.trim()=="")||
+      if((job_title.value.trim()=="")||(company_name.value.trim()=="")||
         (location.value.trim()=="")||(how_to_apply_email.value.trim()=="")||(echeck(how_to_apply_email.value)==false)){
-
-       if(job_poster.value.trim()==''){
-         job_poster.setAttribute('style', 'border:1px red solid; background:#ffefef;');
-          error_job_poster.setAttribute('style', 'display:block;');
-         }
-
-       if(job_title.value.trim()==''){
+        if(job_title.value.trim()==''){
           job_title.setAttribute('style', 'border:1px red solid; background:#ffefef;');
           error_job_title.setAttribute('style', 'display:block;');
         }
@@ -381,7 +648,7 @@
           how_to_apply_email.setAttribute('style', 'border:1px red solid; background:#ffefef;');
           error_how_to_apply_email.setAttribute('style', 'display:block; clear:both;');
         }
-      
+
         return false;
       }
       else {
@@ -435,8 +702,8 @@
       doc.value = 200 - countarray.length;
     }
   }
-  <%#*<pop up on hover text script starts here >%>
- function ShowPopup(hoveritem)
+<%#*<pop up on hover text script starts here >%>
+  function ShowPopup(hoveritem)
   {
     hp = document.getElementById("hoverpopup");
     // Set position of hover-over popup
@@ -450,84 +717,52 @@
     hp = document.getElementById("hoverpopup");
     hp.style.visibility = "Hidden";
   }
-  <%#*<pop up on hover text script ends here >%>
+
 </script>
+
+
+
+
 <!-- wrap -->
+
 <div id="wrap">
-  <!-- main -->
-  <div id="main">
-    <div id="search_box">
-      <!--search for your next design job begins...-->
-      <form method="post" action="/jobs/search">
-        <input id="search_textfield" name="search_textfield" type="text" size="45" maxlength="75" ></input>
-        <div id="portfolio_search_button"></div>
-      </form>
-    </div>
-    <!-- search "ends" here -->
-    <% if  flash[:notice_job_appliction_after_login] then %>
-      <div class="flash_success_msg">
-        <%=flash[:notice_job_appliction_after_login]%>
-      </div>
-    <%end%>
-    <% if  flash[:notice_job_appliction_before_login] then %>
-      <div class="flash_success_msg">
-        <%=flash[:notice_job_appliction_before_login]%>
-      </div>
-    <%end%>
-    <!-- main inner -->
-    <div id="main_inner">
-      <!--Job Listing view box-->
-      <!--Quick Job Result-->
-      <!--Home Job view box-->
-      <div id="jobs">
-        <%= render :partial => @jobs %>
-      </div>
-      <!--Home Job view box end-->
-    </div>
-    <!--main inner end-->
-    <% if Job.count >= 10 then %>
-      <div class="clear"></div>
-      <div id="more_button" onclick="moreJobs(<%=  @records_for_more_button.length %>)"></div>
-    <% end %>
-    <div class="clear"></div>
-  </div>
-  <!-- main end -->
   <!-- sider -->
   <div id="sidebar">
     <% if session[:loggedin_user].nil? or session[:loggedin_user].blank? then %>
-      <form action="/jobs/create" class="new_job" id="new_job" method="post" name="Qjobs" onsubmit="javascript:return validate('new_job_if');">
-        <h2>Post a Quick Job</h2>
+      <form action="/jobs/update/<%= @job.id %>" class="new_job" id="new_job" method="post" name="Qjobs" onsubmit="javascript:return validate('new_job_if');">
+        <h2>Edit your Job</h2>
         <label>Job Title<span class="required_field">*</span></label>
-        <input type="text" name="job[job_title]" id="job_title"  maxlength="29" onblur="validation('job_title','error_job_title')"/>
+        <input type="text" name="job[job_title]" value="<%= @job.job_title %>" id="job_title"  maxlength="29" onblur="validation('job_title','error_job_title')"/>
         <div id="error_job_title" class="error_msg" >
           please provide job title
         </div>
         <label>Company Name<span class="required_field">*</span></label>
-        <input type="text" name="job[company_name]" id="company_name" maxlength="28" onblur="validation('company_name','error_company_name')"/>
+        <input type="text" name="job[company_name]" value="<%= @job.company_name %>" id="company_name" maxlength="28" onblur="validation('company_name','error_company_name')"/>
         <div id="error_company_name" class="error_msg" >
           please provide company name
         </div>
         <label>Location<span class="required_field">*</span></label>
-        <input type="text" name="job[location]" id="location" maxlength="20" onblur="validation('location','error_location')"/>
+        <input type="text" name="job[location]" value="<%= @job.location %>"id="location" maxlength="20" onblur="validation('location','error_location')"/>
         <div id="error_location" class="error_msg" >
           please provide location
         </div>
         <label id="job_description_label" style="width:265px;">Job Description<span style="float:right;color: black;background-color: transparent;font-size: 11px;"><input type="text" id="text" name="text" value="200" style="border:none;font-size: 12px; background-color:transparent; color: black;width: 25px; height: 10px;text-align: left;padding-top: 7px;"disabled/>words</span></label>
-        <textarea id="job_description" onkeyup="word_count(this.value, text)" name="job[job_description]">  </textarea>
+        <textarea id="job_description" onkeyup="word_count(this.value, text)" name="job[job_description]"> <%= @job.job_description %> </textarea>
         <div id="error_job_description" class="error_msg">
           please limit the Job description to 200 words
         </div>
-        <%#*<hover text table strats here >%>
-         <a id="hoverover" style="cursor:default;" onMouseOver="ShowPopup(this);" onMouseOut="HidePopup();">Use the <font color="orange">formatting guide</font> to italicize & make bulleted lists</a>
-         <div id="hoverpopup" style="visibility:hidden; position:absolute; top:90; left:0;">
-             <table bgcolor="#999999">
-               <tr><th COLSPAN=2 bgcolor="#999999"><font color="white">Formatting Guide</font></th></tr>
-               <tr><th><img src="/images/formatting_guide.png"/></th></tr>
-             </table>
-           </div>
-         <%#*<hover text table ends here >%>
+
+        <a id="hoverover" style="cursor:default;" onMouseOver="ShowPopup(this);" onMouseOut="HidePopup();">Use the <font color="orange">formatting guide</font> to italicize & make bulleted lists</a>
+        <div id="hoverpopup" style="visibility:hidden; position:absolute; top:90; left:0;">
+          <table bgcolor="#999999">
+            <tr><th COLSPAN=2 bgcolor="#999999"><font color="white">Formatting Guide</font></th></tr>
+            <tr><th><img src="/images/formatting_guide.png"/></th></tr>
+          </table>
+        </div>
+  <%#*<hover text table ends here >%>
+
         <label id="apply_via_email">Enter email to recieve job applications<span class="required_field">*</span></label>
-        <input type="text"  name="job[how_to_apply_email]" id="how_to_apply_email" maxlength="50" onblur="validation('how_to_apply_email','error_how_to_apply_email')"/>
+        <input type="text"  name="job[how_to_apply_email]" value="<%= @job.how_to_apply_email %>" id="how_to_apply_email" maxlength="50" onblur="validation('how_to_apply_email','error_how_to_apply_email')"/>
         <div id="error_how_to_apply_email" class="error_msg">
           please provide email to apply
         </div>
@@ -543,86 +778,6 @@
             I don't want to register
           </label>
         </div>
-        <div id="Qjob-side-bottom">
-          <!-- Already a member -->
-          <div id="QJob-Member">
-            <label>email<span class="required_field">*</span></label>
-            <input type="text" name="ex_email" id="ex_email" onblur="validation('ex_email','error_ex_email')"/>
-            <div id="error_ex_email" class="error_msg">
-              please provide email
-            </div>
-            <label>password<span class="required_field">*</span>
-              <a id="forgot_password" href="/forgot">forgot password</a></label>
-  <%#*<span id="forgot_password"><a id="forgot_password" href="/forgot">forgot_password</a></span> </label>%>
-            <input type="password"  name="ex_password" id="ex_password" onblur="validation('ex_password','error_ex_password')"/>
-            <div id="error_ex_password" class="error_msg" >
-              please provide password
-            </div>
-          </div>
-
-
-          <!-- don't want to Register div -->
-          <div id="QJob-DontReg">
-            <label>Your Email<span class="required_field">*</span></label>
-            <!--<span>(This is to activate the job posting)</span>-->
-            <input type="text" name="job[email]" size="30" id="email" onblur="validation('email','error_email')"/>
-            <div id="error_email" class="error_msg" >
-              please provide email
-            </div>
-            <label id="captcha" style="display:none;">A quick math question</label>
-            <span>
-              <label  id="num1" style="width:10px; float: left;"></label>
-              <label id="operator" style="width:35px; text-align: center;float: left;"></label>
-              <label id="num2" style="width:10px; float: left;"></label>
-              <label style="width:20px;text-align: center; float: left;">=</label>
-              <input id="user_result" type="text" maxlength="2" size="1" onblur="SecurityCheck(this.value);"/>
-              <label id="error_message" style="display:none;">Incorrect Value</label>
-            </span>
-
-          </div>
-
-
-          <!-- Form Submit button -->
-          <input type="submit" value="" id="QJobPost_btn"/>
-          <div class="error_msg" id="error_required" style="margin: 23px 0px 0px -80px;">
-            Please fill out the required data above
-          </div>
-
-        </div>
-      </form>
-   
-    <% else %>
-
-      <form action="/jobs/create_after_login" class="new_job" id="new_job" method="post" name="Qjobs" onsubmit="javascript:return validate('new_job_else');">
-        <h2>Post a Quick Job</h2>
-        <label>Job Title<span class="required_field">*</span></label>
-        <input type="text" name="job[job_title]" id="job_title" maxlength="29"  onblur="validation('job_title','error_job_title')"/>
-        <div id="error_job_title" class="error_msg" >
-          please provide job title
-        </div>
-        <label>Company Name<span class="required_field">*</span></label>
-        <input type="text" name="job[company_name]" id="company_name"  maxlength="28" onblur="validation('company_name','error_company_name')"/>
-        <div id="error_company_name" class="error_msg" >
-          please provide company name
-        </div>
-        <label>Location<span class="required_field">*</span></label>
-        <input type="text" name="job[location]" id="location" maxlength="20" onblur="validation('location','error_location')"/>
-        <div id="error_location" class="error_msg" >
-          please provide location
-        </div>
-        <label id="job_description_label" style="width:265px;">Job Description<span style="float:right;color: black;background-color: transparent;font-size: 11px;"><input type="text" id="text" name="text" value="200" style="border:none;font-size: 12px; background-color:transparent; color: black;width: 25px; height: 10px;text-align: left;padding-top: 7px;"disabled/>words</span></label>
-        <textarea id="job_description"  onkeyup="word_count(this.value, text)" name="job[job_description]" rows="50" cols="35"></textarea>
-        <div id="error_job_description" class="error_msg">
-          please limt the Job description to 200 words
-        </div>
-        <label id="apply_via_email">Enter email to recieve job applications<span class="required_field">*</span></label>
-        <input type="text" size="30" name="job[how_to_apply_email]" id="how_to_apply_email" maxlength="50" onblur="validation('how_to_apply_email','error_how_to_apply_email')"/>
-        <div id="error_how_to_apply_email" class="error_msg">
-          please provide email to apply
-        </div>
-
-        <div class="clear"></div>
-
 
 
         <!-- Form Submit button -->
@@ -630,6 +785,45 @@
         <div class="error_msg" id="error_required" style="margin: 23px 0px 0px -80px;">
           Please fill out the required data above
         </div>
+      </form>
+
+    <% else %>
+      <form action="/jobs/update_after_login/<%= @job.id %>" class="new_job" id="new_job" method="post" name="Qjobs" onsubmit="javascript:return validate('new_job_else');">
+        <h2>Edit your Job</h2>
+        <label>Job Title<span class="required_field">*</span></label>
+        <input type="text" name="job[job_title]" id="job_title" maxlength="29" value="<%= @job.job_title %>" onblur="validation('job_title','error_job_title')"/>
+        <div id="error_job_title" class="error_msg" >
+          please provide job title
+        </div>
+        <label>Company Name<span class="required_field">*</span></label>
+        <input type="text" name="job[company_name]" id="company_name"  maxlength="28" value="<%= @job.company_name %>" onblur="validation('company_name','error_company_name')"/>
+        <div id="error_company_name" class="error_msg" >
+          please provide company name
+        </div>
+        <label>Location<span class="required_field">*</span></label>
+        <input type="text" name="job[location]" id="location" maxlength="20" value="<%= @job.location %>" onblur="validation('location','error_location')"/>
+        <div id="error_location" class="error_msg" >
+          please provide location
+        </div>
+        <label id="job_description_label" style="width:265px;">Job Description<span style="float:right;color: black;background-color: transparent;font-size: 11px;"><input type="text" id="text" name="text" value="200" style="border:none;font-size: 12px; background-color:transparent; color: black;width: 25px; height: 10px;text-align: left;padding-top: 7px;"disabled/>words</span></label>
+        <textarea id="job_description"  onkeyup="word_count(this.value, text)" name="job[job_description]" rows="50" cols="35">  <%= @job.job_description %></textarea>
+        <div id="error_job_description" class="error_msg">
+          please limt the Job description to 200 words
+        </div>
+        <label id="apply_via_email">Enter email to recieve job applications<span class="required_field">*</span></label>
+        <input type="text" size="30" name="job[how_to_apply_email]" id="how_to_apply_email" maxlength="50" value="<%= @job.how_to_apply_email %>" onblur="validation('how_to_apply_email','error_how_to_apply_email')"/>
+        <div id="error_how_to_apply_email" class="error_msg">
+          please provide email to apply
+        </div>
+
+        <div class="clear"></div>
+
+        <!-- Form Submit button -->
+        <input type="submit" value="" id="QJobPost_btn"/>
+        <div class="error_msg" id="error_required" style="margin: 23px 0px 0px -80px;">
+          Please fill out the required data above
+        </div>
+
       </form>
     <% end %>
   </div>

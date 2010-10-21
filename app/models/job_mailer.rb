@@ -8,4 +8,14 @@ class JobMailer < ActionMailer::Base
     content_type "text/html"
 
   end
+
+  def email_to_job_publisher(job)
+    css :email
+    recipients  job.how_to_apply_email
+    from        "'DezineConnect Team' <team@dezineconnect.com>"
+    subject     "Job - #{job.job_title} posted on #{job.job_posting_detail.job_source}"
+    body        :job => job
+    content_type "text/html"
+
+  end
 end

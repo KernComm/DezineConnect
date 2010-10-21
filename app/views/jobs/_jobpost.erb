@@ -1,0 +1,23 @@
+<% unless job_dashboard.nil? and job_dashboard.blank? then %>
+  <% if  job_dashboard.activate == true then %>
+    <div class="job-listing-div">
+
+      <a href="/jobs/show/<%= job_dashboard.id %>">
+        <% if job_dashboard.job_title.length > 29 then%>
+          <h3><%=h job_dashboard.job_title[0,29]%>&hellip;</h3>
+        <% else %>
+          <h3><%=h job_dashboard.job_title%></h3>
+        <% end %>
+
+        <% if job_dashboard.company_name.length > 28 then%>
+          <h4><%=h job_dashboard.company_name[0,28]%>&hellip;</h4>
+        <% else %>
+          <h4><%=h job_dashboard.company_name%></h4>
+        <% end %>
+
+     
+      </a>
+    </div>
+  <% end %>
+<% end %>
+  

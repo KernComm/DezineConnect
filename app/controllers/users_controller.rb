@@ -85,6 +85,16 @@ class UsersController < ApplicationController
       if params[:login]=="admin@dezineconnect.com" and params[:password]=="teamdezineconnect" then
         session[:is_admin] = true
         redirect_to '/admin/portfolios'
+      elsif params[:login]=="team@dezineconnect.com" and params[:password]=="kern123" then
+        @user = User.find_by_email(params[:login])
+        unless @user.nil? then
+          logger.info "@user.password : #{@user.password}}"
+          if @user.password == params[:password] then
+            session[:loggedin_user] = @user.id
+            session[:is_dezineconnect_team] = true
+            redirect_to '/jobs/dashboard'
+          end
+        end
       else
         @user = User.find_by_email(params[:login])
         unless @user.nil? then

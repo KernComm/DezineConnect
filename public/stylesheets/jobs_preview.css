@@ -54,6 +54,14 @@
     cursor: pointer;
     margin: 20px 0px 20px 0px;
 }
+#QJobpreview_email_btn{
+    background: url('/images/email this job post.png') no-repeat;
+    width: 147px;
+    height: 33px;
+    border: none;
+    cursor: pointer;
+    margin: 20px 0px 20px 0px;
+}
 #submit_btn a {
     color: #616D7E;
     margin-left: 20px;

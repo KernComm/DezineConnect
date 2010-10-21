@@ -17,7 +17,7 @@ for(i=1; i<=db_count; i++){
 
 var Cat=db_count-display_records*display_records_no_sets; //if below set count value
 var Cat_identity=0; //for loop one time Cat records
-display_records_no_sets=display_records_no_sets-2;
+display_records_no_sets=display_records_no_sets-8;
 //--------
 
 function moreJobs(record_count) {
@@ -26,7 +26,7 @@ function moreJobs(record_count) {
     if ((display_records_no_sets==0)&&(Cat!="")&&(Cat_identity==0)){
         ///http request code line
         currentPage++;
-        new Ajax.Request('/jobs.js?page=' + currentPage, {
+        new Ajax.Request('/jobs/dashboard.js?page=' + currentPage, {
             asynchronous:true,
             evalScripts:true,
             method:'get'
@@ -37,17 +37,17 @@ function moreJobs(record_count) {
     }
 
     else if (display_records_no_sets<0){
-    
+
         document.getElementById('more_button').style.display="none";
 
     }
 
     else if (display_records_no_sets>0){
-        
-        display_records_no_sets=display_records_no_sets-2;
+
+        display_records_no_sets=display_records_no_sets-8;
         ///http request code line
         currentPage++;
-        new Ajax.Request('/jobs.js?page=' + currentPage, {
+        new Ajax.Request('/jobs/dashboard.js?page=' + currentPage, {
             asynchronous:true,
             evalScripts:true,
             method:'get'
@@ -55,12 +55,12 @@ function moreJobs(record_count) {
     }
 
     else if((display_records_no_sets==0)&&(Cat="")){
-            
+
         document.getElementById('more_button').style.display="none";
     }
 
 //alert(display_records_no_sets);
-        
+
 }
 
 

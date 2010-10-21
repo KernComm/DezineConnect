@@ -29,8 +29,7 @@
     <th class="admin_panel_thead">#images</th>
     <th class="admin_panel_thead">time</th>
     <th class="admin_panel_thead">delete<br/>account</th>
-    <th class="admin_panel_thead">activate<br/>account</th>
-    <th class="admin_panel_thead">deactivate<br/>account</th>
+    <th class="admin_panel_thead">action</th>
     </thead>
     </tbody>
     <% unless @portfolios.nil? or @portfolios.blank? then %>
@@ -149,20 +148,16 @@
               <% end %>
             </td>
 
-            <td class="admin_panel_col">
-              <% unless portfolio_obj.user.id.nil? or portfolio_obj.user.id.blank? then %>
-                <a href="/admin/portfolio_user_activate/<% unless portfolio_obj.user.id.nil? or portfolio_obj.user.id.blank? then%><%= portfolio_obj.user.id  %><% end %>">activate</a>
-              <% end %>
-            </td>
-
-            <td class="admin_panel_col">
-              <% unless portfolio_obj.user.id.nil? or portfolio_obj.user.id.blank? then %>
-                <a href="/admin/portfolio_user_deactivate/<% unless portfolio_obj.user.id.nil? or portfolio_obj.user.id.blank? then%><%= portfolio_obj.user.id  %><% end %>">deactivate</a>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
-      <% end %>
-    <% end %>
+            
+      <% unless portfolio_obj.user.activate.nil? or portfolio_obj.user.activate.blank? then %>
+           <td class="deactivate_record"><a href="/admin/portfolio_user_deactivate/<% unless portfolio_obj.user.id.nil? or portfolio_obj.user.id.blank? then%><%= portfolio_obj.user.id  %><% end %>">deactivate</a></td>
+           <%else%>
+            <td class="activate_record"> <a href="/admin/portfolio_user_activate/<% unless portfolio_obj.user.id.nil? or portfolio_obj.user.id.blank? then%><%= portfolio_obj.user.id  %><% end %>">activate</a></td>
+            <% end %>
+           
+            </tr>
+             <% end %>
+            <% end %>
+          <% end %>
   </table>
 </div>
