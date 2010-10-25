@@ -58,7 +58,7 @@
   function validation(ctl,ct2) {
     var ctl_element=document.getElementById(ctl);
     var ct2_element=document.getElementById(ct2);
-    if((ctl_element.id=="email")||(ctl_element.id=="ex_email")||(ctl_element.id=="how_to_apply_email")){
+    if((ctl_element.id=="email")||(ctl_element.id=="ex_email")||(ctl_element.id=="how_to_apply_email")||(ctl_element.id=="job_poster_email")){
       if(echeck(ctl_element.value)==false){
         ctl_element.setAttribute('style', 'border:1px red solid; background:#ffefef;');
         ct2_element.setAttribute('style', 'display:block;');
@@ -143,6 +143,9 @@
 
     var job_poster=document.getElementById('job_poster');
     var error_job_poster=document.getElementById('error_job_poster');
+
+    var job_poster_email=document.getElementbById('job_poster_email');
+    var error_job_poster_email=document.getElementById('error_job_poster_email');
 
     var job_title=document.getElementById('job_title');
     var error_job_title=document.getElementById('error_job_title');
@@ -250,7 +253,7 @@
 
       if(toggle_set_id_1.checked)
       {
-        // alert("inside if");
+         //alert("inside if");
 
         if((job_title.value.trim()=="")||(company_name.value.trim()=="")||count_words('job_description')==false||
           (location.value.trim()=="")||(how_to_apply_email.value.trim()=="")||(ex_email.value.trim()=="")||(echeck(ex_email.value)==false)||
@@ -353,34 +356,42 @@
 
     else if(form_id=="new_job_else")
     {
-      if((job_poster.value.trim()=="")||(job_title.value.trim()=="")||(company_name.value.trim()=="")||
+
+     
+      if((job_poster.value.trim()=="")||(job_poster_email.value.trim()=="")||(echeck(job_poster_email.value)==false)||(job_poster.value.trim()=="")||(job_title.value.trim()=="")||(company_name.value.trim()=="")||
         (location.value.trim()=="")||(how_to_apply_email.value.trim()=="")||(echeck(how_to_apply_email.value)==false)){
 
-       if(job_poster.value.trim()==''){
-         job_poster.setAttribute('style', 'border:1px red solid; background:#ffefef;');
-          error_job_poster.setAttribute('style', 'display:block;');
-         }
+     
+      if(job_poster.value.trim()==''){
+        job_poster.setAttribute('style', 'border:1px red solid; background:#ffefef;');
+        error_job_poster.setAttribute('style', 'display:block;');
+      }
 
-       if(job_title.value.trim()==''){
-          job_title.setAttribute('style', 'border:1px red solid; background:#ffefef;');
-          error_job_title.setAttribute('style', 'display:block;');
-        }
-        if(company_name.value.trim()==""){
-          company_name.setAttribute('style', 'border:1px red solid; background:#ffefef;');
-          error_company_name.setAttribute('style', 'display:block;');
-        }
-        if(count_words('job_description')==false){
-          job_description.setAttribute('style', 'border:1px red solid; background:#ffefef;');
-          error_job_description.setAttribute('style', 'display:block;');
-        }
-        if(location.value.trim()==""){
-          location.setAttribute('style', 'border:1px red solid; background:#ffefef;');
-          error_location.setAttribute('style', 'display:block;');
-        }
-        if((how_to_apply_email.value.trim()=="")||(echeck(how_to_apply_email.value)==false)){
-          how_to_apply_email.setAttribute('style', 'border:1px red solid; background:#ffefef;');
-          error_how_to_apply_email.setAttribute('style', 'display:block; clear:both;');
-        }
+      if((job_poster_email.value.trim()=='')||(echeck(job_poster_email.value)==false)){
+        job_poster_email.setAttribute('style', 'border:1px green solid; background:#ffefef;');
+        error_job_poster_email.setAttribute('style', 'display:block;');
+      }
+
+      if(job_title.value.trim()==''){
+        job_title.setAttribute('style', 'border:1px red solid; background:#ffefef;');
+        error_job_title.setAttribute('style', 'display:block;');
+      }
+      if(company_name.value.trim()==""){
+        company_name.setAttribute('style', 'border:1px red solid; background:#ffefef;');
+        error_company_name.setAttribute('style', 'display:block;');
+      }
+      if(count_words('job_description')==false){
+        job_description.setAttribute('style', 'border:1px red solid; background:#ffefef;');
+        error_job_description.setAttribute('style', 'display:block;');
+      }
+      if(location.value.trim()==""){
+        location.setAttribute('style', 'border:1px red solid; background:#ffefef;');
+        error_location.setAttribute('style', 'display:block;');
+      }
+      if((how_to_apply_email.value.trim()=="")||(echeck(how_to_apply_email.value)==false)){
+        how_to_apply_email.setAttribute('style', 'border:1px red solid; background:#ffefef;');
+        error_how_to_apply_email.setAttribute('style', 'display:block; clear:both;');
+      }
 
         return false;
       }
@@ -509,6 +520,11 @@
         <div id="error_job_poster" class="error_msg" >
           please provide job poster name
         </div>
+        <label>Email <span class="required_field">*</span></label>
+        <input type="text" name="job_posting_detail[job_poster_email]" id="job_poster_email" maxlength="29"  onblur="validation('job_poster_email','error_job_poster_email')"/>
+        <div id="error_job_poster_email" class="error_msg" >
+          please provide email 
+        </div>
         <div id="job_source_select">
         <label>Source from job taken</label>
         <select id="job_taken" name="job_posting_detail[job_source]" onblur="validation('job_taken','error_job_taken')" >
@@ -547,7 +563,7 @@
         <div id="error_location" class="error_msg" >
           please provide location
         </div>
-        <label id="job_description_label" style="width:265px;">Job Description<span style="float:right;color: black;background-color: transparent;font-size: 11px;"><input type="text" id="text" name="text" value="200" style="border:none;font-size: 12px; background-color:transparent; color: black;width: 25px; height: 10px;text-align: left;padding-top: 7px;"disabled/>words</span></label>
+        <label id="job_description_label" style="width:265px;">Job Description<span style="float:right;color: black;background-color: transparent;font-size: 11px;"><input type="text" id="text" name="text" value="200" style="border:none;font-size: 12px; text-align: right; background-color:transparent; color: black;width: 35px; height: 10px;padding-top: 7px;"disabled/>words</span></label>
         <textarea id="job_description"  onkeyup="word_count(this.value, text)" name="job[job_description]" rows="50" cols="35"></textarea>
         <div id="error_job_description" class="error_msg">
           please limt the Job description to 200 words

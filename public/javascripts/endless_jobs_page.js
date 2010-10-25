@@ -36,7 +36,7 @@ function moreJobs(record_count) {
         document.getElementById('more_button').style.display="none";
     }
 
-    else if (display_records_no_sets<0){
+    else if (display_records_no_sets<=0){
     
         document.getElementById('more_button').style.display="none";
 
@@ -59,7 +59,7 @@ function moreJobs(record_count) {
         document.getElementById('more_button').style.display="none";
     }
 
-//alert(display_records_no_sets);
+alert(display_records_no_sets);
         
 }
 

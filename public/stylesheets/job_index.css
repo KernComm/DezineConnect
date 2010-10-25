@@ -190,7 +190,7 @@ label {
     border: #bbbbbb 1px  solid;
     margin-bottom: 5px;
 }
-#sidebar #job_title,#how_to_apply_email,#ex_email,#ex_password,#company_name,#location,#job_description,#job_poster
+#sidebar #job_title,#job_poster_email,#how_to_apply_email,#ex_email,#ex_password,#company_name,#location,#job_description,#job_poster
 {
     width: 260px;
 }

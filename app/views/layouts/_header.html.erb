@@ -26,18 +26,27 @@
         <!--Logo end-->
         <!--Logout part start-->
         <% unless session[:loggedin_user].nil? then %>
+
           <div id="directories_head_link">
-            <a href="/directory/">Design Companies</a>
+            <a href="/directory/"> Design Companies </a>
           </div>
+
           <div id="header_link_separator1"> | </div>
+
           <div id="portrolio">
-            <a href="/portfolios/">Design Professionals</a>
+            <a href="/portfolios/"> Design Professionals </a>
           </div>
+
           <div id="header_link_separator2"> | </div>
-          <div id="josb"><a href="/jobs">jobs</a></div>
-          <div id="header_link_separator">|</div>
+
+          <div id="josb">
+            <a href="/jobs"> jobs </a>
+          </div>
+
+          <div id="header_link_separator"> | </div>
+
           <div id="dlog">
-            <a href="/dlog">Interviews</a>
+            <a href="/dlog"> Interviews </a>
           </div>
 
           <% @user = User.find(session[:loggedin_user]) %>
@@ -75,10 +84,11 @@
           </div>
           <div id="header_link_separator1"> | </div>
           <div id="portrolio">
-            <a href="/portfolios/">Design Professionals</a>
+            <a href="/portfolios/"> Design Professionals  </a>
           </div>
-          <div id="header_link_separator2">| </div>  <div id="josb"><a href="/jobs">jobs</a></div>
-          <div id="header_link_separator">|</div>
+          <div id="header_link_separator2"> | </div>
+          <div id="josb"><a href="/jobs"> jobs </a></div>
+          <div id="header_link_separator"> |</div>
           <div id="dlog">
             <a href="/dlog">Interviews</a>
           </div>
