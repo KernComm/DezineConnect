@@ -33,6 +33,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '', :controller => "redirect", :action => "blank"
   map.connect '/admin/panel', :controller => "admin", :action => "panel"
   map.connect '/dlog/atom.xml', :controller => "blogs", :action => "index", :format => "rss"
+  map.connect '/jobs.rss', :controller => "jobs", :action => "index", :format => "rss"
   map.connect '/dlog/neil_dantas', :controller => "blogs", :action => "show", :id => 4
   map.connect '/dlog/neha_ramaiya', :controller => "blogs", :action => "show", :id => 16
   map.connect '/dlog/rahul_mishra', :controller => "blogs", :action => "show", :id => 17

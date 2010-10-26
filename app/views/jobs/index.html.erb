@@ -485,8 +485,8 @@
       <!--Home Job view box end-->
     </div>
     <!--main inner end-->
-    <% if Job.count >= 10 then %>
-      <div class="clear"></div>
+ <% if Job.find(:all, :conditions => {:activate => 1}).count > 11 then %>
+         <div class="clear"></div>
       <div id="more_button" onclick="moreJobs(<%=  @records_for_more_button.length %>)"></div>
     <% end %>
     <div class="clear"></div>

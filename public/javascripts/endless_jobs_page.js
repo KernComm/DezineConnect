@@ -59,7 +59,7 @@ function moreJobs(record_count) {
         document.getElementById('more_button').style.display="none";
     }
 
-alert(display_records_no_sets);
+
         
 }
 
