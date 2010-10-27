@@ -606,7 +606,7 @@ Bartender and Horse Rider" href="../../images/Anusha_Yadav/08AYadav_Checq-Republ
                     <img src="../../images/Vidyadhar_pande/Thumbnails/London_Double_Decker.jpg"/>
                   </a>
                    <a class="interview_video_works_space"  alt="Czech Republic At the Intersport Ranch, with her horse Baron.
-Bartender and Horse Rider" href="../../images/Vidyadhar_pande/L&T_mini_Loader.jpg">
+                    Bartender and Horse Rider" href="../../images/Vidyadhar_pande/L&T_mini_Loader.jpg">
                     <img src="../../images/Vidyadhar_pande/Thumbnails/L&T_mini_Loader.jpg"/>
                   </a>
                    <a alt="IRAN By the banks of Salzach Student of Graphic Design" href="../../images/Vidyadhar_pande/Macalac-Loader.jpg">
@@ -621,6 +621,72 @@ Bartender and Horse Rider" href="../../images/Vidyadhar_pande/L&T_mini_Loader.jp
                    <a class="interview_video_works_space"  alt="Rajendra Yadav, Hindi Literateur & Magazine Editor" href="../../images/Vidyadhar_pande/Tata_Globus.JPG">
                     <img src="../../images/Vidyadhar_pande/Thumbnails/Tata_Globus.JPG"/>
                   </a>
+                  <div class="clear"></div>
+                </div>
+              </div>
+              <!-- overlay element -->
+              <div id="gallery" class="simple_overlay"><div class="close"></div>
+                <!-- "previous image" action -->
+                <a class="prev" style="opacity: 0.8;">prev</a>
+                <!-- "next image" action -->
+                <a class="next" style="opacity: 0.8;">next</a>
+                <!-- image information -->
+                <div class="info" style="opacity: 0.8;"></div>
+                <!-- load indicator (animated gif) -->
+                <img src="../../images/loading.gif" class="progress"/>
+              </div>
+
+              <script>
+                $(function() {
+                  // select the thumbnails and make them trigger our overlay
+                  $("#triggers a").overlay({
+                    // each trigger uses the same overlay with the id "gallery"
+                    target: '#gallery',
+                    // optional exposing effect
+                    expose: '#666'
+                    // let the gallery plugin do its magic!
+                  }).gallery({
+                    // the plugin accepts its own set of configuration options
+                    speed: 800
+                  });
+                });
+              </script>
+            </div>
+
+            <% elsif @blog.name== "Rupesh Vyas" then %>
+            <div id="portfolio_works"><!-- portfolio_works div -->
+              <div id="triggers">
+                <div id="interview_video_works">
+
+                 <a alt="Proud citizens of India display their Multipurpose National Identity Cards (MNIC)" href="../../images/rupesh_vyas/citizens_with_MNIC_main.jpg">
+                    <img src="../../images/rupesh_vyas/thumbnails/citizens_with_MNIC_thumb.jpg"/>
+                  </a>
+
+                  <a alt="The Multipurpose National Identity Card (MNIC) is a smart card. Shown here is a card reader that reads the information from the MNIC" href="../../images/rupesh_vyas/MNIC_card_reader_main.jpg">
+                    <img src="../../images/rupesh_vyas/thumbnails/MNIC_card_reader_thumb.jpg"/>
+                  </a>
+
+                  <a  alt="Census 2011 forms in the process of development. Almost 2 million forms were printed and tested in the field in a massive pre-census testing activity" href="../../images/rupesh_vyas/census2011_forms_main.jpg">
+                    <img src="../../images/rupesh_vyas/thumbnails/census2011_forms_thumb.jpg"/>
+                  </a>
+
+                   <a class="interview_video_works_space"  alt="Census 2011 activity in progress at one of the residences on the NID Campus. Primary school teachers all over India go to houses and collect census data" href="../../images/rupesh_vyas/census_NIDCampus_2_main.jpg">
+                    <img src="../../images/rupesh_vyas/thumbnails/census_NIDCampus_2_thumb.jpg"/>
+                  </a>
+
+                   <a alt="A census enumerator noting down the details in the census form in Gujarati. The census 2011 forms were designed in the entire set of 16 different Indian scripts" href="../../images/rupesh_vyas/census_NIDCampus_1_main.jpg">
+                    <img src="../../images/rupesh_vyas/thumbnails/census_NIDCampus_1_thumb.jpg"/>
+                  </a>
+                  <a alt="Field testing of the designs for the Unified Driving License project" href="../../images/rupesh_vyas/Driving License _fieldtest_main.jpg">
+                    <img src="../../images/rupesh_vyas/thumbnails/Driving License _fieldtest_thumb.jpg"/>
+                  </a>
+                  <a  alt="Data visualization of user observations at the Kempegauda Bus Terminus, done as a part of the Strategic Information Design and Branding project for BMTC City Transport System" href="../../images/rupesh_vyas/bmtc_1_main.jpg">
+                    <img src="../../images/rupesh_vyas/thumbnails/bmtc_1_thumb.jpg"/>
+                  </a>
+                   <a class="interview_video_works_space"  alt="Suggested graphics for various bus types and proposed icons, signs and symbols for the BMTC City Transport System" href="../../images/rupesh_vyas/bmtc_2_main.jpg">
+                    <img src="../../images/rupesh_vyas/thumbnails/bmtc_2_thumb.jpg"/>
+                  </a>
+
                   <div class="clear"></div>
                 </div>
               </div>

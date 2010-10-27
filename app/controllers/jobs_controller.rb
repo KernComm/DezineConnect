@@ -1,7 +1,15 @@
 class JobsController < ApplicationController
- 
+ before_filter :is_team_dezineconnect, :only => [ :dashboard ]
   # GET /jobs
   # GET /jobs.xml
+
+  def is_team_dezineconnect
+    if session[:is_dezineconnect_team] then
+    else
+      redirect_to "/login"
+    end
+  end
+  
   def index
     @title = "Design Jobs In India"
     @jobs = Job.paginate(:page => params[:page], :per_page =>11, :conditions => {:activate => 1}, :order => 'updated_at DESC')
@@ -28,6 +36,8 @@ class JobsController < ApplicationController
       format.js
     end
   end
+
+  
   # GET /jobs/1
   # GET /jobs/1.xml
   def show
@@ -80,15 +90,13 @@ class JobsController < ApplicationController
       redirect_to "/jobs"
     else
       redirect_to "/jobs"
-    end
-    
+    end    
   end
 
   # GET /jobs/new
   # GET /jobs/new.xml
   def new
     @job = Job.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @job }
