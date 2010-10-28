@@ -286,7 +286,6 @@ class JobsController < ApplicationController
   # PUT /jobs/1.xml
   def update
     @job = Job.find(params[:id])
-
     respond_to do |format|
       if @job.update_attributes(params[:job])
         flash[:notice] = 'Job was successfully updated.'

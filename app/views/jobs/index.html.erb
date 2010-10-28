@@ -496,7 +496,7 @@
   <div id="sidebar">
     <% if session[:loggedin_user].nil? or session[:loggedin_user].blank? then %>
       <form action="/jobs/create" class="new_job" id="new_job" method="post" name="Qjobs" onsubmit="javascript:return validate('new_job_if');">
-        <h2>Post a Quick Job</h2>
+        <h2>Post a job - its free!</h2>
         <label>Job Title<span class="required_field">*</span></label>
         <input type="text" name="job[job_title]" id="job_title"  maxlength="29" onblur="validation('job_title','error_job_title')"/>
         <div id="error_job_title" class="error_msg" >
@@ -594,7 +594,7 @@
     <% else %>
 
       <form action="/jobs/create_after_login" class="new_job" id="new_job" method="post" name="Qjobs" onsubmit="javascript:return validate('new_job_else');">
-        <h2>Post a Quick Job</h2>
+        <h2>Post a job - its free!</h2>
         <label>Job Title<span class="required_field">*</span></label>
         <input type="text" name="job[job_title]" id="job_title" maxlength="29"  onblur="validation('job_title','error_job_title')"/>
         <div id="error_job_title" class="error_msg" >

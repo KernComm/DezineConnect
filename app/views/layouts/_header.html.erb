@@ -28,26 +28,26 @@
         <% unless session[:loggedin_user].nil? then %>
 
           <div id="directories_head_link">
-            <a href="/directory/"> Design Companies </a>
+            <a id="design_comp" href="/directory/">Design Companies</a>  |  <a id="design_prof" href="/portfolios/">Design Professionals</a>  |  <a id="design_job" href="/jobs">jobs</a>  | <a id="design_inter" href="/dlog"> Featured Designers</a>
           </div>
 
-          <div id="header_link_separator1"> | </div>
+  <%#*<div id="header_link_separator1">|</div>%>
 
-          <div id="portrolio">
-            <a href="/portfolios/"> Design Professionals </a>
-          </div>
+  <%#*<div id="portrolio">%>
+  <%#*<a href="/portfolios/">Design Professionals</a>%>
+  <%#*</div>%>
 
-          <div id="header_link_separator2"> | </div>
+  <%#*<div id="header_link_separator2">|</div>%>
 
-          <div id="josb">
-            <a href="/jobs"> jobs </a>
-          </div>
+  <%#*<div id="josb">%>
+  <%#*<a href="/jobs">jobs</a>%>
+  <%#*</div>%>
 
-          <div id="header_link_separator"> | </div>
+  <%#*<div id="header_link_separator">|</div>%>
 
-          <div id="dlog">
-            <a href="/dlog"> Interviews </a>
-          </div>
+  <%#*<div id="dlog">%>
+  <%#*<a href="/dlog">Featured Designers</a>%>
+  <%#*</div>%>
 
           <% @user = User.find(session[:loggedin_user]) %>
           <% unless @user.firstname.length > 20 or @user.portfolio.nil? or @user.portfolio.blank? then %>
@@ -79,19 +79,20 @@
             </style>
           <%else%>
           <%end%>
+
           <div id="directories_head_link">
-            <a href="/directory/">Design Companies</a>
+            <a id="design_comp" href="/directory/">Design Companies</a>  |  <a id="design_prof" href="/portfolios/">Design Professionals</a>  |  <a id="design_job" href="/jobs">jobs</a>  | <a id="design_inter" href="/dlog"> Featured Designers</a>
           </div>
-          <div id="header_link_separator1"> | </div>
-          <div id="portrolio">
-            <a href="/portfolios/"> Design Professionals  </a>
-          </div>
-          <div id="header_link_separator2"> | </div>
-          <div id="josb"><a href="/jobs"> jobs </a></div>
-          <div id="header_link_separator"> |</div>
-          <div id="dlog">
-            <a href="/dlog">Interviews</a>
-          </div>
+  <%#*<div id="header_link_separator1">|</div>%>
+  <%#*<div id="portrolio">%>
+  <%#*<a href="/portfolios/">Design Professionals</a>%>
+  <%#*</div>%>
+  <%#*<div id="header_link_separator2">|</div>%>
+  <%#*<div id="josb"><a href="/jobs">jobs </a></div>%>
+  <%#*<div id="header_link_separator">|</div>%>
+  <%#*<div id="dlog">%>
+  <%#*<a href="/dlog">Featured Designers</a>%>
+  <%#*</div>%>
 
           <div id="login">
             <a href="/login">login</a>
@@ -103,7 +104,10 @@
           <% end %>
           <!--login part end-->
         <% end %>
+
       </div>
       <!-- header_mid end -->
     </div>
     <!-- header end -->
+  </body>
+</html>

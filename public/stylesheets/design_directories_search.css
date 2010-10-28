@@ -149,6 +149,10 @@ body{ background: url('../images/background_0_.png')  #dedede; }
 #portrolio a {
     color: #cccccc;
 }
-#directories_head_link {
+/*#directories_head_link {
     color: orange;
+}*/
+#design_comp{
+    color: orange;
+    
 }
