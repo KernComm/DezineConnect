@@ -114,13 +114,15 @@ font-style: normal;
 }
 .captionLeftSection  {
     float: left;
+    color:white;
     position: absolute;
-    padding: 7px 0px 0px 6px;
+    padding: 5px 0px 0px 6px;
     font: 12px Georgia, serif;
 }
 .captionRightSection  {
-    float: right;
-    padding: 7px 6px 0px 0px;
+    
+    color:white;
+    padding: 20px 6px 0px 6px;
     font: 12px Lucida grande, san-serif;
 }
 #dlog_h1 {

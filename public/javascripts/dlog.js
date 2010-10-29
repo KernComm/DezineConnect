@@ -12,7 +12,7 @@
 
                                 $('.boxgrid_big.caption_big').hover(function(){
 
-					$(".cover_big", this).stop().animate({top:'210px'},{queue:false,duration:500});
+					$(".cover_big", this).stop().animate({top:'195px'},{queue:false,duration:500});
 				}, function() {
 
 					$(".cover_big", this).stop().animate({top:'240px'},{queue:false,duration:500});

@@ -63,12 +63,13 @@
 	       <% if blog.name == 'anusha_yadav' then %>
                 <a class="bloghyperlink" href="/dlog/anusha_yadav">
               <% end %>
+                
                   
                     <div class="boxgrid_big caption_big">
                       <%= image_tag  blog.author_photo.url(:large) %>
                       <div class="cover_big boxcaption_big">
                         <div class="captionLeftSection"><%= blog.name %></div>
-                        <div class="captionRightSection"></div>
+                        <div class="captionRightSection"><%= blog.blog_statement %></div>
                       </div>
                     </div>
                   </a>
@@ -104,11 +105,13 @@
               <% if blog.name == 'designdaku' then %>
               <a class="bloghyperlink" href="/dlog/designdaku">
               <%end%>
+              
                   
                     <div class="boxgrid caption">
                       <%= image_tag  blog.author_photo.url(:small) %>
                       <div class="cover boxcaption">
                         <div class="captionLeftSection"><%= blog.name %></div>
+                        
                         <div class="captionRightSection"></div>
                       </div>
                     </div>
