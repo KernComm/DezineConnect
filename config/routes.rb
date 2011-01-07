@@ -45,6 +45,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/dlog/satyajeet_kumar', :controller => "blogs", :action => "show", :id => 25
   map.connect '/dlog/designdaku', :controller => "blogs", :action => "show", :id => 26
   map.connect '/dlog/anusha_yadav', :controller => "blogs", :action => "show", :id => 11
+  map.connect '/dlog/sunali_aggarwal', :controller => "blogs", :action => "show", :id => 14
   map.connect '/dlog', :controller => "blogs", :action => "index"
 
   

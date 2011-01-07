@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   def login_required
     if session[:is_admin].blank? then
       redirect_to '/login'
+    else
     end
   end
 

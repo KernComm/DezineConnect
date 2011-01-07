@@ -28,7 +28,7 @@
       -moz-border-radius:0px;
       -webkit-border-radius:0px;
     }
-    
+
   </style>
 <%  end %>
 <!-- 960 px wrapper -->
@@ -45,19 +45,19 @@
           <li><%=h @blog.tag %> by Nitesh</li>&nbsp;&nbsp;|&nbsp;&nbsp;
         <% elsif @blog.name == 'Satya Rajpurohit' %>
           <li><%=h @blog.tag %> by Shankar V Narayan</li>
-           <% elsif @blog.name == 'Satyajeet Kumar' %>
+        <% elsif @blog.name == 'Satyajeet Kumar' %>
           <li><%=h @blog.tag %> by Neha Saraswat</li>
         <% else %>
           <li><%=h @blog.tag %></li>
         <% end %>
       </div>
 
-      
-      
-        <div id="interview_img_with_txt"><%= image_tag @blog.author_photo.url(:large) %></div>
-        
 
-      
+
+      <div id="interview_img_with_txt"><%= image_tag @blog.author_photo.url(:large) %></div>
+
+
+
       <%= RedCloth.new(@blog.blog_content).to_html %>
 
       <% if @blog.name== "Suresh Eriyat" then %>
@@ -97,9 +97,9 @@
           <div class="clear"></div>
         </div>
       <%end%>
-       
+
       <!---------------------------------)()()()()(|| image slider ||)()()()()()()(------------------------------------>
-      <% else if @blog.name== "Sandip Paul" then %>
+    <% else if @blog.name== "Sandip Paul" then %>
         <div id="portfolio_works"><!-- portfolio_works div -->
           <div id="triggers">
             <div id="interview_video_works">
@@ -238,17 +238,17 @@
                 });
               </script>
             </div>
-             <% elsif @blog.name== "Satyajeet Kumar" then %>
+          <% elsif @blog.name== "Satyajeet Kumar" then %>
             <div id="portfolio_works"><!-- portfolio_works div -->
               <div id="triggers">
                 <div id="interview_video_works">
                   <a alt="Bamboo furniture" href="../images/SatyajeetKumar/1_bamboo-furniture-view-1.jpg">
                     <img src="../images/SatyajeetKumar/Thumbnails/1_bamboo-furniture-view-2_thumbnail.jpg"/>
                   </a>
-                   <a alt="Bamboo furniture" href="../images/SatyajeetKumar/2_bamboo-furniture-view-2.jpg">
+                  <a alt="Bamboo furniture" href="../images/SatyajeetKumar/2_bamboo-furniture-view-2.jpg">
                     <img src="../images/SatyajeetKumar/Thumbnails/2_bamboo-furniture-view-1_thumbnail.jpg"/>
                   </a>
-                   <a alt="Upright and low sitting co-designed with Abhijeet Kumar" href="../images/SatyajeetKumar/3_upright-and-low-sitting-co-designed-with-Abhijeet--Kumar-view-1.jpg">
+                  <a alt="Upright and low sitting co-designed with Abhijeet Kumar" href="../images/SatyajeetKumar/3_upright-and-low-sitting-co-designed-with-Abhijeet--Kumar-view-1.jpg">
                     <img src="../images/SatyajeetKumar/Thumbnails/3_upright-and-low-sitting-co-designed-with-Abhijeet--Kumar-view-1_thumbnail.jpg"/>
                   </a>
                   <a class="interview_video_works_space" alt="Upright and low sitting co-designed with Abhijeet Kumar" href="../images/SatyajeetKumar/4_upright-and-low-sitting-co-designed-with-Abhijeet--Kumar-view-2.jpg">
@@ -258,10 +258,10 @@
                   <a alt="Visual comlexity through functional simplicity co-designed with Abhijeet Kumar" href="../images/SatyajeetKumar/5_visual-comlexity-through-functional-simplicity-co-designed-with-Abhijeet-Kumar.jpg">
                     <img src="../images/SatyajeetKumar/Thumbnails/5_visual-comlexity-through-functional-simplicity-co-designed-with-Abhijeet-Kumar_thumbnail.jpg"/>
                   </a>
-                   <a alt="Ear ring co-designed with Abhijeet for Anuj Sharma's Lakme fashion Show" href="../images/SatyajeetKumar/6_ear-ring-co-designed-with-Abhijeet-for-Anuj-Sharmas-Lakme-fashion-Show.jpg">
+                  <a alt="Ear ring co-designed with Abhijeet for Anuj Sharma's Lakme fashion Show" href="../images/SatyajeetKumar/6_ear-ring-co-designed-with-Abhijeet-for-Anuj-Sharmas-Lakme-fashion-Show.jpg">
                     <img src="../images/SatyajeetKumar/Thumbnails/6_ear-ring-co-designed-with-Abhijeet-for-Anuj-Sharmas-Lakme-fashion-Show_thumbnail.jpg"/>
                   </a>
-                   <a alt="Water saving tap on wash basin" href="../images/SatyajeetKumar/7_water-saving-tap-on-wash-basin-view-1.jpg">
+                  <a alt="Water saving tap on wash basin" href="../images/SatyajeetKumar/7_water-saving-tap-on-wash-basin-view-1.jpg">
                     <img src="../images/SatyajeetKumar/Thumbnails/7_water-saving-tap-on-wash-basin-view-1_thumbnail.jpg"/>
                   </a>
                   <a class="interview_video_works_space" alt="Water saving tap on wash basin" href="../images/SatyajeetKumar/8_water-saving-tap-on-wash-basin-view-2.jpg">
@@ -271,10 +271,10 @@
                   <a alt="Cockpit Procedure Trainer" href="../images/SatyajeetKumar/9_.jpg">
                     <img src="../images/SatyajeetKumar/Thumbnails/9_Cockpit-Procedure-Trainer-view-2_thumbnail.jpg"/>
                   </a>
-                   <a alt="Cockpit Procedure Trainer" href="../images/SatyajeetKumar/10_Cockpit-Procedure-Trainer-view-2.jpg">
+                  <a alt="Cockpit Procedure Trainer" href="../images/SatyajeetKumar/10_Cockpit-Procedure-Trainer-view-2.jpg">
                     <img src="../images/SatyajeetKumar/Thumbnails/10_Cockpit-Procedure-Trainer-view-1_thumbnail.jpg"/>
                   </a>
-                   <a alt="Topolate lightplate on animator's table" href="../images/SatyajeetKumar/11_topolate-lightplate-on-animators-table.jpg">
+                  <a alt="Topolate lightplate on animator's table" href="../images/SatyajeetKumar/11_topolate-lightplate-on-animators-table.jpg">
                     <img src="../images/SatyajeetKumar/Thumbnails/11_topolate-lightplate-on-animators-table_thumbnail.jpg"/>
                   </a>
                   <a class="interview_video_works_space" alt="Topolate TYOS" href="../images/SatyajeetKumar/12_topolate-TYOS.jpg">
@@ -284,16 +284,16 @@
                   <a alt="Adaptor for topolate" href="../images/SatyajeetKumar/13_Adaptor-for-topolate.jpg">
                     <img src="../images/SatyajeetKumar/Thumbnails/13_Adaptor-for-topolate_thumbnail.jpg"/>
                   </a>
-                   <a alt="Adaptor for topolate" href="../images/SatyajeetKumar/14_topolate-lightplate.jpg">
+                  <a alt="Adaptor for topolate" href="../images/SatyajeetKumar/14_topolate-lightplate.jpg">
                     <img src="../images/SatyajeetKumar/Thumbnails/14_topolate-lightplate_thumbnail.jpg"/>
                   </a>
-                   <a alt="Topolate lightwedge" href="../images/SatyajeetKumar/15_topolate-lightwedge-2.jpg">
+                  <a alt="Topolate lightwedge" href="../images/SatyajeetKumar/15_topolate-lightwedge-2.jpg">
                     <img src="../images/SatyajeetKumar/Thumbnails/15_topolate-lightwedge-2_thumbnail.jpg"/>
                   </a>
                   <a class="interview_video_works_space" alt="Topolate lightwedge" href="../images/SatyajeetKumar/16_topolate-lightwedge.jpg">
                     <img src="../images/SatyajeetKumar/Thumbnails/16_topolate-lightwedge_thumbnail.jpg"/>
                   </a>
-               
+
                   <div class="clear"></div>
                 </div>
               </div>
@@ -327,65 +327,65 @@
             </div>
           <%elsif @blog.name=="designdaku" then%>
             <!---------------------------------)()()()()(|| image slider |Desine Daku|)()()()()()()(------------------------------------>
-    <div id="portfolio_works"><!-- portfolio_works div -->
-          <div id="triggers">
-            <div id="interview_video_works">
-              <a alt="Expo stall for ABP Induction, Ahmedabad with an intent to glamourise an otherwise unglamorous product (induction furnaces)." href="../images/DesignDaku/01ABP-Induction-Expo-Stall.jpg">
-                <img src="../images/DesignDaku/thumbnail/01ABP-Induction-Expo-Stall_thumbnail.jpg"/>
-              </a>
-              <a alt="Multi-use LED Lantern for Andslite targeted at the deep rural market. " href="../images/DesignDaku/02Andslite-LED-Lantern.jpg">
-                <img src="../images/DesignDaku/thumbnail/02Andslite-LED-Lantern_thumbnail.jpg"/>
-              </a>
-              <a alt="Part of a self-initiated, self-branded range of LED lighting solutions." href="../images/DesignDaku/03Arthropoda-Lamp-1.jpg">
-                <img src="../images/DesignDaku/thumbnail/03Arthropoda-Lamp-1_thumbnail.jpg"/>
-              </a>
-              <a alt="Part of a self-initiated, self-branded range of LED lighting solutions." href="../images/DesignDaku/04Arthropoda-Lamp-2.jpg" class="interview_video_works_space">
-                <img src="../images/DesignDaku/thumbnail/04Arthropoda-Lamp-2_thumbnail.jpg"/>
-              </a>
+            <div id="portfolio_works"><!-- portfolio_works div -->
+              <div id="triggers">
+                <div id="interview_video_works">
+                  <a alt="Expo stall for ABP Induction, Ahmedabad with an intent to glamourise an otherwise unglamorous product (induction furnaces)." href="../images/DesignDaku/01ABP-Induction-Expo-Stall.jpg">
+                    <img src="../images/DesignDaku/thumbnail/01ABP-Induction-Expo-Stall_thumbnail.jpg"/>
+                  </a>
+                  <a alt="Multi-use LED Lantern for Andslite targeted at the deep rural market. " href="../images/DesignDaku/02Andslite-LED-Lantern.jpg">
+                    <img src="../images/DesignDaku/thumbnail/02Andslite-LED-Lantern_thumbnail.jpg"/>
+                  </a>
+                  <a alt="Part of a self-initiated, self-branded range of LED lighting solutions." href="../images/DesignDaku/03Arthropoda-Lamp-1.jpg">
+                    <img src="../images/DesignDaku/thumbnail/03Arthropoda-Lamp-1_thumbnail.jpg"/>
+                  </a>
+                  <a alt="Part of a self-initiated, self-branded range of LED lighting solutions." href="../images/DesignDaku/04Arthropoda-Lamp-2.jpg" class="interview_video_works_space">
+                    <img src="../images/DesignDaku/thumbnail/04Arthropoda-Lamp-2_thumbnail.jpg"/>
+                  </a>
 
-              <a alt="Complete branding & strategy solution for Aeon Special Vehicles, a Delhi-based maker of customised, special-use vehicles." href="../images/DesignDaku/05ASV-Branding.jpg">
-                <img src="../images/DesignDaku/thumbnail/05ASV-Branding_thumbnail.jpg"/>
-              </a>
-              <a alt="A dual-handed, sagittal saw for large bone orthopedic surgery." href="../images/DesignDaku/0617ZeeSaw-Oscillator-For-Orthopedic-Surgery.jpg">
-                <img src="../images/DesignDaku/thumbnail/16ZeeSaw-Oscillator-For-Orthopedic-Surgery_thumbnail.jpg"/>
-              </a>
-              <a alt="Auto Expo stall for Hero Electric centred around the theme 'The Future Is Sexy'." href="../images/DesignDaku/07Hero-Electric-Expo-Stall.jpg">
-                <img src="../images/DesignDaku/thumbnail/07Hero-Electric-Expo-Stall_thumbnail.jpg"/>
-              </a>
-              <a alt="Restyled immersion heater for Indoma Industries, a Delhi-based maker of home appliances." href="../images/DesignDaku/08Immersion-Heater-for-Indoma.jpg" class="interview_video_works_space">
-                <img src="../images/DesignDaku/thumbnail/08Immersion-Heater-for-Indoma_thumbnail.jpg"/>
-              </a>
+                  <a alt="Complete branding & strategy solution for Aeon Special Vehicles, a Delhi-based maker of customised, special-use vehicles." href="../images/DesignDaku/05ASV-Branding.jpg">
+                    <img src="../images/DesignDaku/thumbnail/05ASV-Branding_thumbnail.jpg"/>
+                  </a>
+                  <a alt="A dual-handed, sagittal saw for large bone orthopedic surgery." href="../images/DesignDaku/0617ZeeSaw-Oscillator-For-Orthopedic-Surgery.jpg">
+                    <img src="../images/DesignDaku/thumbnail/16ZeeSaw-Oscillator-For-Orthopedic-Surgery_thumbnail.jpg"/>
+                  </a>
+                  <a alt="Auto Expo stall for Hero Electric centred around the theme 'The Future Is Sexy'." href="../images/DesignDaku/07Hero-Electric-Expo-Stall.jpg">
+                    <img src="../images/DesignDaku/thumbnail/07Hero-Electric-Expo-Stall_thumbnail.jpg"/>
+                  </a>
+                  <a alt="Restyled immersion heater for Indoma Industries, a Delhi-based maker of home appliances." href="../images/DesignDaku/08Immersion-Heater-for-Indoma.jpg" class="interview_video_works_space">
+                    <img src="../images/DesignDaku/thumbnail/08Immersion-Heater-for-Indoma_thumbnail.jpg"/>
+                  </a>
 
-               <a alt="Complete branding & strategy solution for Pune-based dance studio 'Naach'." href="../images/DesignDaku/09Naach-Branding.jpg">
-                <img src="../images/DesignDaku/thumbnail/09Naach-Branding_thumbnail.jpg"/>
-              </a>
-              <a alt="An ultra-low footprint, thin computing platform with integrated cable management solutions." href="../images/DesignDaku/10NetPC-Thin-Computer.jpg">
-                <img src="../images/DesignDaku/thumbnail/10NetPC-Thin-Computer_thumbnail.jpg"/>
-              </a>
-              <a alt="A robust stainless steel and ABS construction vacuum flask aimed at hikers and trekkers." href="../images/DesignDaku/11Nomad-Vaccum-Flask.jpg">
-                <img src="../images/DesignDaku/thumbnail/11Nomad-Vaccum-Flask_thumbnail.jpg"/>
-              </a>
-              <a alt="Complete branding & strategy solution for New York based fashion house." href="../images/DesignDaku/12Se-Sens-Serene-Branding.jpg" class="interview_video_works_space">
-                <img src="../images/DesignDaku/thumbnail/12Se-Sens-Serene-Branding_thumbnail.jpg"/>
-              </a>
+                  <a alt="Complete branding & strategy solution for Pune-based dance studio 'Naach'." href="../images/DesignDaku/09Naach-Branding.jpg">
+                    <img src="../images/DesignDaku/thumbnail/09Naach-Branding_thumbnail.jpg"/>
+                  </a>
+                  <a alt="An ultra-low footprint, thin computing platform with integrated cable management solutions." href="../images/DesignDaku/10NetPC-Thin-Computer.jpg">
+                    <img src="../images/DesignDaku/thumbnail/10NetPC-Thin-Computer_thumbnail.jpg"/>
+                  </a>
+                  <a alt="A robust stainless steel and ABS construction vacuum flask aimed at hikers and trekkers." href="../images/DesignDaku/11Nomad-Vaccum-Flask.jpg">
+                    <img src="../images/DesignDaku/thumbnail/11Nomad-Vaccum-Flask_thumbnail.jpg"/>
+                  </a>
+                  <a alt="Complete branding & strategy solution for New York based fashion house." href="../images/DesignDaku/12Se-Sens-Serene-Branding.jpg" class="interview_video_works_space">
+                    <img src="../images/DesignDaku/thumbnail/12Se-Sens-Serene-Branding_thumbnail.jpg"/>
+                  </a>
 
-              <a alt="Luggage carriers for sporty motorcycles for Studds." href="../images/DesignDaku/13Studds-Motorcycle-Pannier.jpg">
-                <img src="../images/DesignDaku/thumbnail/13Studds-Motorcycle-Pannier_thumbnail.jpg"/>
-              </a>
-              <a alt="Part of a self-initiated, self-branded range of LED lighting solutions." href="../images/DesignDaku/14Tree-of-Souls-Modular-LED-Lighting-System.jpg">
-                <img src="../images/DesignDaku/thumbnail/14Tree-of-Souls-Modular-LED-Lighting-System_thumbnail.jpg"/>
-              </a>
-              <a alt="Design of fishing vessel for Fibroplast Marine with a V-hull concept." href="../images/DesignDaku/15Triton-Monohull-Fishing-Vessel.jpg">
-                <img src="../images/DesignDaku/thumbnail/15Triton-Monohull-Fishing-Vessel_thumbnail.jpg"/>
-              </a>
-              <a alt="Expo stall for Vodafone with the intent of maximising footfalls." href="../images/DesignDaku/16Vodafone-Expo-Stall.jpg" class="interview_video_works_space">
-                <img src="../images/DesignDaku/thumbnail/16Vodafone-Expo-Stall_thumbnail.jpg"/>
-              </a>
+                  <a alt="Luggage carriers for sporty motorcycles for Studds." href="../images/DesignDaku/13Studds-Motorcycle-Pannier.jpg">
+                    <img src="../images/DesignDaku/thumbnail/13Studds-Motorcycle-Pannier_thumbnail.jpg"/>
+                  </a>
+                  <a alt="Part of a self-initiated, self-branded range of LED lighting solutions." href="../images/DesignDaku/14Tree-of-Souls-Modular-LED-Lighting-System.jpg">
+                    <img src="../images/DesignDaku/thumbnail/14Tree-of-Souls-Modular-LED-Lighting-System_thumbnail.jpg"/>
+                  </a>
+                  <a alt="Design of fishing vessel for Fibroplast Marine with a V-hull concept." href="../images/DesignDaku/15Triton-Monohull-Fishing-Vessel.jpg">
+                    <img src="../images/DesignDaku/thumbnail/15Triton-Monohull-Fishing-Vessel_thumbnail.jpg"/>
+                  </a>
+                  <a alt="Expo stall for Vodafone with the intent of maximising footfalls." href="../images/DesignDaku/16Vodafone-Expo-Stall.jpg" class="interview_video_works_space">
+                    <img src="../images/DesignDaku/thumbnail/16Vodafone-Expo-Stall_thumbnail.jpg"/>
+                  </a>
 
-              <div class="clear"></div>
-            </div>
-          </div>
-       <!-- overlay element -->
+                  <div class="clear"></div>
+                </div>
+              </div>
+              <!-- overlay element -->
               <div id="gallery" class="simple_overlay"><div class="close"></div>
                 <!-- "previous image" action -->
                 <a class="prev" style="opacity: 0.8;">prev</a>
@@ -412,7 +412,7 @@
                   });
                 });
               </script>
-    </div>
+            </div>
           <% elsif @blog.name== "Rajesh Dahiya" then %>
             <div id="portfolio_works"><!-- portfolio_works div -->
               <div id="triggers">
@@ -502,12 +502,12 @@
                   <a  alt="Dreams Bar, Cochin" href="../../images/Anusha_Yadav/0313_After-Dark_AY_CCH.jpg">
                     <img src="../../images/Anusha_Yadav/Thumbnails/0313_After-Dark_AY_CCH_thumbnail.jpg"/>
                   </a>
-                   <a class="interview_video_works_space"  alt="Rajat Kapoor, in his office in Santa Cruz, Mumbai" href="../../images/Anusha_Yadav/04AY_IMG_5490_rajat.jpg">
+                  <a class="interview_video_works_space"  alt="Rajat Kapoor, in his office in Santa Cruz, Mumbai" href="../../images/Anusha_Yadav/04AY_IMG_5490_rajat.jpg">
                     <img src="../../images/Anusha_Yadav/Thumbnails/04AY_IMG_5490_rajat_thumbnail.jpg"/>
                   </a>
 
 
-                   <a alt="Birthday party, Mumbai" href="../../images/Anusha_Yadav/05AYadav-0192.jpg">
+                  <a alt="Birthday party, Mumbai" href="../../images/Anusha_Yadav/05AYadav-0192.jpg">
                     <img src="../../images/Anusha_Yadav/Thumbnails/05AYadav-0192_thumbnail.jpg"/>
                   </a>
                   <a alt="Brunch in Mumbai" href="../../images/Anusha_Yadav/06AYadav-4312.jpg">
@@ -516,13 +516,13 @@
                   <a  alt="Waheeda Rahman Rekhi, at home, Mumbai" href="../../images/Anusha_Yadav/07AYadav-8812.jpg">
                     <img src="../../images/Anusha_Yadav/Thumbnails/07AYadav-8812_thumbnail.jpg"/>
                   </a>
-                   <a class="interview_video_works_space"  alt="Czech Republic At the Intersport Ranch, with her horse Baron.
-Bartender and Horse Rider" href="../../images/Anusha_Yadav/08AYadav_Checq-Republic-5834.jpg">
+                  <a class="interview_video_works_space"  alt="Czech Republic At the Intersport Ranch, with her horse Baron.
+                     Bartender and Horse Rider" href="../../images/Anusha_Yadav/08AYadav_Checq-Republic-5834.jpg">
                     <img src="../../images/Anusha_Yadav/Thumbnails/08AYadav_Checq-Republic-5834_thumbnail.jpg"/>
                   </a>
 
 
-                   <a alt="IRAN By the banks of Salzach Student of Graphic Design" href="../../images/Anusha_Yadav/09AYadav_Iran-7321.jpg">
+                  <a alt="IRAN By the banks of Salzach Student of Graphic Design" href="../../images/Anusha_Yadav/09AYadav_Iran-7321.jpg">
                     <img src="../../images/Anusha_Yadav/Thumbnails/09AYadav_Iran-7321_thumbnail.jpg"/>
                   </a>
                   <a alt="Tanzania At the Afro Bar. Student of International Studies" href="../../images/Anusha_Yadav/10AYadav_Tanzania-9161.jpg">
@@ -531,11 +531,11 @@ Bartender and Horse Rider" href="../../images/Anusha_Yadav/08AYadav_Checq-Republ
                   <a  alt="Terror Souvenirs, Gateway of India, Mumbai" href="../../images/Anusha_Yadav/11IMG_3876H.jpg">
                     <img src="../../images/Anusha_Yadav/Thumbnails/11IMG_3876H_thumbnail.jpg"/>
                   </a>
-                   <a class="interview_video_works_space"  alt="Rajendra Yadav, Hindi Literateur & Magazine Editor" href="../../images/Anusha_Yadav/12IMG_4553H.jpg">
+                  <a class="interview_video_works_space"  alt="Rajendra Yadav, Hindi Literateur & Magazine Editor" href="../../images/Anusha_Yadav/12IMG_4553H.jpg">
                     <img src="../../images/Anusha_Yadav/Thumbnails/12IMG_4553H_thumbnail.jpg"/>
                   </a>
 
-                   <a alt="Irrfan Khan being primed by hair stylist Hakim Ali for a 'look test', in his vanity van. Mehboob Studio, Mumbai" href="../../images/Anusha_Yadav/13IMG_6652.jpg">
+                  <a alt="Irrfan Khan being primed by hair stylist Hakim Ali for a 'look test', in his vanity van. Mehboob Studio, Mumbai" href="../../images/Anusha_Yadav/13IMG_6652.jpg">
                     <img src="../../images/Anusha_Yadav/Thumbnails/13IMG_6652_thumbnail.jpg"/>
                   </a>
                   <a alt="Concert Flourish, Mumbai" href="../../images/Anusha_Yadav/14IMG_7557H.jpg">
@@ -544,7 +544,7 @@ Bartender and Horse Rider" href="../../images/Anusha_Yadav/08AYadav_Checq-Republ
                   <a  alt="Banquet Hall, New Delhi" href="../../images/Anusha_Yadav/15IMG_9905.jpg">
                     <img src="../../images/Anusha_Yadav/Thumbnails/15IMG_9905_thumbnail.jpg"/>
                   </a>
-                   <a class="interview_video_works_space"  alt="Ambedkar Jayanti, Mumbai" href="../../images/Anusha_Yadav/16VR-image.jpg">
+                  <a class="interview_video_works_space"  alt="Ambedkar Jayanti, Mumbai" href="../../images/Anusha_Yadav/16VR-image.jpg">
                     <img src="../../images/Anusha_Yadav/Thumbnails/16VR-image_thumbnail.jpg"/>
                   </a>
                   <div class="clear"></div>
@@ -578,7 +578,7 @@ Bartender and Horse Rider" href="../../images/Anusha_Yadav/08AYadav_Checq-Republ
                 });
               </script>
             </div>
-            <% elsif @blog.name== "Vidyadhar Pande" then %>
+          <% elsif @blog.name== "Vidyadhar Pande" then %>
             <div id="portfolio_works"><!-- portfolio_works div -->
               <div id="triggers">
                 <div id="interview_video_works">
@@ -591,7 +591,7 @@ Bartender and Horse Rider" href="../../images/Anusha_Yadav/08AYadav_Checq-Republ
                   <a  alt="Eicher Cruiser: LCV Bus developed in 2003. First mass-produced executive bus" href="../../images/Vidyadhar_pande/Eicher_Cruiser.jpg">
                     <img src="../../images/Vidyadhar_pande/Thumbnails/Eicher_Cruiser.jpg"/>
                   </a>
-                   
+
                   <a class ="interview_video_works_space" alt="Concept of injection-moulded modular dashboard for Eicher Motors for light and medium capacity commercial vehicles, 2006 " href="../../images/Vidyadhar_pande/Eicher_LCV_Dash.jpg">
                     <img src="../../images/Vidyadhar_pande/Thumbnails/Eicher_LCV_Dash.jpg"/>
                   </a>
@@ -601,11 +601,11 @@ Bartender and Horse Rider" href="../../images/Anusha_Yadav/08AYadav_Checq-Republ
                   <a  alt="Concept submitted for London double-decker bus competition organised by the Mayor of London, 2008" href="../../images/Vidyadhar_pande/London_Double_Decker.jpg">
                     <img src="../../images/Vidyadhar_pande/Thumbnails/London_Double_Decker.jpg"/>
                   </a>
-                   <a alt="Concept of Mini Asphalt Compactor for Larsen and Toubro, 2006"  alt="Czech Republic At the Intersport Ranch, with her horse Baron.
-                    Bartender and Horse Rider" href="../../images/Vidyadhar_pande/L&T_mini_Loader.jpg">
+                  <a alt="Concept of Mini Asphalt Compactor for Larsen and Toubro, 2006"  alt="Czech Republic At the Intersport Ranch, with her horse Baron.
+                     Bartender and Horse Rider" href="../../images/Vidyadhar_pande/L&T_mini_Loader.jpg">
                     <img src="../../images/Vidyadhar_pande/Thumbnails/L&T_mini_Loader.jpg"/>
                   </a>
-                   <a class ="interview_video_works_space" alt="Loader machine concept, jointly developed with L&T Infotech, Baroda" href="../../images/Vidyadhar_pande/Macalac-Loader.jpg">
+                  <a class ="interview_video_works_space" alt="Loader machine concept, jointly developed with L&T Infotech, Baroda" href="../../images/Vidyadhar_pande/Macalac-Loader.jpg">
                     <img src="../../images/Vidyadhar_pande/Thumbnails/Macalac-Loader.jpg"/>
                   </a>
                   <a alt="Prototype of the armed vehicle for deserts, to be used by the UAE Army" href="../../images/Vidyadhar_pande/NIMR_PROTO.jpg">
@@ -614,10 +614,10 @@ Bartender and Horse Rider" href="../../images/Anusha_Yadav/08AYadav_Checq-Republ
                   <a  alt="Tata Motors front engine, semi-low floor city bus for JNNURM project. The bus will be visible throughout the country" href="../../images/Vidyadhar_pande/Tata_Front_Engine_Low_Floor.jpg">
                     <img src="../../images/Vidyadhar_pande/Thumbnails/Tata_Front_Engine_Low_Floor.jpg"/>
                   </a>
-                   <a alt="Tata Globus: Fully-built, low-cost, front engine luxury bus for Tata Motors " href="../../images/Vidyadhar_pande/Tata_Globus.jpg">
+                  <a alt="Tata Globus: Fully-built, low-cost, front engine luxury bus for Tata Motors " href="../../images/Vidyadhar_pande/Tata_Globus.jpg">
                     <img src="../../images/Vidyadhar_pande/Thumbnails/Tata_Globus.jpg"/>
                   </a>
-                   <a class ="interview_video_works_space" alt="The ‘LCV Bus of the year 2009’ from Eicher Motors" href="../../images/Vidyadhar_pande/new_skyline.jpg">
+                  <a class ="interview_video_works_space" alt="The ‘LCV Bus of the year 2009’ from Eicher Motors" href="../../images/Vidyadhar_pande/new_skyline.jpg">
                     <img src="../../images/Vidyadhar_pande/Thumbnails/new_skyline.jpg"/>
                   </a>
                   <div class="clear"></div>
@@ -652,12 +652,12 @@ Bartender and Horse Rider" href="../../images/Anusha_Yadav/08AYadav_Checq-Republ
               </script>
             </div>
 
-            <% elsif @blog.name== "Rupesh Vyas" then %>
+          <% elsif @blog.name== "Rupesh Vyas" then %>
             <div id="portfolio_works"><!-- portfolio_works div -->
               <div id="triggers">
                 <div id="interview_video_works">
 
-                 <a alt="Proud citizens of India display their Multipurpose National Identity Cards (MNIC)" href="../../images/rupesh_vyas/citizens_with_MNIC_main.jpg">
+                  <a alt="Proud citizens of India display their Multipurpose National Identity Cards (MNIC)" href="../../images/rupesh_vyas/citizens_with_MNIC_main.jpg">
                     <img src="../../images/rupesh_vyas/thumbnails/citizens_with_MNIC_thumb.jpg"/>
                   </a>
 
@@ -669,11 +669,11 @@ Bartender and Horse Rider" href="../../images/Anusha_Yadav/08AYadav_Checq-Republ
                     <img src="../../images/rupesh_vyas/thumbnails/census2011_forms_thumb.jpg"/>
                   </a>
 
-                   <a class="interview_video_works_space"  alt="Census 2011 activity in progress at one of the residences on the NID Campus. Primary school teachers all over India go to houses and collect census data" href="../../images/rupesh_vyas/census_NIDCampus_2_main.jpg">
+                  <a class="interview_video_works_space"  alt="Census 2011 activity in progress at one of the residences on the NID Campus. Primary school teachers all over India go to houses and collect census data" href="../../images/rupesh_vyas/census_NIDCampus_2_main.jpg">
                     <img src="../../images/rupesh_vyas/thumbnails/census_NIDCampus_2_thumb.jpg"/>
                   </a>
 
-                   <a alt="A census enumerator noting down the details in the census form in Gujarati. The census 2011 forms were designed in the entire set of 16 different Indian scripts" href="../../images/rupesh_vyas/census_NIDCampus_1_main.jpg">
+                  <a alt="A census enumerator noting down the details in the census form in Gujarati. The census 2011 forms were designed in the entire set of 16 different Indian scripts" href="../../images/rupesh_vyas/census_NIDCampus_1_main.jpg">
                     <img src="../../images/rupesh_vyas/thumbnails/census_NIDCampus_1_thumb.jpg"/>
                   </a>
                   <a alt="Field testing of the designs for the Unified Driving License project" href="../../images/rupesh_vyas/Driving License _fieldtest_main.jpg">
@@ -682,7 +682,7 @@ Bartender and Horse Rider" href="../../images/Anusha_Yadav/08AYadav_Checq-Republ
                   <a  alt="Data visualization of user observations at the Kempegauda Bus Terminus, done as a part of the Strategic Information Design and Branding project for BMTC City Transport System" href="../../images/rupesh_vyas/bmtc_1_main.jpg">
                     <img src="../../images/rupesh_vyas/thumbnails/bmtc_1_thumb.jpg"/>
                   </a>
-                   <a class="interview_video_works_space"  alt="Suggested graphics for various bus types and proposed icons, signs and symbols for the BMTC City Transport System" href="../../images/rupesh_vyas/bmtc_2_main.jpg">
+                  <a class="interview_video_works_space"  alt="Suggested graphics for various bus types and proposed icons, signs and symbols for the BMTC City Transport System" href="../../images/rupesh_vyas/bmtc_2_main.jpg">
                     <img src="../../images/rupesh_vyas/thumbnails/bmtc_2_thumb.jpg"/>
                   </a>
 
@@ -717,16 +717,86 @@ Bartender and Horse Rider" href="../../images/Anusha_Yadav/08AYadav_Checq-Republ
                 });
               </script>
             </div>
+
+            <% elsif @blog.name== "Sunali Aggarwal" then %>
+            <div id="portfolio_works"><!-- portfolio_works div -->
+              <div id="triggers">
+                <div id="interview_video_works">
+
+                  <a alt="A wireframe option for the homepage. As a promotion activity, MobiKwik decided to give out free talktime. But this section was removed after usability testing" href="../../images/sunali_aggarwal/wireframe_1_main.jpg">
+                    <img src="../../images/sunali_aggarwal/thumbnails/wireframe_1_thumb.jpg"/>
+                  </a>
+
+                  <a alt="The homepage wireframe that was closest to the launch plan" href="../../images/sunali_aggarwal/wireframe_2_main.jpg">
+                    <img src="../../images/sunali_aggarwal/thumbnails/wireframe_2_thumb.jpg"/>
+                  </a>
+
+                  <a  alt="MobiKwik has been aggressively marketing online. To support the online campaigns, the homepage had to be search engine optimized" href="../../images/sunali_aggarwal/wireframe_3_main.jpg">
+                    <img src="../../images/sunali_aggarwal/thumbnails/wireframe_3_thumb.jpg"/>
+                  </a>
+                  
+                  <a class="interview_video_works_space" alt=" The first version of the portal was built with this design. After a mixed response in the soft launch, the design was changed for an entirely different look and feel" href="../../images/sunali_aggarwal/design_1_main.jpg">
+                    <img src="../../images/sunali_aggarwal/thumbnails/design_1_thumb.jpg"/>
+                  </a>
+
+                  <a alt="The design with which the portal was launched. This look and feel got positive response from the users during testing" href="../../images/sunali_aggarwal/design_2_main.jpg">
+                    <img src="../../images/sunali_aggarwal/thumbnails/design_2_thumb.jpg"/>
+                  </a>
+
+                  <a  alt="The current look of the portal. The graphic design has changed to include more informative sections on the homepage to educate the users about the advantage of using MobiKwik" href="../../images/sunali_aggarwal/design_3_main.jpg">
+                    <img src="../../images/sunali_aggarwal/thumbnails/design_3_thumb.jpg"/>
+                  </a>
+
+                 <a  alt="An example of service innovation, users can search for prepaid plans most suitable for their budget and usage. The system generates results and also gives a match rate percentage to help the user decide which plan to opt for" href="../../images/sunali_aggarwal/feature_1_main.jpg">
+                    <img src="../../images/sunali_aggarwal/thumbnails/feature_1_thumb.jpg"/>
+                   </a>
+                  
+                  <a class="interview_video_works_space"  alt="After usability testing, more messages were added to tell the users why their payment failed and what they can do in this situation. Users felt more secure transacting with MobiKwik after this small but effective change" href="../../images/sunali_aggarwal/wireframe_error_main.jpg">
+                    <img src="../../images/sunali_aggarwal/thumbnails/wireframe_error_thumb.jpg"/>
+                  </a>
+
+                  <div class="clear"></div>
+                </div>
+              </div>
+              <!-- overlay element -->
+              <div id="gallery" class="simple_overlay"><div class="close"></div>
+                <!-- "previous image" action -->
+                <a class="prev" style="opacity: 0.8;">prev</a>
+                <!-- "next image" action -->
+                <a class="next" style="opacity: 0.8;">next</a>
+                <!-- image information -->
+                <div class="info" style="opacity: 0.8;"></div>
+                <!-- load indicator (animated gif) -->
+                <img src="../../images/loading.gif" class="progress"/>
+              </div>
+
+              <script>
+                $(function() {
+                  // select the thumbnails and make them trigger our overlay
+                  $("#triggers a").overlay({
+                    // each trigger uses the same overlay with the id "gallery"
+                    target: '#gallery',
+                    // optional exposing effect
+                    expose: '#666'
+                    // let the gallery plugin do its magic!
+                  }).gallery({
+                    // the plugin accepts its own set of configuration options
+                    speed: 800
+                  });
+                });
+              </script>
+            </div>
+
           <%else%>
             <%= render :partial =>"slider_images" %>
           <%end%>
           <%= RedCloth.new(@blog.extended_content).to_html %>
-            
+
 
           <% unless @blog.below_slider_content_1.nil? then %>
             <%= RedCloth.new(@blog.below_slider_content_1).to_html %>
           <% end %>
-           
+
           <% if @blog.name== "Suresh Eriyat" then %>
             <style type="text/css">
               #scroll_bg {
@@ -1022,7 +1092,7 @@ Bartender and Horse Rider" href="../../images/Anusha_Yadav/08AYadav_Checq-Republ
             });
           </script>
         </div>
-     
+
       <%end%>
 
 
@@ -1055,33 +1125,33 @@ Bartender and Horse Rider" href="../../images/Anusha_Yadav/08AYadav_Checq-Republ
     <div class="sidebar_chunk">
       <style>
 
-  #create_portfolio_btn{
-    height: 31px;
-    width: 151px;
-    background: url('../images/create_portfolio1.png') no-repeat;
-    position: relative;
-    top: 15px;
-    right: -40px;
+        #create_portfolio_btn{
+          height: 31px;
+          width: 151px;
+          background: url('../images/create_portfolio1.png') no-repeat;
+          position: relative;
+          top: 15px;
+          right: -40px;
 
-}
-#create_portfolio_btn:hover {
-    height: 31px;
-    width: 151px;
-    background: url('../images/create_portfolios_hover1.png') no-repeat;
-    cursor: pointer;
-}
+        }
+        #create_portfolio_btn:hover {
+          height: 31px;
+          width: 151px;
+          background: url('../images/create_portfolios_hover1.png') no-repeat;
+          cursor: pointer;
+        }
       </style>
       <h3>get your own portfolio</h3>
       <div>
         DezineConnect now offers FREE online portfolios to designer
-       <br/>
-      <form method="post" action="/users/new">
-        <button id="create_portfolio_btn" align="center"></button>
-      </form>
+        <br/>
+        <form method="post" action="/users/new">
+          <button id="create_portfolio_btn" align="center"></button>
+        </form>
       </div>
     </div>
     <%= render :partial => "featured_interviews" %>
-    
+
     <div class="sidebar_chunk">
       <%= render :partial => "facebook_fans" %>
     </div>
