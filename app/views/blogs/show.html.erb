@@ -787,6 +787,91 @@
               </script>
             </div>
 
+            <% elsif @blog.name== "Kranthi Kiran Vistakula " then %>
+            <div id="portfolio_works"><!-- portfolio_works div -->
+              <div id="triggers">
+                <div id="interview_video_works">
+
+                  <a alt="A heating/cooling vest made for police personnel who need to stand duty in extreme heat/cold" href="../../images/kranthi_kiran/cooler_vest_1_main.jpg">
+                    <img src="../../images/kranthi_kiran/thumbnails/cooler_vest_1_thumb.jpg"/>
+                  </a>
+
+                  <a alt="One of the early prototypes of the heating/cooling jacket" href="../../images/kranthi_kiran/jacket_proto_1_main.jpg">
+                    <img src="../../images/kranthi_kiran/thumbnails/jacket_proto_1_thumb.jpg"/>
+                  </a>
+
+                  <a  alt="Fireproof heating jacket for industrial use, for workers who face extreme temperature hazards" href="../../images/kranthi_kiran/jacket_1_main.jpg">
+                    <img src="../../images/kranthi_kiran/thumbnails/jacket_1_thumb.jpg"/>
+                  </a>
+
+                  <a class="interview_video_works_space" alt=" An early prototype of a pain relieving knee pack that is much more effective and less messy than traditional ice packs and hot water compresses" href="../../images/kranthi_kiran/knee_pack_proto_1_main.jpg">
+                    <img src="../../images/kranthi_kiran/thumbnails/knee_pack_proto_1_thumb.jpg"/>
+                  </a>
+
+                  <a alt="A subsequent prototype of the knee pack" href="../../images/kranthi_kiran/knee_pack_proto_2_main.jpg">
+                    <img src="../../images/kranthi_kiran/thumbnails/knee_pack_proto_2_thumb.jpg"/>
+                  </a>
+
+                  <a  alt="The latest version of the pain-relieving knee pack. It is more effective and affords more flexibility than the earlier prototypes" href="../../images/kranthi_kiran/knee_pack_1_main.jpg">
+                    <img src="../../images/kranthi_kiran/thumbnails/knee_pack_1_thumb.jpg"/>
+                  </a>
+
+                  <a  alt="Pain relieving lumbar belt. Dhama products give the user the freedom to change the temperature at the touch of a button" href="../../images/kranthi_kiran/lumbar_belt_1_main.jpg">
+                    <img src="../../images/kranthi_kiran/thumbnails/lumbar_belt_1_thumb.jpg"/>
+                  </a>
+
+                 <a class="interview_video_works_space"  alt="The heating/cooling neck wrap is ideal for golf and other recreational outdoor sports. It is a part of Dhama’s line of apparel and lifestyle accessories for personal comfort" href="../../images/kranthi_kiran/neck_wrap_1_main.jpg">
+                    <img src="../../images/kranthi_kiran/thumbnails/neck_wrap_1_thumb.jpg"/>
+                   </a>
+
+                  <a  alt="Early prototypes of the pain relieving elbow pack" href="../../images/kranthi_kiran/elbow_pack_proto_1_main.jpg">
+                    <img src="../../images/kranthi_kiran/thumbnails/elbow_pack_proto_1_thumb.jpg"/>
+                  </a>
+
+                  <a  alt="Form explorations for the elbow pack. Balancing aesthetics, ergonomics and technical assembly is a major challenge while designing these products" href="../../images/kranthi_kiran/form_exploration_1_main.jpg">
+                    <img src="../../images/kranthi_kiran/thumbnails/form_exploration_1_thumb.jpg"/>
+                  </a>
+
+                   <a  alt="The final design of the pain relieving elbow pack, complete with the graphics and touch controls" href="../../images/kranthi_kiran/elbow_pack_2_main.jpg">
+                    <img src="../../images/kranthi_kiran/thumbnails/elbow_pack_2_thumb.jpg"/>
+                  </a>
+
+                   <a class="interview_video_works_space" alt="The pain relieving elbow pack in action. It is flexible enough to be wrapped around any part of the limb" href="../../images/kranthi_kiran/elbow_pack_1_main.jpg">
+                    <img src="../../images/kranthi_kiran/thumbnails/elbow_pack_1_thumb.jpg"/>
+                  </a>
+
+                  <div class="clear"></div>
+                </div>
+              </div>
+              <!-- overlay element -->
+              <div id="gallery" class="simple_overlay"><div class="close"></div>
+                <!-- "previous image" action -->
+                <a class="prev" style="opacity: 0.8;">prev</a>
+                <!-- "next image" action -->
+                <a class="next" style="opacity: 0.8;">next</a>
+                <!-- image information -->
+                <div class="info" style="opacity: 0.8;"></div>
+                <!-- load indicator (animated gif) -->
+                <img src="../../images/loading.gif" class="progress"/>
+              </div>
+
+              <script>
+                $(function() {
+                  // select the thumbnails and make them trigger our overlay
+                  $("#triggers a").overlay({
+                    // each trigger uses the same overlay with the id "gallery"
+                    target: '#gallery',
+                    // optional exposing effect
+                    expose: '#666'
+                    // let the gallery plugin do its magic!
+                  }).gallery({
+                    // the plugin accepts its own set of configuration options
+                    speed: 800
+                  });
+                });
+              </script>
+            </div>
+
           <%else%>
             <%= render :partial =>"slider_images" %>
           <%end%>

@@ -20,54 +20,61 @@
 
         # Calculate Blog Count
         blogs_count = ( @blogs.length - 1 ) / 9
-        logger.info "blogs_rem : #{blogs_count}"
+        logger.info "-----------------blogs_rem : #{blogs_count}"
 
         big_layout_blogs = Blog.find(:all, :limit => blogs_count, :order => 'page_views DESC')
 
-        logger.info "big_layout_blogs : #{big_layout_blogs.inspect}"
+        logger.info "---------------------------big_layout_blogs : #{big_layout_blogs.inspect}"
         for i in arr_blogs do
           if count == 0 then
           %>
-            <% logger.info "arr_blogs[count] : #{arr_blogs[count].inspect}" %>
+            <% logger.info "-----------------------arr_blogs[count] : #{arr_blogs[count].inspect}" %>
             <% for blog in arr_blogs[count]  do
-                if count_initial == 0 || big_layout_blogs.include?(blog) then
-                %>
+                if count_initial == 0 || big_layout_blogs.include?(blog) then%>
 
               <% if blog.name == 'Suresh Eriyat' then %>
-                <a class="bloghyperlink" href="/dlog/suresh_eriyat">
+                <a class="bloghyperlink" href="/dlog/suresh_eriyat" >
               <% end %>
               <% if blog.name == 'Satya Rajpurohit' then %>
-                <a class="bloghyperlink" href="/dlog/satya_rajpurohit">
+                  <a class="bloghyperlink" href="/dlog/satya_rajpurohit" >
               <% end %>
               <% if blog.name == 'Rajesh Dahiya' then %>
-                <a class="bloghyperlink" href="/dlog/rajesh_dahiya">
+                <a class="bloghyperlink" href="/dlog/rajesh_dahiya" >
               <% end %>
               <% if blog.name == 'Satyajeet Kumar' then %>
-                <a class="bloghyperlink" href="/dlog/satyajeet_kumar">
+                <a class="bloghyperlink" href="/dlog/satyajeet_kumar" >
               <% end %>
               <% if blog.name == 'Sandip Paul' then %>
-                <a class="bloghyperlink" href="/dlog/Sandip_Paul">
+                <a class="bloghyperlink" href="/dlog/Sandip_Paul" >
               <% end %>
               <% if blog.name == 'Rahul Mishra' then %>
-                <a class="bloghyperlink" href="/dlog/rahul_mishra">
+                <a class="bloghyperlink" href="/dlog/rahul_mishra" >
               <% end %>
               <% if blog.name == 'Neha Ramaiya' then %>
-                <a class="bloghyperlink" href="/dlog/neha_ramaiya">
+                <a class="bloghyperlink" href="/dlog/neha_ramaiya" >
               <% end %>
               <% if blog.name == 'Neil Dantas' then %>
-                <a class="bloghyperlink" href="/dlog/neil_dantas">
+                <a class="bloghyperlink" href="/dlog/neil_dantas" >
               <% end %>
               <% if blog.name == 'designdaku' then %>
-                <a class="bloghyperlink" href="/dlog/designdaku">
+                <a class="bloghyperlink" href="/dlog/designdaku" >
               <% end %>
 	       <% if blog.name == 'anusha_yadav' then %>
-                <a class="bloghyperlink" href="/dlog/anusha_yadav">
+                <a class="bloghyperlink" href="/dlog/anusha_yadav" >
+              <% end %>
+              <% if blog.name == 'Vidyadhar Pande' then %>
+                <a class="bloghyperlink" href="/dlog/vidyadhar_pande" >
+              <% end %>
+              <% if blog.name == 'Rupesh Vyas' then %>
+                <a class="bloghyperlink" href="/dlog/rupesh_vyas" >
               <% end %>
                 <% if blog.name == 'Sunali Aggarwal' then %>
-                <a class="bloghyperlink" href="/dlog/sunali_aggarwal">
+                <a class="bloghyperlink" href="/dlog/sunali_aggarwal" >
+              <% end %>
+                 <% if blog.name == 'Kranthi Kiran Vistakula ' then %>
+                 <a class="bloghyperlink" href="/dlog/kranthi_kiran" >
               <% end %>
                 
-                  
                     <div class="boxgrid_big caption_big">
                       <%= image_tag  blog.author_photo.url(:large) %>
                       <div class="cover_big boxcaption_big">
@@ -79,10 +86,11 @@
               
 
                 <% else %>
-                  <% logger.info "blogs_rem : #{blogs_count}"%>
+                  <% logger.info "---------------blogs_rem : #{blogs_count}"%>
 
               <% if blog.name == 'Suresh Eriyat' then %>
-                <a class="bloghyperlink" href="/dlog/suresh_eriyat">
+                  <%logger.info "inside --------------sureshhhhh"%>
+                <a class="bloghyperlink" href="/dlog/suresh_eriyat" >
               <% end %>
               <% if blog.name == 'Satya Rajpurohit' then %>
                 <a class="bloghyperlink" href="/dlog/satya_rajpurohit">
@@ -108,19 +116,31 @@
               <% if blog.name == 'designdaku' then %>
               <a class="bloghyperlink" href="/dlog/designdaku">
               <%end%>
+              <% if blog.name == 'anusha_yadav' then %>
+                <a class="bloghyperlink" href="/dlog/anusha_yadav" >
+              <% end %>
+                  <% if blog.name == 'Vidyadhar Pande' then %>
+                <a class="bloghyperlink" href="/dlog/vidyadhar_pande" >
+              <% end %>
+              <% if blog.name == 'Rupesh Vyas' then %>
+                <a class="bloghyperlink" href="/dlog/rupesh_vyas" >
+              <% end %>
                 <% if blog.name == 'Sunali Aggarwal' then %>
                 <a class="bloghyperlink" href="/dlog/sunali_aggarwal">
               <% end %>
-              
-                  
+                <% if blog.name == 'Kranthi Kiran Vistakula ' then %>
+
+                <a class="bloghyperlink" href="/dlog/kranthi_kiran" >
+              <% end %>
+             
                     <div class="boxgrid caption">
                       <%= image_tag  blog.author_photo.url(:small) %>
                       <div class="cover boxcaption">
                         <div class="captionLeftSection"><%= blog.name %></div>
-                         <div class="captionRightSection"><%= blog.blog_statement %></div>
                       </div>
                     </div>
-                  </a>
+                </a>
+                  
 
                 <% end %>
               <% count_initial = count_initial+1 %>

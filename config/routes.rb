@@ -38,6 +38,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/dlog/neha_ramaiya', :controller => "blogs", :action => "show", :id => 16
   map.connect '/dlog/rahul_mishra', :controller => "blogs", :action => "show", :id => 17
   map.connect '/dlog/rupesh_vyas', :controller => "blogs", :action => "show", :id => 13
+  map.connect '/dlog/kranthi_kiran', :controller => "blogs", :action => "show", :id => 15
   map.resources :blogs
   map.connect '/dlog/suresh_eriyat', :controller => "blogs", :action => "show", :id => 20
   map.connect '/dlog/satya_rajpurohit', :controller => "blogs", :action => "show", :id => 21
