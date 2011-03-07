@@ -32,6 +32,9 @@
             <% for blog in arr_blogs[count]  do
                 if count_initial == 0 || big_layout_blogs.include?(blog) then%>
 
+              <% if blog.name == 'Achyutha Sharma' then %>
+                <a class="bloghyperlink" href="/dlog/achyutha_sharma" >
+              <% end %>
               <% if blog.name == 'Suresh Eriyat' then %>
                 <a class="bloghyperlink" href="/dlog/suresh_eriyat" >
               <% end %>
@@ -59,7 +62,7 @@
               <% if blog.name == 'designdaku' then %>
                 <a class="bloghyperlink" href="/dlog/designdaku" >
               <% end %>
-	       <% if blog.name == 'anusha_yadav' then %>
+	       <% if blog.name == 'Anusha Yadav' then %>
                 <a class="bloghyperlink" href="/dlog/anusha_yadav" >
               <% end %>
               <% if blog.name == 'Vidyadhar Pande' then %>
@@ -116,7 +119,7 @@
               <% if blog.name == 'designdaku' then %>
               <a class="bloghyperlink" href="/dlog/designdaku">
               <%end%>
-              <% if blog.name == 'anusha_yadav' then %>
+              <% if blog.name == 'Anusha Yadav' then %>
                 <a class="bloghyperlink" href="/dlog/anusha_yadav" >
               <% end %>
                   <% if blog.name == 'Vidyadhar Pande' then %>
@@ -131,6 +134,9 @@
                 <% if blog.name == 'Kranthi Kiran Vistakula ' then %>
 
                 <a class="bloghyperlink" href="/dlog/kranthi_kiran" >
+              <% end %>
+                  <% if blog.name == 'Achyutha Sharma' then %>
+                <a class="bloghyperlink" href="/dlog/achyutha_sharma" >
               <% end %>
              
                     <div class="boxgrid caption">

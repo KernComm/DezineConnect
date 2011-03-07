@@ -18,7 +18,7 @@
             <h4><%=h job.company_name%></h4>
           <% end %>
          <% if  job.activate == true then %>
-            <span><%= job.job_applications.count %></span>
+            <span><%= job.job_applications.find(:all, :conditions => 'activate == 1').count %></span>
          <% end %>
           <% if job.location.length > 20 then%>
             <h5><%=h job.location[0,20]%>&hellip;</h5>
@@ -52,7 +52,7 @@
           <% end %>
 
 
-          <span><%= job.job_applications.count %></span>
+          <span><%= job.job_applications.find(:all, :conditions => 'activate=1').count %></span>
 
 
 

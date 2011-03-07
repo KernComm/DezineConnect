@@ -1,2 +1,2 @@
-page.insert_html :bottom, :portfolios, :partial => @portfolios
+page.replace_html :portfolios, :partial => @portfolios
 

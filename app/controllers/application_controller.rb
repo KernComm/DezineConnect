@@ -6,11 +6,10 @@ class ApplicationController < ActionController::Base
 
   helper :all
   ## include all helpers, all the time
-  #protect_from_forgery # See ActionController::RequestForgeryProtection for details
-
+  # protect_from_forgery # See ActionController::RequestForgeryProtection for details
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
-  #protect_from_forgery # :secret => 'f7dad2d970a733648bae33f7472f8881'
+  # protect_from_forgery # :secret => 'f7dad2d970a733648bae33f7472f8881'
 
   around_filter :you_dont_have_bloody_clue
 

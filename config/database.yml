@@ -5,7 +5,7 @@
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 development:
       host: localhost
-      adapter: mysql
+      adapter: jdbcmysql
       database: design_connect_production
       port: 3306
       username: root

@@ -787,6 +787,75 @@
               </script>
             </div>
 
+             <% elsif @blog.name== "Achyutha Sharma" then %>
+            <div id="portfolio_works"><!-- portfolio_works div -->
+              <div id="triggers">
+                <div id="interview_video_works">
+
+                  <a alt="The identity of Sulochana Development Trust" href="../../images/achyutha_sharma/1_sdt_main.jpg">
+                    <img src="../../images/achyutha_sharma/thumbnails/1_sdt_thumb.jpg"/>
+                  </a>
+
+                  <a alt="The mind map elaborates what the trust does and its process of working towards the creative economy vision" href="../../images/achyutha_sharma/2_mind map_sdt_main.jpg">
+                    <img src="../../images/achyutha_sharma/thumbnails/2_mind map_sdt_thumb.jpg"/>
+                  </a>
+
+                  <a  alt="One of the projects executed by ‘Antahkaran: Art customized for spaces’" href="../../images/achyutha_sharma/3_antahkaran_main.jpg">
+                    <img src="../../images/achyutha_sharma/thumbnails/3_antahkaran_thumb.jpg"/>
+                  </a>
+
+                  <a class="interview_video_works_space" alt=" Art education curriculum for under-privileged children in India. Developed by Sulochana Development Trust and supported by ‘Antahkaran’" href="../../images/achyutha_sharma/4_antahkaran_main.jpg">
+                    <img src="../../images/achyutha_sharma/thumbnails/4_antahkaran_thumb.jpg"/>
+                  </a>
+
+                  <a alt="A project done by ‘Antahkaran’. The organization customizes art for spaces" href="../../images/achyutha_sharma/5_antahkaran_main.jpg">
+                    <img src="../../images/achyutha_sharma/thumbnails/5_antahkaran_thumb.jpg"/>
+                  </a>
+
+                  <a  alt="'Collaborative Community’ was the first project undertaken by the trust. It offers creative consultancy services to non-profit organizations" href="../../images/achyutha_sharma/5_cc_main.jpg">
+                    <img src="../../images/achyutha_sharma/thumbnails/5_cc_thumb.jpg"/>
+                  </a>
+
+                 <a  alt="A simplied value system developed after research on societal development. The three core values of honesty, compassion and responsibility can be applied at three levels  - self, society and ecology" href="../../images/achyutha_sharma/6_thoufeewi_main.jpg">
+                    <img src="../../images/achyutha_sharma/thumbnails/6_thoufeewi_thumb.jpg"/>
+                   </a>
+
+                  <a class="interview_video_works_space"  alt="Green Retail was a small scale initiative to educate and spread awareness amongst retail industry players about eco-friendly retail opportunities, benefits and positive impact" href="../../images/achyutha_sharma/7_green retail_main.jpg">
+                    <img src="../../images/achyutha_sharma/thumbnails/7_green retail_thumb.jpg"/>
+                  </a>
+
+                  <div class="clear"></div>
+                </div>
+              </div>
+              <!-- overlay element -->
+              <div id="gallery" class="simple_overlay"><div class="close"></div>
+                <!-- "previous image" action -->
+                <a class="prev" style="opacity: 0.8;">prev</a>
+                <!-- "next image" action -->
+                <a class="next" style="opacity: 0.8;">next</a>
+                <!-- image information -->
+                <div class="info" style="opacity: 0.8;"></div>
+                <!-- load indicator (animated gif) -->
+                <img src="../../images/loading.gif" class="progress"/>
+              </div>
+
+              <script>
+                $(function() {
+                  // select the thumbnails and make them trigger our overlay
+                  $("#triggers a").overlay({
+                    // each trigger uses the same overlay with the id "gallery"
+                    target: '#gallery',
+                    // optional exposing effect
+                    expose: '#666'
+                    // let the gallery plugin do its magic!
+                  }).gallery({
+                    // the plugin accepts its own set of configuration options
+                    speed: 800
+                  });
+                });
+              </script>
+            </div>
+
             <% elsif @blog.name== "Kranthi Kiran Vistakula " then %>
             <div id="portfolio_works"><!-- portfolio_works div -->
               <div id="triggers">
