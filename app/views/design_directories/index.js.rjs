@@ -1,4 +1,3 @@
-unless @design_directories.nil? then
-  page.insert_html :bottom, :design_directories, :partial => @design_directories
-end
+
+page.insert_html :bottom, :design_directories, :partial => @design_directories
 

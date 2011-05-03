@@ -1,0 +1,392 @@
+#main {
+    overflow: visible;
+    background: none;
+}
+h1 {
+    margin: 0;
+}
+
+/*comman css for portfolio*/
+br {
+    clear: both;
+}
+.error_msg {
+    color: red;
+    margin: 5px 0;
+    display:none;
+    margin-left: 10px;
+    float: left;
+}
+#main_inner {
+    position: relative;
+}
+#main_inner label {
+    font-size: 13px;
+    float: left;
+    width: 19em;
+    clear: left;
+    margin: 6px 0px 5px 0px;
+    color: #666666;
+}
+
+#main_inner fieldset {
+    border: 0;
+    margin: 10px 0;
+    padding: 0px;
+}
+h4 {
+ font-weight: normal;
+}
+/*
+#register_proceed_btn button {
+    color: #000;
+    margin: 5px 0 0 0;
+    background: url('/images/register&proceed.png') no-repeat 0px 0px;
+    height: 30px;
+    width: 150px;
+    float: left;
+    cursor: pointer;
+}
+#register_proceed_btn button:hover {
+    color: #000;
+    background: url('/images/register&proceed_hover.png') no-repeat 0px 0px;
+}*/
+/*portfolio account setting*/
+#accountsetting_checkboxs{
+    height: 35px;
+    margin: 10px 0 0 0;
+    position: relative;
+    }
+#accountsetting_checkboxs div {
+    float: left;
+    margin: 0;
+}
+#accountsetting_checkboxs div div {
+    float: left;
+    margin: 10px 0px 0px 0px;
+}
+#accountsetting_checkboxs div input{
+    margin:0 5px 0 0;
+    padding: 0;
+    height: 15px;
+    border: 0;
+    width: 13px;
+}
+#accountsetting_checkboxs div span{
+    margin:0 20px 0 0;
+    color: #666666;
+    font-family: Century Gothic, Lucida Grande,Lucida Sans Unicode,helvetica, sans-serif;
+    font-size: 13px;
+}
+#accountsetting_checkboxs #lookingfor_Internship {
+    position: absolute;
+    left: 200px;
+}
+#accountsetting_checkboxs #lookingfor_parttime_employment {
+    position: absolute;
+    left: 200px;
+}
+#accountsetting_checkboxs #lookingfor_freelance {
+    position: absolute;
+    left: 400px;
+}
+
+
+.break_border {
+    border-bottom: #787878 1px dotted;
+    clear: both;
+}
+#accontsetting_radiobtns {
+    font-size: 13px;
+    font-family: Century Gothic, Lucida Grande,Lucida Sans Unicode,helvetica, sans-serif;
+}
+#accontsetting_radiobtns div {
+    height: 25px;
+    color: #666666;
+}
+#accontsetting_radiobtns input{
+    margin: 3px 10px 0 0;
+    height: 10px;
+    padding: 0;
+    border: 0;
+    width: 13px;
+}
+#accontsetting_radiobtns span {
+    font-family: Century Gothic, Lucida Grande,Lucida Sans Unicode,helvetica, sans-serif;
+    font-size: 13px;
+    color: black;
+    height: 30px;
+}
+#account_settings_theme h5 {
+    padding: 10px 0 0 0;
+}
+#account_settings_theme div{
+   width: 70px;
+   height: 70px;
+   margin: 10px 10px 10px 20px;
+   float: left;
+}
+#account_settings_theme input{
+    margin: 0 0 0 -18px;
+    width: 13px;
+}
+#account_settings_theme1 input, #account_settings_theme2 input, #account_settings_theme3 input {
+    padding: 0;
+    border: 0;
+    width: 13px;
+}
+#account_settings_theme1 {
+    background: #fff;
+    border: 1px solid #787878;
+}
+#account_settings_theme2 {
+    background: #000;
+    border: 1px solid #787878;
+}
+#account_settings_theme3 {
+    background: #ccc;
+    border: 1px solid #787878;
+}
+#account_setting_textfield {
+    float: left;
+    margin: 0 0 0 10px;
+}
+/*portfolio*/
+
+#accountsetting_contactinfo {
+    float: left;
+    margin-right: 40px;
+}
+#accountsetting_contactinfo h4,
+#accountsetting_socialinfo h4{
+    margin-bottom: 7px;
+}
+#acsetting_contactinfo_textarea {
+    clear: left;
+    float: left;
+    height:106px;
+    width: 265px;
+}
+
+#accountsetting_socialinfo {
+    float: left;
+}
+#accountsetting_socialinfo label span, .portfolio_ex_message  {
+   font-family: Century Gothic, Lucida Grande,Lucida Sans Unicode,helvetica, sans-serif;
+   font-style: italic;
+   color: gray;
+   font-size: 12px;
+}
+#accountsetting_socialinfo label {
+    width: 320px;
+}
+#main_inner #secondaty_specializations_lable {
+    width: 550px;
+}
+#main_inner #secondaty_specializations_lable span{
+    margin-left: 10px;
+}
+#main_inner select{
+    height: 25px;
+}
+.portfolio_msg_text {
+    color: gray;
+}
+#main_inner div textarea {
+    border: 1px solid #ccc;
+    margin: 0 0 10px 0;
+    width: 260px;
+}
+#main_inner h5 {
+    margin: 5px 0 10px 0;
+}
+.portfolio_rounded_shading {
+    background: #ccc;
+   -moz-border-radius-topleft:10px;
+    -moz-border-radius-topright:10px;
+    -moz-border-radius-bottomleft:10px;
+    -moz-border-radius-bottomright:10px;
+    -webkit-border-top-left-radius:10px;
+    -webkit-border-bottom-left-radius:10px;
+    -webkit-border-bottom-right-radius:10px;
+    float: left;
+    width: 600px;
+    margin: 10px 0 0 0;
+    padding: 5px;
+}
+
+#main_inner select {
+    float: left;
+    height: 28px;
+    border:1px solid #bbbbbb;
+    border-style:  solid;
+    border-width: 1px;
+    padding:5px 3px;
+    margin: 0 5px 10px 0;
+}
+#accountsetting_contactinfo .error_msg {
+    float: none;
+    margin: 0;
+    clear: both;
+}
+#portfolio_uniqueurl {
+    position: relative;
+    height: 70px;
+    margin: 15px 0 5px 0;
+}
+#portfolio_uniqueurl div {
+    position: absolute;
+    top: 38px;
+    color: gray;
+    font-style: italic;
+    font-size: 16px;
+}
+#portfolio_uniqueurl input {
+    position: absolute;
+    left: 275px;
+}
+.portfolio_mandatory_fields {
+    color: red;
+}
+#portfolio_paid_features {
+    display: none;
+}
+
+
+/*portfolio sider*/
+#portfolio_sider {
+    margin: 35px 0 0 13px;
+    font-size: 13px;
+}
+.portfolio_reg_steps, .portfolio_reg_steps_select, .portfolio_regsteps_selected_after {
+    -moz-border-radius-topleft:5px;
+    -moz-border-radius-topright:5px;
+    -moz-border-radius-bottomleft:5px;
+    -moz-border-radius-bottomright:5px;
+    -webkit-border-top-left-radius:5px;
+    -webkit-border-bottom-left-radius:5px;
+    -webkit-border-bottom-right-radius:5px;
+    width: 220px;
+}
+.portfolio_reg_steps {
+    background-color:gray;
+    color:#fff;
+}
+.portfolio_reg_steps_select{
+    background-color:#f78f1e;
+    color:#fff;
+}
+.portfolio_reg_steps_in_select, .portfolio_reg_steps_in {
+    margin: 10px 0 0 -11px;
+    padding: 10px 20px 3px 20px;
+    height: 25px;
+}
+.portfolio_reg_steps_in_select {
+    background: url(../images/tipsy-west.png) no-repeat;
+    background-position:left center;
+    color: black;
+}
+.portfolio_regsteps_selected_after {
+    background: #ffcc99;
+    color: gray;
+}
+
+#main_inner div span img {
+    display: block;
+    padding: 5px 0 0 10px;
+    border: 0;
+    float: left;
+    }
+#main_inner div span img {
+    display: block;
+    padding: 5px 0 0 10px;
+    border: 0;
+    float: left;
+}
+#main_inner div span dl{
+    float: left;
+    width: 150px;
+    color: gray;
+    margin: 8px 0 0 5px;
+}
+#portfolio_next_btn button{
+    background: url('../images/next.png') no-repeat;
+    width: 151px;
+    height: 31px;
+}
+#portfolio_next_btn button:hover {
+    background: url('../images/next_hover.png') no-repeat;
+    cursor: pointer;
+}
+
+/*hiding text fields*/
+#portfolio_awards_won_active span a dl,
+#portfolio_awards_won_inactive dl,
+#portfolio_education_div_active span a dl,
+#portfolio_education_div_inactive dl {
+    font-family: Century Gothic, Lucida Grande,Lucida Sans Unicode,helvetica, sans-serif;
+    font-size: 12px;
+    font-style: italic;
+}
+
+#portfolio_awards_won_2,
+#portfolio_awards_won_3,
+#portfolio_awards_won_4,
+#portfolio_awards_won_5 {
+    display: none;
+}
+
+#portfolio_awards_won_inactive {
+    display: none;
+}
+#main_inner #portfolio_education_div_active span a dl,
+#main_inner #portfolio_education_div_inactive span dl,
+#main_inner #portfolio_awards_won_active span a dl,
+#main_inner #portfolio_awards_won_inactive span dl{
+    margin: 5px 0px 0px 5px;
+}
+
+#portfolio_awards_won_inactive dl {
+    color: red;
+}
+#portfolio_education_02, #portfolio_education_03 {
+    display: none;
+}
+#portfolio_education_div_inactive {
+    display: none;
+}
+
+#main_inner #secondaty_specializations_textfield {
+    width: 450px;
+}
+#portfolio_years {
+    margin: 0px 0px 3px 0px;
+    color: #666;
+    float: left;
+}
+#portfolio_months {
+    margin: 0px 0px 3px 70px;
+    color: #666;
+}
+#portfolio_months_selectbox select{
+    margin: 0px 0px 0px 10px;
+}
+#header #header_mid #login {
+    display: none;
+}
+#portrolio {
+    color: orange;
+}
+
+/**/
+#main_inner #portfolio_save_btn  {
+    background: url('../images/save.png') no-repeat;
+    width: 151px;
+    height: 31px;
+}
+#main_inner #portfolio_save_btn:hover  {
+    background: url('../images/save_hover.png') no-repeat;
+    width: 151px;
+    height: 31px;
+    cursor: pointer;
+}

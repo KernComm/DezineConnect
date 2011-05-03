@@ -1,2 +1,2 @@
 # TODO Operate on the page object
-page.replace_html :jobs, :partial => @jobs
+page.insert_html :bottom, :jobs, :partial => @jobs

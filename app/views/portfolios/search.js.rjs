@@ -1,2 +1,2 @@
 
-page.replace_html :bottom, :searchresults, :partial => @searchresults
+page.insert_html :bottom, :searchresults, :partial => @searchresults

@@ -1,9 +1,10 @@
-      <!--portfolio thumbnail--->
-      <a href="/portfolios/show/<%= portfolio.id %>">
-        <div class="search_portfolio_free_div_in">
-          <%= image_tag portfolio.featured_photo.url(:small) %>
-          <h6><%=h portfolio.user.firstname %> <%=h portfolio.user.lastname %></h6>
-          <h5><%=h portfolio.specialization %></h5>
-        </div>
-      </a>
-      <!--portfolio thumbnail end--->
+
+  <a href="/portfolios/show/<%= portfolio.id %>">
+    <div class="search_portfolio_free_div_in">
+      <%= image_tag portfolio.featured_photo.url(:small) %>
+      <h6><%=h portfolio.user.firstname %> <%=h portfolio.user.lastname %></h6>
+      <h5><%=h portfolio.specialization %></h5>
+    </div>
+  </a>
+
+

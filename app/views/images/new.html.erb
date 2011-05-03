@@ -1,3 +1,4 @@
+<!--<link href="/stylesheets/compiled/nifty.css?1274417731" media="screen" rel="stylesheet" type="text/css" />-->
 <script src="/javascripts/jquery-1.3.2.js?1256144160" type="text/javascript"></script>
 <script src="/javascripts/swfupload/swfupload.js?1256144160" type="text/javascript"></script>
 
@@ -6,11 +7,13 @@
 <link href="/stylesheets/portfolio_imageupload_swfupload.css?1274417731" media="screen" rel="stylesheet" type="text/css" />
 
 <link href="/stylesheets/portfolio_imageupload.css" media="screen" rel="stylesheet" type="text/css" />
-<div id='container'>
+<div id='container'>      
   <!--<form action="/images" enctype="multipart/form-data" method="post">-->
     <div id='swfupload_degraded_container'>
       <noscript>You should have Javascript enabled for a nicer upload experience</noscript>
-      </div>
+      <!--<input id="Filedata" name="Filedata" type="file" />-->
+      <!--<input name="commit" type="submit" value="Add Song" />-->
+    </div>
     <div id='swfupload_container' style='display: none'>
       <span id='spanButtonPlaceholder'></span>
     </div>
@@ -28,19 +31,14 @@
     </div>
     <div id='divFileProgressContainer'></div>
   <!--</form>-->
-<%
-   unless @portfolio.nil? or @portfolio.blank? then
+  <%
+  @portfolio = Portfolio.find_by_id(@portfolio.id)
+  @image_count = @portfolio.images.count
 
-      @portfolio = Portfolio.find_by_id(@portfolio.id)
-      @image_count = @portfolio.images.count
-
-      unless session[:registered_portfolio_id].nil? or session[:registered_portfolio_id].blank? then
-        @portfolio_id = session[:registered_portfolio_id]
-      else
-        @portfolio_id = @portfolio.id
-      end
+  unless session[:registered_portfolio_id].nil? or session[:registered_portfolio_id].blank? then
+    @portfolio_id = session[:registered_portfolio_id]
   else
-    @image_count = 1
+    @portfolio_id = @portfolio.id
   end
 %>
 
@@ -48,14 +46,15 @@
   <%= javascript_include_tag 'PortfolioImageUploadCount'   %>
   <script type='text/javascript'>
   var imagec=8-<%= @image_count %>;
+ 
     document.getElementById('ValidationUploadImage').value=imagec;
     if (imagec <= 0){
       //document.getElementById('portfolio_imageupload_8count_error_msg').style.display="block";
       var swfu_inst = SWFUpload.instances[key];
       swfu_inst.setButtonDisabled(true);
-     }
+    }
     //alert(imagec);
-
+    
     //<![CDATA[
     SWFUpload.onload = function() {
       var swf_settings = {
@@ -72,14 +71,14 @@
         post_params: {
           "_swfupload_demo_session": "BAh7CDoPc2Vzc2lvbl9pZCIlZDE4NzQ5NDRmYjY1YmMzMmY1ZTE3ZDkzM2JjNGIyMDI6EF9jc3JmX3Rva2VuIjFDNHNUOGQxcXg3YTY4VjM3M2hENkZLVXdSNGZPS3QxUW1FN1NaMXVRQ0NZPSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--47008882f3b7bd38601dde728177f783044a8340",
           "authenticity_token": "C4sT8d1qx7a68V373hD6FKUwR4fOKt1QmE7SZ1uQCCY=",
-          "portfolio_id":<%= @portfolio_id %>
+          "portfolio_id": <%= @portfolio_id %>
         },
-        
+
         //upload_url: "/songs?_swfupload_demo_session="+encodeURIComponent("BAh7CDoPc2Vzc2lvbl9pZCIlZDE4NzQ5NDRmYjY1YmMzMmY1ZTE3ZDkzM2JjNGIyMDI6EF9jc3JmX3Rva2VuIjFDNHNUOGQxcXg3YTY4VjM3M2hENkZLVXdSNGZPS3QxUW1FN1NaMXVRQ0NZPSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--47008882f3b7bd38601dde728177f783044a8340")+"&authenticity_token="+encodeURIComponent("C4sT8d1qx7a68V373hD6FKUwR4fOKt1QmE7SZ1uQCCY="),
         upload_url: "/images",
         flash_url: '/flash/swfupload/swfupload.swf',
 
-        file_types: "*.jpg;*.bmp;*.gif;*.png",
+        file_types: "*.jpg;*.bmp;*.png",
         file_types_description: "JPG Files",
         file_size_limit: "10 MB",
         file_upload_limit : imagec,
@@ -104,7 +103,7 @@
         upload_error_handler : uploadError,
         upload_success_handler : uploadSuccess,
         upload_complete_handler : uploadComplete,
-
+            
         custom_settings : {
           upload_target: "divFileProgressContainer"
         }

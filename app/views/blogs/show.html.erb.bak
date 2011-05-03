@@ -1,0 +1,610 @@
+<%= stylesheet_link_tag "interview" %>
+<%= stylesheet_link_tag 'dlog' %>
+<%= stylesheet_link_tag 'dlog_scroll' %>
+<%= stylesheet_link_tag 'dlog_scroll_images_standalone' %>
+<%= stylesheet_link_tag 'dlog_scroll_images_overlay_basic' %>
+<%= stylesheet_link_tag 'dlog_scroll_images_overlay-gallery' %>
+
+<%= javascript_include_tag 'jquery.tools.min' %>
+<%= javascript_include_tag 'dlog_scroll' %>
+
+
+<!--portfolios light box css & js-->
+<% if @blog.name== "Suresh Eriyat" then %>
+<%= stylesheet_link_tag '/video/lightbox_css/videobox' %>
+<%= javascript_include_tag '/video/lightbox_js/mootools' %>
+<%= javascript_include_tag '/video/lightbox_js/swfobject' %>
+<%= javascript_include_tag '/video/lightbox_js/videobox' %>
+<%end%>
+<!--portfolios light box css & js-->
+<% if @blog.name== "Sandip Paul" or @blog.name== "Satya Rajpurohit" then %>
+<style type="text/css">
+#triggers {
+    text-align: left;
+    width: 635px;
+}
+#triggers img {
+   -moz-border-radius:0px;
+    -webkit-border-radius:0px;
+}
+</style>
+<%  end %>
+
+
+<!-- 960 px wrapper -->
+<div id="wrap">
+  <!-- main starts -->
+  <div id="main">
+    <!-- main inner end -->
+    <div id="main_inner">
+
+      <h1><%=h @blog.blog_statement %></h1>
+      <div id="interview_top_links">
+      <li><%=h @blog.created_at.strftime("%d %b %Y") %></li>&nbsp;&nbsp;|&nbsp;&nbsp;
+      <% if @blog.name == 'Rahul Mishra' %>
+        <li><%=h @blog.tag %> by Nitesh</li>&nbsp;&nbsp;|&nbsp;&nbsp;
+      <% elsif @blog.name == 'Satya Rajpurohit' %>
+        <li><%=h @blog.tag %> by Shankar V Narayan</li>
+      <% else %>
+        <li><%=h @blog.tag %></li>
+      <% end %>
+      </div>
+
+      <div id="interview_img_with_txt"><%= image_tag @blog.author_photo.url(:large) %></div>
+      <%= RedCloth.new(@blog.blog_content).to_html %>
+
+<% if @blog.name== "Suresh Eriyat" then %>
+<style type="text/css">
+  #scroll_bg {
+    display: none;
+}
+</style>
+ <div id="interview_video_works">
+          <a  rel="vidbox" title="" href="http://vimeo.com/moogaloop.swf?clip_id=12046068&autoplay=1">
+            <img src="../images/03_ESuresh/Usha.jpg"/>
+          </a>
+          <a rel="vidbox" title="" href="http://vimeo.com/moogaloop.swf?clip_id=12045744&autoplay=1">
+            <img src="../images/03_ESuresh/Bingo-Caveman.jpg"/>
+          </a>
+          <a rel="vidbox" title="" href="http://vimeo.com/moogaloop.swf?clip_id=12045852&autoplay=1">
+            <img src="../images/03_ESuresh/Bingo-International.jpg"/>
+          </a>
+          <a class="interview_video_works_space" rel="vidbox" title="" href="http://vimeo.com/moogaloop.swf?clip_id=12045889&autoplay=1">
+            <img src="../images/03_ESuresh/Bingo-Parade.jpg"/>
+          </a>
+
+          <a rel="vidbox" title="" href="http://vimeo.com/moogaloop.swf?clip_id=12046015&autoplay=1">
+            <img src="../images/03_ESuresh/Bingo-Trampoline.jpg"/>
+          </a>
+   
+        <a rel="vidbox" title="" href="http://vimeo.com/moogaloop.swf?clip_id=12355606&autoplay=1">
+          <img src="../images/03_ESuresh/_001.jpg"/>
+        </a>
+        <a rel="vidbox" title="" href="http://vimeo.com/moogaloop.swf?clip_id=12355589&autoplay=1">
+          <img src="../images/03_ESuresh/_002.jpg"/>
+        </a>
+        <a  class="interview_video_works_space" rel="vidbox" title="" href="http://vimeo.com/moogaloop.swf?clip_id=12355569&autoplay=1">
+          <img src="../images/03_ESuresh/_003.jpg"/>
+        </a>
+
+        <div class="clear"></div>
+        </div>
+<%end%>
+<!---------------------------------)()()()()(|| image slider ||)()()()()()()(------------------------------------>
+<% if @blog.name== "Sandip Paul" then %>
+<div id="portfolio_works"><!-- portfolio_works div -->
+       <div id="triggers">
+          <div id="interview_video_works">
+          <a alt="ATE is a double bladed stainless steel pencil sharpener which effectively sharpens large and small pencils to a comfortable sharp tip every time." href="../images/04_sandippaul/ATE-01--paul-sandip.jpg">
+            <img src="../images/04_sandippaul/Thumbnails/ATE-01--paul-sandip.jpg"/>
+          </a>
+          <a alt="ATE is a double bladed stainless steel pencil sharpener which effectively sharpens large and small pencils to a comfortable sharp tip every time." href="../images/04_sandippaul/ATE-02--paul-sandip.jpg">
+            <img src="../images/04_sandippaul/Thumbnails/ATE-02--paul-sandip.jpg"/>
+          </a>
+          <a alt="It is a cloth line clip to be used as a daily life utility product for both indoor as well as outdoor application. Clip fulfills more than it promises, not only in use, but the perceived pleasure is far than expected." href="../images/04_sandippaul/clip_hanging-.jpg">
+            <img src="../images/04_sandippaul/Thumbnails/clip_hanging-.jpg"/>
+          </a>
+          <a class="interview_video_works_space" alt="It is a cloth line clip to be used as a daily life utility product for both indoor as well as outdoor application. Clip fulfills more than it promises, not only in use, but the perceived pleasure is far than expected." href="../images/04_sandippaul/clip_in-use.jpg">
+            <img src="../images/04_sandippaul/Thumbnails/clip_in-use.jpg"/>
+          </a>
+
+
+          <a  alt="It is a cloth line clip to be used as a daily life utility product for both indoor as well as outdoor application. Clip fulfills more than it promises, not only in use, but the perceived pleasure is far than expected." href="../images/04_sandippaul/Clip_paul-sandip.jpg">
+            <img src="../images/04_sandippaul/Thumbnails/Clip_paul-sandip.jpg"/>
+          </a>
+          <a  alt="It is a cloth line clip to be used as a daily life utility product for both indoor as well as outdoor application. Clip fulfills more than it promises, not only in use, but the perceived pleasure is far than expected." href="../images/04_sandippaul/clip---color-variants.jpg">
+            <img src="../images/04_sandippaul/Thumbnails/clip---color-variants.jpg"/>
+          </a>
+            <a alt="Indians prefer water to toilet paper. Presently people find out affordance of other utility products available during journey and slightly modify it to use for washing after defecation." href="../images/04_sandippaul/Disposable-Mug---packaging-of-3.jpg">
+            <img src="../images/04_sandippaul/Thumbnails/Disposable-Mug---packaging-of-3.jpg"/>
+          </a>
+          <a class="interview_video_works_space" alt="Indians prefer water to toilet paper. Presently people find out affordance of other utility products available during journey and slightly modify it to use for washing after defecation." href="../images/04_sandippaul/Disposable-Mug---folded.jpg">
+            <img src="../images/04_sandippaul/Thumbnails/Disposable-Mug---folded.jpg"/>
+          </a>
+
+
+          <a alt="Indians prefer water to toilet paper. Presently people find out affordance of other utility products available during journey and slightly modify it to use for washing after defecation." href="../images/04_sandippaul/Disposable-Mug---from-open-to-close.jpg">
+            <img src="../images/04_sandippaul/Thumbnails/Disposable-Mug---from-open-to-close.jpg"/>
+          </a>
+          <a  alt="Indians prefer water to toilet paper. Presently people find out affordance of other utility products available during journey and slightly modify it to use for washing after defecation." href="../images/04_sandippaul/Disposable-Mug---in-hand.jpg">
+            <img src="../images/04_sandippaul/Thumbnails/Disposable-Mug---in-hand.jpg"/>
+          </a>
+          <a  alt="Indians prefer water to toilet paper. Presently people find out affordance of other utility products available during journey and slightly modify it to use for washing after defecation." href="../images/04_sandippaul/Disposable-Mug---in-use.jpg">
+            <img src="../images/04_sandippaul/Thumbnails/Disposable-Mug---in-use.jpg"/>
+          </a>
+            <a class="interview_video_works_space" alt="Indians prefer water to toilet paper. Presently people find out affordance of other utility products available during journey and slightly modify it to use for washing after defecation." href="../images/04_sandippaul/Disposable-Mug-_in-train-lavatory.jpg">
+            <img src="../images/04_sandippaul/Thumbnails/Disposable-Mug-_in-train-lavatory.jpg"/>
+          </a>
+          
+           <div class="clear"></div>
+        </div>
+<% elsif @blog.name== "Satya Rajpurohit" then %>
+<div id="portfolio_works"><!-- portfolio_works div -->
+       <div id="triggers">
+          <div id="interview_video_works">
+          <a alt="Letter 'I' from Kohinoor Devanagari Bold showing its various development phases." href="../images/Satya_rajpurohit/01_Development_of_a_Letter.jpg">
+            <img src="../images/Satya_rajpurohit/Thumbnails/01_Development_of_a_Letter_thumbnail.jpg"/>
+          </a>
+          <a alt="Image showing different characters from Fedra Hindi. Typotheque, 2009" href="../images/Satya_rajpurohit/04_Fedra-Hindi-__-Characters.jpg">
+            <img src="../images/Satya_rajpurohit/Thumbnails/04_Fedra-Hindi-__-Characters_thumbnail.jpg"/>
+          </a>
+          <a  alt="Image showing styles and the various text settings of Fedra Hindi. Typotheque, 2009" href="../images/Satya_rajpurohit/05_Fedra-Hindi-__-Styles.jpg">
+            <img src="../images/Satya_rajpurohit/Thumbnails/05_Fedra-Hindi-__-Styles_thumbnail.jpg"/>
+          </a>
+          <a class="interview_video_works_space" alt="Star Plus is now using Fedra Hindi and Latin as their new corporate typefaces." href="../images/Satya_rajpurohit/06_FedraHindi_in_use.jpg">
+            <img src="../images/Satya_rajpurohit/Thumbnails/06_FedraHindi_in_use_thumbnail.jpg"/>
+          </a>
+
+           
+            <a  alt="A Bengali companion to the InterFace Latin. Designed as part of diploma project at NID. Dalton Maag, London 2008" href="../images/Satya_rajpurohit/07_InterFace-Bengali-__-Dalton-Maag.jpg">
+            <img src="../images/Satya_rajpurohit/Thumbnails/07_InterFace-Bengali-__-Dalton-Maag_thumbnail.jpg"/>
+          </a>
+            <a  alt="InterFace Bengali in progress. Spacing the characters" href="../images/Satya_rajpurohit/08_InterFace-Bengali-__-Spacing.jpg">
+            <img src="../images/Satya_rajpurohit/Thumbnails/08_InterFace-Bengali-__-Spacing_thumbnail.jpg"/>
+          </a>
+            <a  alt="Sample preview of Kohinoor Multiscript. Kohinoor Multiscript is the biggest type family ever made to support all the 9 Indian scripts along with Latin. The work is in progress." href="../images/Satya_rajpurohit/12_Kohinoor-Multiscript.jpg">
+            <img src="../images/Satya_rajpurohit/Thumbnails/12_Kohinoor-Multiscript_thumbnail.jpg"/>
+          </a>
+            <a class="interview_video_works_space" alt="A correction sheet showing Kohinoor Devanagari in progress. Expected release, August 2010." href="../images/Satya_rajpurohit/09_Kohinoor-Devanagari-Light-__-Correction-Sheet.jpg">
+            <img src="../images/Satya_rajpurohit/Thumbnails/09_Kohinoor-Devanagari-Light-__-Correction-Sheet_thumbnail.jpg"/>
+          </a>
+
+
+           <a  alt="The correction sheet of an upcoming modern Devanagari typeface." href="../images/Satya_rajpurohit/16_Rajdhani-Hindi__Correction-Sheet.jpg">
+            <img src="../images/Satya_rajpurohit/Thumbnails/16_Rajdhani-Hindi__Correction-Sheet_thumbnail.jpg"/>
+          </a>
+            <a  alt="Image showing styles and the text settings of Kohinoor Tamil." href="../images/Satya_rajpurohit/13_Kohinoor-Tamil-__-Styles.jpg">
+            <img src="../images/Satya_rajpurohit/Thumbnails/13_Kohinoor-Tamil-__-Stylesthumbnail.jpg"/>
+          </a>
+
+           <a alt="Image showing styles and the text settings of Kohinoor Tamil." href="../images/Satya_rajpurohit/14_Kohinoor-Tamil-__-Styles02.jpg">
+            <img src="../images/Satya_rajpurohit/Thumbnails/14_Kohinoor-Tamil-__-Styles02_thumbnail.jpg"/>
+          </a>
+
+          <a class="interview_video_works_space" alt="Kohinoor Tamil Light in progress." href="../images/Satya_rajpurohit/15_Kohinoor-Tamil-Light-Italic-__-Correction-Sheet.jpg">
+            <img src="../images/Satya_rajpurohit/Thumbnails/15_Kohinoor-Tamil-Light-Italic-__-Correction-Sheet_thumbnail.jpg"/>
+          </a>
+
+
+          <a alt="The complete characters set of Kohinoor Latin. Kohinoor Latin comes in a total 10 styles; Light, Book, Demi, Medium, Bold and their italics. The Indian Type Foundry, 2010" href="../images/Satya_rajpurohit/10_Kohinoor-Latin-__-Characters-Set.jpg">
+            <img src="../images/Satya_rajpurohit/Thumbnails/10_Kohinoor-Latin-__-Characters-Set_thumbnail.jpg"/>
+          </a>
+          <a  alt="Image showing styles and the text settings of Kohinoor Latin. The Indian Type Foundry, 2010" href="../images/Satya_rajpurohit/11_Kohinoor-Latin-__-Styles.jpg">
+            <img src="../images/Satya_rajpurohit/Thumbnails/11_Kohinoor-Latin-__-Styles_thumbnail.jpg"/>
+          </a>
+          <a alt="A corrections sheet showing Engrez Sans in development. Dalton Maag, London 2009" href="../images/Satya_rajpurohit/02_Engrez-Sans-__-Correction-Sheet.jpg">
+            <img src="../images/Satya_rajpurohit/Thumbnails/02_Engrez-Sans-__-Correction-Sheet_thumbnail.jpg"/>
+          </a>
+          <a class="interview_video_works_space" alt="The characters set of Engrez Sans. Engrez comes in a total 6 styles; Hailine, Light, Book, Regular, Medium and the Bold. Dalton Maag, London 2009" href="../images/Satya_rajpurohit/03_Engrez-Sans-Bold-__-Characters-Set.jpg">
+            <img src="../images/Satya_rajpurohit/Thumbnails/03_Engrez-Sans-Bold-__-Characters-Set_thumbnail.jpg"/>
+          </a>
+
+        
+
+          
+
+           <div class="clear"></div>
+        </div>
+       </div>
+    <!-- overlay element -->
+      <div id="gallery" class="simple_overlay"><div class="close"></div>
+        <!-- "previous image" action -->
+        <a class="prev" style="opacity: 0.8;">prev</a>
+        <!-- "next image" action -->
+        <a class="next" style="opacity: 0.8;">next</a>
+        <!-- image information -->
+        <div class="info" style="opacity: 0.8;"></div>
+        <!-- load indicator (animated gif) -->
+        <img src="../../images/loading.gif" class="progress"/>
+      </div>
+
+      <script>
+        $(function() {
+          // select the thumbnails and make them trigger our overlay
+          $("#triggers a").overlay({
+            // each trigger uses the same overlay with the id "gallery"
+            target: '#gallery',
+            // optional exposing effect
+            expose: '#666'
+            // let the gallery plugin do its magic!
+          }).gallery({
+            // the plugin accepts its own set of configuration options
+            speed: 800
+          });
+        });
+      </script>
+</div>
+<% elsif @blog.name== "Rajesh Dhaiya" then %>
+<div id="portfolio_works"><!-- portfolio_works div -->
+       <div id="triggers">
+          <div id="interview_video_works">
+         
+          <a alt="" href="../../images/Rajesh_Dhaiya/1_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/1.jpg"/>
+          </a>
+            <a alt="" href="../../images/Rajesh_Dhaiya/2_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/2.jpg"/>
+          </a>
+            <a alt="" href="../../images/Rajesh_Dhaiya/3_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/3.jpg"/>
+          </a>
+            <a class="interview_video_works_space" alt="" href="../../images/Rajesh_Dhaiya/5_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/5.jpg"/>
+          </a>
+
+            <a alt="" href="../../images/Rajesh_Dhaiya/7_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/7.jpg"/>
+          </a>
+            <a alt="" href="../../images/Rajesh_Dhaiya/8_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/8.jpg"/>
+          </a>
+            <a alt="" href="../../images/Rajesh_Dhaiya/9_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/9.jpg"/>
+          </a>
+            <a class="interview_video_works_space" alt="" href="../../images/Rajesh_Dhaiya/10_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/10.jpg"/>
+          </a>
+
+            <a alt="" href="../../images/Rajesh_Dhaiya/11_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/11.jpg"/>
+          </a>
+            <a alt="" href="../../images/Rajesh_Dhaiya/12_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/12.jpg"/>
+          </a>
+            <a alt="" href="../../images/Rajesh_Dhaiya/13_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/13.jpg"/>
+          </a>
+            <a class="interview_video_works_space" alt="" href="../../images/Rajesh_Dhaiya/14_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/14.jpg"/>
+          </a>
+
+	    <a alt="" href="../../images/Rajesh_Dhaiya/15_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/15.jpg"/>
+          </a>
+            <a alt="" href="../../images/Rajesh_Dhaiya/16_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/16.jpg"/>
+          </a>
+            <a alt="" href="../../images/Rajesh_Dhaiya/17_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/17.jpg"/>
+          </a>
+            <a class="interview_video_works_space" alt="" href="../../images/Rajesh_Dhaiya/18_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/18.jpg"/>
+          </a>
+
+	    <a alt="" href="../../images/Rajesh_Dhaiya/19_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/19.jpg"/>
+          </a>
+            <a alt="" href="../../images/Rajesh_Dhaiya/20_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/20.jpg"/>
+          </a>
+            <a alt="" href="../../images/Rajesh_Dhaiya/21_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/21.jpg"/>
+          </a>
+            <a class="interview_video_works_space" alt="" href="../../images/Rajesh_Dhaiya/22_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/22.jpg"/>
+          </a>
+
+	    <a alt="" href="../../images/Rajesh_Dhaiya/23_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/23.jpg"/>
+          </a>
+            <a alt="" href="../../images/Rajesh_Dhaiya/25_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/25.jpg"/>
+          </a>
+            <a alt="" href="../../images/Rajesh_Dhaiya/26_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/26.jpg"/>
+          </a>
+            <a class="interview_video_works_space" alt="" href="../../images/Rajesh_Dhaiya/27_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/27.jpg"/>
+          </a>
+
+	    <a alt="" href="../../images/Rajesh_Dhaiya/28_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/28.jpg"/>
+          </a>
+            <a alt="" href="../../images/Rajesh_Dhaiya/29_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/29.jpg"/>
+          </a>
+            <a alt="" href="../../images/Rajesh_Dhaiya/30_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/30.jpg"/>
+          </a>
+            <a class="interview_video_works_space" alt="" href="../../images/Rajesh_Dhaiya/31_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/31.jpg"/>
+          </a>
+
+	    <a alt="" href="../../images/Rajesh_Dhaiya/32_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/32.jpg"/>
+          </a>
+            <a alt="" href="../../images/Rajesh_Dhaiya/33_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/33.jpg"/>
+          </a>
+            <a alt="" href="../../images/Rajesh_Dhaiya/34_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/34.jpg"/>
+          </a>
+            <a class="interview_video_works_space" alt="" href="../../images/Rajesh_Dhaiya/35_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/35.jpg"/>
+          </a>
+
+	    <a alt="" href="../../images/Rajesh_Dhaiya/36_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/36.jpg"/>
+          </a>
+            <a alt="" href="../../images/Rajesh_Dhaiya/38_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/38.jpg"/>
+          </a>
+            <a alt="" href="../../images/Rajesh_Dhaiya/39_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/39.jpg"/>
+          </a>
+            <a class="interview_video_works_space" alt="" href="../../images/Rajesh_Dhaiya/41_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/41.jpg"/>
+          </a>
+
+
+	    <a alt="" href="../../images/Rajesh_Dhaiya/29_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/29.jpg"/>
+          </a>
+            <a alt="" href="../../images/Rajesh_Dhaiya/30_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/30.jpg"/>
+          </a>
+            <a alt="" href="../../images/Rajesh_Dhaiya/31_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/31.jpg"/>
+          </a>
+            <a class="interview_video_works_space" alt="" href="../../images/Rajesh_Dhaiya/32_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/32.jpg"/>
+          </a>
+
+	    <a alt="" href="../../images/Rajesh_Dhaiya/33_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/33.jpg"/>
+          </a>
+            <a alt="" href="../../images/Rajesh_Dhaiya/34_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/34.jpg"/>
+          </a>
+            <a alt="" href="../../images/Rajesh_Dhaiya/35_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/35.jpg"/>
+          </a>
+            <a class="interview_video_works_space" alt="" href="../../images/Rajesh_Dhaiya/36_1.jpg">
+            <img src="../../images/Rajesh_Dhaiya/36.jpg"/>
+          </a>
+
+           <div class="clear"></div>
+        </div>
+       </div>
+    <!-- overlay element -->
+      <div id="gallery" class="simple_overlay"><div class="close"></div>
+        <!-- "previous image" action -->
+        <a class="prev" style="opacity: 0.8;">prev</a>
+        <!-- "next image" action -->
+        <a class="next" style="opacity: 0.8;">next</a>
+        <!-- image information -->
+        <div class="info" style="opacity: 0.8;"></div>
+        <!-- load indicator (animated gif) -->
+        <img src="../../images/loading.gif" class="progress"/>
+      </div>
+
+      <script>
+        $(function() {
+          // select the thumbnails and make them trigger our overlay
+          $("#triggers a").overlay({
+            // each trigger uses the same overlay with the id "gallery"
+            target: '#gallery',
+            // optional exposing effect
+            expose: '#666'
+            // let the gallery plugin do its magic!
+          }).gallery({
+            // the plugin accepts its own set of configuration options
+            speed: 800
+          });
+        });
+      </script>
+</div>
+<%else%>
+  <%= render :partial =>"slider_images" %>
+<%end%>
+  <%= RedCloth.new(@blog.extended_content).to_html %>
+
+      <% unless @blog.below_slider_content_1.nil? then %>
+        <%= RedCloth.new(@blog.below_slider_content_1).to_html %>
+      <% end %>
+    <% if @blog.name== "Suresh Eriyat" then %>
+    <style type="text/css">
+      #scroll_bg {
+        display: none;
+    }
+    </style>
+     <div id="interview_video_works">
+
+        <a rel="vidbox" title="" href="http://vimeo.com/moogaloop.swf?clip_id=12355458&autoplay=1">
+          <img src="../images/03_ESuresh/_005.jpg"/>
+        </a>
+        <a  rel="vidbox" title="" href="http://vimeo.com/moogaloop.swf?clip_id=12355374&autoplay=1">
+          <img src="../images/03_ESuresh/_006.jpg"/>
+        </a>
+        <a rel="vidbox" title="" href="http://vimeo.com/moogaloop.swf?clip_id=12355332&autoplay=1">
+          <img src="../images/03_ESuresh/_007.jpg"/>
+        </a>
+        <a class="interview_video_works_space"  rel="vidbox" title="" href="http://vimeo.com/moogaloop.swf?clip_id=12355301&autoplay=1">
+          <img src="../images/03_ESuresh/_008.jpg"/>
+        </a>
+
+       <a rel="vidbox" title="" href="http://vimeo.com/moogaloop.swf?clip_id=12355263&autoplay=1">
+          <img src="../images/03_ESuresh/_009.jpg"/>
+        </a>
+        <a rel="vidbox" title="" href="http://vimeo.com/moogaloop.swf?clip_id=12355245&autoplay=1">
+          <img src="../images/03_ESuresh/_010.jpg"/>
+        </a>
+           <a  rel="vidbox" title="" href="http://vimeo.com/moogaloop.swf?clip_id=12355214&autoplay=1">
+          <img src="../images/03_ESuresh/_011.jpg"/>
+        </a>
+           <a class="interview_video_works_space"  rel="vidbox" title="" href="http://vimeo.com/moogaloop.swf?clip_id=12106960&autoplay=1">
+          <img src="../images/03_ESuresh/_012.jpg"/>
+        </a>
+
+          <a rel="vidbox" title="" href="http://vimeo.com/moogaloop.swf?clip_id=12106826&autoplay=1">
+          <img src="../images/03_ESuresh/_013.jpg"/>
+          </a>
+  
+          <a rel="vidbox" title="" href="http://vimeo.com/moogaloop.swf?clip_id=12106686&autoplay=1">
+          <img src="../images/03_ESuresh/_015.jpg"/>
+          </a>
+          <a  rel="vidbox" title="" href="http://vimeo.com/moogaloop.swf?clip_id=12106634&autoplay=1">
+          <img src="../images/03_ESuresh/_016.jpg"/>
+          </a>
+          <a class="interview_video_works_space" rel="vidbox" title="" href="http://vimeo.com/moogaloop.swf?clip_id=12355534&autoplay=1">
+          <img src="../images/03_ESuresh/_004.jpg"/>
+          </a>
+ 
+        <div class="clear"></div>
+        </div>
+<%end%>
+
+
+
+
+
+
+<!---------------------------------)()()()()(|| image slider ||)()()()()()()(------------------------------------>
+<% if @blog.name== "Sandip Paul" then %>
+
+          <div id="interview_video_works">
+
+          <a alt="When bins are less wide than Dustin - you can reverse the flow of dust through the handle!...for easy and efficient clean up.Thinner  front edge for improved dirt pick up. Strong,  one-piece construction in PP." href="../images/04_sandippaul/DUSTIN-by-Paul-Sandip.jpg">
+            <img src="../images/04_sandippaul/Thumbnails/DUSTIN-by-Paul-Sandip.jpg"/>
+          </a>
+         
+          <a  alt="LOVE CASE is a condom case with magnetic easy slider. The lid slides in all directions for easy and quick access. ...make love in style!" href="../images/04_sandippaul/Love-Case.jpg">
+            <img src="../images/04_sandippaul/Thumbnails/Love-Case.jpg"/>
+          </a>
+
+         <a alt="Often a night lamp intrudes your cone of vision and takes your sleep away.Planet-G with a simple scroll can help you turn over the direct light into a more diffused glow." href="../images/04_sandippaul/planet-G---paul-sandip-(photo-01).jpg">
+            <img src="../images/04_sandippaul/Thumbnails/planet-G---paul-sandip-(photo-01).jpg"/>
+          </a>
+          <a class="interview_video_works_space" alt="Often a night lamp intrudes your cone of vision and takes your sleep away.Planet-G with a simple scroll can help you turn over the direct light into a more diffused glow." href="../images/04_sandippaul/planet-G---paul-sandip-(photo-02)-.jpg">
+            <img src="../images/04_sandippaul/Thumbnails/planet-G---paul-sandip-(photo-02)-.jpg"/>
+          </a>
+
+          <a alt="Sandip's planet-G featured in ELLE DECOR." href="../images/04_sandippaul/EDIDA-Feb10.jpg">
+            <img src="../images/04_sandippaul/Thumbnails/EDIDA-Feb10.jpg"/>
+          </a>
+          <a  alt="Bathroom slippers that allow water to flow below them...and so you don't slip on wet tiles.
+              Design point: Ridges both on top and bottom surface...for your feet and floor!" href="../images/04_sandippaul/shrink_get-wet-with-me!.jpg">
+            <img src="../images/04_sandippaul/Thumbnails/shrink_get-wet-with-me!.jpg"/>
+          </a>
+          <a alt="Bathroom slippers that allow water to flow below them...and so you don't slip on wet tiles.
+             Design point: Ridges both on top and bottom surface...for your feet and floor!" href="../images/04_sandippaul/shrink-advertisement.jpg">
+            <img src="../images/04_sandippaul/Thumbnails/shrink-advertisement.jpg"/>
+          </a>
+          <a class="interview_video_works_space" alt="SPOO is an attempt to re-think the ergonomics of a feeding spoon." href="../images/04_sandippaul/SPOO.jpg">
+            <img src="../images/04_sandippaul/Thumbnails/SPOO.jpg"/>
+          </a>
+
+          <a alt="SPOO is an attempt to re-think the ergonomics of a feeding spoon." href="../images/04_sandippaul/spoo-ad.jpg">
+            <img src="../images/04_sandippaul/Thumbnails/spoo-ad.jpg"/>
+          </a>
+          <a alt="SPOO is an attempt to re-think the ergonomics of a feeding spoon." href="../images/04_sandippaul/SPOO-in-use.jpg">
+            <img src="../images/04_sandippaul/Thumbnails/SPOO-in-use.jpg"/>
+          </a>
+          <a alt="Tapeworm is an adhesive tape dispenser clinging onto the tape itself!" href="../images/04_sandippaul/tapeWORM---page01(sandip-Paul).jpg">
+            <img src="../images/04_sandippaul/Thumbnails/tapeWORM---page01(sandip-Paul).jpg"/>
+          </a>
+          <a class="interview_video_works_space" alt="Tapeworm is an adhesive tape dispenser clinging onto the tape itself!" href="../images/04_sandippaul/tapeWORM---page02-(sandip-Paul).jpg">
+            <img src="../images/04_sandippaul/Thumbnails/tapeWORM---page02-(sandip-Paul).jpg"/>
+          </a>
+           <div class="clear"></div>
+        </div>
+        </div>
+      <!-- overlay element -->
+      <div id="gallery" class="simple_overlay"><div class="close"></div>
+        <!-- "previous image" action -->
+        <a class="prev" style="opacity: 0.8;">prev</a>
+        <!-- "next image" action -->
+        <a class="next" style="opacity: 0.8;">next</a>
+        <!-- image information -->
+        <div class="info" style="opacity: 0.8;"></div>
+        <!-- load indicator (animated gif) -->
+        <img src="../../images/loading.gif" class="progress"/>
+      </div>
+
+      <script>
+        $(function() {
+          // select the thumbnails and make them trigger our overlay
+          $("#triggers a").overlay({
+            // each trigger uses the same overlay with the id "gallery"
+            target: '#gallery',
+            // optional exposing effect
+            expose: '#666'
+            // let the gallery plugin do its magic!
+          }).gallery({
+            // the plugin accepts its own set of configuration options
+            speed: 800
+          });
+        });
+      </script>
+
+  </div>
+<%end%>
+
+<!---------------------------------)()()()()()()()()()()()(------------------------------------>
+
+      <% unless @blog.below_slider_content_2.nil? then %>
+        <%= RedCloth.new(@blog.below_slider_content_2).to_html %>
+      <% end %>
+
+      <% unless @blog.below_slider_content_3.nil? then %>
+        <%= RedCloth.new(@blog.below_slider_content_3).to_html %>
+      <% end %>
+
+      <% unless @blog.below_slider_content_4.nil? then %>
+        <%= RedCloth.new(@blog.below_slider_content_4).to_html %>
+      <% end %>
+
+     <%#*<div id="interview_main"> </div>%>
+
+      <div id="interview_bottom_links">
+        <li><%=h @blog.created_at.strftime("%d %b %Y") %></li>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <li><%=h @blog.tag %></li>
+      </div>
+
+      <%= render :partial => "addThis" %>
+      <%= render :partial => "discuss_comments" %>
+
+    </div>
+    <!-- main inner end -->
+  </div>
+  <!-- main end-->
+
+  <!-- sidebar starts-->
+  <div id="sidebar">
+    <%= render :partial => "vCard" %>
+    <%= render :partial => "featured_interviews" %>
+    <div class="sidebar_chunk">
+          <h3>suggest a designer</h3>
+          <div>
+          Do you know a designer who deserves to be featured on DezineConnect?
+          </div>
+         <div id="letus_know_btn">
+           <a href="mailto:feedback@dezineconnect.com?subject=suggest a designer"></a>
+          </div>
+   </div><!-- sidebar chunk ends -->
+   <div class="sidebar_chunk">
+    <%= render :partial => "facebook_fans" %>
+     </div>
+  </div><!-- sidebar ends -->
+</div>
+<!--960 px wrapper ends-->

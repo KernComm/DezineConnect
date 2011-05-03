@@ -44,16 +44,16 @@ class UsersController < ApplicationController
   def create
 
     @user = User.new(params[:user])
-    @user.activation_key = SecureRandom.hex(4)
+    @user.activation_key = ActiveSupport::SecureRandom.hex(4)
     @user_status = User.find_by_email(params[:user][:email])
 
     unless @user_status.nil? or @user_status.blank? then
       respond_to do |format|
         flash[:notice] = 'this email is already registed with us. please <a href="/login" id="login_link">login</a>'
         unless session[:directory_listing_obj].nil? or session[:directory_listing_obj].blank? then
-          format.html { redirect_to("/users/new?directory=FreeListing") }
-        else
-          format.html { redirect_to("/users/new") }
+	  format.html { redirect_to("/users/new?directory=FreeListing") }
+	else
+	  format.html { redirect_to("/users/new") }
         end
       end
     else
@@ -82,18 +82,18 @@ class UsersController < ApplicationController
   def login
     logger.info "params[:login] : #{params[:login]} #{params[:password]}"
     unless params[:login].nil? and params[:password].nil? then
-      if params[:login]=="admin@dezineconnect.com" and params[:password]=="teamdezineconnect" then
+      if params[:login]=="admin@dezineconnect.com" and params[:password]=="teamdezineconnect2010$%^" then
         session[:is_admin] = true
         redirect_to '/admin/portfolios'
       elsif params[:login]=="team@dezineconnect.com" and params[:password]=="kern123" then
         @user = User.find_by_email(params[:login])
-        unless @user.nil? then
-          logger.info "@user.password : #{@user.password}}"
-          if @user.password == params[:password] then
-            session[:loggedin_user] = @user.id
-            session[:is_dezineconnect_team] = true
-            redirect_to '/jobs/dashboard'
-          end
+	unless @user.nil? then
+	logger.info "@user.password : #{@user.password}}"
+	if @user.password == params[:password] then
+	 session[:loggedin_user] = @user.id
+         session[:is_dezineconnect_team] = true
+	 redirect_to '/jobs/dashboard'
+	end
         end
       else
         @user = User.find_by_email(params[:login])
@@ -124,14 +124,14 @@ class UsersController < ApplicationController
 
               else
                 session[:registered_user_id] = @user.id
-                redirect_to "/portfolios"
+                redirect_to "/portfolios/new"
               end
               
             end
           else
             flash[:flash19] = "the username or password you entered is incorrect."
             redirect_to "/login"
-          end     
+	          end     
         else
           flash[:flash20] = "the username or password you entered is incorrect."
           redirect_to "/login"

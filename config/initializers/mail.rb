@@ -7,7 +7,7 @@
 #
 #ActionMailer::Base.smtp_settings = {
 #  :address => 'mail.dezineconnect.com',
-#  :port => 25,
+#  :port => 587,
 #  :domain => 'dezineconnect.com',
 #  :authentication => :plain,
 #  :user_name => 'team@dezineconnect.com',

@@ -1,0 +1,117 @@
+<style type="text/css">
+  #admin_panel_main {
+    width: 960px;
+    margin:0px auto;
+  }
+  .not_empty_record {
+    background: green;
+    border-bottom: 1px solid #787878;
+  }
+  .admin_panel_col {
+    border-bottom: 1px solid #787878;
+    border-right: 1px solid #ccc;
+  }
+  .admin_panel_thead {
+    border-bottom: 1px solid #787878;
+    border-top: 1px solid #787878;
+    border-right: 1px solid #ccc;
+  }
+  #admin_panel_table {
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+  }
+  .admin_panel_row:hover {
+    background: #ccc;
+  }
+</style>
+<div id="admin_panel_main">
+  <h1>Admin panel</h1>
+ 
+  <table id="admin_panel_table" cellpadding="0" cellspacing="0">
+    <tbody>
+    <thead>
+    <th class="admin_panel_thead" width="40px">ID</th>
+    <th class="admin_panel_thead">name</th>
+    <th class="admin_panel_thead">email</th>
+    <th class="admin_panel_thead">specialization-</th>
+    <th class="admin_panel_thead">address-</th>
+    <th class="admin_panel_thead">city-</th>
+    <th class="admin_panel_thead">contry-</th>
+    <th class="admin_panel_thead">profile picture-</th>
+    <th class="admin_panel_thead">#images</th>
+    <th class="admin_panel_thead">activation-</th>
+    <th class="admin_panel_thead">time</th>
+    </thead>
+    </tbody>
+      <% @user.each do | user_obj | %>
+    <tr class="admin_panel_row">
+      <td class="admin_panel_col">
+          <% unless user_obj.id.nil? or user_obj.id.blank? then %>
+            <%= user_obj.id  %>
+          <% end %>
+        </td>
+        <td class="admin_panel_col">
+           <% unless user_obj.firstname.nil? and user_obj.firstname.blank? then %>
+              <% if user_obj.firstname.length+user_obj.firstname.length > 20 then%>
+                <%=h user_obj.firstname[0,18] %>&hellip;
+              <% else %>
+                <%=h user_obj.firstname %> <%=h user_obj.lastname %>
+              <% end %>
+            <% end %>
+        </td>
+        <td class="admin_panel_col">
+          <% unless user_obj.email.nil? or user_obj.email.blank? then %>
+              <%= user_obj.email  %>
+            <% end %>
+        </td>
+	      <% unless user_obj.portfolio.address.nil? or user_obj.portfolio.address.blank? then %>
+                <%= user_obj.portfolio.address %>
+              <% end %>
+        <% unless user_obj.activate.nil? or user_obj.activate.blank? then %>
+        <td class="not_empty_record">
+        <%= user_obj.activate %>
+        <%else%>
+        <td class="admin_panel_col">
+        <% end %>
+        </td>
+        <td class="admin_panel_col">
+          <% unless user_obj.updated_at.nil? or user_obj.updated_at.blank? then %>
+              <%= user_obj.updated_at %>
+            <% end %>
+        </td>
+        <td class="admin_panel_col">
+          <% unless user_obj.portfolio.nil? or user_obj.portfolio.blank? then %>
+              <% unless user_obj.portfolio.specialization.nil? or user_obj.portfolio.specialization.blank? then %>
+                <%= user_obj.portfolio.specialization %>
+              <% end %>
+        </td>
+        <td class="admin_panel_col">
+    
+        </td>
+        <td class="admin_panel_col">
+          <% unless user_obj.portfolio.city.nil? or user_obj.portfolio.city.blank? then %>
+                <%= user_obj.portfolio.city %>
+              <% end %>
+        </td>
+        <td class="admin_panel_col">
+          <% unless user_obj.portfolio.country.nil? or user_obj.portfolio.country.blank? then %>
+                <%= user_obj.portfolio.country %>
+              <% end %>
+        </td>
+        <td class="admin_panel_col">
+          <% unless user_obj.portfolio.profile_photo_file_name.nil? or user_obj.portfolio.profile_photo_file_name.blank? then %>
+                <%= user_obj.portfolio.profile_photo_file_name %>
+              <% end %>
+        </td>
+        <td class="admin_panel_col">
+          <% unless user_obj.portfolio.images.nil? or user_obj.portfolio.images.blank? then %>
+                <%= user_obj.portfolio.images.count %>
+              <% end %>
+        </td>
+      </tr>
+       <% end %>
+       <% end %>
+    </table>
+
+  </div>

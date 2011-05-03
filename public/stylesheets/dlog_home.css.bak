@@ -1,0 +1,15 @@
+#main {
+    /*background: none;*/
+}
+#dlog {
+    display: none;
+}
+.sidebar_chunk {
+    margin-top: 0px;
+}
+.textwidget {
+    margin-top: 10px;
+}
+#header_link_separator {
+    display: none;
+}

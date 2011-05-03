@@ -1,0 +1,48 @@
+#container {
+	background: #ededed;
+	border: 1px solid #ddd;
+	margin: 0 auto;
+	padding: 10px;
+	position: relative;
+	width: 638px;
+}
+
+.error { color: #f00; }
+
+
+ol.forms div.wordCount { font-size: 130px; line-height: 30px; }
+
+#quick50 {
+	background: #fff;
+	border: 1px solid #ddd;
+	font-size: 11px;
+	left: 5px;
+	padding: 5px;
+	position: fixed;
+	width: 188px;
+}
+            /* The hint to Hide and Show */
+        .hint {
+            display: none;
+            position: absolute;
+            left: 970px;
+            width: 200px;
+            margin-top: 5px;
+            border: 1px solid #c93;
+            padding: 10px 12px;
+            /* to fix IE6, I can't just declare a background-color,
+            I must do a bg image, too!  So I'm duplicating the pointer.gif
+            image, and positioning it so that it doesn't show up
+            within the box */
+            background: #ffc url(../images/pointer.gif) no-repeat -10px 5px;
+        }
+
+        /* The pointer image is hadded by using another span */
+        .hint .hint-pointer {
+            position: absolute;
+            left: -10px;
+            top: 5px;
+            width: 10px;
+            height: 19px;
+            background: url(../images/pointer.gif) left top no-repeat;
+        }

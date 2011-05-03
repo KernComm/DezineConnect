@@ -1,0 +1,81 @@
+/* line 1, ../../../app/stylesheets/nifty.sass */
+body {
+  background-color: #4b7399;
+  font-family: Verdana, Helvetica, Arial;
+  font-size: 14px; }
+
+/* line 6, ../../../app/stylesheets/nifty.sass */
+a img {
+  border: none; }
+
+/* line 9, ../../../app/stylesheets/nifty.sass */
+a {
+  color: blue; }
+
+/* line 12, ../../../app/stylesheets/nifty.sass */
+.clear {
+  clear: both;
+  height: 0;
+  overflow: hidden; }
+
+/* line 17, ../../../app/stylesheets/nifty.sass */
+#container {
+  width: 75%;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px 40px;
+  border: solid 1px black;
+  margin-top: 20px; }
+
+/* line 25, ../../../app/stylesheets/nifty.sass */
+#flash_notice, #flash_error {
+  padding: 5px 8px;
+  margin: 10px 0; }
+
+/* line 29, ../../../app/stylesheets/nifty.sass */
+#flash_notice {
+  background-color: #ccffcc;
+  border: solid 1px #66cc66; }
+
+/* line 33, ../../../app/stylesheets/nifty.sass */
+#flash_error {
+  background-color: #ffcccc;
+  border: solid 1px #cc6666; }
+
+/* line 37, ../../../app/stylesheets/nifty.sass */
+.fieldWithErrors {
+  display: inline; }
+
+/* line 40, ../../../app/stylesheets/nifty.sass */
+#errorExplanation {
+  width: 400px;
+  border: 2px solid #cf0000;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0; }
+
+/* line 48, ../../../app/stylesheets/nifty.sass */
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: 0;
+  background-color: #cc0000;
+  color: white; }
+
+/* line 57, ../../../app/stylesheets/nifty.sass */
+#errorExplanation p {
+  color: #333333;
+  margin-bottom: 0;
+  padding: 8px; }
+
+/* line 62, ../../../app/stylesheets/nifty.sass */
+#errorExplanation ul {
+  margin: 2px 24px; }
+
+/* line 65, ../../../app/stylesheets/nifty.sass */
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: disc; }

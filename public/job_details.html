@@ -1,0 +1,477 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>DezineConnect: Connecting Desingers</title>
+<!--hover popup-->
+
+<link href="css/jquery.autocomplete.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="css/jquery.autocomplete.country.css" media="screen" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="javascripts/countries.en.js"></script>
+<script type="text/javascript" src="javascripts/country_list.js"></script>
+
+
+
+<!-- all css are added here -->
+<link href="css/all.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="css/header.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="css/index.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="css/footer.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="css/login.css" media="screen, projection" rel="stylesheet" type="text/css"/>
+<link href="css/sidebar.css" media="screen, projection" rel="stylesheet" type="text/css"/>
+<!-- all css are added here -->
+
+<!-- all css ends here -->
+<link href="css/vCard.css" media="screen, projection" rel="stylesheet" type="text/css"/>
+<!-- this page css ends here -->
+
+<!-- this css ends here -->
+<script type="text/javascript" src="javascripts/jquery-1.3.js"></script>
+<script type="text/javascript">
+    //$(function(){
+      //  $('input[type="text"]').focus(function() {
+           //    $('#box').toggleClass('bg');
+       // });
+   // });
+
+    $(document).ready(function() {
+		$('#box1').addClass("jobposting_set1");
+       		$('#box1 input[type="text"]').focus(function() {
+       			$('#box1').removeClass("idleField1").addClass("jobposting_set1_on");
+                        // $('#box1').tipsy({gravity: 'w'});
+                       // $(input[type="text"].tipsy({gravity: 'w'});
+    		    if (this.value == this.defaultValue){
+    		    	this.value = '';
+				}
+				if(this.value != this.defaultValue){
+	    			this.select();
+	    		}
+    		});
+    		$('#box1 input[type="text"]').blur(function() {
+    			$('#box1').removeClass("jobposting_set1_on").addClass("jobposting_set1");
+    		    if ($.trim(this.value) == ''){
+			    	this.value = (this.defaultValue ? this.defaultValue : '');
+				}
+    		});
+		});
+
+
+
+
+                $(document).ready(function() {
+		$('#box2').addClass("jobposting_set1");
+       		$('#box2 textarea').focus(function() {
+       			$('#box2').removeClass("idleField1").addClass("jobposting_set1_on");
+                        $("#box2 .box2").show();
+
+                       // $('#box1').tipsy({gravity: 'w'});
+                       // $(input[type="text"].tipsy({gravity: 'w'});
+    		    if (this.value == this.defaultValue){
+    		    	this.value = '';
+				}
+				if(this.value != this.defaultValue){
+	    			this.select();
+	    		}
+    		});
+    		$('#box2 textarea').blur(function() {
+    			$('#box2').removeClass("jobposting_set1_on").addClass("jobposting_set1");
+                        $("#box2 .box2").hide();
+    		    if ($.trim(this.value) == ''){
+			    	this.value = (this.defaultValue ? this.defaultValue : '');
+				}
+    		});
+		});
+
+
+
+
+
+
+                $(document).ready(function() {
+		$('#box3').addClass("jobposting_set1");
+       		$('#box3 textarea').focus(function() {
+       			$('#box3').removeClass("idleField1").addClass("jobposting_set1_on");
+                         $("#box3 .box3").show();
+                       // $('#box1').tipsy({gravity: 'w'});
+                       // $(input[type="text"].tipsy({gravity: 'w'});
+    		    if (this.value == this.defaultValue){
+    		    	this.value = '';
+				}
+				if(this.value != this.defaultValue){
+	    			this.select();
+	    		}
+    		});
+    		$('#box3 textarea').blur(function() {
+    			$('#box3').removeClass("jobposting_set1_on").addClass("jobposting_set1");
+                        $("#box3 .box3").hide();
+    		    if ($.trim(this.value) == ''){
+			    	this.value = (this.defaultValue ? this.defaultValue : '');
+				}
+    		});
+		});
+                $(document).ready(function() {
+		$('#box4').addClass("jobposting_set1");
+       		$('#box4 input').focus(function() {
+       			$('#box4').removeClass("idleField1").addClass("jobposting_set1_on");
+                       // $("#box4 .box4").show();
+                       // $('#box1').tipsy({gravity: 'w'});
+                       // $(input[type="text"].tipsy({gravity: 'w'});
+    		    if (this.value == this.defaultValue){
+    		    	this.value = '';
+				}
+				if(this.value != this.defaultValue){
+	    			this.select();
+	    		}
+    		});
+    		$('#box4 textarea,input').blur(function() {
+    			$('#box4').removeClass("jobposting_set1_on").addClass("jobposting_set1");
+    		   //$("#box4 .box4").hide();
+                   if ($.trim(this.value) == ''){
+			    	this.value = (this.defaultValue ? this.defaultValue : '');
+				}
+    		});
+		});
+
+
+                 $(document).ready(function() {
+		$('#box4').addClass("jobposting_set1");
+       		$('#box4 textarea').focus(function() {
+       			$('#box4').removeClass("idleField1").addClass("jobposting_set1_on");
+                        $("#box4 .box4").show();
+                       // $('#box1').tipsy({gravity: 'w'});
+                       // $(input[type="text"].tipsy({gravity: 'w'});
+    		    if (this.value == this.defaultValue){
+    		    	this.value = '';
+				}
+				if(this.value != this.defaultValue){
+	    			this.select();
+	    		}
+    		});
+    		$('#box4 textarea,input').blur(function() {
+    			$('#box4').removeClass("jobposting_set1_on").addClass("jobposting_set1");
+    		   $("#box4 .box4").hide();
+                   if ($.trim(this.value) == ''){
+			    	this.value = (this.defaultValue ? this.defaultValue : '');
+				}
+    		});
+		});
+
+
+</script>
+
+<!-- all javascripts are added here -->
+
+<!-- all javascript ends here -->
+</head>
+
+<body>
+
+<div id="header">
+    <div id="header_mid"> <!-- keeps in center & logo from css here -->
+        <a href="#">
+            <div id="logo">
+                <img src="images/logo.png" alt="logo"/>
+            </div>
+        </a>
+        <div id="number_of_jobs"><a href="#">1048<span> design jobs</span></a></div>
+        <div id="number_of_fav"><a href="#">02<span> favorites</span></a></div>
+        <div id="number_applied"><a href="#">01<span> applied</span></a></div>
+
+        <div id="dlog"><a href="#">d&#8217;log</a></div>
+        <div id="login" ><a href="login" class="signin"><span>login</span></a></div>
+        <!-- header start -->
+
+        <fieldset id="signin_menu">
+            <form method="post" id="signin" action="https://twitter.com/sessions">
+
+                <label for="username">email</label>
+
+                <input id="username" name="username"  title="username" tabindex="4" type="text"/>
+                <p>
+                    <label for="password">password</label>
+                    <label style="float: right; margin: 0; padding: 0;"><a href="#">forgot password</a></label>
+                    <input id="password" name="password" value="" title="password" tabindex="5" type="password"/>
+                </p>
+                <p class="remember">
+                    <input id="signin_submit" value="Sign in" tabindex="6" type="submit"/>
+
+                    <input id="remember1" name="remember_me" value="1" tabindex="7" type="checkbox"/>
+                    <label for="remember1">show password</label>
+                </p>
+                <p class="remember1">
+                    <input id="remember1" name="remember_me" value="1" tabindex="7" type="checkbox"/>
+                    <label for="remember1">remember me</label>
+                </p>
+            </form>
+
+        </fieldset>
+
+        <!--login box-->
+
+
+        <script src="javascripts/jquery.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+
+                $(".signin").click(function(e) {
+                    e.preventDefault();
+                    $("fieldset#signin_menu").toggle();
+                    $(".signin").toggleClass("menu-open");
+                });
+
+                $("fieldset#signin_menu").mouseup(function() {
+                    return false
+                });
+                $(document).mouseup(function(e) {
+                    if($(e.target).parent("a.signin").length==0) {
+                        $(".signin").removeClass("menu-open");
+                        $("fieldset#signin_menu").hide();
+                    }
+                });
+
+            });
+        </script>
+        <script src="javascripts/jquery.tipsy.js" type="text/javascript"></script>
+        <script type='text/javascript'>
+            $(function() {
+                $('#forgot_username_link').tipsy({gravity: 'w'});
+            });
+        </script>
+
+        <!--login box-->
+
+    </div><!-- header_mid end -->
+</div>
+<!-- header end -->
+
+<!-- 960 px wrapper -->
+<div id="wrap">
+    <div id="main">
+        <div id="main_inner">
+            <div id="left_title"><h1>post your design job</h1></div>
+            <div id="right_title"><h1>step 1/3</h1></div>
+            <div style="clear: both; "></div>
+
+            <form id="job_posting_form" method="post" action="insert_job_details">
+                <div style="margin:0;padding:0"><input name="authenticity_token" type="hidden" value="17e201576031e7417eccc5fa0f60212a" /></div>
+
+                <fieldset id="box1">
+
+                    <label for="job_type">job type</label>
+                    <select name="job_type" title="kk">
+                        <option>Full Time</option>
+                        <option>Part Time</option>
+                        <option>Freelance</option>
+                        <option>Internship</option>
+                    </select>
+
+                    <label for="JobTitle">title</label>
+                    <input type="text" name="JobTitle" size="58"  maxlength="58"/>
+
+                    <label for="experience">experience</label>
+
+                    <!-- demo 2 -->
+                    <div id="slider_fieldset">
+
+                        <label class="slider_label" for="valueA" style="display:none;">min experience</label>
+                        <select class="slider_select" name="valueA" id="valueA" style="display:none;">
+                            <option value="0" selected="selected">0 years</option>
+                            <option value="1">1 year</option>
+                            <option value="2">2 years</option>
+                            <option value="3">3 years</option>
+
+                            <option value="4">4 years</option>
+                            <option value="5">5 years</option>
+                            <option value="6">6 years</option>
+                            <option value="7">7 years</option>
+                            <option value="8">8 years</option>
+                            <option value="9">9 years</option>
+
+                            <option value="10">10 years</option>
+                            <option value="11">11 years</option>
+                            <option value="12">12 years</option>
+                            <option value="13">13 years</option>
+                            <option value="14">14 years</option>
+                            <option value="15">15 years</option>
+
+                            <option value="16">16 years</option>
+                            <option value="17">17 years</option>
+                            <option value="18">18+ years</option>
+                        </select>
+
+                        <label class="slider_label" valueB"style="display:none;">To:</label>
+                        <select class="slider_select" name="valueB" id="valueB" style="display:none;">
+
+                            <option value="0">0 years</option>
+                            <option value="1">1 year</option>
+                            <option value="2">2 years</option>
+                            <option value="3">3 years</option>
+                            <option value="4">4 years</option>
+                            <option value="5">5 years</option>
+
+                            <option value="6">6 years</option>
+                            <option value="7">7 years</option>
+                            <option value="8">8 years</option>
+                            <option value="9">9 years</option>
+                            <option value="10">10 years</option>
+                            <option value="11">11 years</option>
+
+                            <option value="12">12 years</option>
+                            <option value="13">13 years</option>
+                            <option value="14">14 years</option>
+                            <option value="15">15 years</option>
+                            <option value="16">16 years</option>
+                            <option value="17">17 years</option>
+
+                            <option value="18" selected="selected">18+ years</option>
+                        </select>
+                    </div>
+
+                    <label for="CompanyName">company</label>
+                    <script type='text/javascript'>
+                        $(function() {
+                            $('#forgot_username_link').tipsy({gravity: 'w'});
+                        });
+                    </script>
+                    <input type="text" name="CompanyName" size="35" maxlength="35" />
+
+                    <label for="CompanyWebsite">website</label>
+                    <input type="text" name="CompanyWebsite" size="35"  maxlength="35"/>
+
+                    <label for="JobLocation">job location</label>
+                    <input type="text" name="JobLocation" size="20"  maxlength="25"/>
+                    <span>
+                      <input type="text" id='ac_country' size="25" name='country' value='India' style="background-image: url(&quot;images/flags/in.gif&quot;);" />
+                    </span>
+
+                </fieldset>
+
+
+                <fieldset id="box2">
+                    <label for="CompanyInformation">company information</label>
+                    <textarea name="CompanyInformation" class="count[50]" rows="5" id="textfield2" ></textarea>
+                    <div class="box2">
+                        <div class="box2_in">
+                            <div class="box_padding">
+                                <hd>mention your uniqueness</hd>
+                                <li>Company Information section should talk about</li>
+                                <li> Services Offered </li>
+                                <li> Goal </li>
+                                <li> Kind of Work </li>
+                                <li> How different it is from other competitors </li>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset id="box3">
+                        <label for="JobDescription">job description</label>
+                        <div style="float: left; margin: 0 0 0 10px;  vertical-align: top; color: #666666;">Formatting guide:&nbsp;&nbsp;&nbsp;For <strong>Bold</strong> - *Bold* &nbsp;&nbsp;&nbsp;For <img src="images/bullet.gif" alt="bullet"/> Bulleted list - * Bulleted list</div>
+                        <textarea name="JobDescription" class="count[150]" id="JobDescription" rows="20"></textarea>
+                  <div class="box3">
+                        <div class="box2_in">
+                            <div class="box_padding">
+                                <hd>job description is like a 'snapshot' of job</hd>
+                                <li>Job Description should cover</li>
+                                <li>Role</li>
+                                <li>Qualifications</li>
+                                <li>Experience</li>
+                                <li>Educational Qualification</li>
+                                <li>Skills</li>
+                                <li>Requirements</li>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset id="box4">
+                    <label for="Apply">how to apply-email</label>
+                    <input type="text" maxlength="35" size="35" name="how_to_apply_email"/>
+                    <p>Your email address will be replaced with 3214@jobs.dezineconnect.com to help reduce spam<br/>
+                        We are accepting job posting only from valid company emails at this moment </p>
+                    <label for="send_application_email">other particulars</label>
+                    <textarea name="Apply" rows="5" class="count[30]" style="height:50px;"></textarea>
+                    <div class="box4">
+                        <div class="box2_in">
+                            <div class="box_padding">
+                                <hd>What are the requirements to Apply</hd>
+                                <li>Details should cover</li>
+                                <li>All the basic requirement to apply</li>
+                                    <li>Resume & folio sample formats</li>
+                                    <li>File sizes</li>
+                                    <li>Media types</li>
+                                    <li>Any web references for further requirements</li>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <label class="postjob_btn"><a href="#" ></a></label>
+                <span>This Job Post may be removed if it's a 'non-design' post or involves adult content or any illegitimate work opportunity.
+                </span>
+            </form>
+
+
+        </div><!-- main inner ends -->
+    </div><!-- main ends -->
+
+  <!-- sidebar starts here, can have many sidebar chunks -->
+  <div id="sidebar">
+      <!-- sidebar chunk -->
+      <div class="sidebar_chunk">
+          <h3>you get...</h3>
+          <div id="register_sidebar">
+              <img src="images/30_day_validity.png"/>
+              <span>30 days validity</span>
+
+              <img src="images/no_ads.png"/>
+              <span>No ads</span>
+
+              <img src="images/no_direct_mail.png"/>
+              <span>No direct mails for you</span>
+
+              <img src="images/no_spam.png"/>
+              <span>No spam</span>
+
+              <img src="images/tweet_on_twitter.png"/>
+              <span>Tweet the Job Posting</span>
+              <span style="height: 10px; margin: 0; padding: 0;"></span>
+          </div>
+      </div><!-- sidebar chunk ends -->
+
+      <div class="sidebar_chunk">
+          <h3>who can post a design job</h3>
+          <span>
+              Anyone with a company email & a company web site can post a design job
+          </span>
+      </div><!-- sidebar chunk ends -->
+
+      <div class="sidebar_chunk">
+          <h3>if I post a 'non-design' job</h3>
+          <span>
+              Our representatives keeps reviewing all the job postings & any ‘non-design’ jobs will be removed from the site without notification.
+
+          </span>
+      </div><!-- sidebar chunk ends -->
+
+  </div>  <!-- sidebar ends -->
+
+</div><!-- 960 px wrapper ends -->
+
+<!-- footer start -->
+
+
+<div id="footer">
+    <div id="footer_content">
+        <div id="footer_in">
+            <div id="footer_in_copy"><a href="about.htm">about</a> | <a href="contact.htm">contact</a> &nbsp; <a href="copyright.htm">&copy; kern communications pvt. ltd.</a></div>
+            <div id="footer_in_social">follow dezineconnect on</div>
+
+            <div id="footer_in_social_icons">
+                <a id="fb" href=""><img src="images/facebook_forfooter_inactive.gif"></a><a href=""><img src="images/twitter_forfooter_inactive.gif"></a><a href=""><img src="images/linkedin_forfooter_inactive.gif"></a><a href=""><img src="images/rss_forfooter_inactive.gif"></a>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div><!-- footer end -->
+
+</body>
+</html>

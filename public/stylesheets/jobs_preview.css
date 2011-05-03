@@ -42,8 +42,8 @@
 }
 
 #main #description span{
-     color: black;
-     font-size: 12px;
+    font-size: 12px;
+    color:#444444;
 }
 
 #QJobpreview_btn{

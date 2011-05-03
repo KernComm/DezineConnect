@@ -1,35 +1,48 @@
+
+
 <% unless design_directory.user.nil? and design_directory.user.blank? then %>
   <% if  design_directory.user.activate == true then %>
     <% unless design_directory.images.nil? or design_directory.images.blank? then %>
-      <!--directory thumbnail-->
       <a href="/design_directories/show/<%= design_directory.id %>">
         <div class="design_directories_free_div" style="vertical-align: middle;">
           <div style="background:url('<%= design_directory.logo.url(:original) %>') no-repeat; background-position:center; width:120px; height:70px; float: left; margin:5px">
+      <%#= display_image.image.url(:original)%>
+      <%#= image_tag design_directory.logo.url(:original) %>
           </div>
           <span>
+
             <% unless design_directory.display_name.blank? then %>
-            <h6><%= design_directory.display_name %></h6>
+              <h6><%= design_directory.display_name %></h6>
             <% end %>
+
             <% unless design_directory.key_service.blank? then %>
+
               <% arr_split = design_directory.key_service.split(",") %>
+
               <% unless arr_split.nil? or arr_split.blank? or arr_split.length == 0 then %>
-                <% if arr_split[0].length > 21 then %>
-            <h4><%=h arr_split[0][0,19] %>&hellip;</h4>
+                <% if arr_split[0].length > 24 then %>
+                  <h4><%=h arr_split[0][0,22] %>&hellip;</h4>
                 <% else %>
-            <h4><%=h arr_split[0] %></h4>
+                  <h4><%=h arr_split[0] %></h4>
                 <% end %>
-                <% end %>
               <% end %>
-              <% unless design_directory.city.blank? then %>
-            <h5><%= design_directory.city %>,</h5>
-              <% end %>
-              <% unless design_directory.country.blank? then %>
-            <h5><%= design_directory.country %></h5>
-              <% end %>
+
+
+
+            <% end %>
+
+            <% unless design_directory.city.blank? then %>
+              <h5><%= design_directory.city %>,</h5>
+            <% end %>
+
+            <% unless design_directory.country.blank? then %>
+              <h5><%= design_directory.country %></h5>
+            <% end %>
           </span>
         </div>
       </a>
-      <!--directory thumbnail end-->
     <% end %>
   <% end %>
 <% end %>
+
+

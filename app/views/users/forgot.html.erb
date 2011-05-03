@@ -83,9 +83,9 @@ function echeck(str) {
     <div id="main_inner"> <!-- main inner start -->
       <!--page title-->
       <h1>forgot password?</h1>
-      <% if flash[:notice12] then %>
+      <% if flash[:notice] then %>
         <div class="error_msg" style="display: block;">
-          <%= flash[:notice12] %>
+          <%= flash[:notice] %>
         </div>
       <% end %>
       <form method="post" action="/users/forgot" onsubmit="javascript:return validate();" enctype="multipart/form-data">

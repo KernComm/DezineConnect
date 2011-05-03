@@ -1,0 +1,6 @@
+#!/bin/bash
+while true
+do
+	echo "this sentence is echoed every 2 seconds"
+	sleep 2
+done

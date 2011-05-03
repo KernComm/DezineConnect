@@ -1,8 +1,9 @@
-require 'test_helper'
+require File.dirname(__FILE__) + '/../test_helper'
 
 class JobApplicationMailerTest < ActionMailer::TestCase
+  tests JobApplicationMailer
   # replace this with your real tests
-  test "the truth" do
+  def test_truth
     assert true
   end
 end

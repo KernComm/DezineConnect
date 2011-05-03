@@ -502,7 +502,7 @@
       <!--Home Job view box end-->
     </div>
     <!--main inner end-->
-    <% if JobPostingDetail.find(:all, :joins => :job, :conditions => {:jobs => {:activate => 1}}).count > 11 then %>
+    <% if JobPostingDetail.find(:all, :joins => :job, :conditions => {:jobs => {:activate => 1}}).length > 11 then %>
       <div class="clear"></div>
       <div id="more_button" onclick="moreJobs(<%=  @records_for_more_button.length %>)"></div>
     <% end %>
@@ -585,7 +585,9 @@
 
         <div class="clear"></div>
 
-         <!-- Form Submit button -->
+
+
+        <!-- Form Submit button -->
         <input type="submit" value="" id="QJobPost_btn"/>
         <div class="error_msg" id="error_required" style="margin: 23px 0px 0px -80px;">
           Please fill out the required data above

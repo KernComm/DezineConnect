@@ -1,18 +1,18 @@
-require 'test_helper'
+require File.dirname(__FILE__) + '/../test_helper'
 
 class JobsControllerTest < ActionController::TestCase
-  test "should get index" do
+  def test_should_get_index
     get :index
     assert_response :success
     assert_not_nil assigns(:jobs)
   end
 
-  test "should get new" do
+  def test_should_get_new
     get :new
     assert_response :success
   end
 
-  test "should create job" do
+  def test_should_create_job
     assert_difference('Job.count') do
       post :create, :job => { }
     end
@@ -20,22 +20,22 @@ class JobsControllerTest < ActionController::TestCase
     assert_redirected_to job_path(assigns(:job))
   end
 
-  test "should show job" do
+  def test_should_show_job
     get :show, :id => jobs(:one).id
     assert_response :success
   end
 
-  test "should get edit" do
+  def test_should_get_edit
     get :edit, :id => jobs(:one).id
     assert_response :success
   end
 
-  test "should update job" do
+  def test_should_update_job
     put :update, :id => jobs(:one).id, :job => { }
     assert_redirected_to job_path(assigns(:job))
   end
 
-  test "should destroy job" do
+  def test_should_destroy_job
     assert_difference('Job.count', -1) do
       delete :destroy, :id => jobs(:one).id
     end

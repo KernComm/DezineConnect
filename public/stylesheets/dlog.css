@@ -21,7 +21,7 @@
     margin-bottom: 20px;
 }
 #main_inner em span {
-    font-style: normal;
+font-style: normal;
 }
 
 /*-------------------*/
@@ -47,7 +47,7 @@
     float: left;
     position: absolute;
     background: #000;
-    height: 50px;
+    height: 30px;
     width: 100%;
     padding-bottom: 10px;
     opacity: .8;
@@ -104,7 +104,7 @@
     font-family: Century Gothic;
 }
 .textwidget {
-    padding-left:10px;
+ padding-left:10px;
 }
 /* For both BIG And SMALL sections  */
 .bloghyperlink  {
@@ -114,14 +114,14 @@
 }
 .captionLeftSection  {
     float: left;
-    color: white;
+    color:white;
     position: absolute;
     padding: 5px 0px 0px 6px;
     font: 12px Georgia, serif;
 }
 .captionRightSection  {
-
-    color:gray;
+    
+    color:white;
     padding: 20px 6px 0px 6px;
     font: 12px Lucida grande, san-serif;
 }
@@ -130,7 +130,7 @@
     font-size: 30px;
     margin: 15px 0px 10px 0px ;
     padding: 15px 0px 10px 0px ;
-}
+    }
 #dlog_heading{
     font-family:Georgia, Times New Roman, Serif;
     font-size: 30px;
@@ -167,14 +167,14 @@
 #publish_btn {
     height: 30px;
     width: 150px;
-
+    
 }
 #publish_btn  a{
     background: url('../images/publish.png') no-repeat;
     height: 30px;
     width: 150px;
     float: left;
-}
+  }
 #publish_btn  a:hover {
     background: url('../images/publish_hover.png') no-repeat;
     height: 30px;

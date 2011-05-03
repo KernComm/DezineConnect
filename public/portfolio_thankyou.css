@@ -1,0 +1,20 @@
+#wrap {
+    margin-top: 10px;
+}
+#main {
+    overflow: visible;
+    background: none;
+}
+
+#main_inner {
+    position: relative;
+}
+#main_inner h1 {
+    margin-top: 0px;
+}
+#main_inner h4 {
+    font-weight: normal;
+}
+#header #header_mid #login {
+    display: none;
+}

@@ -12,7 +12,7 @@
       arr_blogs << var_blog.id
     end
 
-    arr_random_blogs = arr_blogs.sort_by{rand()}.slice(0..2).shuffle
+    arr_random_blogs = arr_blogs.sort_by{rand()}.slice(0..2)
 
     arr_random_blogs.each do | id_interview |
     %>
@@ -35,7 +35,12 @@
               <% if blog.name == 'Rajesh Dahiya' then %>
                 <a href="/dlog/rajesh_dahiya">
                 <% end %>
-                <% if blog.name == 'Satyajeet Kumar' then %>
+  <% if blog.name == 'Rupesh Vyas' then %>
+              <a href="/dlog/rupesh_vyas">
+	                  <% end %>
+
+
+<% if blog.name == 'Satyajeet Kumar' then %>
                   <a href="/dlog/satyajeet_kumar">
                   <% end %>
                   <% if blog.name == 'Sandip Paul' then %>
@@ -53,6 +58,9 @@
                          <% if blog.name == 'Anusha Yadav' then %>
                           <a href="/dlog/anusha_yadav">
                           <% end %>
+			   <% if blog.name == 'Vidyadhar Pande' then %>
+	                     <a class="bloghyperlink" href="/dlog/vidyadhar_pande">
+                          <%end%>
                           <%= image_tag blog.author_photo.url(:medium), :alt => blog.name %>
                           <h4>
                             <%= blog.blog_statement %>

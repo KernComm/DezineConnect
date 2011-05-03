@@ -2,16 +2,10 @@
 <%= javascript_include_tag 'countries2' %>
 
 <script type="text/javascript">
-  //Trim function
-  if(typeof String.prototype.trim !== 'function') {
-    String.prototype.trim = function() {
-      return this.replace(/^\s+|\s+$/g, '');
-    }
-  }
-  
 function start() {
   document.getElementById('portfolio_education_02').value="";
   document.getElementById('portfolio_education_03').value="";
+
   document.getElementById('portfolio_awards_won_2').value="";
   document.getElementById('portfolio_awards_won_3').value="";
   document.getElementById('portfolio_awards_won_4').value="";
@@ -20,37 +14,33 @@ if(document.getElementById('specialization').value=="Other") {
   document.getElementById('secondary_specilizations_text').style.display="block";
   }
 }
-
-function validate(){
-
-  var secondary_specilizations=document.getElementById('secondary_specilizations_text');
-  var error_secondary_specilizations=document.getElementById('error_secondary_specilizations_text');
-  var specialization=document.getElementById('specialization');
-  var error_specialization=document.getElementById('error_specialization');
-  var city=document.getElementById('city');
-  var error_city=document.getElementById('error_city');
-  var country=document.getElementById('country');
-  var error_country=document.getElementById('error_country');
-  
-  if((secondary_specilizations.style.display=='block')&&(secondary_specilizations.value.trim()=="")){
-      secondary_specilizations.setAttribute('style', 'border:1px red solid; background:#ffefef;');
-      error_secondary_specilizations.setAttribute('style','display:block;');
-  return false;
+function validate()
+{
+  if((document.getElementById('secondary_specilizations_text').style.display=='block')&&(document.getElementById('secondary_specilizations_text').value==""))
+    {
+          document.getElementById('secondary_specilizations_text').style.border="1px red solid";
+          document.getElementById('secondary_specilizations_text').style.background="#ffefef";
+          document.getElementById('error_secondary_specilizations_text').style.display="block";
+          return false;
     }
-    if((specialization.value=="")||(city.value=="")||(country.value=="")){
-      if(city.value.trim()==''){
-         city.setAttribute('style', 'border:1px red solid; background:#ffefef;');
-         error_city.setAttribute('style', 'display:block;');
-         }
-         if(country.value.trim()==""){
-         country.setAttribute('style', 'border:1px red solid; background:#ffefef;');
-         error_country.setAttribute('style', 'display:block;');
-         }
-         if(specialization.value.trim()==""){
-         specialization.setAttribute('style', 'border:1px red solid; background:#ffefef;');
-         error_specialization.setAttribute('style', 'display:block;');
-         return false;
-         }
+    if((document.getElementById('specialization').value=="")||(document.getElementById('city').value=="")||(document.getElementById('country').value=="")) {
+
+       if(document.getElementById('city').value=="") {
+          document.getElementById('city').style.border="1px red solid";
+          document.getElementById('city').style.background="#ffefef";
+          document.getElementById('error_city').style.display="block";
+          }
+           if(document.getElementById('country').value=="") {
+           document.getElementById('country').style.border="1px red solid";
+           document.getElementById('country').style.background="#ffefef";
+           document.getElementById('error_country').style.display="block";
+          }
+           if(document.getElementById('specialization').value=="") {
+          document.getElementById('specialization').style.border="1px red solid";
+          document.getElementById('specialization').style.background="#ffefef";
+          document.getElementById('error_specialization').style.display="block";
+          return false;
+          }
        return false;
     }
     else {
@@ -59,77 +49,114 @@ function validate(){
 }
 
 function validation(ctl,ct2) {
-  var ctl_element=document.getElementById(ctl);
-  var ct2_element=document.getElementById(ct2);
-    if((ctl_element.value.trim()=="")||(ct2_element.value=="0")) {
-      ctl_element.setAttribute('style', 'border:1px red solid; background:#ffefef;');
-      ct2_element.setAttribute('style', 'display:block;');
-      return false;
+    if((document.getElementById(ctl).value=="")||(document.getElementById(ctl).value=="0")) {
+       document.getElementById(ctl).style.border="1px red solid";
+       document.getElementById(ctl).style.background="#ffefef";
+       document.getElementById(ct2).style.display="block";
+       return false;
        }
     else {
-      ctl_element.setAttribute('style', 'border:1px #ccc solid; background:#fff;');
-      ct2_element.setAttribute('style', 'display:none;');
+       document.getElementById(ctl).style.border="1px #ccc solid";
+       document.getElementById(ctl).style.background="#fff";
+       document.getElementById(ct2).style.display="none";
        return true;
-      }
+       }
 }
 
-   function AddEducationTextfield() {
-    var ct2=document.getElementById('portfolio_education_02');
-    var ct3=document.getElementById('portfolio_education_03');
+function echeck(str) {
+		var at="@"
+		var dot="."
+		var lat=str.indexOf(at)
+		var lstr=str.length
+		var ldot=str.indexOf(dot)
+		if (str.indexOf(at)==-1){
+		   //alert("Invalid E-mail ID")
+		   return false
+		}
+		if (str.indexOf(at)==-1 || str.indexOf(at)==0 || str.indexOf(at)==lstr){
+		   //alert("Invalid E-mail ID")
+		   return false
+		}
+		if (str.indexOf(dot)==-1 || str.indexOf(dot)==0 || str.indexOf(dot)==lstr){
+		    //alert("Invalid E-mail ID")
+		    return false
+		}
+		 if (str.indexOf(at,(lat+1))!=-1){
+		   // alert("Invalid E-mail ID")
+		    return false
+		 }
+		 if (str.substring(lat-1,lat)==dot || str.substring(lat+1,lat+2)==dot){
+		   // alert("Invalid E-mail ID")
+		    return false
+		 }
+		 if (str.indexOf(dot,(lat+2))==-1){
+		   // alert("Invalid E-mail ID")
+		    return false
+		 }
+		 if (str.indexOf(" ")!=-1){
+		    //alert("Invalid E-mail ID")
+		    return false
+		 }
+ 		 return true
+	}
+         function AddEducationTextfield() {
+          var ct2=document.getElementById('portfolio_education_02');
+          var ct3=document.getElementById('portfolio_education_03');
 
-      if((ct2.style.display=="none")&&(ct3.style.display=="none")){
-        ct2.style.display="block";
-      }
-      else {
-        ct3.style.display="block";
-        document.getElementById('portfolio_education_div_active').style.display="none";
-        document.getElementById('portfolio_education_div_inactive').style.display="block";
-      }
-  }
-     
-     function AddAwardsWonTextfield()
-      {
-        var ct2=document.getElementById('portfolio_awards_won_2');
-        var ct3=document.getElementById('portfolio_awards_won_3');
-        var ct4=document.getElementById('portfolio_awards_won_4');
-        var ct5=document.getElementById('portfolio_awards_won_5');
-
-        if((ct2.style.display=="none")&& (ct3.style.display=="none")&& (ct4.style.display=="none")&&(ct5.style.display=="none")){
-            ct2.style.display="block";
-            ct2.value="";
-            return false
-          }
-           if((ct2.style.display=="block")&&(ct3.style.display=="none")&&(ct4.style.display=="none")&&(ct5.style.display=="none")){
-           ct3.style.display="block";
-           ct3.value="";
-           return false
-          }
-          if((ct2.style.display=="block")&&(ct3.style.display=="block")&&(ct4.style.display=="none")&&(ct5.style.display=="none")){
-            ct4.style.display="block";
-            ct4.value="";
-            return false
-          }
-          if((ct2.style.display=="block")&&(ct3.style.display=="block")&&(ct4.style.display=="block")&&(ct5.style.display=="none")){
-            ct5.style.display="block";
-            ct5.value="";
-          document.getElementById('portfolio_awards_won_active').style.display="none";
-          document.getElementById('portfolio_awards_won_inactive').style.display="block";
-            return false
-          }
-
-        else {
-          ct2.style.display="none";
-          ct3.style.display="none";
-          ct4.style.display="none";
-          ct5.style.display="none";
+            if((ct2.style.display=="none")&&(ct3.style.display=="none")){
+              ct2.style.display="block";
+            }
+            else {
+              ct3.style.display="block";
+              document.getElementById('portfolio_education_div_active').style.display="none";
+              document.getElementById('portfolio_education_div_inactive').style.display="block";
+            }
         }
-      }
+     
+       function AddAwardsWonTextfield()
+        {
+          var ct2=document.getElementById('portfolio_awards_won_2');
+          var ct3=document.getElementById('portfolio_awards_won_3');
+          var ct4=document.getElementById('portfolio_awards_won_4');
+          var ct5=document.getElementById('portfolio_awards_won_5');
+
+          if((ct2.style.display=="none")&& (ct3.style.display=="none")&& (ct4.style.display=="none")&&(ct5.style.display=="none")){
+              ct2.style.display="block";
+              ct2.value="";
+              return false
+            }
+             if((ct2.style.display=="block")&&(ct3.style.display=="none")&&(ct4.style.display=="none")&&(ct5.style.display=="none")){
+             ct3.style.display="block";
+             ct3.value="";
+             return false
+            }
+            if((ct2.style.display=="block")&&(ct3.style.display=="block")&&(ct4.style.display=="none")&&(ct5.style.display=="none")){
+              ct4.style.display="block";
+              ct4.value="";
+              return false
+            }
+            if((ct2.style.display=="block")&&(ct3.style.display=="block")&&(ct4.style.display=="block")&&(ct5.style.display=="none")){
+              ct5.style.display="block";
+              ct5.value="";
+            document.getElementById('portfolio_awards_won_active').style.display="none";
+            document.getElementById('portfolio_awards_won_inactive').style.display="block";
+              return false
+            }
+
+          else {
+            ct2.style.display="none";
+            ct3.style.display="none";
+            ct4.style.display="none";
+            ct5.style.display="none";
+          }
+        }
         
 </script>
 <script type="text/javascript">
 //specilization select box in other option
 function OnChange() {
-     if(document.getElementById('specialization').value=="Other"){
+  //alert(document.getElementById('specialization').value);
+    if(document.getElementById('specialization').value=="Other"){
       document.getElementById('secondary_specilizations_text').style.display="block";
     }
     else {
@@ -138,6 +165,7 @@ function OnChange() {
     }
 }
 </script>
+
 <div id="wrap"><!-- 960 px wrapper -->
   <div id="main"><!-- main div -->
     <div id="main_inner"><!-- main div-->
@@ -151,20 +179,63 @@ function OnChange() {
 
           <br/>
           <select name="portfolio[specialization]" onblur="validation('specialization','error_specialization')" id="specialization" onchange="OnChange();">
-          <option selected="" value="">Select</option>
-            <script type="text/javascript">
-              var b=new Array("|Industrial Design","Product Designer", "Furniture Designer","Automobile Designer","Automobile Stylist","Ceramic Designer","Model Maker","Toy / Game Designer","|Fashion & Lifestyle","Apparel Designer","Fashion Designer","Fashion Photographer","Textile Designer","Hairstylist","Make-up Artist","Crafts Designer","Accessory Designer","Fashion Model","|Visual Communication","Graphic Designer","Animation Designer","Typography Designer","Photographer","Film Designer","Film Publicity Designer","Advertising","Sound Designer","Theater Artist","Illustrator","Brand Designer","Cartoonist","|Space Design","Interior Designer","Architect","Landscape Designer","Set Designer","Draftsman","Lighting Designer","Retail Designer","|Digital Media","Web Designer","User Interface Designer","Usability Expert","Information Architect","Interaction Designer","Game Designer","Motion Graphics Expert","|Visual Merchandising","Packaging Designer","Exhibition Designer","Retail Merchandising Designer","|Education & Research","Design Educator","Design Researcher");
-              var d=0;
-              for(i=0;i<=b.length;i=i+1){
-                if(b[i][0]!="|"){
-                  document.write("<option value='"+d+"_"+b[i]+"'>"+b[i]+"</option>");
-                }else{
-                  var d=b[i].replace('|','');
-                  document.write("<optgroup label='"+d+"'></optgroup>");
-                }
-              }
-            </script>
-          </select>
+                  <option selected="" value="">Select</option>
+                  <optgroup label="Industrial Design"></optgroup>
+                  <option value="Industrial Design_Product Designer">Product Designer</option>
+                  <option value="Industrial Design_Furniture Designer">Furniture Designer</option>
+                  <option value="Industrial Design_Automobile Designer">Automobile Designer</option>
+                  <option value="Industrial Design_Automobile Stylist">Automobile Stylist</option>
+                  <option value="Industrial Design_Ceramic Designer">Ceramic Designer</option>
+                  <option value="Industrial Design_Model Maker">Model Maker</option>
+                  <option value="Industrial Design_Toy / Game Designer">Toy / Game Designer</option>
+                  <optgroup label="Fashion & Lifestyle"></optgroup>
+                  <option value="Fashion & Lifestyle_Apparel Designer">Apparel Designer</option>
+                  <option value="Fashion & Lifestyle_Fashion Designer">Fashion Designer</option>
+                  <option value="Fashion & Lifestyle_Fashion Photographer">Fashion Photographer</option>
+                  <option value="Fashion & Lifestyle_Textile Designer">Textile Designer</option>
+                  <option value="Fashion & Lifestyle_Hairstylist">Hairstylist</option>
+                  <option value="Fashion & Lifestyle_Make-up Artist">Make-up Artist</option>
+                  <option value="Fashion & Lifestyle_Crafts Designer">Crafts Designer</option>
+                  <option value="Fashion & Lifestyle_Accessory Designer">Accessory Designer</option>
+                  <option value="Fashion & Lifestyle_Fashion Model">Fashion Model</option>
+                  <optgroup label="Visual Communication"></optgroup>
+                  <option value="Visual Communication_Graphic Designer">Graphic Designer</option>
+                  <option value="Visual Communication_Animation Designer">Animation Designer</option>
+                  <option value="Visual Communication_Typography Designer">Typography Designer</option>
+                  <option value="Visual Communication_Photographer">Photographer</option>
+                  <option value="Visual Communication_Film Designer">Film Designer</option>
+                  <option value="Visual Communication_Film Publicity Designer">Film Publicity Designer</option>
+                  <option value="Visual Communication_Advertising">Advertising</option>
+                  <option value="Visual Communication_Sound Designer">Sound Designer</option>
+                  <option value="Visual Communication_Theater Artist">Theater Artist</option>
+                  <option value="Visual Communication_Illustrator">Illustrator</option>
+                  <option value="Visual Communication_Brand Designer">Brand Designer</option>
+                  <option value="Visual Communication_Cartoonist">Cartoonist</option>
+                  <optgroup label="Space Design"></optgroup>
+                  <option value="Space Design_Interior Designer">Interior Designer</option>
+                  <option value="Space Design_Architect">Architect</option>
+                  <option value="Space Design_Landscape Designer">Landscape Designer</option>
+                  <option value="Space Design_Set Designer">Set Designer</option>
+                  <option value="Space Design_Draftsman">Draftsman</option>
+                  <option value="Space Design_Lighting Designer">Lighting Designer</option>
+                  <option value="Space Design_Retail Designer">Retail Designer</option>
+                  <optgroup label="Digital Media"></optgroup>
+                  <option value="Digital Media_Web Designer">Web Designer</option>
+                  <option value="Digital Media_User Interface Designer">User Interface Designer</option>
+                  <option value="Digital Media_Usability Expert">Usability Expert</option>
+                  <option value="Digital Media_Information Architect">Information Architect</option>
+                  <option value="Digital Media_Interaction Designer">Interaction Designer</option>
+                  <option value="Digital Media_Game Designer">Game Designer</option>
+                  <option value="Digital Media_Motion Graphics Expert">Motion Graphics Expert</option>
+                  <optgroup label="Visual Merchandising"></optgroup>
+                  <option value="Visual Merchandising_Packaging Designer">Packaging Designer</option>
+                  <option value="Visual Merchandising_Exhibition Designer">Exhibition Designer</option>
+                  <option value="Visual Merchandising_Retail Merchandising Designer">Retail Merchandising Designer</option>
+                  <optgroup label="Education & Research"></optgroup>
+                  <option value="Education & Research_Design Educator">Design Educator</option>
+                  <option value="Education & Research_Design Researcher">Design Researcher</option>
+                  <option value="Other" style="font-weight:bold;">Other</option>
+                </select>
           <div id="error_specialization" class="error_msg" >
             please select a specialization
           </div>
@@ -178,22 +249,46 @@ function OnChange() {
           <div id="portfolio_years">years</div>
           <div id="portfolio_months">months</div>
           <select id="portfolio_experience_years" name="portfolio[experience_years]">
-            <script type="text/javascript">
-            for (i=0;i<=24;i++){
-              document.write("<option value="+i+">"+i+"</option>");
-              document.write("<br />");
-              }
-            </script>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
             <option value="25+">25+</option>
           </select>
           <div id="portfolio_months_selectbox">
           <select id="portfolio_experience_months" name="portfolio[experience_months]">
-            <script type="text/javascript">
-            for (i=0;i<=11;i++){
-              document.write("<option value="+i+">"+i+"</option>");
-              document.write("<br />");
-              }
-            </script>
+           <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
           </select>
           </div>
           <label for="Password">education</label>

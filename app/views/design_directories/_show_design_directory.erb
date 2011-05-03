@@ -1,4 +1,3 @@
-<!-- design directory title -->
 <div id="title">
   <h1>
     <%= @design_directory.company_name %>
@@ -6,38 +5,42 @@
   </h1>
   <h6><a href="/design_directories/search?search_textfield=<%=h @design_directory.key_service %>"><%= @design_directory.key_service %></a></h6>
 </div>
-<!-- design directory title end -->
-<!-- sidebar -->
 <div id="sidebar">
-  <!-- portfolio bio -->
   <div id="portfolio_view_bio">
     <% unless @design_directory.logo_file_name.nil? or @design_directory.logo_file_name.blank? then %>
       <%= image_tag @design_directory.logo.url(:original) %>
     <% end %>
    <p><%= @design_directory.company_overview %></p>
   </div>
-
+  <!--<div id="design_directory_company_logo">
+  </div>
+  <div id="portfolio_view_bio">
+  </div>-->
   <div class="clear"></div>
   <div id="portfolio_profile_sider">
+
     <% unless @design_directory.other_service1.nil? or @design_directory.other_service1.blank? then %>
-    <span>
-      <h5>other services</h5>
-      <a href="/design_directories/search?search_textfield=<%=h @design_directory.other_service1 %>"><%= @design_directory.other_service1 %></a><br/>
-      <% unless @design_directory.other_service2.nil? or @design_directory.other_service2.blank? then %>
-      <a href="/design_directories/search?search_textfield=<%=h @design_directory.other_service2 %>"><%= @design_directory.other_service2 %></a><br/>
-      <% end %>
-      <% unless @design_directory.other_service3.nil? or @design_directory.other_service3.blank? then %>
-      <a href="/design_directories/search?search_textfield=<%=h @design_directory.other_service3 %>"><%= @design_directory.other_service3 %></a>
-      <% end %>
-    </span>
+      <span>
+        <h5>other services</h5>
+        <a href="/design_directories/search?search_textfield=<%=h @design_directory.other_service1 %>"><%= @design_directory.other_service1 %></a><br/>
+        <% unless @design_directory.other_service2.nil? or @design_directory.other_service2.blank? then %>
+          <a href="/design_directories/search?search_textfield=<%=h @design_directory.other_service2 %>"><%= @design_directory.other_service2 %></a><br/>
+        <% end %>
+        <% unless @design_directory.other_service3.nil? or @design_directory.other_service3.blank? then %>
+          <a href="/design_directories/search?search_textfield=<%=h @design_directory.other_service3 %>"><%= @design_directory.other_service3 %></a>
+        <% end %>
+      </span>
     <% end %>
+
     <% unless @design_directory.staff_size.nil? or @design_directory.staff_size.blank? then %>
-    <span>
-      <h5>staff size</h5>
-      <%= @design_directory.staff_size %>
-    </span>
+      <span>
+        <h5>staff size</h5>
+        <%= @design_directory.staff_size %>
+      </span>
     <% end %>
-    <% unless @design_directory.year_founded.nil? or @design_directory.year_founded.blank? then %>
+
+
+   <% unless @design_directory.year_founded.nil? or @design_directory.year_founded.blank? then %>
     <span>
       <h5>year founded</h5>
       <%= @design_directory.year_founded %>
@@ -57,71 +60,75 @@
     </span>
   <% end %>
 
+    
     <% unless @design_directory.address.nil? or @design_directory.city.nil?  or @design_directory.country.nil? then %>
-    <span>
-      <h5>address</h5>
-      <% unless @design_directory.address.blank? then %>
-      <%=h @design_directory.address %><br/>
-      <% end %>
-    <% unless @design_directory.city.blank? then %>
-      <a href="/design_directories/search?search_textfield=<%=h @design_directory.city %>"><%=h @design_directory.city %></a><br/>
-      <% end %>
-    <% unless @design_directory.country.blank? then %>
-      <%=h @design_directory.country %>
-      <% end %>
-    </span>
+      <span>
+        <h5>address</h5>
+        <% unless @design_directory.address.blank? then %>
+           <%=h @design_directory.address %><br/>
+        <% end %>
+
+        <% unless @design_directory.city.blank? then %>
+          <a href="/design_directories/search?search_textfield=<%=h @design_directory.city %>"><%=h @design_directory.city %></a><br/>
+        <% end %>
+
+        <% unless @design_directory.country.blank? then %>
+          <%=h @design_directory.country %>
+        <% end %>
+      </span>
     <% end %>
     <% unless @design_directory.website=="http://"%>
-    <span>
-      <h5>website</h5>
-      <a href="<%=h @design_directory.website %>" target="_blank"><%=h @design_directory.website %></a>
-    </span>
+      <span>
+        <h5>website</h5>
+        <a href="<%=h @design_directory.website %>" target="_blank"><%=h @design_directory.website %></a>
+      </span>
     <% end %>
+    
   <% unless @design_directory.contact_email.nil? or @design_directory.contact_email.blank? then %>
-    <span>
-      <h5>contact details</h5>
-      <a href="mailto:<%=h @design_directory.contact_email %>"><%=h @design_directory.contact_email %></a>
-    </span>
+      <span>
+        <h5>contact details</h5>
+        <a href="mailto:<%=h @design_directory.contact_email %>"><%=h @design_directory.contact_email %></a>
+      </span>
     <% end %>
 
     <span>
       <% unless @design_directory.linkedin.nil? or @design_directory.linkedin.blank? then %>
-      <% unless @design_directory.linkedin=="http://www.linkedin.com/" then %>
-      <a href="<%=h @design_directory.linkedin %>" target="_blank">
-        <div id="portfolio_social_linkedin"></div>
-      </a>
+       <% unless @design_directory.linkedin=="http://www.linkedin.com/" then %>
+        <a href="<%=h @design_directory.linkedin %>" target="_blank">
+          <div id="portfolio_social_linkedin"></div>
+        </a>
       <%end%>
       <% end %>
 
       <% unless @design_directory.facebook.nil? or @design_directory.facebook.blank? then %>
-      <% unless @design_directory.facebook=="http://www.facebook.com/" then %>
-      <a href="<%=h @design_directory.facebook %>" target="_blank">
-        <div id="portfolio_social_facebook"></div>
-      </a>
+       <% unless @design_directory.facebook=="http://www.facebook.com/" then %>
+        <a href="<%=h @design_directory.facebook %>" target="_blank">
+          <div id="portfolio_social_facebook"></div>
+        </a>
       <%end%>
       <% end %>
 
       <% unless @design_directory.twitter.nil? or @design_directory.twitter.blank? then %>
       <% unless @design_directory.twitter=="http://www.twitter.com/" then %>
-      <a href="<%=h @design_directory.twitter %>" target="_blank">
-        <div id="portfolio_social_twitter"></div>
-      </a>
+        <a href="<%=h @design_directory.twitter %>" target="_blank">
+          <div id="portfolio_social_twitter"></div>
+        </a>
       <% end %>
       <% end %>
       <div class="clear"></div>
     </span>
   </div>
+
 </div>
-<!-- sidebar end -->
-<!-- main -->
-<div id="main">
+<div id="main"><!-- main div -->
   <div>
     <div class="sliderwrapper" id="slider4">
-      <%slider_img_disc_value=1%><%#for Image Discription%>
+      <!---for Image Discription-->
+      <%slider_img_disc_value=1%><!---for Image Discription-->
       <%slider_image_value=1%>
-      <% @var_img_disc_value = @design_directory.images.count+1 %><%#for Image Discription%>
+      <% @var_img_disc_value = @design_directory.images.count+1 %><!---for Image Discription-->
       <% @design_directory.images.each do | display_image |  %>
-        <% slider_img_disc_value = slider_img_disc_value+1 %><%#for Image Discription%>
+        <% slider_img_disc_value = slider_img_disc_value+1 %><!---for Image Discription-->
         <% slider_image_value = slider_image_value+1 %>
         <%if @var_img_disc_value==slider_img_disc_value then%>
           <div class="contentdiv" style="background: url('<%= display_image.image.url(:original)%>') no-repeat; background-position:center;"></div>
@@ -131,7 +138,7 @@
       <% end %>
     </div>
   </div>
-  
+  <!--portfolio image discription-->
   <!--portfolio image discription-->
   <%i=1%>
   <% @design_directory.images.each do | display_image |  %>
@@ -146,22 +153,20 @@
     <%end%>
     <%  i = i+1 %>
   <%end%>
-  <!--portfolio image discription-->
 
-  <!-- images slide show arrows -->
+  
+  <!-- portfolio_works div -->
   <div id="paginate-slider4">
     <div id="imageslider_prev_next">
       <a href="#prev" class="prev">
-        <img alt="left_arrow" src="../../images/imageslider_leftarrow.png"/>
+        <img alt="left_arrow" src="../../images/imageslider_leftarrow.png">
       </a>
       <a href="#next" class="next">
-        <img alt="right_arrow" src="../../images/imageslider_rightarrow.png"/>
+        <img alt="right_arrow" src="../../images/imageslider_rightarrow.png">
       </a>
     </div>
   </div>
-  <!-- images slide show arrows end-->
 
-  <!-- images slide show script -->
   <script type="text/javascript">
     featuredcontentslider.init({
       id: "slider4", //id of main slider DIV
@@ -177,6 +182,5 @@
       }
     })
   </script>
-  <!-- images slide show end -->
+  <!-- portfolio_works div -->
 </div>
-<!-- main end -->

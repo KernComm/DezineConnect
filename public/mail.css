@@ -1,0 +1,60 @@
+#employer_main_div p a{
+    
+}
+#employer_main_div p a:hover{
+    color: #787878;
+}
+#employer_main_div p span {
+     
+}
+
+#employer_main_div {
+    
+}
+#mail_logo img{
+    
+}
+.rounded_coner_gray_box {
+    color: #fff;
+    padding: 5px;
+    background: gray;
+    text-align: center;
+    -moz-border-radius-topleft:5px;
+    -moz-border-radius-bottomleft:5px;
+    -moz-border-radius-topright:5px;
+    -moz-border-radius-bottomright:5px;
+    -webkit-border-top-left-radius:5px;
+    -webkit-border-bottom-left-radius:5px;
+    -webkit-border-bottom-right-radius:5px;
+    float: left;
+}
+#employer_main_div p img{
+    border: 0px;
+}
+
+#email_employer_links {
+    margin: 10px 0;
+}
+.email_employer_div1, .email_employer_div2  {
+  
+}
+
+.email_jobposting_icon, .email_jobposting_icon {
+    
+    }
+.email_jobposting_txt1
+{
+    
+}
+.email_applications_btn {
+    
+}
+.email_applications_btn img {
+    border: 0;
+}
+.email_jobpostings_btn {
+   
+}
+.email_jobpostings_btn img {
+    border: 0;
+}

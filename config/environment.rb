@@ -2,14 +2,13 @@
 
 # Uncomment below to force Rails into production mode when
 # you don't control web/app server and can't set it the proper way
- # ENV['RAILS_ENV'] ||= 'production'
+ ENV['RAILS_ENV'] ||= 'production'
 
 # Specifies gem version of Rails to use when vendor/rails is not present
 RAILS_GEM_VERSION = '2.2.2' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
-
 
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
@@ -32,13 +31,6 @@ Rails::Initializer.run do |config|
   # Force all environments to use the same logger level
   # (by default production uses :info, the others :debug)
   # config.log_level = :debug
-  config.load_paths += %W( #{RAILS_ROOT}/app/middleware )
-
-  config.gem 'chriseppstein-compass', :lib => 'compass', :source => 'http://gems.github.com/'
-  config.gem 'haml', :lib => 'haml', :version => '>=2.2.0'
-  config.gem 'thoughtbot-paperclip', :lib => 'paperclip', :source => 'http://gems.github.com'
-  config.gem 'ruby-mp3info', :lib => "mp3info"
-  config.gem 'mime-types', :lib => "mime/types"
 
   # Your secret key for verifying cookie session data integrity.
   # If you change this key, all old sessions will become invalid!
@@ -49,6 +41,13 @@ Rails::Initializer.run do |config|
     :secret      => '6f2910b8da885fbfc38e44c6ad725bd39ce1441f2275dc68afaaf65e42f843ae90b9934e5c1d4f4c72b4c2424724bc74d9a7465dc1315bb6ca3d12bc1dc19524'
   }
 
+  config.load_paths += %W( #{RAILS_ROOT}/app/middleware )
+
+#    config.gem 'chriseppstein-compass', :lib => 'compass', :source => 'http://gems.github.com/'
+#      config.gem 'haml', :lib => 'haml', :version => '>=2.2.0'
+ #       config.gem 'thoughtbot-paperclip', :lib => 'paperclip', :source => 'http://gems.github.com'
+#	  config.gem 'ruby-mp3info', :lib => "mp3info"
+#	    config.gem 'mime-types', :lib => "mime/types"
   # Use the database for sessions instead of the cookie-based default,
   # which shouldn't be used to store highly confidential information
   # (create the session table with 'rake db:sessions:create')
@@ -64,9 +63,6 @@ Rails::Initializer.run do |config|
 
   # Make Active Record use UTC-base instead of local time
   # config.active_record.default_timezone = :utc
-
-
-   #config.active_record.observers = :user_observer
 
 
 

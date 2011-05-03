@@ -159,11 +159,6 @@ ActiveRecord::Schema.define(:version => 20101025045935) do
     t.integer  "user_id"
   end
 
-  create_table "payments", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "portfolios", :force => true do |t|
     t.string   "specialization"
     t.string   "secondary_specializations_1"

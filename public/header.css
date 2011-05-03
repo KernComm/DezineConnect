@@ -1,0 +1,111 @@
+#header {
+    height: 41px;
+    background: url('../images/header.png') repeat;
+}
+
+#header_mid {
+    margin: 0px auto;
+    height: 56px;
+    width: 960px;
+    position: relative;
+}
+
+#number_of_jobs, #number_of_fav, #number_applied, #diplay_name_on_header {
+    font-family: Georgia, Times New Roman, Serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    position: absolute;
+    top: 20px;
+    text-shadow: 0px 0px 2px #000000;
+    margin: 5px 0px 0px 0px;
+}
+
+#number_of_jobs {
+    width: 140px;
+    right: 555px;
+}
+
+#number_of_jobs a:hover {
+    color: orange;
+}
+
+#number_of_fav {
+    width: 130px;
+    right: 400px;
+}
+#number_of_fav a:hover {
+    color: orange;
+}
+
+#number_applied {
+    width: 80px;
+    right: 328px;
+}
+
+#number_applied a:hover {
+    color: orange;
+}
+
+#dlog, #login, #portrolio, #logout, #header_link_separator {
+    font-family:Century Gothic, Lucida Grande,Lucida Sans Unicode,helvetica, sans-serif;
+    font-size: 10px;
+    /*font-weight: bold;*/
+    color: #cccccc;
+    position: absolute;
+    top: 15px;
+    text-shadow : 0px 0px 2px #000000;
+    margin: 5px 0px 0px 0px;
+    text-transform: uppercase;
+}
+#header_link_separator {
+    right: 289px;
+    width:5px;
+    text-align: center;
+}
+#dlog {
+   /* width: 40px;*/
+    right: 250px;
+}
+#portrolio {
+    width:80px;
+    right: 280px;
+}
+
+#dlog a:hover, #portrolio a:hover{
+    color: orange;
+}
+
+#login, #logout {
+    right: 8px;
+}
+#logout a {
+   text-transform: uppercase;
+   font-size: 10px;
+}
+
+#login a:hover, #logout a:hover {
+    color: orange;
+}
+
+span {
+    font-family: Lucida, Helvetica, Sans-serif;
+    font-size: 14px;
+    color: #cccccc;
+}
+
+#logo  {
+    height: 56px;
+    padding: 2px 0px 0px 0px;
+}
+#logo img{
+    border: 0px;
+}
+
+#diplay_name_on_header {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    color: #cccccc;
+    font-size: 14px;
+}

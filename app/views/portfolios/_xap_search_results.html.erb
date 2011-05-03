@@ -1,38 +1,37 @@
 <% if @posts.blank? then %>
   <% if flash[:message] then %>
     <div>
-      <%= flash[:message] %>
+     <%= flash[:message] %>
     </div>
   <% end %>
 <% end %>
 <% for portfolio in @posts do %>
 
 
-    <% unless portfolio.user.nil? and portfolio.user.blank? then %>
-      <% if  portfolio.user.activate == true then %>
-        <% unless portfolio.images.nil? or portfolio.images.blank? then %>
-          <a href="/portfolios/show/<%= portfolio.id %>">
+<% unless portfolio.user.nil? and portfolio.user.blank? then %>
+    <% if  portfolio.user.activate == true then %>
 
-            <div class="search_portfolio_free_div_in">
-              <% portfolio.images.each do | display_image |  %>
-                <%= image_tag display_image.image.url(:thumb) %>
-                <% break %>
-              <%end%>
-              <% unless portfolio.user.blank? and portfolio.user.blank? then %>
-                <% if portfolio.user.firstname.length+portfolio.user.firstname.length > 15 then%>
-                  <h6><%=h portfolio.user.firstname[0,15] %>&hellip;</h6>
-                <% else %>
-                  <h6><%=h portfolio.user.firstname %> <%=h portfolio.user.lastname %></h6>
-                <% end %>
+        <a href="/portfolios/show/<%= portfolio.id %>">
+
+          <div class="search_portfolio_free_div_in">
+            <% portfolio.images.each do | display_image |  %>
+             <%= image_tag display_image.image.url(:thumb) %>
+             <% break %>
+            <%end%>
+            <% unless portfolio.user.blank? and portfolio.user.blank? then %>
+              <% if portfolio.user.firstname.length+portfolio.user.firstname.length > 15 then%>
+                <h6><%=h portfolio.user.firstname[0,15] %>&hellip;</h6>
+              <% else %>
+                <h6><%=h portfolio.user.firstname %> <%=h portfolio.user.lastname %></h6>
               <% end %>
+            <% end %>
 
-              <h5><%=h portfolio.secondary_specializations_2 %></h5>
-            </div>
-          </a>
-        <% end %>
-      <% end %>
+            <h5><%=h portfolio.secondary_specializations_2 %></h5>
+          </div>
+        </a>
     <% end %>
+ <% end %>
 
 
 
-  <% end %>
+<% end %>

@@ -49,12 +49,12 @@
           Resume: (<%=  @job_application.resume_file_name %>) attached herewith<br/></div>
       <% end %>
 
-      <% unless @job_application.resume_link.nil? or @job_application.resume_link.blank?  or @job_application.resume_link == "http://" then %>
+      <% unless @job_application.resume_link.nil? or @job_application.resume_link.blank? or @job_application.resume_link == "http://" then %>
         <div id="pal" style="margin: 35px 0px 0px 0px;">
           Resume: <%=  @job_application.resume_link %><br/></div>
       <% end %>
 
-      <% unless @job_application.portfolio_file_name.nil? or @job_application.portfolio_file_name.blank?then %>
+      <% unless @job_application.portfolio_file_name.nil? or @job_application.portfolio_file_name.blank? then %>
         <div id="pal" style="margin: 15px 0px 0px 0px;">
           Portfolio: (<%=  @job_application.portfolio_file_name %>) attached herewith<br/></div>
 
@@ -64,7 +64,6 @@
         <div id="pal" style="margin: 15px 0px 0px 0px;">
           Portfolio: <%=  @job_application.portfolio_link %> <br/></div>
       <% end %>
-
       <div id="pal" style="margin: 15px 0px 0px 0px;">
         Hope <%= @job_application.Name %>'s profile suits your requirement! Your job posting will continue to appear on dezineconnect for the next 20 days.
       <div id="pal" style="margin: 0px 0px 0px 0px;">

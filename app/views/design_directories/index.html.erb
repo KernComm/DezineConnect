@@ -1,46 +1,41 @@
-<!-- search javascript -->
+<%#= stylesheet_link_tag 'portfolio_search' %>
 <%= stylesheet_link_tag 'design_directories_search' %>
 <script type="text/javascript">
   var db_count=<%=  @records_for_more_button.length %>;
   var display_records=18; //set the valu for show record at one time
 </script>
-<!-- search javascript -->
-<%= javascript_include_tag 'prototype' %>
 <%= javascript_include_tag 'endless_design_directory_page' %>
 <%= javascript_include_tag 'favourites' %>
+<%= javascript_include_tag 'prototype' %>
 
-<!-- 960px wrapper -->
-<div id="wrap">
-  <!--search box and create portfolio button-->
-  <div id="searchfield_n_createportfolio">
+<div id="wrap"><!-- 960 px wrapper -->
+
+  <div id="searchfield_n_createportfolio"><!--search box and create portfolio button-->
     <div id="search_box">
+      <!--search for your next design job begins...-->
+
       <form method="post" action="/design_directories/search">
         <input id="search_textfield" name="search_textfield" type="text" size="45" maxlength="75" ></input>
         <div id="portfolio_search_button"></div>
       </form>
-    </div>
-    <!-- search end-->
-    <% if session[:loggedin_user].nil? or session[:loggedin_user].blank? then %>
-      <form method="post" action="/users/new?directory=FreeListing">
-        <button id="design_directories_free_btn"></button>
-      </form>
-    <% end %>
-  </div>
-  <!--search box and create portfolio button end-->
+
+    </div><!-- search "ends" here -->
+<% if session[:loggedin_user].nil? or session[:loggedin_user].blank? then %>
+    <form method="post" action="/users/new?directory=FreeListing">
+      <button id="design_directories_free_btn"></button>
+    </form>
+<% end %>
+  </div><!--search box and create portfolio button-->
   <div class="clear"></div>
-  <!--main start-->
-  <div id="main">
-    <!--Directories start-->
+  <div id="main"><!--main div-->
     <div id="design_directories">
       <%= render :partial => @design_directories %>
     </div>
-    <!--Directories end-->
     <div class="clear"></div>
     <!-- Changed More button code -->
+
     <% if DesignDirectory.count >= 20 then %>
       <div id="more_button" align="right" onclick="moreDesignDirectoryResults(<%=  @records_for_more_button.length %>)"></div>
     <% end %>
   </div>
-  <!--main end-->
-</div>
-<!-- 960 px wrapper end-->
+</div><!-- 960 px wrapper ends -->

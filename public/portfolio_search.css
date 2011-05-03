@@ -1,0 +1,139 @@
+body{ background: url('../images/background_0_.png')  #dedede; }
+
+#main {
+    background: none;
+    width: 965px;
+    margin: 0;
+    padding: 0;
+}
+#search_box {
+    background: url('../images/portfolio_search_bg.png') no-repeat;
+    width: 405px;
+    height: 35px;
+    margin: 0 0 0 8px;
+}
+#search_textfield {
+    font-family: Century Gothic, Lucida Grande,Lucida Sans Unicode,helvetica, sans-serif;
+    font-size: 13px;
+    margin: 5px 0 0 40px;
+    padding: 2px 0 0 0;
+    border: 0;
+    border-color: #fff;
+    height: 20px;
+    background: transparent;
+    width: 350px;
+}
+#search_textfield:hover {
+    border-color: #fff;
+}
+#portfolio_search_button {
+    background: url('../images/magnifyingglass.png') no-repeat;
+     width: 60px;
+    height: 45px;
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    width: 20px;
+    height: 20px;
+}
+
+#more_button {
+    height: 31px;
+    width: 100%;
+    background: url('../images/more.png') no-repeat top center;
+    margin: 25px 0px 15px 0px;
+}
+#more_button:hover {
+    background: url('../images/more_hover.png') no-repeat top center;
+    cursor: pointer;
+}
+
+
+/*search portfolios*/
+.search_portfolio_pid_div {
+    background:#fff;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    float: left;
+    height: 390px;
+    margin: 5px;
+    width: 310px;
+}
+.search_portfolio_pid_div h5{
+  color: gray;
+  float: right;
+  margin: 3px 10px 3px 10px;
+  font-size: 13px;
+  font-weight: normal;
+}
+.search_portfolio_pid_div h6{
+    float: left;
+    font-size: 12px;
+    font-weight: normal;
+    margin: 3px 10px 3px 10px;
+}
+.search_portfolio_pid_div span{
+    color: #787878;
+    display: block;
+    font-size: 12px;
+    margin: 10px;
+    text-align: justify;
+}
+.search_portfolio_free_div {
+    margin: 0;
+    padding: 0;
+    /*float:left;
+    width: 322px;
+    height: 200px;
+    /*height: 400px;*//*for paid & free portfolios */
+}
+.search_portfolio_free_div_in {
+    background:#fff;
+    border-bottom: 1px solid #dcdcdc;
+    border-right: 1px solid #dcdcdc;
+    float: left;
+    height: 190px;
+    margin: 4px;
+    width: 150px;
+}
+.search_portfolio_free_div_in img {
+    border: 0;
+}
+.search_portfolio_free_div_in h6{
+  font-size: 12px;
+  font-weight: normal;
+  margin: 3px 3px 0px 5px;
+  padding: 0;
+}
+.search_portfolio_free_div_in h5{
+  font-weight: normal;
+  color: gray;
+  font-size: 11px;
+  margin: 0px 3px 0px 5px;
+  padding: 0;
+}
+
+#portfolios {
+    margin: 10px 5px ;
+}
+#searchfield_n_createportfolio {
+    position: relative;
+    margin:5px 0px 0px 0px;
+}
+#search_create_portfolio_btn{
+    height: 31px;
+    width: 151px;
+    background: url('../images/create_portfolio1.png') no-repeat;
+    position: absolute;
+    right: 5px;
+    top: 0px;
+}
+#search_create_portfolio_btn:hover {
+    height: 31px;
+    width: 151px;
+    background: url('../images/create_portfolios_hover1.png') no-repeat;
+    cursor: pointer;
+}
+#portrolio a {
+    color: orange;
+}

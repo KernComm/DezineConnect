@@ -1,15 +1,32 @@
 class JobsController < ApplicationController
- before_filter :is_team_dezineconnect, :only => [ :dashboard ]
+  require 'twitter' 
+  before_filter :is_team_dezineconnect, :only => [ :dashboard ]
   # GET /jobs
   # GET /jobs.xml
+  def send_tweet(message)
+       token  = "1OwtA6XFzgT3DER5GZglnQ"
+                secret = "TmUsK5uiAT3JlqWA5bWPcWCp0sI8VB0TX4ODwvAixk"
+		             atoken = "199604836-WvWb2u4hixibybjN9fWGqiNrzQp0BYpibswh7uXP"
+			                      asecret = "47KStSmHJ5Fhn74XWvMmfDW3UdqGV0l2jm9KxsZpauE"
 
-  def is_team_dezineconnect
-    if session[:is_dezineconnect_team] then
-    else
-      redirect_to "/login"
-    end
-  end
+					                           oauth = Twitter::OAuth.new(token, secret)
+								                            oauth.authorize_from_access(atoken, asecret)
+
+											                                 client = Twitter::Base.new(oauth)
+
+															                                  client.inspect
+																			                                       client.update(message)
+																							                                              end
+
   
+  
+   def is_team_dezineconnect
+       if session[:is_dezineconnect_team] then
+           else
+	         redirect_to "/login"
+		     end
+		       end
+
   def index
     @title = "Design Jobs In India"
     @jobs = Job.paginate(:page => params[:page], :per_page =>11, :conditions => {:activate => 1}, :order => 'updated_at DESC')
@@ -27,8 +44,8 @@ class JobsController < ApplicationController
     @title = "Design Jobs In India"
     @job_dashboards = Job.paginate(:page => params[:page], :per_page =>11, :joins => :job_posting_detail, :order => 'updated_at DESC')
     @records_for_more_button = Job.find(:all)
-    @job_dashboards_total = Job.find(:all, :joins => :job_posting_detail).count
-    @job_dashboards_activated = Job.find(:all, :joins => :job_posting_detail, :conditions => {:activate => 1}).count
+    @job_dashboards_total = Job.find(:all, :joins => :job_posting_detail).length
+    @job_dashboards_activated = Job.find(:all, :joins => :job_posting_detail, :conditions => {:activate => 1}).length
 
     respond_to do |format|
       format.html # index.html.erb
@@ -36,8 +53,6 @@ class JobsController < ApplicationController
       format.js
     end
   end
-
-  
   # GET /jobs/1
   # GET /jobs/1.xml
   def show
@@ -82,7 +97,7 @@ class JobsController < ApplicationController
   def publish_job
     @job = Job.find_by_id(params[:id])
     @job.update_attribute(:activate, 1)
-    #send_tweet(@job.job_title+" required at "+@job.company_name+" in #"+@job.location+" http://www.dezineconnect.com/jobs/show/#{@job.id} #designjobs")
+    send_tweet(@job.job_title+" required at "+@job.company_name+" in #"+@job.location+" http://www.dezineconnect.com/jobs/show/#{@job.id} #design #jobs")
 
      #    session[:user_activated_to_show_page] = true
     #    session[:loggedin_user] = @user.id
@@ -90,13 +105,15 @@ class JobsController < ApplicationController
       redirect_to "/jobs"
     else
       redirect_to "/jobs"
-    end    
+    end
+    
   end
 
   # GET /jobs/new
   # GET /jobs/new.xml
   def new
     @job = Job.new
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @job }
@@ -169,7 +186,7 @@ class JobsController < ApplicationController
 
     @job_posting_detail = JobPostingDetail.new(params[:job_posting_detail])
     @job = Job.new(params[:job])
-    @job.activation_key = SecureRandom.hex(4)
+    @job.activation_key = ActiveSupport::SecureRandom.hex(4)
     @job[:activate] = 0
 
     unless session[:registered_user_id].nil? or session[:registered_user_id].blank? then
@@ -202,7 +219,7 @@ class JobsController < ApplicationController
     unless params[:ex_email].blank? or params[:ex_email].nil? or params[:ex_password].blank? or params[:ex_password].blank? or params[:ex_password].nil? then
       
       @job = Job.new(params[:job])
-      @job.activation_key = SecureRandom.hex(4)
+      @job.activation_key = ActiveSupport::SecureRandom.hex(4)
 
       @user_name = params[:ex_email]
       @password = params[:ex_password]
@@ -238,7 +255,7 @@ class JobsController < ApplicationController
       
     else
       @job = Job.new(params[:job])
-      @job.activation_key = SecureRandom.hex(4)
+      @job.activation_key = ActiveSupport::SecureRandom.hex(4)
 
       respond_to do |format|
         if @job.save
@@ -276,7 +293,7 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     respond_to do |format|
        @job.update_attribute(:activate, 1)
-       send_tweet(@job.job_title+" required at "+@job.company_name+" in #"+@job.location+" http://www.dezineconnect.com/jobs/show/#{@job.id} #designjobs")
+       send_tweet(@job.job_title+" required at "+@job.company_name+" in #"+@job.location+" http://www.dezineconnect.com/jobs/show/#{@job.id} #design #jobs")
 
       flash[:notice] = 'Job was successfully created.'
       format.html { redirect_to "/jobs" }
@@ -286,6 +303,7 @@ class JobsController < ApplicationController
   # PUT /jobs/1.xml
   def update
     @job = Job.find(params[:id])
+
     respond_to do |format|
       if @job.update_attributes(params[:job])
         flash[:notice] = 'Job was successfully updated.'
@@ -314,7 +332,7 @@ class JobsController < ApplicationController
   def activate
     @job = Job.find_by_activation_key(params[:id])
     @job.update_attribute(:activate, 1)
-    send_tweet(@job.job_title+" required at "+@job.company_name+" in #"+@job.location+" http://www.dezineconnect.com/jobs/show/#{@job.id} #designjobs")
+    send_tweet(@job.job_title+" required at "+@job.company_name+" in #"+@job.location+" http://www.dezineconnect.com/jobs/show/#{@job.id} #design #jobs")
 
      #    session[:user_activated_to_show_page] = true
     #    session[:loggedin_user] = @user.id

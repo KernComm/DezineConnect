@@ -25,15 +25,11 @@ class ImagesController < ApplicationController
   # GET /images/new
   # GET /images/new.xml
   def new
-    @image = Image.new    
+    @image = Image.new
+    
     render :layout => false
   end
 
-
-  def remove_image
-
-    
-  end
   # GET /images/1/edit
   def edit
     @image = Image.find(params[:id])
@@ -72,11 +68,6 @@ class ImagesController < ApplicationController
     end
   end
 
-  def update
-
-  
-  end
-
   # PUT /images/1
   # PUT /images/1.xml
   def update
@@ -93,8 +84,6 @@ class ImagesController < ApplicationController
       end
     end
   end
-
-    
 
   # DELETE /images/1
   # DELETE /images/1.xml

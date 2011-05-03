@@ -1,0 +1,72 @@
+/* Job Previw Page */
+
+#company_information {
+	font-size: 13px;
+	line-height: 18px;
+	}
+
+#company_name {
+	font-size: 14px;
+	margin: 0px 0px 3px 0px;
+	}
+
+#preview_job_location {
+	font-size: 14px;
+	}
+
+#preview_job_type {
+	margin: 12px 0px 15px -20px;
+	padding: 5px 5px 5px 20px;
+	background: orange;
+	width: 100px;
+	color: white;
+	text-transform: uppercase;
+	}
+
+#job_description {
+	font-size:13px;
+	line-height: 18px;
+	margin: 20px 0px 0px 0px;
+	}
+
+#job_description_heading {
+
+
+	}
+
+#preview_how_to_apply {
+	font-size:13px;
+	line-height: 18px;
+	margin: 20px 0px 0px 0px;
+
+	}
+
+#preview_how_to_apply_heading {
+	margin: 20px 0px 0px 0px;
+	}
+
+#send_application {
+	margin: 10px 0px 0px 0px;
+	}
+
+#fake {
+	background: #cccccc;
+
+	}
+
+#looks_good {
+	width: 150px;
+	padding: 7px 20px;
+	background: orange;
+	font-size: 13px;
+	color: white;
+	border-radius: 8px;
+	-moz-boarder-radius: 8px;
+	border: 0px;
+	border-style: solid;
+
+	}
+
+#looks_good_div {
+	margin: 20px 0px 0px 0px;
+}

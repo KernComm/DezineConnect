@@ -14,7 +14,8 @@
           <a href="/design_directories/show/<%= design_directory.id %>">
             <div class="design_directories_free_div" style="vertical-align: middle;">
               <div style="background:url('<%= design_directory.logo.url(:original) %>') no-repeat; background-position:center; width:120px; height:70px; float: left; margin:5px">
-
+          <%#= display_image.image.url(:original)%>
+          <%#= image_tag design_directory.logo.url(:original) %>
               </div>
               <span>
                 <% unless design_directory.display_name.blank? then %>

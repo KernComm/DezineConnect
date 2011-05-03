@@ -1,0 +1,131 @@
+<%= stylesheet_link_tag 'create_portfolio' %>
+<!--include for word count--->
+<%= javascript_include_tag 'jquery' %>
+<%= javascript_include_tag 'word_count' %>
+<!--include for word count end-->
+<script type="text/javascript">
+function limitLength(obj, length) {
+    var desc = obj.value;
+    obj.value = substr(obj.value,length);
+}
+function substr(str,length){
+    var l=0,i=0;
+    while(l <length && i<str.length){
+        l+=1;
+        if(str.substring(i,i+1).match(/[\u4e00-\u9fa5]/))l+=2;// A Chinese is the equivalent of three English
+        i+=1;
+    }
+    return str.substring(0,i);
+}
+
+/*Textarea Maxlength script*/
+function ismaxlength(obj){
+var mlength=obj.getAttribute? parseInt(obj.getAttribute("maxlength")) : ""
+if (obj.getAttribute && obj.value.length>mlength)
+obj.value=obj.value.substring(0,mlength)
+}
+
+var upload_images_count=0;
+function validate()
+{
+  //alert('hi');
+    if(upload_images_count=='0') {
+      document.getElementById('validation_upload_image').style.color="red";
+      document.getElementById('portfolio_imageupload_error_msg').style.display="block";
+      document.getElementById('portfolio_imageupload_8count_error_msg').style.display="none";
+      return false
+      }
+    else if(upload_images_count=='1') {
+      document.super_form.submit();
+      return true;
+    }
+    else{
+      return false;
+    }
+}
+
+function validation(ctl,ct2) {
+    if((document.getElementById(ctl).value=="")) {
+       document.getElementById(ctl).style.border="1px red solid";
+       document.getElementById(ctl).style.background="#ffefef";
+       document.getElementById(ct2).style.display="block";
+       return false;
+       }
+    else {
+       document.getElementById(ctl).style.border="1px #ccc solid";
+       document.getElementById(ctl).style.background="#fff";
+       document.getElementById(ct2).style.display="none";
+       return true;
+       }
+}
+//body on load function//
+
+</script>
+
+<!-- 960 px wrapper -->
+<div id="wrap">
+  <div id="main"> <!-- main start -->
+    <div id="main_inner"> <!-- main inner start -->
+    <h1>portfolio
+     <div id="portfolio_edit_top">
+          <div id="account_settings_btn"><a href="/users/edit/<%= @design_directory.user.id %>"></a></div>
+          <div id="profile_information_btn"><a href="/design_directories/edit/<%= @design_directory.id %>"></a></div>
+          <div id="portfolio_btn"></div>
+        </div>
+    </h1>
+    <div class="clear"></div>
+    <form id="super_form1" name="super_form1" action="/portfolios/update_portfolio_specifications_after_edit/<%#= @design_directory.id %>" method="post" onsubmit="javascript:return validate();" enctype="multipart/form-data">
+       <label>portfolio</label>
+        <div class="portfolio_rounded_shading">
+          <div id="portfolio_rounded_shading_in">
+            <label>name of the set</label>
+            <div>
+            <% unless @design_directory.images.nil? then @design_directory.images.each do | display_image | %>
+                <input type="text" name="set_name" value="<%= display_image.set_name %>" maxlength="45" size="40"/>
+                <% break end else %>
+              <input type="text" name="set_name" maxlength="45" size="40" />
+            <%end%>
+           </div>
+           <% logger.info "Portfolio ID : #{@design_directory.id}" %>
+            <div id="mp3info" style="clear: left;">
+                <% unless @design_directory.images.nil? then %>
+                  <% if @design_directory.images.count == 1 then %>
+                      <% @design_directory.images.each do | display_image |  %>
+                        <p>
+                          <%= image_tag display_image.image.url(:thumb) %>
+                          <label>description</label>
+                          <textarea  cols="4" rows="2" name="description_<%= display_image.id %>"><%= display_image.description %> </textarea>
+                        </p>
+                      <%end%>
+                   <% else %>
+                      <% @design_directory.images.each do | display_image |  %>
+                        <p>
+                          <%= image_tag display_image.image.url(:thumb) %>
+                          <label>description</label>
+                          <textarea  cols="4" rows="2" name="description_<%= display_image.id %>"><%= display_image.description %> </textarea>
+                          <a href="/design_directories/delete_image/<%= display_image.id %>">delete</a>
+                        </p>
+                      <%end%>
+                   <% end %>
+                <%end%>
+               </div>
+            <div id="container">
+               <label id="validation_upload_image">upload up to <base><input value="8" type="text" size="3" id="ValidationUploadImage" maxlength="3"/></base> images</label>
+            <br/>
+                <%= render :file => "/design_directories/upload_partial" %>
+            </div>
+          </div>
+        </div>
+
+        <label>
+          <button type="submit" id="portfolio_publish_btn" onclick="validate();"></button>
+        </label>
+      </form>
+    </div> <!-- main inner ends -->
+  </div> <!-- main ends -->
+
+  <div id="sidebar"><!-- sidebar starts -->
+   
+  </div><!-- main ends -->
+
+</div><!-- 960 px wrapper ends -->

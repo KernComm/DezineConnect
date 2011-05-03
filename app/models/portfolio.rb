@@ -7,10 +7,10 @@ class Portfolio < ActiveRecord::Base
                        :storage => :ftp,
                        :path => "/:attachment/:attachment/:id/:style/:filename",
                        :url => "http://images.dezineconnect.com/Dezineconnect/:attachment/:attachment/:id/:style/:filename"
-  has_attached_file :featured_photo, :styles => { :original => "635x435#", :small => "150x150#" },
-                      :storage => :ftp,
-                      :path => "/:attachment/:attachment/:id/:style/:filename",
-                      :url => "http://testimages.dezineconnect.com/:attachment/:attachment/:id/:style/:filename"
+  has_attached_file :featured_photo, :styles => { :original => "635x435#", :small => "150x150#" }
+#                      :storage => :ftp,
+#                      :path => "/:attachment/:attachment/:id/:style/:filename",
+#                      :url => "http://testimages.dezineconnect.com/:attachment/:attachment/:id/:style/:filename"
 
   acts_as_xapian :texts => [ :specialization, :secondary_specializations_1,
                              :secondary_specializations_2, :experience_years,

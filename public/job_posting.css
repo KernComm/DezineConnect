@@ -1,0 +1,122 @@
+
+
+/* overriding */
+#main {
+	padding: 20px;
+	background: white;
+	}
+
+/* Text Elements */
+H1 {
+	font-family: georgia, times new roman, serif;
+	font-size: 24px;
+	font-weight: 100;
+	color: #333333;
+	border-bottom: dotted 1px #cccccc;
+	text-transform: lowercase;
+	padding-bottom: 10px;
+	}
+
+H2 {
+	font-size: 16px;
+	font-weight: 100;
+	color: #ff6600;
+	border-bottom-style: dotted;
+	border-bottom-width: 1px;
+	border-bottom-color: #cccccc;
+	margin-top: 7px;
+	margin-bottom: 5px;	}
+
+p {
+	line-height: 150%;
+	margin: 7px 0px 0px 0px;
+	}
+
+ol {
+	color: #666666;
+	margin: 0px 0px 20px 0px;
+	}
+
+ol li {
+	line-height: 150%;
+	margin: 0px 0px 0px -20px;
+	}
+
+/* Form Elements */
+input {
+	border:1px solid #bbbbbb;
+	padding:5px 3px;
+	float: left;
+	}
+
+select {
+	float: left;
+	}
+
+button {
+	display:block;
+	margin: -10 0 25 0;
+	padding: 7px 20px;
+	background: orange;
+	font-size: 13px;
+	color: white;
+	border-radius: 8px;
+	-moz-boarder-radius: 8px;
+	border: 0px;
+	border-style: solid;
+	}
+
+#preview_job {
+	margin: 10px 0px -20px 120px;
+	}
+
+#post_job_button {
+	display: block;
+	margin: -10px 0px 20px 0px;
+	width: 150px;
+	padding: 7px 20px;
+	background: orange;
+	font-size: 13px;
+	color: white;
+	border-radius: 8px;
+	-moz-boarder-radius: 8px;
+	border: 0px;
+	border-style: solid;
+	}
+
+
+#big_button {
+	display: inline;
+	margin: 2px 10px;
+	}
+
+fieldset {
+	border-bottom-style: dotted;
+	border-bottom-width: 1px;
+	border-top-width: 0px;
+	border-left-width: 0px;
+	border-right-width: 0px;
+	margin: 0;
+	padding: 5 0 5 0;
+	}
+
+textarea {
+	clear: left;
+	border:1px solid #bbbbbb;
+	padding:5px 3px;
+	width: 470;
+	margin: 5px 0px 15px 0px;
+	}
+
+label {
+	/*display: block; */
+	float: left;
+	width: 10em;
+	clear: left;
+	margin: 6px 0px 11px 0px;
+	color: #666666;
+	}
+
+
+
+

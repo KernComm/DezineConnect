@@ -1,4 +1,4 @@
- class AddPaperclipStuffToImages < ActiveRecord::Migration
+class AddPaperclipStuffToImages < ActiveRecord::Migration
   def self.up
     add_column :images, :image_file_name, :string
     add_column :images, :image_content_type, :string

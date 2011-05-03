@@ -3,13 +3,13 @@ class AdminController < ApplicationController
   
   def panel
     @user = User.find(:all, :order => 'created_at DESC')
-    @user_active =  User.find(:all, :order => 'created_at DESC', :conditions => 'activate=1').count
-    @user_inactive = User.find(:all, :order => 'created_at DESC', :conditions => 'activate=0').count
+    @user_active =  User.find(:all, :order => 'created_at DESC', :conditions => 'activate=1').length
+    @user_inactive = User.find(:all, :order => 'created_at DESC', :conditions => 'activate=0').length
   end
 
   def portfolios   
-    @user_active =  Portfolio.find(:all, :joins => :user, :conditions => {:users => {:activate => 1}},:order => 'created_at DESC').count
-    @user_inactive = Portfolio.find(:all, :joins => :user, :conditions => {:users => {:activate => 0}},:order => 'created_at DESC').count
+    @user_active =  Portfolio.find(:all, :joins => :user, :conditions => {:users => {:activate => 1}},:order => 'created_at DESC').length
+    @user_inactive = Portfolio.find(:all, :joins => :user, :conditions => {:users => {:activate => 0}},:order => 'created_at DESC').length
     @portfolios = Portfolio.find(:all, :order => 'created_at DESC')
   end
   
@@ -22,15 +22,15 @@ class AdminController < ApplicationController
   end
 
   def design_directories
-    @user_active =  DesignDirectory.find(:all, :joins => :user, :conditions => {:users => {:activate => 1}},:order => 'created_at DESC').count
-    @user_inactive = DesignDirectory.find(:all, :joins => :user, :conditions => {:users => {:activate => 0}},:order => 'created_at DESC').count
+    @user_active =  DesignDirectory.find(:all, :joins => :user, :conditions => {:users => {:activate => 1}},:order => 'created_at DESC').length
+    @user_inactive = DesignDirectory.find(:all, :joins => :user, :conditions => {:users => {:activate => 0}},:order => 'created_at DESC').length
     @user = User.find(:all, :order => 'created_at DESC')
     @design_directories = DesignDirectory.find(:all, :order => 'created_at DESC')
   end
 
  def jobs
-  @jobs_active =  Job.find(:all, :conditions => {:activate => 1},:order => 'created_at DESC').count
-  @jobs_inactive = Job.find(:all, :conditions => {:activate => 0},:order => 'created_at DESC').count
+  @jobs_active =  Job.find(:all, :conditions => {:activate => 1},:order => 'created_at DESC').length
+  @jobs_inactive = Job.find(:all, :conditions => {:activate => 0},:order => 'created_at DESC').length
   @jobs = Job.find(:all, :order => 'created_at DESC')
   
  end

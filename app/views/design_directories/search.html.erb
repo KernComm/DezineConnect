@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag 'portfolio_search' %>
 <%= stylesheet_link_tag 'design_directories_search' %>
-<%= javascript_include_tag 'endless_design_directory_search_results' %>
+<%= javascript_include_tag 'endless_portfolio_search_results' %>
 <%= javascript_include_tag 'favourites' %>
 <%= javascript_include_tag 'prototype' %>
 
@@ -20,20 +20,16 @@
       </form>
     <% end %>
   </div><!-- search "ends" here -->
-
-  <div class="clear"></div>
+<div class="clear"></div>  
   <div id="main"><!--main div-->
-
     <div id="design_directories">
-
       <%= render :partial => @searchresults %>
       <% logger.info  "@search_result_ids : #{@search_result_ids.inspect}" %>
     </div>
     <div class="clear"></div>
     <!-- Changed More button code -->
-    <% if Portfolio.count >= 20 then %>
-      <div id="more_button" align="right" onclick="moreResults()"></div>
-    <% end %>   
+       
   </div><!--main div-->
 
 </div><!-- 960 px wrapper ends -->
+

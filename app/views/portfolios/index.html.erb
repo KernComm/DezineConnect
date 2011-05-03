@@ -1,179 +1,38 @@
-<!--Style Sheets-->
 <%= stylesheet_link_tag 'portfolio_search' %>
-<!--Java Scripts-->
+
 <%= javascript_include_tag 'endless_portfolios_page' %>
 <%= javascript_include_tag 'favourites' %>
 <%= javascript_include_tag 'prototype' %>
 
-<style type="text/css">
-  #search_box form{
-    float: left;
-    display: block;
-    width: 410px;
-  }
- #search_box div select {
-    display: block;
-    cursor: pointer;
-  }
-</style>
+<div id="wrap"><!-- 960 px wrapper -->
 
-<script type="text/javascript">
-$(document).ready(function(){
-// first locate all of the select tags on the page and hide them
-$("select.changeMe").css('display','none');
-//now, for each select box, run this function
-$("select.changeMe").each(function(){
-
-	var curSel = $(this);
-	// get the CSS width from the original select box
-	var gddWidth = $(curSel).css('width');
-	var gddWidthL = gddWidth.slice(0,-2);
-	var gddWidth2 = gddWidthL - 28;
-	var gddWidth3 = gddWidthL - 16;
-	// build the new div structure
-	var gddTop = '<div style="width:' + gddWidthL + 'px" class="selectME" tabindex="0"><div class="cornerstop"><div><div></div></div></div><div class="middle"><div><div><div>';
-	//get the default selected option
-	var whatSelected = $(curSel).children('option:selected').text();
-	//write the default
-	var gddFirst = '<div class="first"><span class="selectME gselected" style="width:'+ gddWidth2 +  'px;">'+ whatSelected +'</span><span id="arrowImg"></span><div class="clears"></div></div><ul class="selectME">';
-	// create a new array of div options from the original's options
-	var addItems = new Array();
-	$(curSel).children('option').each( function() {
-		var text = $(this).text();
-		var selVal = $(this).attr('value');
-		var before =  '<li style="width:' + gddWidthL + 'px;"><a href="#" rel="' + selVal + '" tabindex="0"  style="width:' + gddWidth3 + 'px;">';
-		var after = '</a></li>';
-		addItems.push(before + text + after);
-	});
-	//hide the default from the list of options
-	var removeFirst = addItems.shift();
-	// create the end of the div selectbox and close everything off
-	var gddBottom ='</ul></div></div></div></div><div class="cornersbottom"><div><div></div></div></div></div>'
-	//write everything after each selectbox
-	var GDD = gddTop + gddFirst + addItems.join('') + gddBottom;
-	$(curSel).after(GDD);
-	//this var selects the div select box directly after each of the origials
-	var nGDD = $(curSel).next('div.selectME');
-
-	$(nGDD).find('li:first').addClass("first");
-
-	$(nGDD).find('li:last').addClass('last');
-	//handle the on click functions - push results back to old text box
-	$(nGDD).click( function(e) {
-		 var myTarA = $(e.target).attr('rel');
-		 var myTarT = $(e.target).text();
-		 var myTar = $(e.target);
-		 //if closed, then open
-		 if( $(nGDD).find('li').css('display') == 'none'){
-					//this next line closes any other selectboxes that might be open
-					$('div.selectME').find('li').css('display','none');
-					$(nGDD).find('li').css('display','block');
-
-					//if user clicks off of the div select box, then shut the whole thing down
-					$(document.window || 'body').click( function(f) {
-							var myTar2 = $(f.target);
-							if (myTar2 !== nGDD) {$(nGDD).find('li').css('display','none');}
-					});
-							return false;
-			}
-			else{
-					if (myTarA == null){
-						$(nGDD).find('li').css('display','none');
-								return false;
-							}
-							else {
-								//set the value of the old select box
-								$(curSel).val(myTarA);
-								//set the text of the new one
-								 $(nGDD).find('span.gselected').text(myTarT);
-								 $(nGDD).find('li').css('display','none');
-								 return false;
-							}
-			}
-	//handle the tab index functions
-	 }).focus( function(e) {
-
-
-		 $(nGDD).find('li:first').addClass('currentDD');
-		 $(nGDD).find('li:last').addClass('lastDD');
-		 function checkKey(e){
-			//on keypress handle functions
-			function moveDown() {
-				var current = $(nGDD).find('.currentDD:first');
-				var next = $(nGDD).find('.currentDD').next();
-				if ($(current).is('.lastDD')){
-				return false;
-				} else {
-					$(next).addClass('currentDD');
-					$(current).removeClass('currentDD');
-				}
-			}
-			function moveUp() {
-				var current = $(nGDD).find('.currentDD:first');
-				var prev = $(nGDD).find('.currentDD').prev();
-				if ($(current).is('.first')){
-				return false;
-				} else {
-					$(prev).addClass('currentDD');
-					$(current).removeClass('currentDD');
-				}
-			}
-			var curText = $(nGDD).find('.currentDD:first').text();
-			var curVal = $(nGDD).find('.currentDD:first a').attr('rel');
-		   switch (e.keyCode) {
-				case 40:
-					$(curSel).val(curVal);
-					$(nGDD).find('span.gselected').text(curText);
-					moveDown();
-					return false;
-					break;
-				case 38:
-					$(curSel).val(curVal);
-					$(nGDD).find('span.gselected').text(curText);
-					moveUp();
-					return false;
-					break;
-				case 13:
-					$(nGDD).find('li').css('display','none');
-					}
-		}
-		$(document).keydown(checkKey);
-	}).blur( function() {
-			$(document).unbind('keydown');
-	});
-});
-});
-</script>
-<!-- 960px wrapper -->
-  <div id="wrap">
-    <!--search box and create portfolio button-->
-    <div id="searchfield_n_createportfolio">
-      <div id="search_box">
+  <div id="searchfield_n_createportfolio"><!--search box and create portfolio button-->
+    <div id="search_box">
       <!--search for your next design job begins...-->
-        <form method="post" action="/portfolios/search">
-          <input id="search_textfield" name="search_textfield" type="text" size="45" maxlength="75" ></input>
-          <div id="portfolio_search_button"></div>
-        </form>
-      </div>
-      <!-- search end -->
-      <% if session[:loggedin_user].nil? or session[:loggedin_user].blank? then %>
+      <form method="post" action="/portfolios/search">
+        <input id="search_textfield" name="search_textfield" type="text" size="45" maxlength="75" ></input>
+        <div id="portfolio_search_button"></div>
+      </form>
+    </div><!-- search "ends" here -->
+    <% if session[:loggedin_user].nil? or session[:loggedin_user].blank? then %>
       <form method="post" action="/users/new">
         <button id="search_create_portfolio_btn"></button>
       </form>
-      <% end %>
-    </div>
-    <!--search box and create portfolio button end-->
-    <!--main div-->
-    <div id="main">
-     <!--portfolios-->
-     <div id="portfolios">
-      <%= render :partial => @portfolios %>
-     </div>
-     <!--portfolios end-->
-     <div class="clear"></div>
-     <!-- Changed More button code -->
-     <% if Portfolio.count >= 19 then %>
-     <div id="more_button" align="right" onclick="morePortfolioResults()"></div>
-     <% end %>
-    </div><!--main div-->
-  </div><!-- 960 px wrapper ends -->
+    <% end %>
+  </div><!--search box and create portfolio button-->
+  
+  <div id="main"><!--main div-->
+    <div id="portfolios">
+           <%= render :partial => @portfolios %>
+      </div>
+    <div class="clear"></div>
+    <!-- Changed More button code -->
+   
+     
+
+<%if Portfolio.count >= 19 then %>
+        <div id="more_button" align="right" onclick="morePortfolioResults()"></div>
+	      <% end %>
+	      </div><!--main div-->
+  
+</div><!-- 960 px wrapper ends -->

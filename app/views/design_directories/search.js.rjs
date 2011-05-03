@@ -1,2 +1,2 @@
 
-page.insert_html :bottom, :design_directories, :partial => @searchresults
+page.insert_html :bottom, :searchresults, :partial => @searchresults

@@ -1,25 +1,33 @@
 <!--css-->
 <%= stylesheet_link_tag 'portfolio_image_slider' %>
 <%= stylesheet_link_tag "directories_show"  %>
+
 <!--js script-->
 <%= javascript_include_tag 'contentslider' %>
-<% unless session[:loggedin_user].nil? then
+
+<%  unless session[:loggedin_user].nil? then
   @current_user = User.find_by_id(session[:loggedin_user])
   if @current_user.design_directory.id == @design_directory.id then %>
     <style type="text/css">
       #header { display: block; height:40px;}
       #logo, #header_mid { display: block; }
     </style>
-  <%end end %>
-<!-- 960 px wrapper -->
-<div id="wrap">
-  <!-- portfolio top bar -->
+  <%
+
+  end
+end
+%>
+
+<div id="wrap"><!-- 960 px wrapper -->
   <div id="portfolio_top_bar">
+
     <% unless session[:user_activated_to_show_page].nil? && session[:loggedin_user].nil? && session[:user_activated_to_show_page].blank? && session[:loggedin_user].blank? then %>
       <!--portfolio top bar user view-->
+
       <% unless session[:search_string].blank? then %>
 
-        <%  search_result_array = Array.new
+        <%
+        search_result_array = Array.new
         logger.info  "session[:search_string] : #{session[:search_string]}"
         @xapian_search_results = ActsAsXapian::Search.new([DesignDirectory], session[:search_string], :limit => 10000, :joins => :user, :conditions => {:users => {:activate => 1}}, :sort_by_prefix => "updated_at")
         @xapian_search_results.results.each do | search_value |
@@ -31,7 +39,8 @@
 
         logger.info  "search_result_array : #{search_result_array.inspect}"
         index_value = search_result_array.index(@design_directory.id)
-        logger.info  "search_result_array : #{index_value}" %>
+        logger.info  "search_result_array : #{index_value}"
+      %>
 
         <% if index_value.nil? then %>
           <div id="portfolio_top_bar_search"><a href="/directory">Back to HomePage</a></div>
@@ -99,9 +108,7 @@
       %>
 
         <% if index_value.nil? then %>
-          <div id="portfolio_top_bar_search">
-            <a href="/directory">Back to HomePage</a>
-          </div>
+          <div id="portfolio_top_bar_search"><a href="/directory">Back to HomePage</a></div>
         <% else %>
           <div id="portfolio_top_bar_search"><a href="/directory">HomePage</a> |
             <a href="/design_directories/search?search_textfield=<%= session[:search_string] %>">Back to Search Results</a></div>
@@ -149,7 +156,6 @@
 
 
   </div>
-  <!-- portfolio top end -->
 
   <%= render :partial => 'show_design_directory' %>
 

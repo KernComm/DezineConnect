@@ -2,39 +2,70 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
-  include AuthenticatedSystem
+require 'rubygems'
+  require 'twitter'
+  def login_required
+      if session[:is_admin].blank? then
+            redirect_to '/login'
+	        end
+		  end
 
-  helper :all
-  ## include all helpers, all the time
-  # protect_from_forgery # See ActionController::RequestForgeryProtection for details
+ def is_registered_user
+     if session[:loggedin_user].blank? then
+           redirect_to '/login'
+	       elsif Portfolio.find_by_user_id(session[:loggedin_user]).nil? or Portfolio.find_by_user_id(session[:loggedin_user]).blank? then
+	             redirect_to '/login'
+		         end
+			   end
+
+ def send_tweet(message)
+     token  = "1OwtA6XFzgT3DER5GZglnQ"
+         secret = "TmUsK5uiAT3JlqWA5bWPcWCp0sI8VB0TX4ODwvAixk"
+	     atoken = "199604836-WvWb2u4hixibybjN9fWGqiNrzQp0BYpibswh7uXP"
+	         asecret = "47KStSmHJ5Fhn74XWvMmfDW3UdqGV0l2jm9KxsZpauE"
+
+		     oauth = Twitter::OAuth.new(token, secret)
+		         oauth.authorize_from_access(atoken, asecret)
+
+			     client = Twitter::Base.new(oauth)
+
+			         client.inspect
+				     client.update(message)
+				       end
+ 
+ #include AuthenticatedSystem
+
+ # helper :all # include all helpers, all the time
+  #protect_from_forgery # See ActionController::RequestForgeryProtection for details
+
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
-  # protect_from_forgery # :secret => 'f7dad2d970a733648bae33f7472f8881'
+  #protect_from_forgery # :secret => 'f7dad2d970a733648bae33f7472f8881'
 
-  around_filter :you_dont_have_bloody_clue
+  #around_filter :you_dont_have_bloody_clue
 
-  protected
+  #protected
 
-  def you_dont_have_bloody_clue
-    klasses = [ActiveRecord::Base, ActiveRecord::Base.class]
-    methods = ["session", "cookies", "params", "request"]
+  #def you_dont_have_bloody_clue
+   # klasses = [ActiveRecord::Base, ActiveRecord::Base.class]
+    #methods = ["session", "cookies", "params", "request"]
 
-    methods.each do |shenanigan|
-      oops = instance_variable_get(:"@_#{shenanigan}")
+    #methods.each do |shenanigan|
+     # oops = instance_variable_get(:"@_#{shenanigan}")
 
-      klasses.each do |klass|
-        klass.send(:define_method, shenanigan, proc { oops })
-      end
-    end
+      #klasses.each do |klass|
+       # klass.send(:define_method, shenanigan, proc { oops })
+      #end
+    #end
 
-    yield
+   # yield
 
-    methods.each do |shenanigan|
-      klasses.each do |klass|
-        klass.send :remove_method, shenanigan
-      end
-    end
+    #methods.each do |shenanigan|
+     # klasses.each do |klass|
+      #  klass.send :remove_method, shenanigan
+      #end
+   # end
 
-  end
+  #end
 
 end

@@ -1,17 +1,12 @@
 class DesignDirectoriesController < ApplicationController
   # GET /design_directories
+  #unless sesbefore_filter :is_registered_user, :only => [ :edit ]
   # GET /design_directories.xml
   def index
     @title = "Design Directory of Indian design companies"
     @records_for_more_button = DesignDirectory.find(:all, :joins => :user, :conditions => {:users => {:activate => 1}})
     @design_directories = DesignDirectory.paginate(:page => params[:page], :per_page => 18, :joins => :user, :conditions => {:users => {:activate => 1}} , :order => 'updated_at DESC')
     logger.info "@more_array : #{@design_directories.total_entries.inspect}"
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
-
   end
 
   # GET /design_directories/1
@@ -85,6 +80,7 @@ class DesignDirectoriesController < ApplicationController
   # PUT /design_directories/1.xml
   def update
     @design_directory = DesignDirectory.find(params[:id])
+
     respond_to do |format|
       if @design_directory.update_attributes(params[:design_directory])
         flash[:notice] = 'DesignDirectory was successfully updated.'
@@ -151,7 +147,6 @@ class DesignDirectoriesController < ApplicationController
       end
     end
     render :controller => "design_directories",:action => "edit_specifications", :id => @design_directory.id
-
   end
 
 
@@ -205,4 +200,4 @@ class DesignDirectoriesController < ApplicationController
   end
 
   
-
+end

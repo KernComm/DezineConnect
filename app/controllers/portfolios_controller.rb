@@ -18,8 +18,11 @@ class PortfoliosController < ApplicationController
   # GET /portfolios/1.xml
   def show
     @portfolio = Portfolio.find(params[:id])
-    unless @portfolio.user.activate == 1 then    
+    unless @portfolio.user.activate == 1 then
+      
       @title = "#{@portfolio.user.firstname.capitalize} #{@portfolio.user.lastname.capitalize}, #{@portfolio.city.capitalize}, #{@portfolio.country.capitalize}, #{@portfolio.specialization.capitalize}"
+      #    @portfolio_previous_value = @portfolio
+      #    @portfolio_next_value = @portfolio.next
     else
       render :action => "thankyou", :id => @portfolio.id
     end
@@ -39,8 +42,7 @@ class PortfoliosController < ApplicationController
   # GET /portfolios/1/edit
   def edit
     @title = "Edit - Profile Information"
-    @portfolio = Portfolio.find(params[:id])
-    
+    @portfolio = Portfolio.find(params[:id]) 
   end
 
 
@@ -63,12 +65,11 @@ class PortfoliosController < ApplicationController
       @portfolio.user_lastname = @user.lastname
     end
 
-
-    @existing_record = Portfolio.find(:all, :joins => :user, :conditions => {:users => {:id => @user.id}})
-    logger.info "Before Delete Existing Record : #{@existing_record.inspect}"
-    @existing_record.each do | existing_record |
-      existing_record.destroy
-    end
+      @existing_record = Portfolio.find(:all, :joins => :user, :conditions => {:users => {:id => @user.id}})
+      logger.info "Before Delete Existing Record : #{@existing_record.inspect}"
+	      @existing_record.each do | existing_record |
+	            existing_record.destroy
+              end
 
     respond_to do |format|
       if @portfolio.save

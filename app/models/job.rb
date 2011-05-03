@@ -1,6 +1,6 @@
 class Job < ActiveRecord::Base
-  has_one :job_posting_detail
-  has_many :job_applications
+has_one :job_posting_detail
+has_many :job_applications
   belongs_to :user
   acts_as_xapian :texts => [ :job_title, :company_name,
                              :location, :job_description,

@@ -1,0 +1,40 @@
+$(document).ready(function() {
+	$("[class^='count[']").each(function() {
+		var elClass = $(this).attr('class');
+		var minWords = 0;
+		var maxWords = 0;
+		var countControl = elClass.substring((elClass.indexOf('['))+1, elClass.lastIndexOf(']')).split(',');
+
+		if(countControl.length > 1) {
+			minWords = countControl[0];
+			maxWords = countControl[1];
+		} else {
+			maxWords = countControl[0];
+		}
+                
+             // $(this).before('<div class="wordCount" style="float:right; margin:0 115px 0 0;" ><strong>'+maxWords+'</strong> words</div>');
+                
+                $(this).before('<div class="wordCount" id="portfolio_wordCount"><strong>'+maxWords+'</strong> <dl>words</dl></div>');
+		$(this).bind('keyup click blur focus change paste', function() {
+			var numWords = jQuery.trim($(this).val()).split(' ').length;
+			if($(this).val() === '') {
+				numWords = 0;
+			}
+                       
+                        $(this).siblings('.wordCount').children('strong').text(maxWords-numWords);
+                            if (maxWords-numWords <= 0) {
+                           // document.getElementById('wordCountBox1').style.border="1px red solid";
+                            }
+                            else {
+                             //document.getElementById('wordCountBox1').style.border="0";
+                            }
+                            
+			if(numWords < minWords || (numWords > maxWords && maxWords != 0)) {
+				$(this).siblings('.wordCount').addClass('error');
+			} else {
+				$(this).siblings('.wordCount').removeClass('error');
+			}
+		});
+	});
+});
+
